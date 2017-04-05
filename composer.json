@@ -1,0 +1,56 @@
+{
+    "name": "webforce3/w",
+    "description": "Framework pédagogique WebForce3",
+    "version": "1.0.8",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Axel Wargnier",
+            "email": "axel@axessweb.fr",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Matthieu Mota",
+            "role": "Developer"
+        },
+        {
+            "name": "Guillaume Sylvestre",
+            "email": "gsylvestre@gmail.com",
+            "role": "Initial Developer"
+        }
+    ],
+    "support": {
+        "doc": "http://axessweb.github.io/W/"
+    },
+    "require": {
+        "altorouter/altorouter": "^1.2",
+        "league/plates": "^3.1",
+        "ircmaxell/random-lib": "^1.2",
+        "ircmaxell/password-compat": "^1.0",
+        "league/url": "^3.3",
+        "phpmailer/phpmailer": "^5.2",
+        "respect/validation": "^1.1",
+        "twbs/bootstrap": "^3.3",
+        "intervention/image": "^2.3",
+        "egulias/email-validator": "^2.1",
+        "league/oauth2-google": "^2.0",
+        "malkusch/bav": "^1.2",
+        "league/uri": "^4.2",
+        "components/jquery": "^3.2",
+        "components/jqueryui": "^1.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "W\\": "W/",
+            "": "app/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AxessWeb/W"
+        }
+    ]
+}
