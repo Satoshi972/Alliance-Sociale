@@ -3,6 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use Respect\Validation\Validator as v;
+use Intervention\Image\ImageManagerStatic as i;
 
 class DefaultController extends Controller
 {
@@ -51,7 +53,6 @@ class DefaultController extends Controller
 					{
 						#ligne pour que mon image soit envoyée dans la base !!!!!!
 						$post['picture'] = $uploadDir.$newName;
-
 					}
 				}
 			}
