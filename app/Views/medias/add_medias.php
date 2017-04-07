@@ -4,13 +4,25 @@
 	<h2>Ajout des médias</h2>
 	
 
+	<div class="col-md-6 col-md-offset-3">
+		<?php if($success == true): // La variable $success est envoyé via le controller?>
+			<p style="color:green">Bravo, votre article a été envoyé</p>
+		<?php endif; ?>
+
+		<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
+			<p style="color:red"><?=implode('<br>', $errors); ?></p>
+		<?php endif; ?>
+	</div>
+
+
+
 	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="picture">Images</label>
 			<div class="col-md-4">
-				<input type="file" id="picture" name="picture[]" multiple class="form-control">
+				<input type="file" id="picture" name="picture" multiple class="form-control">
 			</div>
 		</div>
 

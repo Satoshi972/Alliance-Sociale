@@ -2,68 +2,73 @@
 
 namespace Controller;
 
-use \W\Controller\Contrßoller;
+use \W\Controller\Controller;
 use \Model\MediasModel;
-use vendor\Intervention\Image\ImageManagerStatic as Image;
+use Respect\Validation\Validator as v;
+use Intervention\Image\ImageManagerStatic as i;
 
 class MediasController extends MasterController
 {
 	public function addMedias()
 	{
-		$mediasModel = new MediasController();
+		$medias 	= new MediasModel();
 		$post 		= []; // Contiendra les données épurées
 		$errors 	= [];
+		$success 	= false;
+
+		$uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
 
 		$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
-		$uploadDir = 'uploads/'; // Répertoire d'upload
 
-		if(!empty($_POST)){
 
 			// Vérification image
-			if(isset($_FILES['picture']) && $_FILES['picture']['error'] == 0){
 
-					//Si le répertoire d'upload n'existe pas on le crée
-			        if(!is_dir($upload_dir)){
-			            mkdir($upload_dir, 0755);
-			        }
+        if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
+        {
+        	var_dump($_FILES['picture']['name']);
 
-			        //Déclaration de la variable $img
-			        $img = Image::make($_FILES['picture']['tmp_name']);
+        $img = i::make($_FILES['picture']['tmp_name']);
+        $size = $img->filesize();
+        $mimetype = $img->mime();
+        $ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+        $newName = uniqid('img_').'.'.$ext;
+    
+            if($maxSize<$size)
+            {
+                $errors[] = 'fichier trop gros, il doit faire 2 mo max';
+            }
+            else
+            {
+                if(!v::image()->validate($_FILES['picture']['tmp_name']))
+                {
+                    $errors[] = 'Le fichier n\'est pas une image valide';
+                }
+                else
+                {
+                    if(!is_dir($uploadDir))
+                    {
+                        mkdir($uploadDir, 0755);
+                    }
 
-			        //Comparaison de la taille de l'image avec le maxsize. Si l'image dépasse 2 Mo alors message d'erreur
-			        if($img->filesize() > $maxSize){
-			            $errors[] = 'Image trop lourde, 50 Mo maximum';
-			        }
+                    if(!$img->save($uploadDir.$newName))
+                    {
+                        
+                        $errors[] = 'Erreur lors de l\'envoi de l\'image';
+                    }
+                    else
+                    {
+                        #ligne pour que mon image soit envoyée dans la base !!!!!!
+                        $post['picture'] = $uploadDir.$newName;
+                    }
+                }
+            }
+        }
 
-			        //Vérification du mimiType de l'image'
-			        if(!v::image()->validate($_FILES['picture']['tmp_name'])){
-			            $errors[] = 'L\'image est invalide';
-			        }
+      //  return (!empty($errors)) ?  $result = implode('<br>', $errors) : $result = $post;
 
-			        else {
-			        	
-			            switch ($img->mime()) {
-			                case 'image/jpg':
-			                case 'image/jpeg':
-			                case 'image/pjpeg':
-			                    $ext = '.jpg';
-			                break;
-			                
-			                case 'image/png':
-			                    $ext = '.png';
-			                break;
-			                
-			                case 'image/gif':
-			                    $ext = '.gif';
-			                break;
-			            }
-			            $save_name = Transliterator::transliterate(time().'-'. preg_replace('/\\.[^.\\s]{3,4}$/', '', $_FILES['url']['name']));
-			            $img->save($upload_dir.$save_name.$ext);
-			        }
-			    }
 
 			    // Vérification Vidéo 
-			    
+/*			    
 				if(isset($_FILES['video']) && $_FILES['video']['error'] == 0){
 
 				        //Déclaration de la variable $vid
@@ -91,24 +96,27 @@ class MediasController extends MasterController
 				                    $ext = '.avi';
 				                break;        
 				            }
-				            $save_name = Transliterator::transliterate(time().'-'. preg_replace('/\\.[^.\\s]{3,4}$/', '', $_FILES['url']['name']));
-				            $vid->save($upload_dir.$save_name.$ext);
+				            $vid->save($upload_dir.$newName);
 				        }
-				    }
+				    }*/
 
 			    if(count($errors) === 0){
+			    	var_dump($post);
 			        
 			        $datas = [
-			        'url' => $post['picture']
+			        'url' => $post['picture'],
 			        ];
-
 			        
-			        if($mediasModel->insert($datas)){
+			        if($medias->insert($datas)){
 			        	$success = true;
 			        }
 			    }
-		}
+		
 
+			$params = [
+			'success' => $success,
+			'errors'  => $errors,
+		];
 	$this->show('medias/add_medias');
 	}
 }
