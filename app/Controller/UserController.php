@@ -10,7 +10,6 @@ use \W\Security\AuthentificationModel;
 use \vendor\phpmailer\phpmailer\PHPMailerAutoload;
 
 
-require_once '../vendor/autoload.php';
 
 use Respect\Validation\Validator as v;
 //namespace Model;
