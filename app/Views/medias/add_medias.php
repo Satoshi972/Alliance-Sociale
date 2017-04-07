@@ -30,7 +30,7 @@
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="video">medias</label>
 			<div class="col-md-4">
-				<input type="file" id="video" name="video[]" multiple class="form-control">
+				<input type="file" id="video" name="video" multiple class="form-control">
 			</div>
 		</div>
 

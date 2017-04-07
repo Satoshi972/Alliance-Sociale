@@ -16,7 +16,8 @@ class MediasController extends MasterController
 		$errors 	= [];
 		$success 	= false;
 
-		$uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
+		$uploadDirImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
+		$uploadDirVid = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/vid/'; // Répertoire d'upload
 
 		$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
 
@@ -45,12 +46,12 @@ class MediasController extends MasterController
                 }
                 else
                 {
-                    if(!is_dir($uploadDir))
+                    if(!is_dir($uploadDirImg))
                     {
-                        mkdir($uploadDir, 0755);
+                        mkdir($uploadDirImg, 0755);
                     }
 
-                    if(!$img->save($uploadDir.$newName))
+                    if(!$img->save($uploadDirImg.$newName))
                     {
                         
                         $errors[] = 'Erreur lors de l\'envoi de l\'image';
@@ -58,47 +59,50 @@ class MediasController extends MasterController
                     else
                     {
                         #ligne pour que mon image soit envoyée dans la base !!!!!!
-                        $post['picture'] = $uploadDir.$newName;
+                        $post['picture'] = $uploadDirImg.$newName;
                     }
                 }
             }
         }
 
-      //  return (!empty($errors)) ?  $result = implode('<br>', $errors) : $result = $post;
-
-
 			    // Vérification Vidéo 
-/*			    
-				if(isset($_FILES['video']) && $_FILES['video']['error'] == 0){
+			    
+		if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
 
-				        //Déclaration de la variable $vid
-				        $vid = Image::make($_FILES['video']['tmp_name']);
+			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/move', 'video/mpeg4']; 
+			$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
 
-				        //Comparaison de la taille de l'image avec le maxsize. Si l'image dépasse 2 Mo alors message d'erreur
-				        if($vid->filesize() > $maxSize){
-				            $errors[] = 'Image trop lourde, 50 Mo maximum';
-				        }
+			$finfo = new \finfo();
+			$mimeType = $finfo->file($_FILES['video']['tmp_name'], FILEINFO_MIME_TYPE);
 
-				        //Vérification du mimiType de l'image'
-				        if(!v::image()->validate($_FILES['video']['tmp_name'])){
-				            $errors[] = 'L\'image est invalide';
-				        }
+			$extension = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
 
-				        else {
-				        	
-				            switch ($vid->mime()) {
-	  
-				                case 'image/mp4':
-				                    $ext = '.mp4';
-				                break;
-				                
-				                case 'image/avi':
-				                    $ext = '.avi';
-				                break;        
-				            }
-				            $vid->save($upload_dir.$newName);
-				        }
-				    }*/
+			if(in_array($mimeType, $mimeTypeAvailable)){
+
+				if($_FILES['video']['size'] <= $maxSize){
+
+					if(!is_dir($uploadDirVid)){
+						mkdir($uploadDirVid, 0755);
+					}
+
+					$newVideoName = uniqid('video').'.'.$extension;
+
+					if(!move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVid.$newPictureName)){
+						$errors[] = 'Erreur lors de l\'upload de la photo';
+					}
+				}
+				else {
+					$errors[] = 'La taille du fichier excède 2 Mo';
+				}
+
+			}
+			else {
+				$errors[] = 'Le fichier n\'est pas une image valide';
+			}
+		}
+		else {
+			$errors[] = 'Aucune photo sélectionnée';
+		}
 
 			    if(count($errors) === 0){
 			    	var_dump($post);
