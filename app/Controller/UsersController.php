@@ -47,7 +47,7 @@ class UsersController extends Controller
                 'password' => password_hash($post['password'], PASSWORD_DEFAULT),
                 ];
 
-               
+               //Intègre les donnés dans la base
                 $enter->insert($datas);
 
                 $success = true;
@@ -92,6 +92,12 @@ public function detailsUsers($id){
         'affiche'=> $detailid,
         ]);
     }
+
+     public function delUsers(){
+        $del = new UsersModel();
+        $del = delete($id);
+
+     }
 
 
 }
