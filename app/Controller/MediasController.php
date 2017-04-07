@@ -67,5 +67,6 @@ class MediasController extends MasterController
 			    }
 		}
 
+	$this->show('medias/add_medias', $params);
 	}
 }
