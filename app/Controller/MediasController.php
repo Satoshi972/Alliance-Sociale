@@ -20,21 +20,26 @@ class MediasController extends MasterController
 
 			if(isset($_FILES['url']) && $_FILES['url']['error'] == 0){
 
+					//Si le répertoire d'upload n'existe pas on le crée
 			        if(!is_dir($upload_dir)){
 			            mkdir($upload_dir, 0755);
 			        }
 
+			        //Déclaration de la variable $img
 			        $img = Image::make($_FILES['url']['tmp_name']);
 
+			        //Comparaison de la taille de l'image avec le maxsize. Si l'image dépasse 2 Mo alors message d'erreur
 			        if($img->filesize() > $maxSize){
 			            $errors[] = 'Image trop lourde, 50 Mo maximum';
 			        }
 
+			        //Vérification du mimiType de l'image'
 			        if(!v::image()->validate($_FILES['url']['tmp_name'])){
 			            $errors[] = 'L\'image est invalide';
 			        }
 
 			        else {
+			        	
 			            switch ($img->mime()) {
 			                case 'image/jpg':
 			                case 'image/jpeg':
