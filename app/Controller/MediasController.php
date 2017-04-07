@@ -4,7 +4,7 @@ namespace Controller;
 
 use \W\Controller\Contrßoller;
 use \Model\MediasModel;
-
+use Intervention\Image\ImageManagerStatic as Image;
 
 class MediasController extends MasterController
 {
@@ -67,6 +67,6 @@ class MediasController extends MasterController
 			    }
 		}
 
-	$this->show('medias/add_medias', $params);
+	$this->show('medias/add_medias');
 	}
 }
