@@ -67,4 +67,31 @@ class UsersController extends Controller
 
     $this->show('users/add_users', $params);
     }
+
+
+    //Liste des users 
+	public function listUsers()
+	{
+		// On instancie le model qui permet d'effectuer un findAll() 
+		$usersModel = new UsersModel();
+		$users = $usersModel->findAll();
+
+		$params = [
+			'users' => $users
+		];
+		$this->show('users/list_users', $params);
+	}
+
+
+public function detailsUsers($id){
+        
+        $users = new UsersModel(); // liaison avec table article
+        $detailid  = $users->find($id);
+                        
+        $this->show('users/details_users',[
+        'affiche'=> $detailid,
+        ]);
+    }
+
+
 }
