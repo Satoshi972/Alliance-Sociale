@@ -78,7 +78,7 @@ class MediasController extends MasterController
 
 			if(in_array($mimeType, $mimeTypeAvailable)){
 
-				if($_FILES['video']['size'] <= $maxSize){
+				if(ini_set($_FILES['video']['size'], '1M')  <= $maxSize){
 
 					if(!is_dir($uploadDirVid)){
 						mkdir($uploadDirVid, 0755);
