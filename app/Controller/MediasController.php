@@ -124,7 +124,7 @@ class MediasController extends MasterController
 	public function listMedias()
 	{
 		// On instancie le model qui permet d'effectuer un findAll() 
-		$medias 	= new MediasModel();
+		$medias = new MediasModel();
 		$images = $medias->findAll();
 
 		$params = [
