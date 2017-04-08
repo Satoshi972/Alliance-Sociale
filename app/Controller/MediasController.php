@@ -66,41 +66,41 @@ class MediasController extends MasterController
 
 			    // Vérification Vidéo 
 			    
-		if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
+		// if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
 
-			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/move', 'video/mpeg4']; 
-			$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
+		// 	$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/move', 'video/mpeg4']; 
+		// 	$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
 
-			$finfo = new \finfo();
-			$mimeType = $finfo->file($_FILES['video']['tmp_name'], FILEINFO_MIME_TYPE);
+		// 	$finfo = new \finfo();
+		// 	$mimeType = $finfo->file($_FILES['video']['tmp_name'], FILEINFO_MIME_TYPE);
 
-			$extension = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
+		// 	$extension = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
 
-			if(in_array($mimeType, $mimeTypeAvailable)){
+		// 	if(in_array($mimeType, $mimeTypeAvailable)){
 
-				if($_FILES['video']['size'] <= $maxSize){
+		// 		if($_FILES['video']['size'] <= $maxSize){
 
-					if(!is_dir($uploadDirVid)){
-						mkdir($uploadDirVid, 0755);
-					}
+		// 			if(!is_dir($uploadDirVid)){
+		// 				mkdir($uploadDirVid, 0755);
+		// 			}
 
-					$newVideoName = uniqid('video').'.'.$extension;
+		// 			$newVideoName = uniqid('video').'.'.$extension;
 
-					if(!move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVid.$newPictureName)){
-						$errors[] = 'Erreur lors de l\'upload de la photo';
-					}
-				}
-				else {
-					$errors[] = 'La taille du fichier excède 50 Mo';
-				}
-			}
-			else {
-				$errors[] = 'Le fichier n\'est pas une Vidéo valide';
-			}
-		}
-		else {
-			$errors[] = 'Aucune photo sélectionnée';
-		}
+		// 			if(!move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVid.$newPictureName)){
+		// 				$errors[] = 'Erreur lors de l\'upload de la vidéo';
+		// 			}
+		// 		}
+		// 		else {
+		// 			$errors[] = 'La taille du fichier excède 50 Mo';
+		// 		}
+		// 	}
+		// 	else {
+		// 		$errors[] = 'Le fichier n\'est pas une Vidéo valide';
+		// 	}
+		// }
+		// else {
+		// 	$errors[] = 'Aucune Vidéo sélectionnée';
+		// }
 
 			if(count($errors) === 0){
 			        
@@ -120,4 +120,17 @@ class MediasController extends MasterController
 		];
 	$this->show('medias/add_medias',$params);
 	}
+
+	public function listMedias()
+	{
+		// On instancie le model qui permet d'effectuer un findAll() 
+		$medias 	= new MediasModel();
+		$images = $medias->findAll();
+
+		$params = [
+			'image' => $images
+		];
+		$this->show('medias/list_medias', $params);
+	}
+
 }

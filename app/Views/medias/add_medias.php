@@ -4,15 +4,15 @@
 	<h2>Ajout des médias</h2>
 	
 
-	<div class="col-md-6 col-md-offset-3">
+<!-- 	<div class="col-md-6 col-md-offset-3">
 		<?php if($success == true): // La variable $success est envoyé via le controller?>
-			<p style="color:green">Bravo, votre article a été envoyé</p>
+			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
 		<?php endif; ?>
 
 		<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
 			<p style="color:red"><?=implode('<br>', $errors); ?></p>
 		<?php endif; ?>
-	</div>
+	</div> -->
 
 
 
