@@ -26,7 +26,6 @@ class MediasController extends MasterController
 
         if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
         {
-        	var_dump($_FILES['picture']['name']);
 
         $img = i::make($_FILES['picture']['tmp_name']);
         $size = $img->filesize();
@@ -92,35 +91,33 @@ class MediasController extends MasterController
 					}
 				}
 				else {
-					$errors[] = 'La taille du fichier excède 2 Mo';
+					$errors[] = 'La taille du fichier excède 50 Mo';
 				}
-
 			}
 			else {
-				$errors[] = 'Le fichier n\'est pas une image valide';
+				$errors[] = 'Le fichier n\'est pas une Vidéo valide';
 			}
 		}
 		else {
 			$errors[] = 'Aucune photo sélectionnée';
 		}
 
-			    if(count($errors) === 0){
-			    	var_dump($post);
+			if(count($errors) === 0){
 			        
-			        $datas = [
+			    $datas = [
 			        'url' => $post['picture'],
+			       // 'url' => $post['video'],
 			        ];
 			        
 			        if($medias->insert($datas)){
 			        	$success = true;
 			        }
-			    }
-		
+			    }	
 
 			$params = [
 			'success' => $success,
 			'errors'  => $errors,
 		];
-	$this->show('medias/add_medias');
+	$this->show('medias/add_medias',$params);
 	}
 }
