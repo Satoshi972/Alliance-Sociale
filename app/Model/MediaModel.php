@@ -5,16 +5,6 @@ use W\Model\Model as Model;
 
 class MediasModel extends Model
 {
-
-	public function siteMedia()
-	{
-		$sql = 'SELECT M.* FROM medias as M, media_of as MO, site_info as SI WHERE SI.id = MO.id_related AND M.id = MO.id_media';
-		$sth = $this->dbh->prepare($sql);
-		$sth->execute();
-
-		return $sth->fetch();
-	}
-
 /*
 # inutile car existe deja dans le framework via findAll
 	public function listMedia()

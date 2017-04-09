@@ -18,28 +18,28 @@ $this->start('main-content');
 
 	<div class="form-group">
 		<label for="Logo">Logo</label>
-		<input type="file" class="img-responsive img-thumbnail" id="" name="" required>
+		<img src="<?php $this->assetUrl($info['logo']); ?>" class="img-responsive img-thumbnail" alt="Logo">
+		<input type="hidden" value="<?php $this->assetUrl($info['logo']); ?>"
+		<input type="file" id="Logo" name="Logo">
 	</div>
 
 	<div class="form-group">
-		<label for=""></label>
-		<input type="text" class="form-control" id="" name="" required>
+		<label for="Header">Header</label>
+		<img src="<?php $this->assetUrl($info['header']); ?>" class="img-responsive img-thumbnail" alt="Header">
+		<input type="hidden" value="<?php $this->assetUrl($info['header']); ?>">
+		<input type="file" id="Header" name="Header">
 	</div>
 
 	<div class="form-group">
-		<label for=""></label>
-		<input type="text" class="form-control" id="" name="" required>
+		<label for="Address">Adresses</label>
+		<textarea class="form-control" id="Address" name="Address" cols="30" rows="10"><?php $this->assetUrl($info['address']); ?></textarea>	
 	</div>
 
 	<div class="form-group">
-		<label for=""></label>
-		<input type="text" class="form-control" id="" name="" required>
+		<label for="">Horraire</label>
+		<textarea name="" id="" cols="30" rows="10"><?php $this->assetUrl($info['shedule']); ?></textarea>
 	</div>
 
-	<div class="form-group">
-		<label for=""></label>
-		<input type="text" class="form-control" id="" name="" required>
-	</div>
 	<div class="text-center">
 		<input type="submit" class="btn btn-primary" value="Envoyer">
 	</div>
