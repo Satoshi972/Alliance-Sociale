@@ -5,6 +5,9 @@
 	<title><?= $this->e($title) ?></title>
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+
+	<!-- Permet l'inclusion de head dans ma vue  -->
+	<?= $this->section('head') ?>
 </head>
 <body>
 	<div class="container">
@@ -19,5 +22,7 @@
 		<footer>
 		</footer>
 	</div>
+	<!-- Permet l'insertion de script dans ma vue -->
+	<?= $this->section('script'); ?>
 </body>
 </html>

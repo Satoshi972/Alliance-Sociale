@@ -23,7 +23,8 @@ class MediasController extends MasterController
 
 
 			// Vérification image
-
+		// var_dump($_FILES);
+		// var_dump($_FILES['picture']['error']);
         if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
         {
 
@@ -68,7 +69,7 @@ class MediasController extends MasterController
 			    
 		if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
 
-			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/move', 'video/mpeg4']; 
+			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4']; 
 			$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
 
 			$finfo = new \finfo();
@@ -98,21 +99,46 @@ class MediasController extends MasterController
 				$errors[] = 'Le fichier n\'est pas une Vidéo valide';
 			}
 		}
-		else {
-			$errors[] = 'Aucune Vidéo sélectionnée';
-		}
 
 			if(count($errors) === 0){
-			        
-			    $datas = [
+
+			    if(isset($post['picture']))
+			    {
+			    	echo 'bidule';
+			    	$datas = [
 			        'url' => $post['picture'],
-			        'url' => $post['video'],
 			        ];
-			        
-			        if($medias->insert($datas)){
+					$test = $medias->insert($datas);
+			        if($test){
 			        	$success = true;
 			        }
+			        else
+			        {
+			        	var_dump($test->errorInfo());
+			        }
+			    }
+
+				if(isset($post['video']))
+			    {
+			    	$datas = [
+			        'url' => $post['video'],
+			        ];
+
+
+			        if($test){
+			        	$success = true;
+			        }
+			       else
+			        {
+			        	var_dump($test->errorInfo());
+			        }
+			    }			    
+			        
 			    }	
+			    else
+			    {
+			    	echo implode('<br>', $errors);
+			    }
 
 			$params = [
 			'success' => $success,

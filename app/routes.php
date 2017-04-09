@@ -8,5 +8,5 @@
 		// Ajouts médias
 		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
 		// Listes Médias
-		['GET|POST', '/medias', 'Medias#listMedias', 'default_listmedias'],
+		['GET|POST', '/medias/list', 'Medias#listMedias', 'default_listmedias'],
 	);
