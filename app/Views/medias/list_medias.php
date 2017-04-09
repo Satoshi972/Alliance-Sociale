@@ -5,7 +5,19 @@
 <div class="col-md-12">
 		
 	<?php foreach($images as $image): ?>	
-		<img src="<?=$image['url'];?>" class="img-responsive" alt="medias">
+
+		<div class="col-xs-4">
+	    	<img src="<?=$image['url'];?>" class="img-responsive" alt="medias">
+	    </div>
+	        
+	    <div class="col-xs-4">
+	        <img src="<?=$image['url'];?>" class="img-responsive" alt="medias">
+	    </div>
+
+	    <div class="col-xs-4">         
+	    	<img src="<?=$image['url'];?>" class="img-responsive" alt="medias">         
+	    </div>
+
 	<?php endforeach; ?>
 			
 </div>
