@@ -9,6 +9,8 @@
 		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'],
 			//Détails users
 		['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'],
+			//Update users
+		['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'],
 			//Del users
-		['GET|POST', '/users/delete/[i:id]', 'Users#delUsers', 'del_users'],
+		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'],
 	);
