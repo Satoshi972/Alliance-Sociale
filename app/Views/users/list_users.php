@@ -26,7 +26,7 @@
             </th>
 
 			<th>
-			<a href="<?= $this->url('details_users', ['id' => $user['id']]) ?>">Détails</a>
+			<a href="<?= $this->url('details_users', ['id' => $user['id']]) ?>" rel="modal:open">Détails</a>
 			</th>
 
 
@@ -36,10 +36,11 @@
 
               <!-- The Modal -->
               <div id="myModal" class="modal">
+              <!-- <div id="<?php //echo $this->url('details_users', ['id' => $user['id']]) ?>" style="display: none"> -->
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                  <span class="close">&times;</span>
+                  <!-- <span class="close">&times;</span> -->
 
 				  <h2>Détails</h2>
                   <p>
