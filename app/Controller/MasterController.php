@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use Respect\Validation\Validator as v;
 use Intervention\Image\ImageManagerStatic as i;
 
-class DefaultController extends Controller
+class MasterController extends Controller
 {
 	/**
 	*@param $files fichier img attendu
@@ -61,10 +61,10 @@ class DefaultController extends Controller
 		return (!empty($errors)) ?  $result = implode('<br>', $errors) : $result = $post;
 	}
 
-	/*
+	/**
 	* Permet l'envoi de mail
 	* @param $mail = mail attendu
-	* @param $token a envoyer via le mail
+	* @param $token a envoyer via le mail, par défaut null
 	*/
 	public function mailTo($email, $token = null)
 	{
@@ -119,5 +119,17 @@ class DefaultController extends Controller
 		} else {
 		    return true;
 		}
+	}
+
+	#Permet de check s'il y a un utilisateur connecté et s'il a les droit pour accéder a cette page
+	public function checkSession()
+	{
+		if(!getUser())
+		{
+			redirectToRoute('login');
+		}
+
+		allowTo(['admin','editor']);
+
 	}
 }
