@@ -24,13 +24,13 @@
             <th>
               <?=$user['firstname'];?>
             </th>
-
+        <!--Détails users via lien-->
 			<th>
 			<a href="<?= $this->url('details_users', ['id' => $user['id']]) ?>">Détails</a>
 			</th>
 
 
-            <!--Détails users-->
+            <!--Détails users via modal-->
             <th>
               <button id="myBtn">Détails</button>
 
@@ -73,5 +73,6 @@
 
       </tbody>
     </table>
+ 
 
     <?php $this->stop('main_content') ?>

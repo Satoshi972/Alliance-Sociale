@@ -59,4 +59,6 @@ $this->start('main_content');
 
             </form>
 
+            <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/97226011/type/VILLE_FRANCE/size/PORTRAIT_VIGNETTE' type='text/javascript'></script>
+
 <?php $this->stop('main_content'); ?>
