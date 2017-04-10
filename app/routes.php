@@ -2,6 +2,16 @@
 	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
+
+
+
+		#gestion_medias#
+		
+		// Ajouts médias
+		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
+		// Listes Médias
+		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'],
+
         
         #Routes login-logout
         ['GET|POST','/login', 'User#login', 'login'],
@@ -14,5 +24,5 @@
         ['GET|POST','/token/', 'token#ajax_ask_token', 'ajax_ask_token'],
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
-        
+
 	);
