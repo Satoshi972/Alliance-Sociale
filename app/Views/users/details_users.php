@@ -2,7 +2,7 @@
 
 
 
-$this->layout('layout', ['title' => 'Détail de l\'utilisateur']);
+$this->layout('layout_back', ['title' => 'Détail de l\'utilisateur']);
 
 $this->start('main_content');
 

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Les utilisateurs']) ?>
+<?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
 
   <?php $this->start('main_content') ?>
 

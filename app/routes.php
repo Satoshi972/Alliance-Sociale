@@ -5,7 +5,7 @@
 
 		// Gestions des utilisateurs
 			//Ajout
-		['GET|POST', '/users', 'Users#addUsers', 'default_add_users'],
+		['GET|POST', '/users', 'Users#addUsers', 'add_users'],
 			//List users
 		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'],
 			//Détails users
@@ -15,7 +15,7 @@
 			//Del users
 		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'],
 
-		#gestion_medias
+		 //Gestion_medias
 		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
 
 	);

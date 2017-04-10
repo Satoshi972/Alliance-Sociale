@@ -1,6 +1,6 @@
 <?php
 
-$this->layout('layout', ['title' => 'Modifier un utilisateur']);
+$this->layout('layout_back', ['title' => 'Modifier un utilisateur']);
 
 $this->start('main_content');
 ?>

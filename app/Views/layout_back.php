@@ -44,10 +44,10 @@
                   <a href="#"><i class="fa fa-users fa-lg"></i> Gestion des utilisateurs <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="#">Création</a></li>
+                    <li class="active"><a href="<?= $this->url('add_users');?>">Création</a></li>
                     <li><a href="#">Suppression</a></li>
                     <li><a href="#">Modification</a></li>
-                    <li><a href="#">Détails de l'utilisateur</a></li>
+                    <li><a href="<?= $this->url('list_users');?>">Détails de l'utilisateur</a></li>
                     <li><a href="#">Contact Direct</a></li>
                 </ul>
 
@@ -101,10 +101,13 @@
           
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="<?= $this->assetUrl('js/jquery.js') ?>"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+
+    
 
 
 <!-- Permet des inclusions de scripts depuis la vue -->

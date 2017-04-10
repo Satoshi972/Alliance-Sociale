@@ -122,7 +122,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
->>>>>>> refs/remotes/origin/Dev
+
 
 </body>
 </html>
