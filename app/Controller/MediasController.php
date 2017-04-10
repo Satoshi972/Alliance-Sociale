@@ -22,7 +22,7 @@ class MediasController extends MasterController
 		{
 	        foreach ($file_keys as $key) 
 	        {
-	            $file_ary[$i][$key] = $file_post[$key][$i];
+	            $file_ary[$i][$key] = $file_post[$key][$i]; 
 	        }
     	}
 
@@ -67,6 +67,7 @@ class MediasController extends MasterController
 	                }
 	                else
 	                {
+	                	
 	                    if(!is_dir($uploadDirImg))
 	                    {
 	                        mkdir($uploadDirImg, 0755);
