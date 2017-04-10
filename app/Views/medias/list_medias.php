@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Medias - Listes des Medias']) ?>
+<?php $this->layout('layout_back', ['title' => 'Medias - Listes des Medias']) ?>
 
 <?php $this->start('main_content') ?>
 

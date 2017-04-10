@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Réinitialisation du mot de passe']) ?>
+<?php $this->layout('layout_back', ['title' => 'Réinitialisation du mot de passe']) ?>
 
     <?php 
 //début du bloc main_content
