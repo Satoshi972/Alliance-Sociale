@@ -15,7 +15,6 @@
 			//Del users
 		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'],
 
-
 		#gestion_medias
 		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
 
