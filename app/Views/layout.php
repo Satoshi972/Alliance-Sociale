@@ -16,6 +16,28 @@
 	<!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+
+	<!-- Permet l'inclusion de head dans ma vue  -->
+	<?= $this->section('head') ?>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>W :: <?= $this->e($title) ?></h1>
+		</header>
+
+		<section>
+			<?= $this->section('main_content') ?>
+		</section>
+
+		<footer>
+		</footer>
+	</div>
+	<!-- Permet l'insertion de script dans ma vue -->
+	<?= $this->section('script'); ?>
+
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 </head>
 <body>
