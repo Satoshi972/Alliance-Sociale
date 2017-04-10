@@ -111,6 +111,7 @@ class MediasController extends MasterController
 			        ];
 			        var_dump($datas);
 					$test = $medias->insert($datas);
+					var_dump($datas);
 			        if($test){
 			        	$success = true;
 			        }
