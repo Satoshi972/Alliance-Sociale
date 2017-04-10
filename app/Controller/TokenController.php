@@ -3,6 +3,7 @@
 
 namespace Controller;
 
+use \Controller\MasterController;
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \vendor\phpmailer\phpmailer\PHPMailerAutoload;
@@ -14,7 +15,7 @@ use Respect\Validation\Validator as v;
 date_default_timezone_set('America/Martinique');
 
 
-class TokenController extends Controller
+class TokenController extends MasterController
 {
     
     public function ask_token()
@@ -34,13 +35,13 @@ public function ajax_ask_token()
 $checkemail = new UsersModel();
 $maketoken = new StringUtils;
 $inserttoken = new Reset_pswModel();
-        
+$mailto = new MasterController;        
         
 if(!empty($_POST)){
 
 	// équivalent au foreach de nettoyage
 	$post = array_map('trim', array_map('strip_tags', $_POST));         
-     echo 'lol';
+    // echo 'lol';
 $checked = $checkemail->emailExists($post['email']);
 if($checked === true){
     
@@ -53,6 +54,9 @@ if($checked === true){
     
     $inserttoken->insert($datas);
         
+
+    $mailto->mailTo($post["email"], $token);
+    
     $result = '<div class="alert alert-success">Un email vous a été envoyé pour redéfinir le mot de passe</div>';
 	
 
@@ -72,29 +76,33 @@ if($checked === true){
    
  public function resetpsw()
 	{
-    $check = new Reset_pswModel();  
-    $checktoken = $check->findall3($_GET["token"]);
-    
-    if (!empty($checktoken)){
         
-        $this->show('token/resetpsw', ['$checktoken["firstname"]' =>                                                                    $checktoken["firstname"],
-                                       '$checktoken["lastname"]' =>  $checktoken["lastname"],
-                                      '$checktoken["id"]' =>                                                                    $checktoken["id"],]);
-                                      
+    $check = new Reset_pswModel();  
+    $checktoken = $check->findAll3($_GET["token"]);
+    //foreach($checktoken as $check):
+    var_dump($checktoken);
+    if (!empty($checktoken)){
+        foreach($checktoken as $check):
+        $this->show('token/resetpsw', ['checkfirstname' => $check["firstname"],
+                                       'checklastname' => $check["lastname"],
+                                      'checkid' => $check["id"],]);
+        endforeach; 
                                 
         
     } else {
         $this->show('token/resetpsw');
         
     }
-    
+   // endforeach; 
+       
     }
     
     public function ajax_resetpsw()
 	{
         $update = new UsersModel();
-        $delete = new UsersModel();
+        $delete = new Reset_pswModel();
         $check = new Reset_pswModel();  
+        $check2 = new Reset_pswModel();
        
         $post = [];
         $errors = [];
@@ -104,31 +112,43 @@ if(!empty($_POST)){
 	// équivalent au foreach de nettoyage
 	$post = array_map('trim', array_map('strip_tags', $_POST));
     
-    $checktoken = $check->findall3($post["token"]);
-    
+    $checktoken = $check->findAll3($post["token"]);
+    $checktoken2 = $check2->findAll4($post["token"]);
+//foreach($checktoken as $check):
+    var_dump($checktoken);
 if(empty($post['password'])){
      
     $errors[] = 'Le mot de passe doit être complété';
             }
 
             if(count($errors) === 0){
-            $updatepsw = $update->update(["password" => $post['password'], $checktoken['id']
-                                         ]);   
+            
+            foreach($checktoken as $check):
                 
-            $deletetoken = $delete->delete($checktoken['id']);
+            $update->update(["password" => $post['password']], $check['id']
+                                         );   
+                
+            endforeach; 
                 
                 
-            $result = '<div class="alert alert-success">Le mot de passe a bien été changé</div>';
+            foreach($checktoken2 as $check2):    
+                
+            $delete->delete($check2['id']);
+                
+            endforeach;
+                
+            echo $result = '<div class="alert alert-success">Le mot de passe a bien été changé</div>';
 	
 
-	           
+	     
                 
                 
             } else {
-            $result = '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>';
+            echo $result = '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>';
             
             }
-            echo $result; 
+            //endforeach;
+            //echo $result; 
             
 }
         

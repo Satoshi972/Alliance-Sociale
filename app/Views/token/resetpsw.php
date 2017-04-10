@@ -7,9 +7,11 @@ $this->start('main_content'); ?>
         
         <div id="result"></div>
         
-       <?php  if (!empty($checktoken["firstname"])){ ?>
+       <?php  
+var_dump($checkfirstname);
+if (!empty($checkfirstname)){ ?>
         
-        <?php echo "Bonjour ".$checktoken["firstname"].' '.$checktoken["lastname"].'. Vous êtes sur le point de réinitialiser le mot de passe!!!'; ?>
+        <?php echo "Bonjour ".$checkfirstname.' '.$checklastname.'. Vous êtes sur le point de réinitialiser le mot de passe!!!'; ?>
         
         <form method="post" id="checkform4">
 
@@ -22,9 +24,9 @@ $this->start('main_content'); ?>
       
       <?php } else {
     
-       echo "Déolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
+       echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
     
-}
+} ?>
        
 <?php    
 $this->stop('main_content'); ?>
