@@ -69,8 +69,7 @@ class MediasController extends MasterController
 			    // Vérification Vidéo 
 		########### NE FONCTIONNE PAS #############
 
-
-		var_dump($_FILES);
+/*
 		if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
 
 			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4']; 
@@ -102,7 +101,7 @@ class MediasController extends MasterController
 			else {
 				$errors[] = 'Le fichier n\'est pas une Vidéo valide';
 			}
-		}
+		}*/
 
 			if(count($errors) === 0){
 
