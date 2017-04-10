@@ -16,7 +16,7 @@ class MediasController extends MasterController
 		$errors 	= [];
 		$success 	= false;
 
-		$uploadDirImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
+		$uploadDirImg = 'assets/img/'; // Répertoire d'upload
 		$uploadDirVid = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/vid/'; // Répertoire d'upload
 
 		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
@@ -53,8 +53,7 @@ class MediasController extends MasterController
                     }
 
                     if(!$img->save($uploadDirImg.$newName))
-                    {
-                        
+                    { 
                         $errors[] = 'Erreur lors de l\'envoi de l\'image';
                     }
                     else
@@ -110,6 +109,7 @@ class MediasController extends MasterController
 			    	$datas = [
 			        'url' => $post['picture'],
 			        ];
+			        var_dump($datas);
 					$test = $medias->insert($datas);
 			        if($test){
 			        	$success = true;

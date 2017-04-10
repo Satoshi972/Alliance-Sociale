@@ -5,7 +5,6 @@
 
 <div class="col-md-12">
 
-
 	<div class="col-md-6 col-md-offset-3">
 		<h2>Listes des médias</h2>
 	</div>
@@ -14,13 +13,7 @@
 	<?php foreach($images as $image): ?>	
 	
 		<div class="col-xs-3">
-	    	<img src="<?=$this->assetUrl($image['url']);?>" class="img-responsive" alt="medias">
-	    </div><div class="col-xs-3">
-	    	<img src="<?=$this->assetUrl($image['url']);?>" class="img-responsive" alt="medias">
-	    </div><div class="col-xs-3">
-	    	<img src="<?=$this->assetUrl($image['url']);?>" class="img-responsive" alt="medias">
-	    </div><div class="col-xs-3">
-	    	<img src="<?=$this->assetUrl($image['url']);?>" class="img-responsive" alt="medias">
+	    	<img src="/Alliance-Sociale/public/<?=$image['url'];?>" class="img-responsive" alt="medias">
 	    </div>
 	       
 	<?php endforeach; ?>
