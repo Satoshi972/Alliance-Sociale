@@ -1,9 +1,11 @@
-<?php $this->layout('layout', ['title' => 'Medias - Ajout des Medias']) ?>
+<?php $this->layout('layout_back', ['title' => 'Medias - Ajout des Medias']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Ajout des médias</h2>
-	
 
+	<div class="col-md-6 col-md-offset-3">
+		<h2>Ajout des médias</h2>
+	</div>
+	
 	<div class="col-md-6 col-md-offset-3">
 		<?php if($success == true): // La variable $success est envoyé via le controller?>
 			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
@@ -15,7 +17,7 @@
 	</div> 
 
 
-
+	
 	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
