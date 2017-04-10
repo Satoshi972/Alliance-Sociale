@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/styless.css') ?>"> -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     
@@ -18,70 +17,59 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+
+    <!-- Permet des inclusions dans mon head depuis la vue -->
+    <?php echo $this->section("head") ?>
 </head>
 <body>
- <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <p class="titre1">
-                        Espace Administration
-                    </p>
+
+
+
+<div class="nav-side-menu">
+    <div class="brand">Espace Administration</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+                <!-- <li>
+                  <a href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                  </a>
+                </li> -->
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-users fa-lg"></i> Gestion des utilisateurs <span class="arrow"></span></a>
                 </li>
-                <li class="dropdown">
-                <a href="page-parente.html" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-                aria-expanded="false">Gestion des utilisateurs <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                    <a href="#">Création</a>
-                </li>
-                <li>
-                    <a href="#">Suppression</a>
-                </li>
-                <li>
-                    <a href="#">Modification</a>
-                </li>
-                <li>
-                    <a href="#">Détails de l'utilisateur</a>
-                </li>
-                <li>
-                    <a href="#">Contact direct</a>
-                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li class="active"><a href="#">Création</a></li>
+                    <li><a href="#">Suppression</a></li>
+                    <li><a href="#">Modification</a></li>
+                    <li><a href="#">Détails de l'utilisateur</a></li>
+                    <li><a href="#">Contact Direct</a></li>
                 </ul>
+
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Gestion des Activités <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li>Création des Activités</li>
+                  <li>Suppression des Activités</li>
+                  <li>Modification des Activités</li>
+                  <li>Détails de l'activité</li>
+                  <li>Association Médias</li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> Gestion fiche de contact <span class="arrow"></span></a>
                 </li>
-                <li>
-                    <p class="titre">Gestion des utilisateurs</p>
-                </li>
-                
-                 <li>
-                    <p class="titre">Gestion des activités</p>
-                </li>
-                </li>
-                <li>
-                    <a href="#">Création activité</a>
-                </li>
-                <li>
-                    <a href="#">Suppression activité</a>
-                </li>
-                <li>
-                    <a href="#">Modification activité</a>
-                </li>
-                <li>
-                    <a href="#">Détails de l'activité</a>
-                </li>
-                <li>
-                    <a href="#">Association Médias</a>
-                </li>
-                <li>
-                    <p class="titre">Gestion fiche de contact</p>
-                </li>
-                </li>
-                <li>
-                    <a href="#">Liste des fiches</a>
-                    <ul>
-                    <li><a href="#">Détails de de la fiche</a>
+                <ul class="sub-menu collapse" id="new">
+                  <li>Liste des fiches</li>
+                  <li><a href="#">Détails de de la fiche</a>
                         <ul>
                             <li><a href="#">Marquer comme lu</a></li>
                             <li><a href="#">Suppression</a></li>
@@ -89,39 +77,28 @@
                     </li>
                     <li><a href="#">Recherche mot clé</a></li>
                     </ul>
-                </li>
-                <li>
-                    <p class="titre">Gestion des activités</p>
-                </li>
-                </li>
-                <li>
-                    <a href="#">Création event</a>
-                </li>
-                <li>
-                    <a href="#">Modification event</a>
-                </li>
-                <li>
-                    <a href="#">Association Médias</a>
-                </li>
+
+
+                    <li data-toggle="collapse" data-target="#events" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Gestion des Evènements <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="events">
+                  <li>Création Evènements</li>
+                  <li>Suppression Evènements</li>
+                  <li>Modification Evènements</li>
+                  <li>Détails Evènements</li>
+                  <li>Association Médias</li>
+                </ul>
+
+
             </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+     </div>
+</div>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <?= $this->section('main_content') ?>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Afficher menu Admin</a>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <?= $this->section('main_content') ?>
         </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+          
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -129,12 +106,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+
+<!-- Permet des inclusions de scripts depuis la vue -->
+    <?php echo $this->section("script") ?>
 </body>
 </html>

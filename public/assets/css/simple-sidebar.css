@@ -1,5 +1,5 @@
 .nav-side-menu {
-  margin-top: 60px;
+  margin-top: 150px;
   overflow: auto;
   font-family: verdana;
   font-size: 12px;
@@ -10,6 +10,8 @@
   width: 300px;
   height: 100%;
   color: #e1ffff;
+  float:left;
+  clear: both;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
@@ -145,9 +147,10 @@ body {
   padding: 0px;
 }
 #page-content-wrapper {
-    margin-left: 40%;
-    position:fixed;
-    text-align: justify;
+    /*margin-left: 50%;*/
+    text-align: center;
+   /* float:right;
+    clear: both;*/
 }
 
 
@@ -194,7 +197,11 @@ nav label{
     display: none
 }
 .resume{
-    font-size:5px;
+    margin-left:2px;
+    padding:0;
+    font-size:10px;
+    text-align: justify;
+    overflow: hidden;
 }
 
 nav a{
@@ -219,5 +226,5 @@ nav li:hover .submenu{
 .submenu li a{
     padding: 15px 30px;
     font-size: 13px;
-    color: #222538;
+    color: #ffffff;
 }

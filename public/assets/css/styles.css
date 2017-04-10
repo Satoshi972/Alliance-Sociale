@@ -2,19 +2,21 @@ body{
     font-family: 'Source code pro', Calibri, serif;
     margin:0px;
     padding:0px;
-    background-image: url(../img/maxresdefault.jpg);
+    /*background-image: url(../img/maxresdefault.jpg);*/
     background-size: cover;
 }
 nav{
     width:100%;
     background-color: #424558;
+     /*position: fixed;*/
+     float:left;
 }
 .logo{
     float:left;
     margin: 7px 20px 0 20px;
 }
 nav >ul{
-   margin:0px;
+   margin-left:400px;
     padding:0px;
 }
 nav >ul::after{
@@ -84,8 +86,8 @@ nav li:hover .submenu{
     background-color: RGBa(241, 211, 79, 0.15);
 }
 .activites:hover{
-    border-top: 5px solid #BBB;
-    background-color: rgba(163, 157, 157, 0.27);
+    border-top: 5px solid #f1dc4f;
+    background-color: rgba(98, 98, 98, 0.15);
 }
 .contact:hover{
     border-top: 5px solid #3fa2f7;
@@ -105,8 +107,8 @@ nav li:hover .submenu{
 .evenements .submenu{
     background-color: RGB(250, 215, 100);
 }
-.activites.submenu{
-    background-color: rgba(160, 157, 155, 0.86);
+.activites .submenu{
+    background-color: rgb(145, 138, 113);
 }
 .contact .submenu{
     background-color: rgb(6, 214, 252);
@@ -128,7 +130,7 @@ nav li:hover .submenu{
     background-color: RGB(200, 165, 75);
 }
 .activites .submenu li:hover{
-    background-color: rgb(72, 69, 69);
+    background-color: rgb(180, 178, 175);
 }
 .contact .submenu li:hover{
     background-color: rgb(7, 162, 190);
