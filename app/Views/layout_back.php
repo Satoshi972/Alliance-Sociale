@@ -45,10 +45,7 @@
                 </li>
                 <ul class="sub-menu collapse" id="products">
                     <li class="active"><a href="<?= $this->url('add_users');?>">Création</a></li>
-                    <li><a href="#">Suppression</a></li>
-                    <li><a href="#">Modification</a></li>
                     <li><a href="<?= $this->url('list_users');?>">Détails de l'utilisateur</a></li>
-                    <li><a href="#">Contact Direct</a></li>
                 </ul>
 
 

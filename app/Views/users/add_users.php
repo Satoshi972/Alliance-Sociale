@@ -5,19 +5,7 @@ $this->layout('layout_back', ['title' => 'Ajouter un utilisateur']);
 $this->start('main_content');
 ?>
 
-  <!--<style>
-label {
-    display: inline-block;
-    min-width: 200px;
-    margin-bottom: 7px;
-}
 
-input,
-select,
-textarea {
-    margin-bottom: 7px;
-}
-</style>-->
 
   <?php if($success == true): // La variable $success est envoyé via le controller?>
     <p style="color:green">L'utilisateur a été créé</p>
