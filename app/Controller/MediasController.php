@@ -19,11 +19,11 @@ class MediasController extends MasterController
 		$uploadDirImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
 		$uploadDirVid = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/vid/'; // Répertoire d'upload
 
-		$maxSize = (1024 * 1000) * 50; // Taille maximum du fichier
+		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
 
 
 			// Vérification image
-		// var_dump($_FILES);
+		//var_dump($_FILES);
 		// var_dump($_FILES['picture']['error']);
         if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
         {
@@ -38,8 +38,9 @@ class MediasController extends MasterController
             {
                 $errors[] = 'fichier trop gros, il doit faire 2 mo max';
             }
-            else
-            {
+            
+          	else
+          	{
                 if(!v::image()->validate($_FILES['picture']['tmp_name']))
                 {
                     $errors[] = 'Le fichier n\'est pas une image valide';
@@ -66,7 +67,10 @@ class MediasController extends MasterController
         }
 
 			    // Vérification Vidéo 
-			    
+		########### NE FONCTIONNE PAS #############
+
+
+		var_dump($_FILES);
 		if(isset($_FILES['video']) && $_FILES['video']['error'] === 0){
 
 			$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4']; 
@@ -104,7 +108,6 @@ class MediasController extends MasterController
 
 			    if(isset($post['picture']))
 			    {
-			    	echo 'bidule';
 			    	$datas = [
 			        'url' => $post['picture'],
 			        ];
@@ -118,7 +121,7 @@ class MediasController extends MasterController
 			        }
 			    }
 
-				if(isset($post['video']))
+/*				if(isset($post['video']))
 			    {
 			    	$datas = [
 			        'url' => $post['video'],
@@ -131,10 +134,8 @@ class MediasController extends MasterController
 			       else
 			        {
 			        	var_dump($test->errorInfo());
-			        }
+			        }*/
 			    }			    
-			        
-			    }	
 			    else
 			    {
 			    	echo implode('<br>', $errors);

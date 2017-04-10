@@ -6,7 +6,7 @@
 		#gestion_medias#
 		
 		// Ajouts médias
-		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
+		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
 		// Listes Médias
-		['GET|POST', '/medias/list', 'Medias#listMedias', 'default_listmedias'],
+		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'],
 	);
