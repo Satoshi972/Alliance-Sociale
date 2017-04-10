@@ -5,6 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use Model\MediaModel as Media;
 use Model\SiteOfModel as Site;
+use Respect\Validation\Validator as v;
+use Intervention\Image\ImageManagerStatic as i;
 
 class SiteController extends MasterController
 {
@@ -14,10 +16,10 @@ class SiteController extends MasterController
 		$errors = [];
 
 		$maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
-		$uploadDir = 'uploads/'; // Répertoire d'upload
-		$mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
+		$uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/';
+		
 
-		$infos = new Media();
+		$infos = new Site();
 		$infos->findAll();
 		$this->show('site/updateInfo', ['infos'=>$infos]);
 	}
