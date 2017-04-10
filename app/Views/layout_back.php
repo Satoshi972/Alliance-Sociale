@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title><?= $this->e($title) ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title><?= $this->e($title) ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	
-	<!-- jQuery library -->
+    
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
+    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+
+    <!-- Permet des inclusions dans mon head depuis la vue -->
+    <?php echo $this->section("head") ?>
 </head>
 <body>
+
+
+
 
 <div class="nav-side-menu">
     <div class="brand">Espace Administration</div>
@@ -72,10 +79,10 @@
                     </ul>
 
 
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
+                    <li data-toggle="collapse" data-target="#events" class="collapsed">
                   <a href="#"><i class="fa fa-globe fa-lg"></i> Gestion des Evènements <span class="arrow"></span></a>
                 </li>  
-                <ul class="sub-menu collapse" id="service">
+                <ul class="sub-menu collapse" id="events">
                   <li>Création Evènements</li>
                   <li>Suppression Evènements</li>
                   <li>Modification Evènements</li>
@@ -99,5 +106,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+
+<!-- Permet des inclusions de scripts depuis la vue -->
+    <?php echo $this->section("script") ?>
 </body>
 </html>
