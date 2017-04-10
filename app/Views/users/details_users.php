@@ -1,7 +1,6 @@
 <?php
 
 
-
 $this->layout('layout', ['title' => 'Détail de l\'utilisateur']);
 
 $this->start('main_content');
@@ -30,12 +29,6 @@ $this->start('main_content');
       <?=$affiche['role']; ?>
     </p>
 
+    <?php endif?>
 
-    <?php endif ?>
-
-    <a href="update/<?=$affiche['id']; ?>">Modifier</a>
-
-    <a href="delete/<?=$affiche['id']; ?>">Supprimer</a>
-
-    
   <?php  $this->stop('main_content');?>
