@@ -1,6 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Se connecter']) ?>
 
-    <?php 
+<?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
         <h1>Entrez vos identifiants !</h1>
@@ -23,7 +23,8 @@ $this->start('main_content'); ?>
 		<br>
 		<button type="submit" id="submitForm">Se connecter</button>
 	</form>
-      
+    
      
- <?php    
+ <?php  
+    
 $this->stop('main_content'); ?>

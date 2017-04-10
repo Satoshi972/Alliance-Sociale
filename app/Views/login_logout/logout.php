@@ -5,17 +5,18 @@
 $this->start('main_content'); ?>
         <h1>Entrez vos identifiants !</h1>
         
-      <?php if(isset($_SESSION['is_logged'])): ?>
-	<p style="text-align:center;">
-		<?php echo $_SESSION['name']; ?>, voulez vous te déconnecter ? Vraiment ?
+        <div id="result"></div>
+      <?php if(isset($_SESSION['user'])): ?>
+		<?php echo $_SESSION['firstname'].' '.$_SESSION['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
 
-		<br><br>
+		
+        <form id=checkform3 method=post>
+            <input type=hidden value="lol">
+            <button type=submit id="submitform2">Oui je veux me déconnecter</button>
+        
+        
+       </form>
 
-	
-		<br><br>
-
-		<a href="<?= $this->url('logout', ['logout' =>'yes']) ?>logout=yes">Oui, je veux me déconnecter</a>
-	</p>
 
 <?php else: ?>
 	<p style="text-align:center;">
@@ -23,7 +24,7 @@ $this->start('main_content'); ?>
 
 		
 	</p>
-<?php endif; 
+<?php endif; ?>
       
      
  <?php    

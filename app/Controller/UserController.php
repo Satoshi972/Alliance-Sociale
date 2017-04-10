@@ -83,19 +83,36 @@ class UserController extends Controller
     }
     public function logout()
 	{    
-      
-     if(isset($_GET['logout']) && ($_GET['logout'] == 'yes')){
-	 $logout = new AuthentificationModel();
-     $logout->logUserOut();
+     $find = new UsersModel();
+        
+     if (isset($_SESSION["user"])){
+        $infos = $find->find($_SESSION['$user']);
+         
+        $this->show('login_logout/logout', ['$_SESSION["user"]' => $_SESSION["user"],
+                                            '$infos["firstname"]' => $infos["firstname"],
+                                            '$infos["lastname"]' => $infos["lastname"],
+                                           
+                                           ]);   
+         
+     } else $this->show('login_logout/logout');
+         
+	
      }   
         
         
-     $this->show('login_logout/logout', ['$_SESSION["name"]' => $_SESSION["name"]]);   
+     public function ajax_logout(){
+         
+     $logout = new AuthentificationModel();
+     $logout->logUserOut();
+     
+     $this->show('login_logout/ajax_logout');
+         
+     }
         
         
      }
     
-}
+
         
     
     
