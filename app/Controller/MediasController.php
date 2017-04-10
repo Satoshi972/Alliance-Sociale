@@ -141,12 +141,14 @@ class MediasController extends MasterController
 			    	echo implode('<br>', $errors);
 			    }
 
+
 			$params = [
 			'success' => $success,
 			'errors'  => $errors,
 			];
 
 	$this->show('medias/add_medias',$params);
+
 	}
 
 	public function listMedias()
