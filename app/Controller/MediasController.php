@@ -9,6 +9,26 @@ use Intervention\Image\ImageManagerStatic as i;
 
 class MediasController extends MasterController
 {
+	public function recupMedias($files)
+	{
+		$uploadDirImg = 'assets/img/'; // Répertoire d'upload
+		$maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
+
+		$file_ary = []; //contiendras mes chemins d'images
+		$file_count = count($files['name']); //Le nombre de fichiers up
+		$file_keys = array_keys($files);
+
+		for ($i=0; $i<$file_count; $i++) 
+		{
+	        foreach ($file_keys as $key) 
+	        {
+	            $file_ary[$i][$key] = $file_post[$key][$i];
+	        }
+    	}
+
+    	return $file_ary;
+	}
+
 	public function addMedias()
 	{
 		$medias 	= new MediasModel();
@@ -21,49 +41,50 @@ class MediasController extends MasterController
 
 		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
 
-
 			// Vérification image
 		//var_dump($_FILES);
 		// var_dump($_FILES['picture']['error']);
-        if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
-        {
+		//var_dump($_FILES['picture']);      
+	        if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
+	        {
 
-        $img = i::make($_FILES['picture']['tmp_name']);
-        $size = $img->filesize();
-        $mimetype = $img->mime();
-        $ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
-        $newName = uniqid('img_').'.'.$ext;
-    
-            if($maxSize<$size)
-            {
-                $errors[] = 'fichier trop gros, il doit faire 2 mo max';
-            }
-            
-          	else
-          	{
-                if(!v::image()->validate($_FILES['picture']['tmp_name']))
-                {
-                    $errors[] = 'Le fichier n\'est pas une image valide';
-                }
-                else
-                {
-                    if(!is_dir($uploadDirImg))
-                    {
-                        mkdir($uploadDirImg, 0755);
-                    }
+	        $img = i::make($_FILES['picture']['tmp_name']);
+	        $size = $img->filesize();
+	        $mimetype = $img->mime();
+	        $ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+	        $newName = uniqid('img_').'.'.$ext;
+	    
+	            if($maxSize<$size)
+	            {
+	                $errors[] = 'fichier trop gros, il doit faire 2 mo max';
+	            }
+	            
+	          	else
+	          	{
+	                if(!v::image()->validate($_FILES['picture']['tmp_name']))
+	                {
+	                    $errors[] = 'Le fichier n\'est pas une image valide';
+	                }
+	                else
+	                {
+	                    if(!is_dir($uploadDirImg))
+	                    {
+	                        mkdir($uploadDirImg, 0755);
+	                    }
 
-                    if(!$img->save($uploadDirImg.$newName))
-                    { 
-                        $errors[] = 'Erreur lors de l\'envoi de l\'image';
-                    }
-                    else
-                    {
-                        #ligne pour que mon image soit envoyée dans la base !!!!!!
-                        $post['picture'] = $uploadDirImg.$newName;
-                    }
-                }
-            }
-        }
+	                    if(!$img->save($uploadDirImg.$newName))
+	                    { 
+	                        $errors[] = 'Erreur lors de l\'envoi de l\'image';
+	                    }
+	                    else
+	                    {
+	                        #ligne pour que mon image soit envoyée dans la base !!!!!!
+	                        $img[$i] = $uploadDirImg.$newName;
+	                    }
+	                }
+	            }
+	        }
+  
 
 			    // Vérification Vidéo 
 		########### NE FONCTIONNE PAS #############
@@ -104,21 +125,26 @@ class MediasController extends MasterController
 
 			if(count($errors) === 0){
 
-			    if(isset($post['picture']))
+			    if(isset($img))
 			    {
-			    	$datas = [
-			        'url' => $post['picture'],
-			        ];
-			        var_dump($datas);
-					$test = $medias->insert($datas);
-					var_dump($datas);
-			        if($test){
-			        	$success = true;
-			        }
-			        else
-			        {
-			        	var_dump($test->errorInfo());
-			        }
+			    	for($i = 0; $i< count($img);$i++)
+			    	{
+			    		$datas = [
+				        'url' => $img,
+				        ];
+
+						$test = $medias->insert($datas);			    	
+
+				        if($test)
+				        {
+				        	$success = true;
+				        }
+				        else
+				        {
+				        	var_dump($test->errorInfo());
+				        }
+				    }
+
 			    }
 
 /*				if(isset($post['video']))

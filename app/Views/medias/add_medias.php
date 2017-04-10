@@ -24,7 +24,7 @@
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="picture">Images</label>
 			<div class="col-md-4">
-				<input type="file" id="picture" name="picture" multiple class="form-control" accept="image/*">
+				<input type="file" id="picture" name="picture[]" class="file-loading" multiple class="form-control" accept="image/*">
 			</div>
 		</div>
 
@@ -46,3 +46,8 @@
 
 
 <?php $this->stop('main_content') ?>
+
+<?php $this->start('script') ?>
+
+<script src="<?php $this->assetUrl('js/gestionmedias.js') ?>"></script>
+<?php $this->stop('script') ?>
