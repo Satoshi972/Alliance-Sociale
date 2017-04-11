@@ -81,9 +81,28 @@ class MediasModel extends Model
 
 		$sql = 'INSERT INTO medias_of (id_media, id_related) VALUES(:id_media,id_related)';	
 		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':id_media', $idMedia, PARAM_INT);		
-		$sth->bindValue(':id_related',$idRelated,PARAM_INT);
+		$sth->bindValue(':id_media', $idMedia, \PDO::PARAM_INT);		
+		$sth->bindValue(':id_related',$idRelated,\PDO::PARAM_INT);
 
 		$sth->execute();
+	}
+
+	public function nbMedias()
+	{
+		$sql = 'SELECT COUNT(*) FROM medias';	
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+	}
+
+	public function listPageMedias($firstEntry, $MediasPerPages)
+	{
+		$sql = 'SELECT * FROM medias ORDER BY id DESC LIMIT :firstEntry, :MediasPerPages';	
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);		
+		$sth->bindValue(':MediasPerPages',$MediasPerPages,\PDO::PARAM_INT);
+
+		$sth->execute();
+
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
 	}
 }
