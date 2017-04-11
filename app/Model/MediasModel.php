@@ -5,28 +5,6 @@ use W\Model\Model as Model;
 
 class MediasModel extends Model
 {
-
-	public function siteMedia()
-	{
-		$sql = 'SELECT M.* FROM medias as M, media_of as MO, site_info as SI WHERE SI.id = MO.id_related AND M.id = MO.id_media';
-		$sth = $this->dbh->prepare($sql);
-		$sth->execute();
-
-		return $sth->fetch();
-	}
-
-/*
-# inutile car existe deja dans le framework via findAll
-	public function listMedia()
-	{
-		$sql = 'SELECT * FROM medias';
-		$sth = $this->dbh->prepare($sql);
-		$sth->execute();
-
-		return $sth->fetchAll();
-
-	}
-*/
 	public function listMediaFor($id)
 	{
 		if (!is_numeric($id))
@@ -70,7 +48,7 @@ class MediasModel extends Model
 	
 	/**
 	*@param idMedia = id du media en int
-	*@param idRelated = id de l'activité ou du site en int
+	*@param idRelated = id de l'activité ou de l'event string
 	*/
 	public function insertMediaFor($idMedia,$idRelated)
 	{
@@ -91,7 +69,10 @@ class MediasModel extends Model
 	{
 		$sql = 'SELECT COUNT(*) FROM medias';	
 		$sth = $this->dbh->prepare($sql);
+
 		$sth->execute();
+
+		return $sth->fetchColumn();
 	}
 
 	public function listPageMedias($firstEntry, $MediasPerPages)
