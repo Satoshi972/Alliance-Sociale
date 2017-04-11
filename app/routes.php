@@ -10,7 +10,7 @@
 		// Ajouts médias
 		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
 		// Listes Médias
-		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'],
+		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listmedias'],
 
         
         #Routes login-logout
