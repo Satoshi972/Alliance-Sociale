@@ -6,13 +6,12 @@ $this->start('head');
 	<!-- File input CSS -->
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
 
-
 <?php 
 $this->stop('head');
 $this->start('main-content');
 ?>
 
-<form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<form method="POST" enctype="multipart/form-data" class="form-horizontal">
 
 	<legend class="text-center">MOdification des information du site</legend>
 
