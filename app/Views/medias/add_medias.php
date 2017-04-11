@@ -1,6 +1,13 @@
-<?php $this->layout('layout_back', ['title' => 'Medias - Ajout des Medias']) ?>
+<?php $this->layout('layout_front', ['title' => 'Medias - Ajout des Medias']); 
 
-<?php $this->start('main_content') ?>
+$this->start('head');
+?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
+
+<?php
+$this->stop('head');
+$this->start('main_content');
+?>
 
 	<div class="col-md-6 col-md-offset-3">
 		<h2>Ajout des médias</h2>
@@ -22,19 +29,19 @@
 
 		<!-- Image -->
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="picture">Images</label>
+			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
-				<input type="file" id="picture" name="picture" multiple class="form-control" accept="image/*">
+				<input type="file" id="medias" name="medias[]">
 			</div>
 		</div>
 
 		<!-- Vidéo -->
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label class="col-md-4 control-label" for="video">Videos</label>
 			<div class="col-md-4">
 				<input type="file" id="video" name="video" multiple class="form-control" accept="video/*">
 			</div>
-		</div>
+		</div> -->
 
 
 		<div class="form-group">
@@ -45,4 +52,20 @@
 	</form>
 
 
-<?php $this->stop('main_content') ?>
+<?php 
+$this->stop('main_content'); 
+$this->start('script'); 
+?>
+    <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
+    <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
+<script>
+	$("#medias").fileinput(
+    	{
+    		'showUpload':false,
+    		'showCaption' : false,
+    		language: "fr"
+    	});
+</script>
+<?php
+$this->stop('script'); 
+?>
