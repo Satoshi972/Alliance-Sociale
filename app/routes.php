@@ -4,7 +4,7 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		// Gestions des utilisateurs
-			//Ajout
+			//Ajout users
 		['GET|POST', '/users', 'Users#addUsers', 'add_users'],
 			//List users
 		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'],
@@ -17,5 +17,8 @@
 
 		 //Gestion_medias
 		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
+
+		//Partenaires
+		['GET|POST', '/partner', 'Partner#partner', 'partner'],
 
 	);

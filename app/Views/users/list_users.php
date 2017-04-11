@@ -1,7 +1,7 @@
 <?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
 
   <?php $this->start('main_content') ?>
-
+  <?php include '../partenaires.php' ?>
     <table>
       <thead>
         <tr>
