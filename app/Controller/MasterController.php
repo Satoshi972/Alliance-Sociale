@@ -9,56 +9,83 @@ use Intervention\Image\ImageManagerStatic as i;
 class MasterController extends Controller
 {
 	/**
-	*@param $files fichier img attendu
-	*Non fonctionnelle actuellement
+	*@param $files = tableau de fichier attendu
+	* doc : http://php.net/manual/en/features.file-upload.multiple.php
+	* doc : http://www.w3bees.com/2013/02/multiple-file-upload-with-php.html
 	*/
-	public function checkImg($files)
+	public function checkMedia($files)
 	{
+		$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4', 'image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
+		$uploadDir = 'assets/medias/'; // Répertoire d'upload
+		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
+		$filesClean = []; // Tableau final qui contiendras les chemin respectifs des médias
+		$nbMedias = count($files);//contient le nombre de medias
+		$filesKey = array_keys($files);//contient les entètes de chaque entrée du tableau
 
-		$errors = [];
-		$post = [];
+	
+		// var_dump($nbMedias).'<br>';
+		// var_dump($filesKey).'<br>';
+		for ($i=0; $i < $nbMedias; $i++)
+		{ 
+			$finfo = new \finfo();
 
-		if(isset($files['picture']) && $files['picture']['error'] === 0)
-		{
-
-			$img = i::make($files['picture']['tmp_name']);
-			$size = $img->filesize();
-			$mimetype = $img->mime();
-			$ext = pathinfo($files['picture']['name'], PATHINFO_EXTENSION);
-			$newName = uniqid('img_').'.'.$ext;
-			
-			if($maxSize<$size)
+			foreach ($filesKey as $key) 
 			{
-				$errors[] = 'fichier trop gros, il doit faire 2 mo max';
-			}
-			else
+				// var_dump($key).'br>';
+	            $filesClean[$i][$key] = $files[$key][$i];
+	        }
+
+	        //var_dump($filesClean[$i]);
+	        $mimeType = $finfo->file($filesClean[$i]['tmp_name'], FILEINFO_MIME_TYPE); //récupere le mimetype de mo médias
+	        $extension = pathinfo($filesClean[$i]['name'], PATHINFO_EXTENSION); //récupère l'extension de mon fichier
+	        // var_dump($mimeType).'<br>';
+	        // var_dump($extension).'<br>';
+
+	        if(in_array($mimeType, $mimeTypeAvailable))
 			{
-				if(!v::image()->validate($files['picture']['tmp_name']))
+
+				if($filesClean[$i]['size'] <= $maxSize)
 				{
-					$errors[] = 'Le fichier n\'est pas une image valide';
-				}
-				else
-				{
+
 					if(!is_dir($uploadDir))
 					{
 						mkdir($uploadDir, 0755);
 					}
 
-					if(!$img->save($uploadDir.$newName))
+					$newMediaName = uniqid('media').'.'.$extension;
+					//var_dump($newMediaName).'<br>';
+
+					if(!move_uploaded_file($filesClean[$i]['tmp_name'], $uploadDir.$newMediaName))
 					{
-						
-						$errors[] = 'Erreur lors de l\'envoi de l\'image';
+						#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+						//return false;
+						continue; //ignore le fichier avec l'erreur
 					}
 					else
 					{
-						#ligne pour que mon image soit envoyée dans la base !!!!!!
-						$post['picture'] = $uploadDir.$newName;
+						$datas[$i] = $uploadDir.$newMediaName;
+						//var_dump($datas[$i]);
 					}
+
 				}
+				else 
+				{
+					#$errors[] = 'La taille du fichier excède 50 Mo';
+					//return false;
+					continue;
+				}
+
+			}
+			else 
+			{
+				#$errors[] = 'Le fichier n\'est pas une Vidéo valide';
+				//return false;
+				continue;
 			}
 		}
 
-		return (!empty($errors)) ?  $result = implode('<br>', $errors) : $result = $post;
+		//return $filesClean;
+		return (!empty($datas)) ? $datas : null;
 	}
 
 	/**
@@ -107,7 +134,9 @@ class MasterController extends Controller
 		//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
 		//Replace the plain text body with one created manually
 		//$lien = $this->generateUrl('login');
-		$lien = 'http://127.0.0.1/php/monBlog/public/admin/resetPsw?token=';
+
+		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw/token=';
+
 		$mail->Body = 'Voici votre <a href="'.$lien.$token.'">lien</a> de pour changer votre mot de passe ';
 		//$mail->Body = 'Voici votre lien de pour changer votre mot de passe <a href="'.$_SERVER['DOCUMENT_ROOT'].$lien.'/'.$token.'">lien</a>';
 		$mail->AltBody = "Voici votre lien de pour changer votre mot de passe ";
@@ -119,6 +148,7 @@ class MasterController extends Controller
 		} else {
 		    return true;
 		}
+
 	}
 
 	#Permet de check s'il y a un utilisateur connecté et s'il a les droit pour accéder a cette page
