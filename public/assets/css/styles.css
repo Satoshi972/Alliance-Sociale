@@ -5,6 +5,31 @@ body{
     /*background-image: url(../img/maxresdefault.jpg);*/
     background-size: cover;
 }
+
+/* ---------------------
+        top header
+------------------------ */
+.top-header ul{
+    text-align: right;
+}
+.top-header ul li{
+    margin-right: 30px;
+     display: inline-block;
+
+}
+.top-header ul li a{
+
+}
+
+.top-header ul li a >img{
+    width: 30px;
+}
+
+
+/* ---------------------
+        fin top header
+------------------------ */
+
 nav{
     width:100%;
     background-color: #424558;

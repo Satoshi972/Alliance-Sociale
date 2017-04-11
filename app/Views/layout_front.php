@@ -26,6 +26,39 @@
 </head>
 <body>
 
+<!-- Début Top header -->
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 top-header">
+                <ul>
+                    <li><a href="#">connexion</a></li>
+                    <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
+                    <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+                <div class="col-sm-3">
+                    <a href="#"><img src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" alt="logos" class="img-responsive img-circle" width= "260px;"></a>
+                </div>
+
+                <div class="col-sm-6">
+                   <h1>test</h1>
+                </div>
+
+                <div class="col-sm-3">
+                  <!--   <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/97226011/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>    
+                                  -->               
+                </div>
+        </div>
+            
+       
+    </main>
+ 
+<!-- Fin Top header -->
  <nav>
        <img class="logo" src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" width="70px"//>
         <ul>
@@ -91,9 +124,82 @@
 
 
 
-        <div>
+        <section class="container">
             <?= $this->section('main_content') ?>
-        </div>
+        </section>
+
+    <!-- Début footer -->
+        
+        <footer>
+            <main class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                <h3>Centre Social Alliance sociale</h3>
+                                <p>LCR Résidence Gaïac<br>
+                                Quartier Cédalise<br>
+                                97290 LE MARIN<br></p>
+
+ <!--                                <div class="slider">
+                                    Slider partenaire
+                                </div> -->
+                            </div>
+
+                            <div class="col-sm-4 text-center">
+                                <h3>Horaire</h3>
+
+                                <div class="table-responsive">          
+                                    <table class="table">
+                                        
+                                        <tr>
+                                            <th>Lundi</th>
+                                            <td>8h - 12h</td>
+                                            <td>13h - 17h</td>
+                                        </tr>
+
+                                        <tr>
+                                           <th>Mardi</th>
+                                           <td>8h</td> 
+                                           <td>17h</td> 
+                                        </tr>
+
+                                        <tr>
+                                           <th>Mercredi</th>
+                                           <td>8h</td> 
+                                           <td>17h</td> 
+                                        </tr>
+
+                                        <tr>
+                                            <th>Jeudi</th>
+                                            <td>8h</td>  
+                                            <td>17h</td>  
+                                        </tr>
+
+                                        <tr>
+                                            <th>Vendredi</th>
+                                            <td>8h</td>
+                                            <td>17h</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Samedi</th>
+                                            <td>9h - 12h</td>
+                                            <td>14h - 17h</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </footer>
+
+    <!-- Fin footer -->
+
+
           
 
     <!-- jQuery -->
@@ -105,5 +211,7 @@
 
 <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
+
+
 </body>
 </html>
