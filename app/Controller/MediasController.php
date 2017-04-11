@@ -12,13 +12,14 @@ class MediasController extends MasterController
 {
 	public function addMedias()
 	{
-		$check 		= new Master();		
 		$medias 	= new MediasModel();
 		$errors 	= [];
 		$success 	= false;
 
+
+		$check = new Master();		
 		//var_dump($_FILES);
-		//var_dump($_FILES['picture']['error']);
+		// var_dump($_FILES['picture']['error']);
 		//var_dump($_FILES).'<br>';
 
 		
@@ -28,7 +29,7 @@ class MediasController extends MasterController
 	        {
 	        	//die(var_dump($this->checkMedia($_FILES['medias'])));
 	        	$tabMdedias = $check->checkMedia($_FILES['medias']);
-	        	//var_dump($tabMdedias);
+	        	var_dump($tabMdedias);
 
 			    if($tabMdedias)
 			    {
@@ -60,37 +61,38 @@ class MediasController extends MasterController
 
 	}
 
-	public function listMedias($page)
+	public function listMedias()
 	{
-		$medias = new MediasModel();
-	
 		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
-
-		$MediasPerPages  = 12; #Nous allons afficher 12 images par pages
-		$nbMedias		 = $medias->nbMedias(); //Compte le nombre de médias en bdd 
-		$nbPages 		 = ceil($nbMedias/$MediasPerPages); #Permet d'obtenir un chiffre rond, pour mon nombre de pages
-		
-		if(isset($page)) # Si la variable $_GET['page'] existe...
+		// On instancie le model qui permet d'effectuer un findAll() 
+		$medias = new MediasModel();
+		//$images = $medias->findAll();
+		$MediasPerPages  = 12; //Nous allons afficher 5 messages par pages
+		$nbMedias		 = $medias->nbMedias(); 
+		$nbPages = ceil($nbMedias/$MediasPerPages); //Permet d'obtenir un chiffre rond, pour mon nombre de pages
+ 
+		if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 		{
-		     $currentPage=intval($page);
-	 
-		     if($currentPage>$nbPages) # Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nbPages...
+		     $currentPage=intval($_GET['page']);
+		 
+		     if($currentPage>$nbPages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
 		     {
 		          $currentPage=$nbPages;
 		     }
 		}
-		else 
+		else // Sinon
 		{
-		     $currentPage=1; #La page actuelle est la n°1    
+		     $currentPage=1; // La page actuelle est la n°1    
 		}
  
 		$firstEntry=($currentPage-1)*$nbPages; // On calcul la première entrée à lire
-		//var_dump($firstEntry);
  
-		#La requête sql pour récupérer les messages de la page actuelle.
+		// La requête sql pour récupérer les messages de la page actuelle.
 		$retour_messages= $medias->listPageMedias($firstEntry, $MediasPerPages);
-		
+ 
+
 		$params = [
+			//'images' => $images,
 			'medias'	  => $retour_messages,
 			'nbPages'	  => $nbPages,
 			'currentPage' => $currentPage,

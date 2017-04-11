@@ -31,7 +31,7 @@ $this->start('main_content');
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
-				<input type="file" id="medias" name="medias[]" multiple>
+				<input type="file" id="medias" name="medias[]">
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">

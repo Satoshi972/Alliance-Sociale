@@ -22,7 +22,7 @@ class MasterController extends Controller
 		$nbMedias = count($files);//contient le nombre de medias
 		$filesKey = array_keys($files);//contient les entètes de chaque entrée du tableau
 
-	
+		// var_dump($files).'<br>';
 		// var_dump($nbMedias).'<br>';
 		// var_dump($filesKey).'<br>';
 		for ($i=0; $i < $nbMedias; $i++)

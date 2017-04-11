@@ -16,20 +16,25 @@
 	    	<!-- <img src="/Alliance-Sociale/public/<?php// echo $media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias"> -->
 	    	<iframe src="/Alliance-Sociale/public/<?=$media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no"></iframe>
 	    </div>
-
-	<?php 
-		endforeach;
-		?> 
-		<ul class="pagination text-center"><!--  Pour l'affichage, on centre la liste des pages -->
-		<?php 
-		for($i=1; $i<=$nbPages; $i++): //On fait notre boucle
-		?>
-          	<li><a href="<?=$this->url('listmedias',['page'=>$i])?>"><?=$i ?></a></li>
-		<?php 
-		endfor;
-		echo '</ul>';
-	?>
+	       
+	<?php endforeach; ?>
 	</div>
+	<?php 
+	echo '<p align="center">Page : '; //Pour l'affichage, on centre la liste des pages
+		for($i=1; $i<=$nbPages; $i++) //On fait notre boucle
+		{
+		     //On va faire notre condition
+		     if($i==$currentPage) //Si il s'agit de la page actuelle...
+		     {
+		         echo ' [ '.$i.' ] '; 
+		     }	
+		     else //Sinon...
+		     {
+		          echo  "<a href='$this->url('listmedias',['page'=>$i])'>'.$i.'</a>" ;
+		     }
+		}
+		echo '</p>';
+	?>
 </div>
 
 <?php $this->stop('main_content') ?>
