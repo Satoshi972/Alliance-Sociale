@@ -10,18 +10,19 @@ use Intervention\Image\ImageManagerStatic as i;
 
 class MediasController extends MasterController
 {
-
 	public function addMedias()
 	{
 		$medias 	= new MediasModel();
 		$errors 	= [];
 		$success 	= false;
 
+
 		$check = new Master();		
 		//var_dump($_FILES);
 		// var_dump($_FILES['picture']['error']);
 		//var_dump($_FILES).'<br>';
 
+		
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
 		{		
 	        if(!empty($_FILES))
@@ -38,7 +39,6 @@ class MediasController extends MasterController
 			    		$medias->insert($datas);
 			        	$success = true;
 			    	}
-	  
 			    }
 			    else
 			    {

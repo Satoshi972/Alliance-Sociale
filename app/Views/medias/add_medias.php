@@ -32,17 +32,6 @@ $this->start('main_content');
 			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
 				<input type="file" id="medias" name="medias[]">
-			</div>
-		</div>
-
-		<!-- Vidéo -->
-		<!-- <div class="form-group">
-			<label class="col-md-4 control-label" for="video">Videos</label>
-			<div class="col-md-4">
-				<input type="file" id="video" name="video" multiple class="form-control" accept="video/*">
-			</div>
-		</div> -->
-
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">
@@ -50,7 +39,6 @@ $this->start('main_content');
 			</div>
 		</div>
 	</form>
-
 
 <?php 
 $this->stop('main_content'); 
