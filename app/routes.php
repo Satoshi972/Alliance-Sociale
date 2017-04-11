@@ -20,8 +20,11 @@
 
 		//Gestion des Partenaires
 			//Vue du slide
-		['GET|POST', '/partners', 'Partners#partners', 'partners'],
-			//Ajout de partenaires
-		['GET|POST', '/partners/add', 'Partners#addPartners, add_partners'],
-
+		['GET|POST', '/partners/list', 'Partners#partners', 'partners'],
+			//Ajout des Partenaires
+		['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],
+			//Modification des Partenaires
+		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],
+			//Suppression des Partenaires
+		['GET|POST', '/partners/del', 'Partners#delPartners', 'del_partners'],
 	);
