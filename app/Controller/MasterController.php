@@ -3,6 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use Respect\Validation\Validator as v;
+use Intervention\Image\ImageManagerStatic as i;
 
 class MasterController extends Controller
 {
@@ -89,7 +91,7 @@ class MasterController extends Controller
 	/**
 	* Permet l'envoi de mail
 	* @param $mail = mail attendu
-	* @param $token a envoyer via le mail
+	* @param $token a envoyer via le mail, par défaut null
 	*/
 	public function mailTo($email, $token = null)
 	{
@@ -132,7 +134,9 @@ class MasterController extends Controller
 		//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
 		//Replace the plain text body with one created manually
 		//$lien = $this->generateUrl('login');
-		$lien = 'http://127.0.0.1/php/monBlog/public/admin/resetPsw?token=';
+
+		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw/token=';
+
 		$mail->Body = 'Voici votre <a href="'.$lien.$token.'">lien</a> de pour changer votre mot de passe ';
 		//$mail->Body = 'Voici votre lien de pour changer votre mot de passe <a href="'.$_SERVER['DOCUMENT_ROOT'].$lien.'/'.$token.'">lien</a>';
 		$mail->AltBody = "Voici votre lien de pour changer votre mot de passe ";
@@ -144,5 +148,18 @@ class MasterController extends Controller
 		} else {
 		    return true;
 		}
+
+	}
+
+	#Permet de check s'il y a un utilisateur connecté et s'il a les droit pour accéder a cette page
+	public function checkSession()
+	{
+		if(!getUser())
+		{
+			redirectToRoute('login');
+		}
+
+		allowTo(['admin','editor']);
+
 	}
 }
