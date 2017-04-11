@@ -18,7 +18,10 @@
 		 //Gestion_medias
 		['GET|POST', '/medias', 'Medias#addMedias', 'default_medias'],
 
-		//Partenaires
-		['GET|POST', '/partner', 'Partner#partner', 'partner'],
+		//Gestion des Partenaires
+			//Vue du slide
+		['GET|POST', '/partners', 'Partners#partners', 'partners'],
+			//Ajout de partenaires
+		['GET|POST', '/partners/add', 'Partners#addPartners, add_partners'],
 
 	);

@@ -50,7 +50,7 @@ $(document).ready(function() {
     });
 
     //Ajout / Suppression
-    $('.slider').slick({
+    $('.add-remove').slick({
         slidesToShow: 3,
         slidesToScroll: 3
     });
