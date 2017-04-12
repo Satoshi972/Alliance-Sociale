@@ -26,6 +26,6 @@
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
 
         #Contact front
-        ['GET|POST', '/contact_front', 'ContactFront#ContactFront', 'contactfront'],
+        ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
 
 	);

@@ -3,53 +3,56 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use Model\ContactsModel;
 use Respect\Validation\Validator as v;
 
 class ContactFrontController extends MasterController
 {
+    public function addContact()
+    {
+        $contact = new ContactsModel();
+        $errors = [];
+        $post = [];
+        $success = false;
 
-    $enter = new ContactsModel();
-    $errors = [];
-    $post = [];
-    $success = false;
-
-	if(!empty($_POST)) {
-    $post = array_map('trim', array_map('strip_tags', $_POST));
-    $err = [
-        //On vérifie que titre ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-        (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['title'])) ? 'Le nom de famille est invalide' : null,
-        
-        //On vérifie que le champ email soit non vide et qu'il soit valide
-        (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
-        
-        //On vérifie que lastname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-        (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['content'])) ? 'Le nom de famille est invalide' : null,
-    ];
-
-    $errors = array_filter($err);
-
-    if(count($errors) === 0){
-
-        $datas = [
-        'title'   => $post['title'],
-        'email'   => $post['email'],
-        'content' => $post['content'],
+        $post = array_map('trim', array_map('strip_tags', $_POST));
+    	if(!empty($_POST)) {
+        $err = [
+            //On vérifie que le titre ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['title'])) ? 'Le titre est invalide' : null,
+            
+            //On vérifie que le champ email soit non vide et qu'il soit valide
+            (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+            
+            //On vérifie que le contenu ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 250 caractères
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu est invalide' : null,
         ];
-    	
-        $enter->insert($datas);
-               
-            $success = true;
-    }
-    else {
-        $textErrors = implode('<br>', $errors);
-    }
-    
-	}
 
-        $params = [
-       'success' => $success,
-       'errors'  => $errors,
-       ];
+        $errors = array_filter($err);
 
-       $this->show('medias/add_medias',$params);
+        if(count($errors) === 0){
+
+            $datas = [
+            'title'   => $post['title'],
+            'email'   => $post['email'],
+            'content' => $post['content'],
+            ];
+        	
+            $contact->insert($datas);
+                   
+                $success = true;
+        }
+        else {
+            $textErrors = implode('<br>', $errors);
+        }
+        
+    	}
+
+            $params = [
+           'success' => $success,
+           'errors'  => $errors,
+           ];
+
+           $this->show('contact_front/contact_front',$params);
+    }
 }
