@@ -11,15 +11,6 @@
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
-
-    <!-- Permet des inclusions dans mon head depuis la vue -->
-    <?php echo $this->section("head") ?>
 </head>
 <body>
     <div id="navbar-wrapper">
@@ -76,70 +67,7 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
         <div id="sidebar-wrapper">
             <aside id="sidebar">
                 <ul id="sidemenu" class="sidebar-nav">
-                    <!-- <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
-                            <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                            <span class="sidebar-title">Gestion des utilisateurs</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Liste des Utilisateurs</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajout d'utilisateur</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
-                            <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
-                            <span class="sidebar-title">Gestion fiche de contact</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Liste des fiches</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Détails de la fiche</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Marquer comme lu</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Suppression</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Recherche mot clé</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-4">
-                            <span class="sidebar-icon"><i class="fa fa-calendar" aria-hidden="true"></i>
-</span>
-                            <span class="sidebar-title">Gestion des Evènements</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-4" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter un évènement</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Liste des Evènements</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-5">
-                            <span class="sidebar-icon"><i class="fa fa-fire" aria-hidden="true"></i>
-</span>
-                            <span class="sidebar-title">Gestion des Activités</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-5" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Liste des Activités</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Liste des Catégories</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter une activité</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter une catégorie</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-6">
-                            <span class="sidebar-icon"><i class="fa fa-fire" aria-hidden="true"></i></span>
-                            <span class="sidebar-title">Médias</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-6" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter un média</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Galerie</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter une activité</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Ajouter une catégorie</a></li>
-                        </ul>
-                    </li> -->
+                    
                     <div class="container-fluid">
   
   <div class="row">
@@ -220,14 +148,83 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+  	<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?=$this->assetUrl('js/bootstrap.min.js')?>"></script>
 
 
-<!-- Permet des inclusions de scripts depuis la vue -->
+
+
+    <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
+
+
+    <script>
+        $(function(){
+            $('#submitForm').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_login") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            $('#ask_token').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform2'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_ask_token") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+        
+             $('#submitform2').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform3'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_logout") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            $('#new_mdp').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform4'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_resetpsw") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+        });
+</script>
+
 
 </body>
 </html>

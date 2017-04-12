@@ -111,10 +111,10 @@
           
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="<?= $this->assetUrl('js/jquery.js'); ?>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?= $this->assetUrl('js/bootstrap.min.js'); ?>"></script>
 
 
 <!-- Permet des inclusions de scripts depuis la vue -->
