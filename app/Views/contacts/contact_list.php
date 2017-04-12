@@ -47,15 +47,55 @@ $this->start('main_content'); ?>
         <tbody>
             <tr>
             
-                <td><?= $contact['staut']?></td>
+                <td><?php if ($contact['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></td>
                 <td><?= $contact['title']?></td>
                 <td><?= $contact['mail']?></td>
                 <td><?= $contact['date']?></td>
-                <td><button id="myBtn">Voir</button></td>
+                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
+                
+                
+
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal<?=$contact['id'];?>" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Message en Détails :</h4>
+        </div>
+        <div class="modal-body">
+          <ul>
+             <li>Vue : <?php if ($contact['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></li>
+             <li>Id du message : <?= $contact['id']?></li>
+             <li>Titre du message : <?= $contact['title']?></li>
+             <li>Contenu : <?= $contact['content']?></li>
+             <li>Email : <?= $contact['mail']?></li>
+             <li>Date de publication : <?= $contact['date']?></li>
+              
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+                
+                
+                </td>
                 <td><a href="#" class="deleteContact" data-id="<?= $contact['id'] ?>">Supprimer</a></td>
             </tr>
             
         </tbody>
+        
+       
         <?php endforeach; ?>
         
         
@@ -64,14 +104,53 @@ $this->start('main_content'); ?>
         <?php foreach($donnees as $donnee): ?>
         <tbody>
             <tr>
-            
+            <?php if ($donnee['staut'] == 0) {$donnee['staut'] = 'Non lu';} else {$donnee['staut'] = 'Lu';} ?>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['staut']); ?></strong></td>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
-                <td><button id="myBtn">Voir</button></td>
+                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
+                
+                
+                <!-- Modal -->
+  <div class="modal fade" id="myModal<?=$donnee['id'];?>" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Message en Détails :</h4>
+        </div>
+        <div class="modal-body">
+          <ul>
+             <li>Vue : <?php if ($donnee['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></li>
+             <li>Id du message : <?= $donnee['id']?></li>
+             <li>Titre du message : <?= $donnee['title']?></li>
+             <li>Contenu : <?= $donnee['content']?></li>
+             <li>Email : <?= $donnee['mail']?></li>
+             <li>Date de publication : <?= $donnee['date']?></li>
+              
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+                
+                
+                
+                
+                
+                
+                
+                </td>
                 <td><a href="#" class="deleteContact" data-id="<?= $donnee['id'] ?>">Supprimer</a></td>
             </tr>
+            
             
         </tbody>
         <?php endforeach; ?>
@@ -90,19 +169,8 @@ $this->start('main_content'); ?>
 		<?php } ?>
 	</table>
    
-<!-- The Modal -->
-<div id="myModal" name="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
 
-</div>
-
-	
-    
      
  <?php  
     
