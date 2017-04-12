@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+    <!-- <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>"> -->
 
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
