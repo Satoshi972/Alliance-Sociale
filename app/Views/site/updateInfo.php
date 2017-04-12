@@ -18,25 +18,28 @@ $this->start('main-content');
 	<div class="form-group">
 		<label for="Logo">Logo</label>
 		<img src="<?php $this->assetUrl($info['logo']); ?>" class="img-responsive img-thumbnail" alt="Logo">
-		<input type="hidden" value="<?php $this->assetUrl($info['logo']); ?>"
 		<input type="file" id="Logo" name="Logo">
 	</div>
 
 	<div class="form-group">
 		<label for="Header">Header</label>
 		<img src="<?php $this->assetUrl($info['header']); ?>" class="img-responsive img-thumbnail" alt="Header">
-		<input type="hidden" value="<?php $this->assetUrl($info['header']); ?>">
 		<input type="file" id="Header" name="Header">
 	</div>
 
 	<div class="form-group">
 		<label for="Address">Adresses</label>
-		<textarea class="form-control" id="Address" name="Address" cols="30" rows="10"><?php $this->assetUrl($info['address']); ?></textarea>	
+		<textarea class="form-control" id="Address" name="Address" cols="30" rows="10"><?php $this->assetUrl($infos['address']); ?></textarea>	
 	</div>
 
 	<div class="form-group">
-		<label for="">Horraire</label>
-		<textarea name="" id="" cols="30" rows="10"><?php $this->assetUrl($info['shedule']); ?></textarea>
+		<label for="shedule">Horraire</label>
+		<textarea name="shedule" id="shedule" cols="30" rows="10" class="form-control"><?= $infos['shedule']); ?></textarea>
+	</div>	
+
+	<div class="form-group">
+		<label for="phone">Téléphone</label>
+		<input type="text" name="phone" id="phone"  class="form-control" value="<?=$infos['phone']; ?>">
 	</div>
 
 	<div class="text-center">

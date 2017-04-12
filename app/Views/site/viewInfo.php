@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout_back', ['title' => 'Mise a jour des infos du site']);
+$this->layout('layout', ['title' => 'Mise a jour des infos du site']);
 
 $this->start('main-content');
 ?>
@@ -17,18 +17,24 @@ $this->start('main-content');
 
 	<div class="list-group-item text-center">
 	<h4 class="list-group-item-heading">Addresse</h4>
-	<p class="list-group-item-text"><?= $info['address'];?></p>
+	<p class="list-group-item-text"><?= $infos['address'];?></p>
 	</div>
 
 	<div class="list-group-item text-center">
 	<h4 class="list-group-item-heading">Horaire</h4>
-	<p class="list-group-item-text"><?=$info['schedule'];?></p>
+	<p class="list-group-item-text"><?=$infos['schedule'];?></p>
 	</div>
 
+	<div class="list-group-item text-center">
+	<h4 class="list-group-item-heading">Telephone</h4>
+	<p class="list-group-item-text"><?=$infos['phone'];?></p>
+	</div>
+		
 	<div class="text-center">
-		<a href="<?= $this->url('update_info',['id'=>$info['id']]); ?>"><button class="btn-info">Modification</button></a>
+		<a href="<?=$this->url('update_info',['id'=>$infos['id']]) ?>">
+			<button class="btn btn-info">Modification</button>
+		</a>
 	</div>
-
 <?php
 $this->stop('main-content');
 ?>

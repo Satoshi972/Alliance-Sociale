@@ -19,7 +19,7 @@ class MasterController extends Controller
 		$uploadDir = 'assets/medias/'; // Répertoire d'upload
 		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
 		$filesClean = []; // Tableau final qui contiendras les chemin respectifs des médias
-		$nbMedias = count($files);//contient le nombre de medias
+		$nbMedias = count($files['name']);//contient le nombre de medias
 		$filesKey = array_keys($files);//contient les entètes de chaque entrée du tableau
 
 	
