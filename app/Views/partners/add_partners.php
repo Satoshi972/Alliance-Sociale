@@ -15,33 +15,41 @@ $this->start('main_content');?>
         <?php endif; ?>
 
 
-<div class = "container">
-<h2>Ajouter un partenaire</h2>
+<div class ="container">
+	<div class="row">
+		<div class="col-md-12">
 
-	<form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
+			<div class="col-md-6 col-md-offset-3">
+				<h2>Ajouter un partenaire</h2>
 
-		
-	 <div class="form-group">            
-            <label class="col-md-6 control-label" for="name">Partenaire : </label>
-			<div class="col-md-6">
-            <input type="text" class="form-control" name="name" id="name">
-            </div>
-			</div>
-         
-		
-		<div class="form-group">
-			<label class="col-md-6 control-label" for="url">Logo : </label>
-			<div class="col-md-6">
-			<input type="file" name="url" id="url" accept="image/*">
-			</div>
-			</div>
-		
+				<form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
 
-		<div class="form-group">
-			<div class="col-md-6 col-md-offset-6">
-				<button type="submit" id="submitForm" class="btn btn-primary">Ajouter des médias</button>
+					
+				 <div class="form-group">            
+			            <label class="col-md-2 control-label" for="name">Partenaire</label>
+						<div class="col-md-10">
+			            <input type="text" class="form-control" name="name" id="name">
+			            </div>
+				</div>
+			         
+					
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="url">Logo</label>
+						<div class="col-md-10">
+						<input type="file" name="url" id="url" accept="image/*">
+						</div>
+					</div>
+					
+
+					<div class="form-group">
+						<div class="col-md-6 col-md-offset-3">
+							<button type="submit" id="submitForm" class="btn btn-primary">Ajouter de Partenaire</button>
+						</div>
+					</div>
+					
+				</form>
 			</div>
-		
-	</form>
+		</div>
+	</div>
 </div>
 <?php $this->stop('main_content'); ?>
