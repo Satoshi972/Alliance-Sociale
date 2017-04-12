@@ -123,7 +123,7 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
           Gestion des Activités   <i class="fa fa-caret-down"></i></a>
           <div class="collapse" id="demo4">
             <a href="" class="list-group-item">Liste des Activités</a>
-            <a href="" class="list-group-item">Ajouter une activité</a>
+            <a href="<?= $this->url('activity_activity') ?>" class="list-group-item">Ajouter une activité</a>
             <a href="" class="list-group-item">Liste des Catégories</a>
             <a href="" class="list-group-item">Ajouter une catégorie</a>
           </div>

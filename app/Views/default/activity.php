@@ -1,13 +1,46 @@
-<?php $this->layout('layout_front', ['title' => 'Activités']) ?>
+<?php $this->layout('layout_back', ['title' => '']) ?>
 
 <?php $this->start('main_content') ?>
-	<div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Nos Activités</h1>
-                        <p>Le centre social Alliance Sociale contribue à animer depuis plus de 10 ans , la vie de la cité au sein des trois cités de la commune du Marin.</p><br><p>Vous pourrez découvrir un panel de toutes les activités que propose, anime et délivre le centre au quotidien.</p>
-                </div>
-            </div>
+
+	<h1 class="text-center">Ajout d'une activité</h1>
+	<br>
+
+	<div id="result"></div>
+
+	<form method="post" id="addActivity" class="form-horizontal" enctype="multipart/form-data">
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="name">Name</label>
+			<div class="col-md-4">
+				<input type="text" id="name" name="name" class="form-control">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="category">Categorie</label>
+			<div class="col-md-4">
+				<input type="text" id="category" name="category" class="form-control">
+			</div>
+		</div>
+
+		<div class="col-md-4 form-group">
+		<label for="picture">Photo</label>
         </div>
+        <div class="col-md-8 form-group">
+		<input type="file" name="picture" class="form-control" id="picture" accept="image/*">
+        </div>
+
+		<div class="form-group">
+			<div class="col-md-4 col-md-offset-4">
+				<button type="submit" id="submitForm" class="btn btn-primary">Ajouter l'activité</button>
+			</div>
+		</div>
+
+	</form>
+
+<!--script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script-->
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/script.js"></script>
+</body>
 <?php $this->stop('main_content') ?>
+</html>
+
