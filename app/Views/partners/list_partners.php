@@ -3,10 +3,11 @@
   <?php $this->start('main_content') ?>
 
   <div class="container">
-      <div class="col-md-12">
+    <div class="col-md-12">
 
+      <div class="col-md-12 text-center">
         <h1>Listes des Partenaires</h1>
-
+      </div>
         <?php foreach($partners as $partner): ?>
           
  

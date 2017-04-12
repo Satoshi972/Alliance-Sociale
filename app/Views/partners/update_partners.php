@@ -5,54 +5,52 @@ $this->layout('layout_back', ['title' => 'Modifier un partenaire']);
 $this->start('main_content');
 ?>
 
-  <style>
-    label {
-      display: inline-block;
-      min-width: 200px;
-      margin-bottom: 7px;
-    }
-    
-    input,
-    select,
-    textarea {
-      margin-bottom: 7px;
-    }
-  </style>
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
 
+      <div class="col-md-6 col-md-offset-3 text-center well">
+      
+      
+        <h2>Modifier Partenaire</h2>
 
-  <?php if($success == true): // La variable $success est envoyé via le controller?>
-    <p style="color:green">Le partenaire a été modifié</p>
-    <?php endif; ?>
+          <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
+            <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
+          <?php endif; ?>
 
-      <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-        <p style="color:red">
-          <?=implode('<br>', $errors); ?>
-        </p>
-        <?php endif; ?>
+          <?php if($success == true): // La variable $success est envoyé via le controller?>
+            <p class="alert alert-success alert-dismissable">Votre partenaire à bien été modifier</p>
+          <?php endif; ?>
 
-      <h2> Modifier un partenaire </h2>
+        <form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
 
-          <form method="post" class="form-horizontal" enctype="multipart/form-data">
-
-            <div class="form-group">
-               <label class="col-md-4 control-label" for="name">Partenaire</label>
-               <div class="col-md-4">
-                <input type="text" name="name" id="name">
-               </div>
-               </div>
-
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="url">Logo</label>
-              <div class="col-md-4">
-                <input type="file" id="url" name="url" multiple class="form-control">
-              </div>
+          
+          <div class="form-group">            
+                <label class="col-md-2 control-label" for="name">Partenaire</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="name" id="name">
+                </div>
+          </div>
+               
+          
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="url">Logo</label>
+            <div class="col-md-10">
+            <input type="file" name="url" id="url" accept="image/*">
             </div>
+          </div>
+          
 
-            <div class="form-group">
-              <div class="col-md-4 col-md-offset-4">
-                <input type="submit" value="Modifier l'utilisateur'">
-              </div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-3">
+              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter de Partenaire</button>
             </div>
-          </form>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-          <?php $this->stop('main_content'); ?>
+<?php $this->stop('main_content'); ?>
