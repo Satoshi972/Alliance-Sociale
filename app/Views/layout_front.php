@@ -129,9 +129,8 @@
         </section>
 
     <!-- Début footer -->
-        
         <footer>
-            <main class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
@@ -149,52 +148,19 @@
                             <div class="col-sm-4 text-center">
                                 <h3>Horaire</h3>
 
-                                <div class="table-responsive">          
-                                    <table class="table">
-                                        
-                                        <tr>
-                                            <th>Lundi</th>
-                                            <td>8h - 12h</td>
-                                            <td>13h - 17h</td>
-                                        </tr>
+                                <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
+                                Du Mardi au Vendredi : 8h00 à 17h00<br>
+                                Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
+                            </div>
 
-                                        <tr>
-                                           <th>Mardi</th>
-                                           <td>8h</td> 
-                                           <td>17h</td> 
-                                        </tr>
-
-                                        <tr>
-                                           <th>Mercredi</th>
-                                           <td>8h</td> 
-                                           <td>17h</td> 
-                                        </tr>
-
-                                        <tr>
-                                            <th>Jeudi</th>
-                                            <td>8h</td>  
-                                            <td>17h</td>  
-                                        </tr>
-
-                                        <tr>
-                                            <th>Vendredi</th>
-                                            <td>8h</td>
-                                            <td>17h</td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>Samedi</th>
-                                            <td>9h - 12h</td>
-                                            <td>14h - 17h</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                            <div class="col-md-12 text-center">
+                               C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 
                             </div>
 
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </footer>
 
     <!-- Fin footer -->
