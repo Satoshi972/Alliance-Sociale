@@ -7,6 +7,12 @@ use Respect\Validation\Validator as v;
 
 class ContactFrontController extends MasterController
 {
+
+    $enter = new ContactsModel();
+    $errors = [];
+    $post = [];
+    $success = false;
+
 	if(!empty($_POST)) {
     $post = array_map('trim', array_map('strip_tags', $_POST));
     $err = [
@@ -23,8 +29,27 @@ class ContactFrontController extends MasterController
     $errors = array_filter($err);
 
     if(count($errors) === 0){
-    	
 
+        $datas = [
+        'title'   => $post['title'],
+        'email'   => $post['email'],
+        'content' => $post['content'],
+        ];
+    	
+        $enter->insert($datas);
+               
+            $success = true;
     }
+    else {
+        $textErrors = implode('<br>', $errors);
+    }
+    
 	}
+
+        $params = [
+       'success' => $success,
+       'errors'  => $errors,
+       ];
+
+       $this->show('medias/add_medias',$params);
 }
