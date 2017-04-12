@@ -24,5 +24,10 @@
         ['GET|POST','/token/', 'token#ajax_ask_token', 'ajax_ask_token'],
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
+        
+         #Routes contacts
+        ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
+        ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+        ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
 
 	);

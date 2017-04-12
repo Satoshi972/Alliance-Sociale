@@ -19,7 +19,49 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
 
+   
+   <style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
     <!-- Permet des inclusions dans mon head depuis la vue -->
+    
     <?php echo $this->section("head") ?>
 </head>
 <body>
@@ -27,7 +69,7 @@
 
 
 
-<div class="nav-side-menu">
+<!-- <div class="nav-side-menu">
     <div class="brand">Espace Administration</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
@@ -40,7 +82,7 @@
                   </a>
                 </li> -->
 
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                <!--<li  data-toggle="collapse" data-target="#products" class="collapsed active">
                   <a href="#"><i class="fa fa-users fa-lg"></i> Gestion des utilisateurs <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="products">
@@ -93,7 +135,7 @@
 
             </ul>
      </div>
-</div>
+</div> -->
 
         <div>
             <?= $this->section('main_content') ?>
@@ -105,7 +147,162 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
 
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        $(function(){
+            
+            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
+			console.log(result); // équivalent à un var_dump()
+
+			var resHTML = '';
+
+			$.each(result, function(key, value){
+				resHTML+= '<tr>';
+				resHTML+= '<td>'+
+                    /*<?php if (value === 0){ echo 'Non Lu';} else {echo 'Lu';} ?> */
+                    
+                    value.staut+'</td>';
+				resHTML+= '<td>'+value.title+'</td>';
+				resHTML+= '<td>'+value.mail+'</td>';
+				resHTML+= '<td>'+value.date+'</td>';
+                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
+				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
+				resHTML+= '</tr>';
+                
+			});
+
+			$('#contactsAjax').html(resHTML);
+		});	
+            
+            // Suppression utilisateur avec DOM modifié à la volé
+	$('body').on('click', 'a.deleteContact', function(element){
+		element.preventDefault(); // Bloque l'action par défaut de l'élement
+
+		$.ajax({
+			method: 'post',
+			url: '<?= $this->url('ajaxDeleteContact') ?>',
+			data: {id_user: $(this).data('id')}, 
+			success: function(resultat){
+				$('#mon_resultat').html(resultat); 
+                
+				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
+			console.log(result); // équivalent à un var_dump()
+
+			var resHTML = '';
+
+			$.each(result, function(key, value){
+				resHTML+= '<tr>';
+				resHTML+= '<td>'+
+                    
+                    
+                    
+                    value.staut+'</td>';
+				resHTML+= '<td>'+value.title+'</td>';
+				resHTML+= '<td>'+value.mail+'</td>';
+				resHTML+= '<td>'+value.date+'</td>';
+                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
+				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
+				resHTML+= '</tr>';
+                
+			});
+
+			$('#contactsAjax').html(resHTML);
+		});	
+			 }
+		});
+	}); 
+            
+            $('#submitForm').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_login") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            $('#ask_token').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform2'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_ask_token") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+        
+             $('#submitform2').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform3'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_logout") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            $('#new_mdp').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform4'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_resetpsw") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            
+            
+        });
+</script>
 
 <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
