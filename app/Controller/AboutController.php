@@ -4,25 +4,25 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\MediaModel as Media;
-use Model\SiteInfoModel as Site;
+use Model\AboutModel as about;
 use Respect\Validation\Validator as v;
 use Intervention\Image\ImageManagerStatic as i;
 use Controller\MasterController as master;
 
-class SiteController extends MasterController
+class AboutController extends MasterController
 {
 	public function home()
 	{
-		$infos = new Site();
+		$infos = new about();
 
-		$datas = $infos->infoSite();
+		$datas = $infos->lastAbout();
 
 		$this->show('site/viewInfo', ['infos'=>$datas]);
 	}
 
-	public function updateInfo($id)
+	public function updateAbout($id)
 	{
-		$infos = new Site();
+		$infos = new about();
 
 		$datas = $infos->find($id);
 
