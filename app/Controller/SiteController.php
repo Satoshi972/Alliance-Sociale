@@ -24,7 +24,7 @@ class SiteController extends MasterController
 	{
 		$infos = new Site();
 
-		$datas = $infos->find($id);
+		$datas = $infos->infoSite();
 
 		if(!empty($_POST))
 		{

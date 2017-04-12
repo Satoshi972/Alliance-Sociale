@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout', ['title' => 'Information du site']);
+$this->layout('layout', ['title' => 'Mise a jour des infos du site']);
 
 $this->start('main-content');
 ?>
@@ -29,35 +29,12 @@ $this->start('main-content');
 	<h4 class="list-group-item-heading">Telephone</h4>
 	<p class="list-group-item-text"><?=$infos['phone'];?></p>
 	</div>
-		<div class="container">
-  <h2>Small Modal</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a small modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+		
 	<div class="text-center">
-		<a href="<?=$this->url('update_site',['id'=>$infos['id']]) ?>">
+		<a href="<?=$this->url('update_info',['id'=>$infos['id']]) ?>">
 			<button class="btn btn-info">Modification</button>
 		</a>
 	</div>
-
 <?php
 $this->stop('main-content');
 ?>
