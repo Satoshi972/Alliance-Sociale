@@ -15,7 +15,7 @@
 				</div>
 					
 	    		<div class="col-md-4">
-					<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="présidente" class="img-responsive">
+					<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="présidente" class="img-responsive img-thumbnail">
 				</div>
 
 				<?php foreach($views as $view): ?>
