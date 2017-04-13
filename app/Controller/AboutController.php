@@ -17,7 +17,7 @@ class AboutController extends MasterController
 
 		$datas = $infos->lastAbout();
 
-		$this->show('site/viewInfo', ['infos'=>$datas]);
+		$this->show('about/viewAbout', ['infos'=>$datas]);
 	}
 
 	public function updateInfo($id)
@@ -66,5 +66,7 @@ class AboutController extends MasterController
 
 			echo $result;
 		}
+
+		$this->show('about/updateAbout');
 	}
 }

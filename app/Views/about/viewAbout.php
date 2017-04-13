@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout', ['title' => 'Mise a jour des infos du site']);
+$this->layout('layout', ['title' => 'A propos']);
 
 $this->start('main-content');
 ?>

@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout', ['title' => 'Mise a jour des infos du site']);
+$this->layout('layout', ['title' => 'Voir les infos du site']);
 
 $this->start('main-content');
 ?>
@@ -31,9 +31,10 @@ $this->start('main-content');
 	</div>
 		
 	<div class="text-center">
-		<a href="<?=$this->url('update_info',['id'=>$infos['id']]) ?>">
+		<!-- <a href="<?php //echo $this->url('update_site',['id'=>$infos['id']]) ?>">
 			<button class="btn btn-info">Modification</button>
-		</a>
+		</a> -->
+		<!-- <input type="bouton" value="Liste des utilisateurs" onclick="document.location.href='/Alliance-Sociale/public/management/updateInfo';"> -->
 	</div>
 <?php
 $this->stop('main-content');
