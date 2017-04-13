@@ -196,7 +196,14 @@ class PartnersController extends Controller
     
     
     //Suppression des partenaires
-    public function delPartners(){
-       $this->show('partners/del_partners');
+    public function delPartners($id){
+
+        $del = new PartnersModel();
+        $remove = $del -> delete($id);
+
+        $this->show('partners/del_partners',[
+        'affiche'=> $remove,
+        ]);
     }
+
 }
