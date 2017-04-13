@@ -25,12 +25,16 @@ $this->start('main_content'); ?>
     </form>
     
     <p>Trier par : 
+        
+		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=view&order=desc">Lecture (croissant)</a> |
+		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=view&order=asc">Lecture (décroissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=titre&order=asc">Titre (croissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=titre&order=desc">Titre (décroissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=email&order=asc">Email (croissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=email&order=desc">Email (décroissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=asc">Date (croissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=desc">Date (décroissant)</a>
+		<div id="result"></div>
 	<table>
 		<thead>
 			<tr>
@@ -79,6 +83,15 @@ $this->start('main_content'); ?>
           </ul>
         </div>
         <div class="modal-footer">
+        
+        <?php if ($contact['staut'] == 0) { ?>
+        <form action="<?= $this->url("updateCheck") ?>" id=checkform4 method=post>
+            <input type=hidden name="hidden" value="<?= $contact['id']?>">
+            <button type=submit class="btn btn-default" id="submitform3">Marquer comme Lu</button>
+        
+        
+        </form>
+        <?php } ?>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -124,7 +137,7 @@ $this->start('main_content'); ?>
         </div>
         <div class="modal-body">
           <ul>
-             <li>Vue : <?php if ($donnee['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></li>
+             <li>Vue : <?= $donnee['staut']?></li>
              <li>Id du message : <?= $donnee['id']?></li>
              <li>Titre du message : <?= $donnee['title']?></li>
              <li>Contenu : <?= $donnee['content']?></li>
@@ -134,6 +147,15 @@ $this->start('main_content'); ?>
           </ul>
         </div>
         <div class="modal-footer">
+         
+         <?php if ($donnee['staut'] == "Non lu") { ?>
+        <form action="<?= $this->url("updateCheck") ?>" id=checkform4 method=post>
+            <input type=hidden name="hidden" value="<?= $donnee['id']?>">
+            <button type=submit class="btn btn-default" id="submitform3">Marquer comme Lu</button>
+        
+        
+        </form>
+        <?php } ?>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

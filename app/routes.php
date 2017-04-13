@@ -29,5 +29,6 @@
         ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
         ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
         ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
+        ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
 	);

@@ -221,6 +221,21 @@
                 });
             });
             
+            /*$('#submitform3').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform4'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("updateCheck") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            }); */
+            
             $('#new_mdp').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
 

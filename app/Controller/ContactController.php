@@ -35,6 +35,9 @@ if(isset($_GET['order']) && isset($_GET['column'])){
 	elseif($_GET['column'] == 'email'){
 		$order = 'mail';
 	}
+    elseif($_GET['column'] == 'view'){
+		$order = 'staut';
+	}
 
 	if($_GET['order'] == 'asc'){
 		$order2= 'ASC';
@@ -81,8 +84,8 @@ if(isset($_GET['order']) && isset($_GET['column'])){
     }else {
         $contacts = $select->findAll();
         
-    
-        $this->show('contacts/contact_list');   
+        $params = ["contacts" => $contacts];
+        $this->show('contacts/contact_list', $params);  
         
     }
         
@@ -152,6 +155,29 @@ if(isset($_GET['order']) && isset($_GET['column'])){
         
     }
     
-    
+     public function updateCheck()
+	{
+        $select = new ContactsModel();
+        $redirect =new Controller;
+        
+        
+        if(!empty($_POST)){
+            // Nettoyage des données
+            foreach($_POST as $key => $value){
+            $post[$key] = trim(strip_tags($value));
+        
+        
+        $update = $select->update(["staut"=> 1,],$post["hidden"]);
+        
+        $result = '<div class="alert alert-success">Le message est maintenant marqué comme lu !</div>';
+            
+        echo $result; // On envoi le résultat
+        
+        }
+        }
+        $redirect->redirectToRoute('contactList');
+        $this->show('contacts/updateCheck');
+        
+    }
     
 }
