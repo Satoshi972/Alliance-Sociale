@@ -2,6 +2,8 @@
 	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
+		['GET', '/activity/', 'Activity#activity', 'default_activity'],
+
 
 		# Gestions des utilisateurs			
 		['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
@@ -13,7 +15,6 @@
 		#gestion_medias		
 		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
 		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'], // Listes Médias
-
         
         #Routes login-logout
         ['GET|POST','/login', 'User#login', 'login'],
@@ -26,5 +27,11 @@
         ['GET|POST','/token/', 'token#ajax_ask_token', 'ajax_ask_token'],
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
+        
+         #Routes contacts
+        ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
+        ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+        ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
+        ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
 	);
