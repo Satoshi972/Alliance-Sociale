@@ -26,5 +26,5 @@
 			//Modification des Partenaires
 		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],
 			//Suppression des Partenaires
-		['GET|POST', '/partners/del', 'Partners#delPartners', 'del_partners'],
+		['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],
 	);
