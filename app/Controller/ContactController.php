@@ -76,8 +76,10 @@ if(isset($_GET['order']) && isset($_GET['column'])){
         $this->show('contacts/contact_list', $params);  
             
         }else{
+        $contacts = $select->findAll();    
         $textErrors = implode('<br>', $errors);
-		$params = ["errors" => $textErrors];
+		$params = ["contacts" => $contacts,
+                   "errors" => $textErrors];
         $this->show('contacts/contact_list', $params);  
 	} 
     }    

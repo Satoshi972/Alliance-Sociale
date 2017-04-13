@@ -43,7 +43,6 @@ class ContactsModel extends \W\Model\Model
     public function findAllsearch($chainesearch, $orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
 	{
 		$sql = 'SELECT * FROM ' . $this->table. ' WHERE title LIKE "%'. $chainesearch 
-        .'%" OR content LIKE "%'. $chainesearch 
         .'%" OR mail LIKE "%'. $chainesearch 
         .'%" OR date LIKE "%'. $chainesearch 
         .'%"';
