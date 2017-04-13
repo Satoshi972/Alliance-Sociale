@@ -135,7 +135,7 @@ class MasterController extends Controller
 		//Replace the plain text body with one created manually
 		//$lien = $this->generateUrl('login');
 
-		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw/token=';
+		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw?token=';
 
 		$mail->Body = 'Voici votre <a href="'.$lien.$token.'">lien</a> de pour changer votre mot de passe ';
 		//$mail->Body = 'Voici votre lien de pour changer votre mot de passe <a href="'.$_SERVER['DOCUMENT_ROOT'].$lien.'/'.$token.'">lien</a>';
