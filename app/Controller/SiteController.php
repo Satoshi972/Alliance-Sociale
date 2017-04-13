@@ -66,6 +66,5 @@ class SiteController extends MasterController
 
 			echo $result;
 		}
-		$this->show('site/updateInfo');
 	}
 }
