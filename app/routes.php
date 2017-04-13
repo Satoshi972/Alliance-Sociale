@@ -27,4 +27,8 @@
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
 
+
+        #Qui sommes nous
+        ['GET|POST','/about', 'AboutFront#views', 'about'],
+
 	);
