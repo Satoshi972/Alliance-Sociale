@@ -40,54 +40,120 @@ class MasterController extends Controller
 	        $extension = pathinfo($filesClean[$i]['name'], PATHINFO_EXTENSION); //récupère l'extension de mon fichier
 	        // var_dump($mimeType).'<br>';
 	        // var_dump($extension).'<br>';
+	        if($filesClean[0]['error'] === 0)
+	        {
 
-	        if(in_array($mimeType, $mimeTypeAvailable))
-			{
-
-				if($filesClean[$i]['size'] <= $maxSize)
+		        if(in_array($mimeType, $mimeTypeAvailable))
 				{
 
-					if(!is_dir($uploadDir))
+					if($filesClean[$i]['size'] <= $maxSize)
 					{
-						mkdir($uploadDir, 0755);
+
+						if(!is_dir($uploadDir))
+						{
+							mkdir($uploadDir, 0755);
+						}
+
+						$newMediaName = uniqid('media').'.'.$extension;
+						//var_dump($newMediaName).'<br>';
+
+						if(!move_uploaded_file($filesClean[$i]['tmp_name'], $uploadDir.$newMediaName))
+						{
+							#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+							//return false;
+							continue; //ignore le fichier avec l'erreur
+						}
+						else
+						{
+							$datas[$i] = $uploadDir.$newMediaName;
+							//var_dump($datas[$i]);
+						}
+
 					}
-
-					$newMediaName = uniqid('media').'.'.$extension;
-					//var_dump($newMediaName).'<br>';
-
-					if(!move_uploaded_file($filesClean[$i]['tmp_name'], $uploadDir.$newMediaName))
+					else 
 					{
-						#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+						#$errors[] = 'La taille du fichier excède 50 Mo';
 						//return false;
-						continue; //ignore le fichier avec l'erreur
-					}
-					else
-					{
-						$datas[$i] = $uploadDir.$newMediaName;
-						//var_dump($datas[$i]);
+						continue;
 					}
 
 				}
 				else 
 				{
-					#$errors[] = 'La taille du fichier excède 50 Mo';
+					#$errors[] = 'Le fichier n\'est pas une Vidéo valide';
 					//return false;
 					continue;
 				}
 
-			}
-			else 
-			{
-				#$errors[] = 'Le fichier n\'est pas une Vidéo valide';
-				//return false;
-				continue;
-			}
+	        }
+	        else
+	        {
+	        	continue;
+	        }
 		}
 
 		//return $filesClean;
 		return (!empty($datas)) ? $datas : null;
 	}
+/*
+	public function checkImg($files)
+	{
+		$filesClean = []; 
+		$filesKey = array_keys($files);
+		$maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
+		$uploadDir = 'assets/uploads/img'; // Répertoire d'upload
+		$mimeTypeAvailable = ['image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
 
+		foreach ($filesKey as $key) 
+		{
+			// var_dump($key).'br>';
+            $filesClean[$key] = $files[$key];
+        }
+        //var_dump($filesClean).'<br>';
+        var_dump($filesClean['tmp_name']);
+
+        $finfo = new \finfo();
+
+		$mimeType = $finfo->file($filesClean['tmp_name'], FILEINFO_MIME_TYPE); //récupere le mimetype de mo médias
+        $extension = pathinfo($filesClean['name'], PATHINFO_EXTENSION); //récupère l'extension de mon fichier
+
+		if(in_array($mimeType, $mimeTypeAvailable))
+		{
+
+			if($filesClean['size'] <= $maxSize)
+			{
+
+				if(!is_dir($uploadDir))
+				{
+					mkdir($uploadDir, 0755);
+				}
+
+				$newName = uniqid('img').'.'.$extension;
+				//var_dump($newName).'<br>';
+
+				if(!move_uploaded_file($filesClean['tmp_name'], $uploadDir.$newMediaName))
+				{
+					#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+					//return false;
+					return false; //ignore le fichier avec l'erreur
+				}
+				else
+				{
+					return  $uploadDir.$newMediaName;
+					//var_dump($datas[$i]);
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+*/
 	/**
 	* Permet l'envoi de mail
 	* @param $mail = mail attendu
@@ -162,4 +228,5 @@ class MasterController extends Controller
 		allowTo(['admin','editor']);
 
 	}
+
 }
