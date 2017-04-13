@@ -10,7 +10,24 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    
+  
+  	
+	<!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/style_modal.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+	
+
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+
+	<!-- Permet l'inclusion de head dans ma vue  -->
+	<?= $this->section('head') ?>
+
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+  
 </head>
 <body>
     <div id="navbar-wrapper">
@@ -159,6 +176,20 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
     <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
 
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      
+    <script src="<?= $this->assetUrl('js/script_modal.js') ?>"></script>
+
+    <!-- Permet l'insertion de script dans ma vue -->
+    <?= $this->section('script'); ?>
+
+
+
+<!-- script -->
+	<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
     <script>
         $(function(){

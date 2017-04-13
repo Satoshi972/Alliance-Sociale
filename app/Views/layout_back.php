@@ -103,10 +103,12 @@
                                 </span>
                               </a>
 
+
                               <div class="collapse" id="demo1">
                                 <a href="" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
+
 
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
@@ -188,6 +190,7 @@
             </aside> 
 
         </div>
+
 
         <main id="page-content-wrapper" role="main">
           <div class="content">

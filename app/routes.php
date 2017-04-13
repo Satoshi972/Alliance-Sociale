@@ -5,15 +5,16 @@
 		['GET', '/activity/', 'Activity#activity', 'default_activity'],
 
 
+		# Gestions des utilisateurs			
+		['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
+		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
+		['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
+		['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
+		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
 
-
-		#gestion_medias#
-		
-		// Ajouts médias
-		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
-		// Listes Médias
-		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listmedias'],
-
+		#gestion_medias		
+		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
+		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'], // Listes Médias
         
         #Routes login-logout
         ['GET|POST','/login', 'User#login', 'login'],

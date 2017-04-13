@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Se déconnecter']) ?>
+<?php $this->layout('layout_back', ['title' => 'Se déconnecter']) ?>
 
     <?php 
 //début du bloc main_content
