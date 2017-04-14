@@ -47,21 +47,21 @@
 							<div class="col-md-4">							
 								<figure>
 									<h4 class="text-center">Coordinatrice</h4>
-									<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+									<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Joanna FILET</figcaption>
 								</figure>
 							</div>
 							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Présidente</h4>
-									<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+									<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Léa JEAN-BAPTISTE ADOLPHE</figcaption>
 								</figure>
 							</div>
 							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Directeur</h4>
-									<img src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+									<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mr Jean-Michel MONGIS</figcaption>
 								</figure>								
 							</div>
@@ -73,7 +73,7 @@
 						<div class="col-md-2">
 								<figure>
 									<h5 class="text-center">Chargé d'Acceuil</h5>
-									<img src="<?= $this->assetUrl('teamAS/Tania Gris Desormaux.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+									<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Tania Gris Desormaux.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Tania GROS-DESORMEAUX</figcaption>
 								</figure>
 						</div>
@@ -81,7 +81,7 @@
 						<div class="col-md-2">
 							<figure>
 								<h5 class="text-center">Référente Famille</h5>
-								<img src="<?= $this->assetUrl('teamAS/Sandrine Poulin.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Sandrine Poulin.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 								<figcaption class="text-center">Mme Sandrine POULIN</figcaption>
 							</figure>
 						</div>
@@ -89,15 +89,15 @@
 						<div class="col-md-2">
 							<figure>
 								<h5 class="text-center">Chargé d'Animation</h5>
-								<img src="<?= $this->assetUrl('teamAS/Pamela Cabit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
-								<figcaption class="text-center">Mme Pamela CABIT</figcaption>
+								<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Pamela Cabit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<figcaption class="textclass="thumbnail img-responsive" -center">Mme Pamela CABIT</figcaption>
 							</figure>
 						</div>
 						
 						<div class="col-md-2">
 							<figure>
 								<h5 class="text-center">Acompagnement Scolarité</h5>
-								<img src="<?= $this->assetUrl('teamAS/Lydie Milton.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Lydie Milton.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 								<figcaption class="text-center">Mme Lydie MILTON</figcaption>
 							</figure>
 						</div>
@@ -105,7 +105,7 @@
 						<div class="col-md-2">
 							<figure>
 								<h5 class="text-center">Animateur de Loisirs</h5>
-								<img src="<?= $this->assetUrl('teamAS/Dominique Rosina.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Dominique Rosina.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 								<figcaption class="text-center">Mr Dominique ROSINA</figcaption>
 							</figure>
 						</div>
@@ -113,7 +113,7 @@
 						<div class="col-md-2">
 							<figure>
 								<h5 class="text-center">Référent Jeunesse</h5>
-								<img src="<?= $this->assetUrl('teamAS/Roger Gabrit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail" >
+								<img class="thumbnail img-responsive" src="<?= $this->assetUrl('teamAS/Roger Gabrit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail" >
 								<figcaption class="text-center">Mr Roger GABRIT</figcaption>
 							</figure>
 						</div>
@@ -124,5 +124,36 @@
 	</div>
 </div>
 
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title">Heading</h3>
+	</div>
+	<div class="modal-body">
+		
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
+</div>
 
 <?php $this->stop('main_content') ?>
+
+<?php $this->start("script"); ?> 
+<script>
+
+$(document).ready(function() {
+$('.thumbnail').click(function(){
+      $('.modal-body').empty();
+  	var title = $(this).parent('a').attr("title");
+  	$('.modal-title').html(title);
+  	$($(this).parents('div').html()).appendTo('.modal-body');
+  	$('#myModal').modal({show:true});
+});
+});
+</script>
+<?php $this->stop("script") ?>
