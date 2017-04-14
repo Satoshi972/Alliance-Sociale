@@ -13,7 +13,7 @@
 		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
 
 		#gestion_medias		
-		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
+		['GET|POST', '/medias',      'Medias#addMedias',  'addmedias'], // Ajouts médias
 		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'], // Listes Médias
         
         #Routes login-logout
@@ -28,10 +28,21 @@
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
         
-         #Routes contacts
+        #Routes contacts
         ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
         ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
         ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
         ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
+
+        #Gestion des évenements
+        ['GET|POST','/events',               'Events#home',        'chooseEvent'],
+        ['GET|POST','/events/list',          'Events#listEvents',  'listEvent'],
+        ['GET|POST','/events/list',          'Events#listEvent',   'list'],
+        ['GET|POST','/events/add',           'Events#addEvent',    'add'],
+        ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'view'],
+        ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'update'],
+        ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'delete'],
+
+
 
 	);
