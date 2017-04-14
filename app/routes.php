@@ -36,7 +36,7 @@
 
         #Gestion des évenements
         ['GET|POST','/events',               'Events#home',        'chooseEvent'],
-        ['GET|POST','/events/list',          'Events#listEvents',  'listEvent'],
+        ['GET|POST','/events/listAll',          'Events#jsonEvent',   'listEvent'],
         ['GET|POST','/events/list',          'Events#listEvent',   'list'],
         ['GET|POST','/events/add',           'Events#addEvent',    'add'],
         ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'view'],

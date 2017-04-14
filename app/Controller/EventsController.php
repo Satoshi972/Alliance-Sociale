@@ -23,7 +23,7 @@ class EventsController extends MasterController
 
 	#Big event
 
-	public function listBigEvent()
+	public function jsonEvent()
 	{
 		$events = new events();
 		$list = $events->findAll();
