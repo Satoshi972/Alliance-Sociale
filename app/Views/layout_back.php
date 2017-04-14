@@ -103,71 +103,6 @@
                                 </span>
                               </a>
 
-<<<<<<< HEAD
-<!--<div class="nav-side-menu">
-    <div class="brand">Espace Administration</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" class="menu-content collapse out">
-                <!-- <li>
-                  <a href="#">
-                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                  </a>
-                </li> -->
-
-                <!--<li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-users fa-lg"></i> Gestion des utilisateurs <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="<?= $this->url('add_users');?>">Création</a></li>
-                    <li><a href="#">Suppression</a></li>
-                    <li><a href="#">Modification</a></li>
-                    <li><a href="<?= $this->url('list_users');?>">Détails de l'utilisateur</a></li>
-                    <li><a href="#">Contact Direct</a></li>
-                </ul>
-=======
->>>>>>> origin/users
-
-                              <div class="collapse" id="demo1">
-                                <a href="" class="list-group-item">Liste des Utilisateurs</a>
-                                <a href="" class="list-group-item">Ajout d'utilisateur</a>
-                              </div>
-
-
-                              <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon">
-                                  <i class="fa fa-newspaper-o"></i>
-                                </span>
-                                <span class="sidebar-title1">
-                                  Gestion Fiche de contact   
-                                  <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a>
-
-                              <div class="collapse" id="demo2">
-                                <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
-                                  Liste des fiches
-                                  <i class="fa fa-caret-down"></i>
-                                </a>
-                                <div class="collapse list-group-submenu" id="SubMenu1">
-                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Détails de la fiche</a>
-                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Marquer comme lu</a>
-                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Suppression</a>
-                                </div>
-                                <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
-                              </div>
-
-                              <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon">
-                                  <i class="fa fa-calendar" aria-hidden="true"></i>
-                                </span>
-                                <span class="sidebar-title1">
-                                Gestion des Evènements   
-                                <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a>
 
                               <div class="collapse" id="demo3">
                                 <a href="" class="list-group-item">Ajouter un évènement</a>
@@ -191,11 +126,6 @@
                                 <a href="" class="list-group-item">Ajouter une catégorie</a>
                               </div>
 
-<<<<<<< HEAD
-            </ul>
-     </div>
-</div>-->
-=======
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-camera" aria-hidden="true"></i>
@@ -219,7 +149,7 @@
                     </div>
                 </ul>
             </aside> 
->>>>>>> origin/users
+
 
         </div>
 
@@ -240,11 +170,13 @@
   <!-- Latest compiled JavaScript -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
+
   <!-- Bootstrap Core JavaScript -->
   <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
 
   <!-- Fiche qui contient nos fonctions personalisée -->
   <script src="<?= $this->assetUrl('js/function.js')?>"></script>
+
 
 
     <!-- Bootstrap Core JavaScript -->
