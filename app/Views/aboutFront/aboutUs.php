@@ -36,7 +36,6 @@
 			</section>
 
 			<section class="organigramme">
-
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<h2>Notre équipe</h2>
@@ -48,26 +47,21 @@
 							<div class="col-md-4">							
 								<figure>
 									<h4 class="text-center">Coordinatrice</h4>
-									<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive thumbnail">
+									<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Joanna FILET</figcaption>
 								</figure>
 							</div>
-
-
 							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Présidente</h4>
-									<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="img-responsive thumbnail">
+									<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Léa JEAN-BAPTISTE ADOLPHE</figcaption>
 								</figure>
 							</div>
-
-
 							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Directeur</h4>
-									<a href="#" title="Directeur"><img src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
-									</a>
+									<img src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mr Jean-Michel MONGIS</figcaption>
 								</figure>								
 							</div>
@@ -123,8 +117,7 @@
 								<figcaption class="text-center">Mr Roger GABRIT</figcaption>
 							</figure>
 						</div>
-					</div>
-				</div>							
+					</div>							
 			</section>
 
 	    </div>
@@ -132,43 +125,4 @@
 </div>
 
 
-
-<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-		<button class="close" type="button" data-dismiss="modal">×</button>
-		<h3 class="modal-title">Heading</h3>
-	</div>
-	<div class="modal-body">
-		
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Close</button>
-	</div>
-   </div>
-  </div>
-</div>
-
-
-
 <?php $this->stop('main_content') ?>
-
-
-<?= $this->start('script') ?>
-<script src="<?= $this->assetUrl('js/jquery.js') ?>"></script>
-
-<script>
-
-$(document).ready(function() {
-$('.thumbnail').click(function(){
-      $('.modal-body').empty();
-  	var title = $(this).parent('a').attr("title");
-  	$('.modal-title').html(title);
-  	$($(this).parents('div').html()).appendTo('.modal-body');
-  	$('#myModal').modal({show:true});
-});
-});
-</script>
-
- <?= $this->stop('script') ?>
