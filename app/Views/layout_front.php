@@ -24,6 +24,7 @@
     
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
     <?php echo $this->section("head") ?>
@@ -130,12 +131,32 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <div class="container-full">
 
+      <div class="row">
+          
+          <div class="col-md-12">
 
+            <div class="col-md-3">
+              
+            </div>
 
-        <div>
+            <div class="col-md-6">
             <?= $this->section('main_content') ?>
-        </div>      
+            </div>    
+    
+          </div>
+          <div class="col-md-3">
+          </div>
+
+      </div>
+
+        
+
+    </div>
+
+          
 
   <!-- Zone de script -->
 

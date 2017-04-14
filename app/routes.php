@@ -4,7 +4,6 @@
 		['GET', '/', 'Default#home', 'default_home'],
 		['GET', '/activity/', 'Activity#activity', 'default_activity'],
 
-
 		# Gestions des utilisateurs			
 		['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
 		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
@@ -42,7 +41,5 @@
         ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
         ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
         ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
-
-
 
 	);

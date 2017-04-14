@@ -4,18 +4,9 @@
     <meta charset="UTF-8">
     <title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-  
-  	
-	<!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">  
+
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style_modal.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
@@ -55,9 +46,9 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <?php
-setlocale(LC_TIME, 'fra_fra');
-echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
-?>
+								setlocale(LC_TIME, 'fra_fra');
+								echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
+								?>
                                                                 <ul class="dropdown-menu dropdown-menu-flag" role="menu">
                                     <li>
                                         <a href="#">

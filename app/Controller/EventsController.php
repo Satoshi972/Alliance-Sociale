@@ -30,7 +30,8 @@ class EventsController extends MasterController
 
 	public function viewEvent($id)
 	{
-		$infos = events::find($id);
+		$event = new events();
+		$infos = $event->find($id);
 		$this->show('events/viewEvent',[
 			'infos' => $infos,
 		]);
@@ -134,16 +135,20 @@ class EventsController extends MasterController
 	}
 
 	public function updateEvent($id)
-	{
-		$infos = events::find($id);
-		$this->show('events/viewEvent',[
+	{	
+		$event = new events();
+
+		$infos = $event->find($id);
+		$this->show('events/updateEvent',[
 			'infos' => $infos,
 		]);
 	}
 
 	public function deleteEvent($id)
 	{
-		events::delete($id);
+		$event = new events();
+
+		$events->delete($id);
 		$this->show('events/list');
 	}
 }

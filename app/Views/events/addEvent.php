@@ -1,15 +1,14 @@
 <?php 
-$this->layout('layout',['title'=>'Création d\'évenement']);
+$this->layout('layout_front',['title'=>'Création d\'évenement']);
 $this->start('head');
 ?>
-<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
 <link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
 <?php
 $this->stop('head');
 $this->start('main_content');
 ?>
-<div class="container">
+
 <legend class="text-center">Cr&eacute;ation d'&eacute;v&egrave;nement</legend>
 <form class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
@@ -50,7 +49,7 @@ $this->start('main_content');
 		<input type="text" class="btn btn-primary" value="Envoyer">
 	</div>
 </form>
-</div>
+
 <?php
 $this->stop('main_content');
 $this->start('script');
@@ -60,7 +59,7 @@ $this->start('script');
 
 <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
 <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
-<script>
+<!-- <script>
 $("#picture").fileinput(
 	{
 		'showUpload':false,
@@ -75,7 +74,7 @@ $("#picture").fileinput(
     $( "#stop" ).datepicker();
 	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
   } );
-  </script>
+  </script> -->
 <?php
 $this->stop('script');
 ?>
