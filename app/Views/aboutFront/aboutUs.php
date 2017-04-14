@@ -42,35 +42,33 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-md-offset-4 col-md-4">
-							<div class="col-md-6">
+						<div class="col-md-offset-3 col-md-6">
+
+							<div class="col-md-4">							
+								<figure>
+									<h4 class="text-center">Coordinatrice</h4>
+									<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+									<figcaption class="text-center">Mme Joanna FILET</figcaption>
+								</figure>
+							</div>
+							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Présidente</h4>
 									<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Léa JEAN-BAPTISTE ADOLPHE</figcaption>
 								</figure>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<figure>
 									<h4 class="text-center">Directeur</h4>
 									<img src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mr Jean-Michel MONGIS</figcaption>
-								</figure>
-								
+								</figure>								
 							</div>
 						</div>
 					</div>
 
 					<div class="row text-center">
-						<div class="col-md-2">
-							
-							<figure>
-								<h5 class="text-center">Coordinatrice</h5>
-								<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
-								<figcaption class="text-center">Mme Joanna FILET</figcaption>
-							</figure>
-
-						</div>
 
 						<div class="col-md-2">
 								<figure>
@@ -111,16 +109,15 @@
 								<figcaption class="text-center">Mr Dominique ROSINA</figcaption>
 							</figure>
 						</div>
-					</div>
 
-					<div class="col-md-2">
-						<figure>
-							<h5 class="text-center">Référent Jeunesse</h5>
-							<img src="<?= $this->assetUrl('teamAS/Roger Gabrit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail" >
-							<figcaption class="text-center">Mr Roger GABRIT</figcaption>
-						</figure>
-					</div>
-							
+						<div class="col-md-2">
+							<figure>
+								<h5 class="text-center">Référent Jeunesse</h5>
+								<img src="<?= $this->assetUrl('teamAS/Roger Gabrit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail" >
+								<figcaption class="text-center">Mr Roger GABRIT</figcaption>
+							</figure>
+						</div>
+					</div>							
 			</section>
 
 	    </div>
