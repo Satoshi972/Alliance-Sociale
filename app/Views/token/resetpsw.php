@@ -1,0 +1,32 @@
+<?php $this->layout('layout_back', ['title' => 'Réinitialisation du mot de passe']) ?>
+
+    <?php 
+//début du bloc main_content
+$this->start('main_content'); ?>
+        <h1>Entrez votre nouveau mot de passe</h1>
+        
+        <div id="result"></div>
+        
+       <?php  
+var_dump($checkfirstname);
+if (!empty($checkfirstname)){ ?>
+        
+        <?php echo "Bonjour ".$checkfirstname.' '.$checklastname.'. Vous êtes sur le point de réinitialiser le mot de passe!!!'; ?>
+        
+        <form method="post" id="checkform4">
+
+		    <input type="password" name="password" id="password">
+		    <input type="hidden" name="token" value="<?= $_GET["token"] ?>">
+		    <button type="submit" id="new_mdp">Changer le mot de passe</button>
+	
+
+	    </form>
+      
+      <?php } else {
+    
+       echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
+    
+} ?>
+       
+<?php    
+$this->stop('main_content'); ?>
