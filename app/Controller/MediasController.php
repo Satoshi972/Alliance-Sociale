@@ -25,8 +25,6 @@ class MediasController extends MasterController
 		
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
 		{		
-			master::checkImg($_FILES['medias']);
-
 	        if(!empty($_FILES))
 	        {
 	        	//die(var_dump($this->checkMedia($_FILES['medias'])));
