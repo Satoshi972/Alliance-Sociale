@@ -170,26 +170,11 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
     <!-- Bootstrap Core JavaScript -->
     <script src="<?=$this->assetUrl('js/bootstrap.min.js')?>"></script>
 
-
-
-
-    <!-- Permet des inclusions de scripts depuis la vue -->
-    <?php echo $this->section("script") ?>
-
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-      
     <script src="<?= $this->assetUrl('js/script_modal.js') ?>"></script>
 
     <!-- Permet l'insertion de script dans ma vue -->
     <?= $this->section('script'); ?>
 
-
-
-<!-- script -->
-	<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
     <script>
         $(function(){

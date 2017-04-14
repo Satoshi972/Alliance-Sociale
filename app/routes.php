@@ -36,12 +36,12 @@
 
         #Gestion des évenements
         ['GET|POST','/events',               'Events#home',        'chooseEvent'],
-        ['GET|POST','/events/listAll',          'Events#jsonEvent',   'listEvent'],
-        ['GET|POST','/events/list',          'Events#listEvent',   'list'],
-        ['GET|POST','/events/add',           'Events#addEvent',    'add'],
-        ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'view'],
-        ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'update'],
-        ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'delete'],
+        ['GET|POST','/events/listAll',       'Events#jsonEvent',   'listAllEvent'],
+        ['GET|POST','/events/list',          'Events#listEvents',  'listEvent'],
+        ['GET|POST','/events/add',           'Events#addEvent',    'addEvent'],
+        ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
+        ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
+        ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
 
 
 
