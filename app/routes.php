@@ -2,8 +2,6 @@
 	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
-		['GET', '/activity/', 'Activity#activity', 'default_activity'],
-
 
 
 
@@ -12,7 +10,7 @@
 		// Ajouts médias
 		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
 		// Listes Médias
-		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listmedias'],
+		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'],
 
         
         #Routes login-logout

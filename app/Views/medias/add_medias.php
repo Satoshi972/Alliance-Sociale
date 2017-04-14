@@ -1,18 +1,9 @@
-<?php $this->layout('layout_front', ['title' => 'Medias - Ajout des Medias']); 
+<?php $this->layout('layout', ['title' => 'Medias - Ajout des Medias']) ?>
 
-$this->start('head');
-?>
-<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
-
-<?php
-$this->stop('head');
-$this->start('main_content');
-?>
-
-	<div class="col-md-6 col-md-offset-3">
-		<h2>Ajout des médias</h2>
-	</div>
+<?php $this->start('main_content') ?>
+	<h2>Ajout des médias</h2>
 	
+
 	<div class="col-md-6 col-md-offset-3">
 		<?php if($success == true): // La variable $success est envoyé via le controller?>
 			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
@@ -24,14 +15,25 @@ $this->start('main_content');
 	</div> 
 
 
-	
+
 	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
+			<label class="col-md-4 control-label" for="picture">Images</label>
 			<div class="col-md-4">
-				<input type="file" id="medias" name="medias[]" multiple>
+				<input type="file" id="picture" name="picture" multiple class="form-control" accept="image/*">
+			</div>
+		</div>
+
+		<!-- Vidéo -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="video">Videos</label>
+			<div class="col-md-4">
+				<input type="file" id="video" name="video" multiple class="form-control" accept="video/*">
+			</div>
+		</div>
+
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">
@@ -40,20 +42,5 @@ $this->start('main_content');
 		</div>
 	</form>
 
-<?php 
-$this->stop('main_content'); 
-$this->start('script'); 
-?>
-    <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
-    <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
-<script>
-	$("#medias").fileinput(
-    	{
-    		'showUpload':false,
-    		'showCaption' : false,
-    		language: "fr"
-    	});
-</script>
-<?php
-$this->stop('script'); 
-?>
+
+<?php $this->stop('main_content') ?>
