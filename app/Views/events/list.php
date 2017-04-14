@@ -50,7 +50,7 @@ $this->start('script');
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        var picture = '/Alliance_Sociale/public/assets';
+        var picture = '/Alliance_Sociale/public/';
         var lien = '/Alliance-Sociale/public/events/view/';
 
         // $('#calendar').fullCalendar({
