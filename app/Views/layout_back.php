@@ -196,10 +196,13 @@
           <div class="content">
               <?= $this->section('main_content') ?>
           </div>
+            <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/?fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/?fref=ts" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/?fref=ts">Alliance Sociale</a></blockquote></div>  
+          
+          
         </main>
 
     </div> 
-
+    <div id="fb-root"></div>
   <!-- Zone de script -->
 
 
@@ -221,9 +224,18 @@
    
     <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <script>
+        
         $(function(){
             
+
          
             
             $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
