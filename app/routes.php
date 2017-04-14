@@ -34,4 +34,9 @@
         ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
         ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
+
+        #Activités
+        // ['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
+        ['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
+
 	);
