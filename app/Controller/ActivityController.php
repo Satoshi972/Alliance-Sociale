@@ -140,12 +140,14 @@ class ActivityController extends MasterController
     }
 
 
-    public function detailsActivity()
+    // public function detailsActivity()
+    public function detailsActivity($id)
     {
         $newActivity = new Activity();
         $detailactivity = $newActivity->find($id);
 
-        $this->show('activite/detailsActivity',[
+        // $this->show('activite/detailsActivity',[
+        $this->show('activite/details_Activity',[
             'affiche' => $detailactivity
             ]);
     }
@@ -262,7 +264,8 @@ class ActivityController extends MasterController
         'category' => $list
         ];
         
-        $this->show('activite/update_activite', $params);
+        // $this->show('activite/update_activite', $params);
+        $this->show('activite/update_activity', $params);
    }
 
    public function delActivity($id)

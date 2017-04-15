@@ -58,10 +58,11 @@
         </div>
         <div class="modal-footer">
        
-            <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a>
+            <!-- <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a> -->
+            <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>">Modifier</a>
             
         
-            <a href="<?= $this->url('del_users', ['id' => $activite['id']]) ?>" >Supprimer</a>
+            <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" >Supprimer</a>
                 
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
