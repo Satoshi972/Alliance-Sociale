@@ -18,7 +18,7 @@ $this->start('main_content');?>
           <?php endif; ?>
 
           <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre partenaire à bien été ajouter</p>
+            <p class="alert alert-success alert-dismissable">Votre Activité à bien été ajouter</p>
           <?php endif; ?>
 
         <form method="post" action="<?= $this->url('add_activite') ?>" class="form-horizontal" enctype="multipart/form-data">
