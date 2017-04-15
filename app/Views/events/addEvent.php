@@ -10,7 +10,7 @@ $this->start('main_content');
 ?>
 
 <legend class="text-center">Cr&eacute;ation d'&eacute;v&egrave;nement</legend>
-<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+<form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="picture">Image</label>
 		<input type="file" id="picture" class="picture">
@@ -69,10 +69,40 @@ $("#picture").fileinput(
 -->
   <script>
   $( function() {
-    $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
-    $( "#end" ).datepicker({format: 'yyyy/mm/dd'});
-	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+
+	  	//Date picker
+	    $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
+	    $( "#end" ).datepicker({format: 'yyyy/mm/dd'});
+		$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+
+		//gestion de mon formulaire d'envoi
+	    $('form input[type="submit"]').click(function(e)
+	    {
+	        e.preventDefault();
+
+	        var myForm = $('form');
+	        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
+	        var data = (formdata !== null) ? formdata : myForm.serialize();
+	                       
+	        $.ajax(
+	        {
+	            method: myForm.attr('method'),
+	            url: myForm.attr('action'),
+	            contentType: false, // obligatoire pour de l'upload
+	            processData: false, // obligatoire pour de l'upload
+	            cache: false,
+	            data: data,
+	            success: function(res)
+	            {
+	                console.log('toto');
+	                $('#result').html(res);
+	                //$('#comment').html()
+	            }
+	        });
+	    });         
   } );
+
+
   </script>
 <?php
 $this->stop('script');

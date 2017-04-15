@@ -39,7 +39,6 @@ class EventsController extends MasterController
 		]);
 	}
 	
-	//pas fini
 	public function addEvent()
 	{
 		$activity = new activity();
@@ -50,8 +49,6 @@ class EventsController extends MasterController
 
 		if(!empty($_POST))
 		{
-			var_dump($_POST).'<br>';
-			die;
 			date('Y-m-d',strtotime($_POST['start']));
 			date('Y-m-d',strtotime($_POST['end']));
 
@@ -78,6 +75,10 @@ class EventsController extends MasterController
 				{
 					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
 				}				
+			}
+			else
+			{
+				$post['end'] = NULL;
 			}
 
 
@@ -129,7 +130,7 @@ class EventsController extends MasterController
 			if(count($error)>0)
 			{
 				$textError = implode('<br>', $error);
-				$results = '<p class="alert alert-danger">'.$textError.'</p>';
+				$result = '<p class="alert alert-danger">'.$textError.'</p>';
 			}
 			else
 			{
@@ -139,7 +140,7 @@ class EventsController extends MasterController
 					'content' 	=> $post['content'],
 					'start' 	=> $post['start'],
 					'end' 		=> $post['end'],
-					'act_id' 	=> $post['id_activity'],
+					'act_id' 	=> $post['activity'],
 					'quota' 	=> $post['quota'],
 				];
 
@@ -150,10 +151,14 @@ class EventsController extends MasterController
 				
 			}
 		}
-
+		else
+		{
 		$this->show('events/addEvent',[
-			'infos'=> $infos,
+			'infos'  => $infos,
 			]);
+		}
+
+		echo $result;
 	}
 
 	public function updateEvent($id)
@@ -164,15 +169,18 @@ class EventsController extends MasterController
 		$infos = $event->find($id);
 		$list  = $activity->findAll();
 
+		$picture = $infos['picture'];
+
+
 		$post = [];
 		$error = [];
 
 		if(!empty($_POST))
 		{
-			var_dump($_POST).'<br>';
-			die;
-			date('Y-m-d',strtotime($_POST['start']));
+			var_dump($_FILES).'<br>';
+			date('Y-m-d',strtotime($_POST['start'])); //pour avoir le bon format de onnée dans ma bdd
 			date('Y-m-d',strtotime($_POST['end']));
+			var_dump($_POST).'<br>';
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 
@@ -197,6 +205,10 @@ class EventsController extends MasterController
 				{
 					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
 				}				
+			}
+			else
+			{
+				$post['end'] = NULL;
 			}
 
 
@@ -233,7 +245,7 @@ class EventsController extends MasterController
 						else
 						{
 							#ligne pour que mon image soit envoyée dans la base !!!!!!
-							$post['picture'] = $uploadDir.$newName;
+							$picture = $uploadDir.$newName;
 							
 						}
 					}
@@ -241,7 +253,7 @@ class EventsController extends MasterController
 			}
 			else
 			{
-				var_dump($_FILES['picture']['error']);
+				//var_dump($_FILES['picture']['error']);
 				$errors[] = 'Erreur lors de la réception de l\'image';
 			}
 
@@ -253,18 +265,22 @@ class EventsController extends MasterController
 			else
 			{
 				$datas = [
-					'title' 	=> $post['title'],
-					'picture' 	=> $post['picture'],
-					'content' 	=> $post['content'],
-					'start' 	=> $post['start'],
-					'end' 		=> $post['end'],
-					'act_id' 	=> $post['id_activity'],
-					'quota' 	=> $post['quota'],
+					'title' 		=> $post['title'],
+					'picture' 		=> $picture,
+					'content' 		=> $post['content'],
+					'start' 		=> $post['start'],
+					'end' 			=> $post['end'],
+					'id_activity' 	=> $post['activity'],
+					'quota' 		=> $post['quota'],
 				];
 
-				if($event->insert($datas))
+				if($event->update($datas,$id))
 				{
 					$result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+				}
+				else
+				{
+					var_dump($event->update($datas,$id));
 				}
 				
 			}

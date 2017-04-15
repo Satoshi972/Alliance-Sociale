@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">
 
+    <!-- CSS pour le calendrier -->
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
+
+
     <!-- Permet des inclusions dans mon head depuis la vue -->
     <?php echo $this->section("head") ?>
 
@@ -180,7 +184,7 @@
   <script src="<?= $this->assetUrl('js/function.js')?>"></script>
 
   <!-- Permet des inclusions de scripts depuis la vue -->
-  <?php echo $this->section("script") ?>
+  <?= $this->section("script") ?>
 
   <!-- Fin zone de script -->
 </body>
