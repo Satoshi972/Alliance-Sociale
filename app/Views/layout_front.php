@@ -5,16 +5,17 @@
     <title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
+<!--     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
     
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    Latest compiled JavaScript
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
@@ -35,11 +36,9 @@
                     <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
                     <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li>
                 </ul>
-
             </div>
         </div>
-
-        <div class="row logos">
+        <div class="row">
 
                 <div class="col-sm-3">
                     <a href="#"><img src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
@@ -66,7 +65,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar">test</span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href=""></a>
         </div>
@@ -161,9 +160,14 @@
 
 
 
-
-        <section class="container">
+        <section class="containerss1">
+          <p>Flux Facebook</p>
+        </section>
+        <section class="containerss">
             <?= $this->section('main_content') ?>
+        </section>
+        <section class="containerss2">
+            <p>calendrier</p>
         </section>
 
     <!-- Début footer -->
@@ -204,10 +208,10 @@
     <!-- Fin footer -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="<?= $this->assetUrl('js/jquery.js') ?>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 
 
 <!-- Permet des inclusions de scripts depuis la vue -->

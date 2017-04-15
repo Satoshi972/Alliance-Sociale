@@ -235,23 +235,41 @@ nav li:hover .submenu{
 .dropdown-menu li a:hover {
   color: red;
 }
+.reseau {
+ -webkit-box-shadow: 0px 11px 44px -13px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 11px 44px -13px rgba(0,0,0,0.75);
+box-shadow: 0px 11px 44px -13px rgba(0,0,0,0.75);
+}
 .reseau a img{
   margin:0px;
   padding:0px;
   width:200px;
   display: inline-block;
-  background-color: lightgray
+  background-color: lightgray;
 }
 .topheader {
    background-color: lightgray;
 }
 .carousel {
-  width:55vw;
-  height:65vh;
+  width:65vw;
+  height:45vh;
 }
 .logos {
-  margin:0px;
+  margin-top:50px;
   padding:0px;
   display:inline-block;
-  width:50%;
+  width:100%;
+}
+
+.containerss1, .containerss2 {
+display:inline-block;
+width:20%;
+margin: 5px;
+background-color: orange;
+}
+.containerss  {
+display:inline-block;
+width:55%;
+margin: 5px;
+background-color: orange;
 }
