@@ -168,11 +168,6 @@
   <!-- jQuery -->
   <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
-
-  <!-- JQuery UI -->
-  <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
-
-
   <!-- Bootstrap Core JavaScript -->
   <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
 

@@ -269,11 +269,11 @@ class EventsController extends MasterController
 				
 			}
 
-		}
 			$this->show('events/updateEvent',[
 				'infos' => $infos,
 				'list'  => $list,
 			]);
+		}
 
 	}
 
