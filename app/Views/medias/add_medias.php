@@ -32,6 +32,17 @@ $this->start('main_content');
 			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
 				<input type="file" id="medias" name="medias[]" multiple>
+			</div>
+		</div>
+
+		<div class="form-group">
+		<label for="category">Catégorie</label>
+			<select name="category" id="category" class="form-control">
+				<?php foreach ($variable as $key => $value):?>
+					<option value="<?= $value['act_id'] ?>"><?= $value['name'] ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">
