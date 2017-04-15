@@ -13,18 +13,22 @@ class SiteController extends MasterController
 {
 	public function home()
 	{
-		$infos = new Site();
+		$site = new Site();
 
-		$datas = $infos->infoSite();
+		$infos = $site->infoSite();
 
-		$this->show('site/viewInfo', ['infos'=>$datas]);
+		$this->show('site/viewInfo', ['infos'=>$infos]);
 	}
 
 	public function updateInfo($id)
 	{
-		$infos = new Site();
+		$site = new Site();
+		$infos = $site->infoSite();
 
-		$datas = $infos->infoSite();
+		$logo   = $infos['logo'];
+		$header = $infos['header'];
+
+
 
 		if(!empty($_POST))
 		{
@@ -53,19 +57,28 @@ class SiteController extends MasterController
 			}
 			else
 			{	
-				if($a->insert($post))
+				if($site->update($post, $id))
 				{
-					var_dump($a->insert($post));
+					$datas = [
+						'logo'   => $logo,
+						'header' => $header,
+						'address'=> $post['address'],
+						'phone'	 => $post['phone'],
+					];
+					var_dump($site->insert($post));
 					$result = '<p class="alert alert-success">Le formulaire a été correctement envoyé !</p>';
 				}
 				else
 				{
-					var_dump($a->insert($post)->errorInfo());
+					var_dump($site->insert($post)->errorInfo());
 				}
 			}
 
 			echo $result;
 		}
-		$sthis->show('site/updateInfo');
+		$params = [
+			'infos'=> $infos,
+		];
+		$this->show('site/updateInfo', $params );
 	}
 }

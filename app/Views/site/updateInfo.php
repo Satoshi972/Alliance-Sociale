@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout_back', ['title' => 'Mise a jour des infos du site']);
+$this->layout('layout', ['title' => 'Mise a jour des infos du site']);
 
 $this->start('head');
 ?>
@@ -8,33 +8,33 @@ $this->start('head');
 
 <?php 
 $this->stop('head');
-$this->start('main-content');
+$this->start('main_content');
 ?>
 
 <form method="POST" enctype="multipart/form-data" class="form-horizontal">
 
-	<legend class="text-center">MOdification des information du site</legend>
+	<legend class="text-center">Modification des information du site</legend>
 
 	<div class="form-group">
 		<label for="Logo">Logo</label>
-		<img src="<?php $this->assetUrl($info['logo']); ?>" class="img-responsive img-thumbnail" alt="Logo">
+		<img src="<?php $this->assetUrl($infos['logo']); ?>" class="img-responsive img-thumbnail" alt="Logo">
 		<input type="file" id="Logo" name="Logo">
 	</div>
 
 	<div class="form-group">
 		<label for="Header">Header</label>
-		<img src="<?php $this->assetUrl($info['header']); ?>" class="img-responsive img-thumbnail" alt="Header">
+		<img src="<?php $this->assetUrl($infos['header']); ?>" class="img-responsive img-thumbnail" alt="Header">
 		<input type="file" id="Header" name="Header">
 	</div>
 
 	<div class="form-group">
-		<label for="Address">Adresses</label>
-		<textarea class="form-control" id="Address" name="Address" cols="30" rows="10"><?php $this->assetUrl($infos['address']); ?></textarea>	
+		<label for="address">Adresses</label>
+		<textarea class="form-control" id="address" name="address" cols="30" rows="10"><?=$infos['address']; ?></textarea>	
 	</div>
 
 	<div class="form-group">
-		<label for="shedule">Horraire</label>
-		<textarea name="shedule" id="shedule" cols="30" rows="10" class="form-control"><?= $infos['shedule']); ?></textarea>
+		<label for="schedule">Horraire</label>
+		<textarea name="schedule" id="schedule" cols="30" rows="10" class="form-control"><?= $infos['schedule']; ?></textarea>
 	</div>	
 
 	<div class="form-group">
@@ -48,7 +48,7 @@ $this->start('main-content');
 </form>
 
 <?php
-$this->stop('main-content');
+$this->stop('main_content');
 
 $this->start('script');
 ?>
