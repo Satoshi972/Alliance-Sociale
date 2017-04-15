@@ -59,6 +59,7 @@
         <div class="modal-footer">
        
             <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a>
+            
         
             <a href="<?= $this->url('del_users', ['id' => $activite['id']]) ?>" >Supprimer</a>
                 
