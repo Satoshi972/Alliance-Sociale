@@ -11,33 +11,61 @@
 
 
 <?php $this->start('main_content') ?>
-                    <?php var_dump($infosfut[0]['title']); ?>
-                       <?php var_dump($infosfut[0]['content']); ?>
-                       <?php var_dump($infosfut[0]['picture']); ?>
-                        <h1>Espace Admin</h1>
-                        <p>Bienvenue dans votre espace d'administration. Vous pourrez y faire toutes vos modifications et insertions. </p>
-                
+                    <?php //var_dump($infosfut[0]['title']); ?>
+                    <?php //var_dump($infosfut[0]['content']); ?>
+                    <?php //var_dump($infosfut[0]['picture']); ?>
+                        
+                <h1>Accueil :</h1>
                <div class="container">
+               
+    
     <div class="row">
         <div class="col-md-12">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                   <?php for ($i = 0 ; $i < count($infosfut); $i++) { ?>
+                    <li data-target="#carousel-example-generic" data-slide-to="<?= $i ?>" <?php if ($i== 0) {
+          echo
+          'class="active"'; } ?>
+          ></li>
+                    <?php } ?>
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                   <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
                 </ol>
+                
+               
                 <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="http://localhost/Alliance-Sociale/public/assets/medias/media58f14bcc952da.jpg" alt="First slide" class="img-responsive">
+                   <?php for ($i = 0 ; $i < count($infosfut); $i++) {
+   
+      ?> 
+                    <div class="<?php if ($i== 0) {
+          echo
+          'item active'; }
+          else {
+              echo 'item';
+          }
+    ?>
+    ">
+                        <a href="http://ton lien"><img src="http://localhost/Alliance-Sociale/public/<?=$infosfut[$i]['picture'] ?>" alt="<?php if ($i== 0) {
+          echo
+          'First'; }
+          elseif ($i== 1){
+              echo 'Second';
+            }
+          elseif ($i== 2){
+              echo 'Third';
+          } ?> slide" class="img-responsive"></a>
                         <div class="carousel-caption">
                             <h3>
-                                First slide</h3>
+                                <a href="http://ton lien"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
                             <p>
-                                Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <?=$infosfut[$i]['content'] ?></p>
                         </div>
                     </div>
-                    <div class="item">
-                        <img src="http://localhost/Alliance-Sociale/public/assets/medias/media58f14bcc952da.jpg" alt="First slide" height="200" width= "50">
+                    
+                    <?php } ?> 
+                    <!--<div class="item">
+                        <img src="http://localhost/Alliance-Sociale/public/assets/medias/media58f14bcc952da.jpg" alt="Second slide" height="200" width= "100%">
                         <div class="carousel-caption">
                             <h3>
                                 Second slide</h3>
@@ -45,7 +73,7 @@
                                 Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
                     </div>
-                    <div class="item">
+                   <!-- <div class="item">
                         <img src="http://placehold.it/1200x500/34495e/2c3e50" alt="Third slide">
                         <div class="carousel-caption">
                             <h3>
@@ -53,7 +81,7 @@
                             <p>
                                 Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span></a><a class="right carousel-control"
@@ -63,25 +91,74 @@
             <div class="main-text hidden-xs">
                 <div class="col-md-12 text-center">
                     <h1>
-                        Static Headline And Content</h1>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </h3>
-                    <div class="">
-                        <a class="btn btn-clear btn-sm btn-min-block" href="http://www.jquery2dotnet.com/">Login</a><a class="btn btn-clear btn-sm btn-min-block"
-                            href="http://www.jquery2dotnet.com/">Registration</a></div>
+                        Evènement à venir :</h1>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="push">
-</div>
 
-<?php var_dump($infospres); ?>
+    <h2>Liste des Evènements présents :</h2>
+    
+<table class="1">
+		<thead>
+			<tr>
+                <th>Titre</th>
+                <th>Détails</th>
+                <th>Depuis</th>
+                <th>Jusqu'à</th>
+                <th>Voir l'évènement</th>
+			</tr>
+		</thead>
+       <?php foreach($infospres as $infopres): ?>
+        <tbody>
+            <tr>
+                
+                <td><?= $infopres['title']?></td>
+                <td><?= $infopres['content']?></td>
+                <td><?= $infopres['start']?></td>
+                <td><?= $infopres['end']?></td>
+                <td><a href="www.google.fr">Voir</a></td>
+                
+            </tr>
+            
+        </tbody>
+                
+        <?php endforeach; ?> 
+          
+    </table>
+    
+<h3>Liste des Evènements passés :</h3>
+<table class="2">
+		<thead>
+			<tr>
+                <th>Titre</th>
+                <th>Détails</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Voir l'évènement</th>
+			</tr>
+		</thead>
+       <?php foreach($infospas as $infopas): ?>
+        <tbody>
+            <tr>
+                
+                <td><?= $infopas['title']?></td>
+                <td><?= $infopas['content']?></td>
+                <td><?= $infopas['start']?></td>
+                <td><?= $infopas['end']?></td>
+                <td><a href="www.google.fr">Voir</a></td>
+                
+            </tr>
+            
+        </tbody>
+                
+        <?php endforeach; ?>   
+        
+       	</table>       
+                          
 
-
-<?php var_dump($infospas); ?>
 <?php $this->stop('main_content') 
 
 

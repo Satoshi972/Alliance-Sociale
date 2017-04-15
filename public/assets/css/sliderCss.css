@@ -24,7 +24,10 @@
 }
 
 .container .img-responsive {
+    margin: 0 auto;
     display: block;
-    height: 200px;
-     width: auto;
+    height: 400px !important;
+    background-size: cover;
     max-width: 100%;
+    width:100%;
+}
