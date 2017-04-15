@@ -13,7 +13,7 @@ $this->start('main_content');
 <form class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="picture">Image</label>
-		<input type="file" id="picture" class="picture" class="form-control">
+		<input type="file" id="picture" class="picture">
 	</div>
 
 	<div class="form-group">
@@ -32,8 +32,8 @@ $this->start('main_content');
 	</div>
 
 	<div class="form-group">
-		<label for="stop">Date de fin</label>
-		<input type="text" id="stop" name="stop" class="form-control">
+		<label for="end">Date de fin</label>
+		<input type="text" id="end" name="end" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -46,7 +46,7 @@ $this->start('main_content');
 	</div>
 
 	<div class="text-center">
-		<input type="text" class="btn btn-primary" value="Envoyer">
+		<input type="submitend" class="btn btn-primary" value="Envoyer">
 	</div>
 </form>
 
@@ -70,8 +70,8 @@ $("#picture").fileinput(
 -->
   <script>
   $( function() {
-    $( "#start" ).datepicker();
-    $( "#stop" ).datepicker();
+    $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
+    $( "#stop" ).datepicker({format: 'yyyy/mm/dd'});
 	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
   } );
   </script>

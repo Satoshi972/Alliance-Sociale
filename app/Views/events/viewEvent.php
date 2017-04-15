@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout',['title' => 'Fiche de l\'event']);
+$this->layout('layout_front',['title' => 'Fiche de l\'event']);
 $this->start('main_content');
 ?>
 <legend class="text-center">Information du site</legend>
