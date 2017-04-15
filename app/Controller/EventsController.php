@@ -32,8 +32,10 @@ class EventsController extends MasterController
 	{
 		$event = new events();
 		$infos = $event->find($id);
+		$activiy = $event->selectAct();
 		$this->show('events/viewEvent',[
-			'infos' => $infos,
+			'infos'    => $infos,
+			'activity' => $activiy,
 		]);
 	}
 	

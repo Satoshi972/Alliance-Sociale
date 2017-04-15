@@ -28,12 +28,12 @@ $this->start('main_content');
 
 	<div class="form-group">
 		<label for="start">Date de début</label>
-		<input type="text" id="start" class="start" class="form-control">
+		<input type="text" id="start" name="start" class="form-control">
 	</div>
 
 	<div class="form-group">
 		<label for="stop">Date de fin</label>
-		<input type="text" id="stop" class="stop" class="form-control">
+		<input type="text" id="stop" name="stop" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -67,14 +67,14 @@ $("#picture").fileinput(
 		language: "fr",
 	});
 </script>
-
+-->
   <script>
   $( function() {
     $( "#start" ).datepicker();
     $( "#stop" ).datepicker();
 	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
   } );
-  </script> -->
+  </script>
 <?php
 $this->stop('script');
 ?>
