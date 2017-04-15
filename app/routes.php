@@ -34,6 +34,7 @@
         ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
         ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
+
 		//Gestion des Partenaires
 			//Vue du slide
 		['GET|POST', '/partners/list', 'Partners#partners', 'partners'],
@@ -43,4 +44,9 @@
 		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],
 			//Suppression des Partenaires
 		['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],
+
+        #Contact front
+        ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
+
+
 	);
