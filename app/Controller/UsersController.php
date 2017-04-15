@@ -112,15 +112,20 @@ class UsersController extends Controller
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
-            //On vérifie que lastname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-            (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['lastname'])) ? 'Le nom de famille est invalide' : null,
-            
-            //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
+
             (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['firstname'])) ? 'Le prénom est invalide' : null,
             
-            //On vérifie que le champ email soit non vide et qu'il soit valide
-            (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+            (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['lastname'])) ? 'Le nom de famille est invalide' : null,
             
+            (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+
+            (!v::numeric()->length(10, 10)->validate($post['phone'])) ? 'Le numéro de téléphone doit comporter 10 numéros' : null,
+
+            (!v::alnum()->noWhitespace()->length(8, 20)->validate($post['password'])) ? 'Le mot de passe doit contenir entre 8 et 20 caractères' : null,
+
+           /* (!v::phone()->notEmpty()->validate($post['phone'])) ? 'Saisissez un numéro valide' : null,
+*/    
+       
             ];
             
             $errors = array_filter($err);
@@ -168,12 +173,19 @@ class UsersController extends Controller
 
     public function delUsers($id){
 
+        $success = false;
         $del = new UsersModel();
         
         $remove = $del -> delete($id);
 
+        if ($remove) {
+            $success = true;
+
+        }
+
         $this->show('users/del_users',[
         'affiche'=> $remove,
+        'success'=> $success,
         ]);
 
     }

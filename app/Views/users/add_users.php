@@ -60,8 +60,8 @@ $this->start('main_content');
 
             <div class="form-group">             
               <label class="col-md-2 control-label" for="role">Rôle</label>
-              <div class="col-md-8 text-center">
-                <select name="role" id="role">
+              <div class="col-md-10 text-center">
+                <select name="role" id="role" class="form-control text-center">
                   <option value="0">Choisissez le role</option>
                   <option value="member">membre</option>
                   <option value="editor">editeur</option>
@@ -83,4 +83,4 @@ $this->start('main_content');
   </div>
 </div>
 
-          <?php $this->stop('main_content'); ?>
+<?php $this->stop('main_content'); ?>
