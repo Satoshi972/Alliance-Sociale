@@ -287,20 +287,20 @@
 		});
 	}); 
             
-            $('#submitForm').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
+            // $('#submitForm').click(function(el){
+            //     el.preventDefault(); // On bloque l'action par défaut
 
-                var form_user = $('#checkform'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_login") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
+            //     var form_user = $('#checkform'); // On récupère le formulaire
+            //     $.ajax({
+            //         method: 'post',
+            //         url: '<?= $this->url("ajax_login") ?>',
+            //         data: form_user.serialize(), // On récupère les données à envoyer
+            //         success: function(resultat){
+            //             $('#result').html(resultat);
+            //             form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+            //         }
+            //     });
+            // });
             
             $('#ask_token').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut

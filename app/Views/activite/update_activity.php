@@ -1,5 +1,5 @@
 <?php
-$this->layout('layout_back', ['title' => 'Ajouter une activité']);
+$this->layout('layout_back', ['title' => 'Mise à de l\'activité']);
 $this->start('main_content');?>
 
 
@@ -11,7 +11,7 @@ $this->start('main_content');?>
     <div class="col-md-12">
 
 
-        <h2>Ajouter une activitée</h2>
+        <h2>Mise à jour de l'activité</h2>
 
           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
             <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
