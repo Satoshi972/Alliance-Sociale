@@ -5,4 +5,5 @@
                         <h1>Espace Admin</h1>
                         <p>Bienvenue dans votre espace d'administration. Vous pourrez y faire toutes vos modifications et insertions. </p>
                 </div>
+
 <?php $this->stop('main_content') ?>

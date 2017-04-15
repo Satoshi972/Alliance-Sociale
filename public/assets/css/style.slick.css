@@ -1,0 +1,44 @@
+.slider {
+    width: 700px;
+    height: 300px;
+    margin: auto;
+}
+
+.slider .item {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 300px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.black {
+    background-color: black;
+}
+
+.controllers {
+    text-align: center;
+}
+
+.controllers span {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 30px;
+    background-color: black;
+    padding: 4px 8px;
+    color: #fff;
+    cursor: pointer;
+}
