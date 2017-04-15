@@ -4,9 +4,10 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Controller\MasterController as Master;
-use \Model\MediasModel;
+use \Model\MediasModel as medias;
 use \Model\ActivityModel as activity;
 use \Model\CategoryModel as category;
+use \Model\EventsModel as events;
 use Respect\Validation\Validator as v;
 use Intervention\Image\ImageManagerStatic as i;
 
@@ -107,5 +108,34 @@ class MediasController extends MasterController
 		];
 		$this->show('medias/list_medias', $params);
 	}
+
+	public function listMediasByCat()
+	{
+		$medias   = new medias();
+		$activity = new activity();
+		$category = new category();
+		$events   = new events();
+
+		$listMedias   = $medias->findAll();
+		$listActivity = $activity->findAll();
+		$listCategory = $category->findAll();
+		$listEvents   = $events->findAll();
+
+		$params = [
+			'medias'   => $listMedias,
+			'activity' => $listActivity,
+			'category' => $listCategory,
+			'events'   => $listEvent,
+		];
+
+		$this->show('medias/album', $params);
+	}
+
+	/*
+	logique :
+	J'ai ma page ou j'affiche une liste de event
+	Au clik sur l'event, via un id, j'affiche TOUT les medias qui appartiennent a cet event.
+	Reflexion sur un tri par activité
+	*/
 
 }
