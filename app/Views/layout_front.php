@@ -22,7 +22,8 @@
     <!-- Google font Open -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     
-
+    <?php echo $this->section("sliderCss") ?>
+    
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
