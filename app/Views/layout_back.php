@@ -226,3 +226,159 @@
   <!-- Fin zone de script -->
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $this->e($title) ?></title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Permet la compatibilité avec MS IE-EDGE -->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+
+    <!-- Google font Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet"> 
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+    <!-- Google font Open -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar1.css') ?>">
+
+    <!-- Permet des inclusions dans mon head depuis la vue -->
+    <?php echo $this->section("head") ?>
+
+</head>
+<body>
+<!-- Based on http://bootsnipp.com/snippets/featured/responsive-sidebar-menu -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+<nav class="navbar navbar-m2p sidebar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                Foobar<b>Company</b>
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <!-- Dashboard -->
+                <li class="active open">
+                  <a href="#">
+                      <span class="pull-right hidden-xs showopacity glyphicon material-icons">av_timer</span> Dashboard
+                  </a>
+                </li>
+                <!-- Banner -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">burst_mode</span>
+                        Banners <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <li class="separator">Content</li>
+                <!-- Page -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">description</span>
+                        Pages <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Blog -->
+                <li class="">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">chat_bubble_outline</span>
+                        Blog <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Tags -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon material-icons">label</span>
+                        Tags <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"> <i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"> <i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <li class="separator">System</li>
+                <!-- Users -->
+                <li class="#">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">group</span>
+                        Users <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="#"><i class="material-icons">add</i> Add</a></li>
+                        <li><a href="#"><i class="material-icons">sort</i> List</a></li>
+                    </ul>
+                </li>
+                <!-- Exit -->
+                <li>
+                    <a href="#">
+                        <span class="menu-icon pull-right hidden-xs showopacity glyphicon material-icons">exit_to_app</span> Exit
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div>
+            <?= $this->section('main_content') ?>
+        </div>      
+
+  <!-- Zone de script -->
+
+  <!-- jQuery library -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <!-- Latest compiled JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+  <!-- jQuery -->
+  <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
+
+  <!-- Fiche qui contient nos fonctions personalisée -->
+  <script src="<?= $this->assetUrl('js/function.js')?>"></script>
+
+  <!-- Permet des inclusions de scripts depuis la vue -->
+  <?php echo $this->section("script") ?>
+
+  <!-- Fin zone de script -->
+</body>
+</html>
