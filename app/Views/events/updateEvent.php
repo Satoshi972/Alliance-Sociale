@@ -61,7 +61,12 @@ $this->stop('main_content');
 $this->start('script');
 ?>
 <script>
-	
+	$( function() {
+    $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
+    $( "#end" ).datepicker({format: 'yyyy/mm/dd'});
+	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+  } );
+  </script>
 </script>
 <?php
 $this->stop('script');
