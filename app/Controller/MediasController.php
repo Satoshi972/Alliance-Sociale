@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use Controller\MasterController as Master;
 use \Model\MediasModel;
+use \Model\ActivityModel as activity;
 use \Model\CategoryModel as category;
 use Respect\Validation\Validator as v;
 use Intervention\Image\ImageManagerStatic as i;
@@ -14,7 +15,8 @@ class MediasController extends MasterController
 	public function addMedias()
 	{
 		$medias 	= new MediasModel();
-		$category   = new category();
+		$activity   = new activity();
+		$list       = $activity->findAll();
 		$errors 	= [];
 		$success 	= false;
 
@@ -38,7 +40,8 @@ class MediasController extends MasterController
 			    	{
 			    		$datas = [
 			    			'url' 		=> $tabMdedias[$i],
-			    			'id_related'=> $post['category']
+			    			'id_related'=> $_POST['activity'],
+			    			'visible'	=> (isset($_POST['visible'])) ? 1 : 0,
 			    			];
 			    		$medias->insert($datas);
 			        	$success = true;
@@ -59,7 +62,7 @@ class MediasController extends MasterController
 			$params = [
 			'success' => $success,
 			'errors'  => $errors,
-			'category'=> $category,
+			'list'	  => $list,
 			];
 
 	$this->show('medias/add_medias',$params);

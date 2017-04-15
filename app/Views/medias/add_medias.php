@@ -25,7 +25,7 @@ $this->start('main_content');
 
 
 	
-	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
+	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
@@ -36,12 +36,16 @@ $this->start('main_content');
 		</div>
 
 		<div class="form-group">
-		<label for="category">Catégorie</label>
-			<select name="category" id="category" class="form-control">
-				<?php foreach ($variable as $key => $value):?>
+			<label for="activity">Catégorie</label>
+			<select name="activity" id="activity" class="form-control">
+				<?php foreach ($list as $key => $value):?>
 					<option value="<?= $value['act_id'] ?>"><?= $value['name'] ?></option>
 				<?php endforeach; ?>
 			</select>
+		</div>
+
+		<div class="form-group">
+			<input type="checkbox" value="1" name="visible" id="visible">
 		</div>
 
 		<div class="form-group">
