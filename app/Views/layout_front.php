@@ -161,13 +161,20 @@
 
 
         <section class="containerss1">
-          <p>Flux Facebook</p>
+                <main id="page-content-wrapper" role="main">
+            <!-- Zone d'inclusion de Facebook -->
+            <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div> 
+          
+          
+                </main>
         </section>
         <section class="containerss">
             <?= $this->section('main_content') ?>
         </section>
         <section class="containerss2">
             <p>calendrier</p>
+            <!-- Zone inclusion widget meteo -->
+             <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=2&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=dark"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 108px;height: 244px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank">meteoblue</a></div>
         </section>
 
     <!-- Début footer -->
@@ -213,9 +220,20 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 
+    <!-- API Facebook -->
+
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
 
 <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
+
 
 
 </body>
