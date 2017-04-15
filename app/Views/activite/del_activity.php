@@ -1,6 +1,6 @@
 
 <?php 
-$this->layout('layout', ['title' => 'Activité supprimé']);
+$this->layout('layout_back', ['title' => 'Activité supprimé']);
 $this->start('main_content');
 ?>
 
