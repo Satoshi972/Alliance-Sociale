@@ -1,155 +1,189 @@
-<?php
+<?php 
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\ActivityModel;
-
-
 use Respect\Validation\Validator as v;
+use Intervention\Image\ImageManagerStatic as i;
+use Model\ArticlesModel;
+use Model\CommentModel;
 
-
-class ActivityController extends Controller
+class ActivityController extends MasterController
 {
-    public function activity()
+
+    public function add_activity()
     {
-        $errors = [];
+        #control, nettoyage puis traitement des données en fonction de leurs validitées
+
+        $a = new ActivityModel(); //objet pour mon model d'article
+
         $post = [];
+        $errors = [];
+
+        #définition de quelques variables pour gerer les images
         $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
-        $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
-        //debug($_SERVER);
-        
-        
-        
+        $uploadDir = 'assets/uploads/'; // Répertoire d'upload
+
         if(!empty($_POST))
-        { 
-        
-        $post = array_map('trim', array_map('strip_tags', $_POST)); 
-        
-        if(strlen($post['name']) < 2) {
-        $errors[] = "Le champ Nom doit avoir au minimum 2 caractères";
+        {
+            $post = array_map('trim', array_map('strip_tags', $_POST));
 
-        }    
-        if(strlen($post['category']) < 2) {
-        $errors[] = "Le champ Categorie doit avoir au minimum 2 caractères";
+            if(!v::notEmpty()->alpha('-?!\'".')->length(2,50)->validate($post['subject']))
+            {
+                $errors[] = 'Votre titre doit faire entre 2 et 50 caractères';
+            }
 
-        }   
-        
-        if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
+            if(!v::notEmpty()->alnum('#-_*<\'">?!.')->length(2,600)->validate($post['content']))
+            {
+                $errors[] = 'Votre post doit faire entre 2 et 600 caractères';
+            }
+            
+            if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
+            {
 
-		$finfo = new \finfo();
-		$mimeType = $finfo->file($_FILES['picture']['tmp_name'], FILEINFO_MIME_TYPE);
+                $img = i::make($_FILES['picture']['tmp_name']);
+                $size = $img->filesize();
+                $mimetype = $img->mime();
+                $ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+                $newName = uniqid('img_').'.'.$ext;
+                
+                if($maxSize<$size)
+                {
+                    $errors[] = 'fichier trop gros, il doit faire 2 mo max';
+                }
+                else
+                {
+                    if(!v::image()->validate($_FILES['picture']['tmp_name']))
+                    {
+                        $errors[] = 'Le fichier n\'est pas une image valide';
+                    }
+                    else
+                    {
+                        if(!is_dir($uploadDir))
+                        {
+                            mkdir($uploadDir, 0755);
+                        }
 
-		$extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+                        if(!$img->save($uploadDir.$newName))
+                        {
+                            
+                            $errors[] = 'Erreur lors de l\'envoi de l\'image';
+                        }
+                        else
+                        {
+                            #ligne pour que mon image soit envoyée dans la base !!!!!!
+                            $post['picture'] = $uploadDir.$newName;
 
-		if(in_array($mimeType, $mimeTypeAvailable)){
+                        }
+                    }
+                }
+            }
+            else
+            {
+                $errors[] = 'Erreur lors de la réception de l\'image';
+            }
 
-			if($_FILES['picture']['size'] <= $maxSize){
 
-				if(!is_dir($uploadDir)){
-					mkdir($uploadDir, 0755);
-				}
+            if(count($errors)>0)
+            {
+                $textError = implode('<br>',$errors);
+                $result = '<p class="alert alert-danger">'.$textError.'</p>';
+            }
+            else
+            {   
+                if($a->insert($post))
+                {
+                    var_dump($a->insert($post));
+                    $result = '<p class="alert alert-success">Le formulaire a été correctement envoyé !</p>';
+                }
+                else
+                {
+                    var_dump($a->insert($post)->errorInfo());
+                }
+            }
 
-				$newPictureName = uniqid('picture_').'.'.$extension;
-
-				if(!move_uploaded_file($_FILES['picture']['tmp_name'], $uploadDir.$newPictureName)){
-					$errors[] = 'Erreur lors de l\'upload de la photo';
-				}
-			}
-			else {
-				$errors[] = 'La taille du fichier excède 2 Mo';
-			}
-
-		}
-		else {
-			$errors[] = 'Le fichier n\'est pas une image valide';
-		}
-	}
-        if(count($errors) === 0){
-
-            $datafile = [
-                'name' => $post['name'],
-                'category' => $post['category'],
-                'picture'=>'img/'.$newPictureName,
-            ];
-            $enter = new ActivityModel();
-            $enter->insert($datafile);
+            echo $result;
         }
         else
         {
-        $textErrors = implode('<br>', $errors);
-        }        
-    }
-        $this->show('default/activity');
-    }
-    
 
-  public function liste()
+            $this->show('post/add_activity', [
+                'result' => (isset($result)) ? $result : null,
+            ]);
+
+        }
+        
+    }
+
+    public function list_activity()
     {
-        $activitiess = new ActivityModel();
-        $vue = $activitiess->findAll();
-        $this->show('default/liste',['toto'=>$vue]);
-    }
-    
+        $a = new ActivityModel();
+        $list = $a->findAll();
+        $this->show('activity/list_activity', ['list' => $list]);
 
-    public function viewActivity($id)
+    }
+
+    public function detail_activity($id)
     {
-        // On instancie la class permettant de récupérer toutes les méthodes de BlogModel ou de \W\Model\Model
-        $view = new ActivityModel(); 
-        
-        $rod = $view->find($id);
-            
-        
-		$post = [];
-		$errors = [];
-		$success = false;
-		// vérifications du formulaire
-		if(!empty($_POST)){
-    
-			$post = array_map('trim', array_map('strip_tags', $_POST)); 
+        $a = new ActivityModel();
+        $com = new CommentModel();
 
-			if(!v::notEmpty()->length(5, null)->validate($post['name'])){
-				$errors[] = 'Le titre doit comporter au moins 5 caractères';
-			}
-			if(!v::notEmpty()->length(20, null)->validate($post['body'])){
-				$errors[] = 'Le contenu doit comporter au moins 20 caractères';
-			}
-            
-var_dump($errors);
-			if(count($errors) === 0){
+        $comments = $com->listComment($id);
+        $detail = $a->find($id);
 
-				$datas = [
-					// colonne sql => valeur à insérer
-                    'name'		=> $post['name'],
+        $post = [];
+        $errors = [];
 
-                    'email'		=> $post['email'],
-					'body'	    => $post['body'],
-                    'page_id'	=> $id,
-                    
-				];
-                
-                				
-				if($com->insert($datas)){ // On passe le tableau $data
-					$success = true;
-				}
+        if(empty($detail))
+        {
+            $this->showNotFound();
+        }
 
-			}
-		}
 
-		// Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
-		// Ligne 1, pour afficher "bonjour prénom", il faudra faire, dans la vue, un "echo $hello"
-		$params = [
-			'hello'	  => 'bonjour prénom',
-			'success' => $success,
-			'errors'  => $errors,
-		];
-        
-        $this->show('default/viewActivity',[
-                                'toto' => $rod,
-                                'tato' => $params,            
-            
-                                ]);  
+        if(!empty($_POST))
+        {
+            $post = array_map('trim', array_map('strip_tags', $_POST));
+
+            if(!v::notEmpty()->alnum('#-_*<\'">?!.')->length(1,600)->validate($post['content']))
+            {
+                $errors[] = 'Votre post doit faire entre 1 et 600 caractères';
+            }
+
+            if(count($errors) >0 )
+            {
+                $textError = implode('<br>', $errors);
+                $result = '<p class="alert alert-danger">'.$textError.'</p>';
+            }
+            else
+            {
+                $data = [
+                    'idARt' => $id,
+                    'content' => $post['content'],
+                    ];
+
+                $insert = $com->insert($data);
+
+                if(!$insert)
+                {
+                    var_dump($insert->errorInfo());
+                }
+            }
+
+
+        }
+        $this->showJson($comments);
+        $this->show('post/detail_activity', [
+                                    'detail'   => $detail,
+                                    'comments' => (!empty($comments)) ? $comments : null,
+                                    'result'   => (isset($result))  ? $result : null,
+                                    ]);
     }
-    
 
+    public function delete_activity($id)
+    {
+        $a = new ArticlesModel();
+        $a->delete($id);
+        $list = $a->findAll();
+        $this->show('activity/list_activity', ['list' => $list]);
+    }
 }
+?>

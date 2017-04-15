@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title><?= $this->e($title) ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title><?php echo  $this->e($title); ?></title>
+  <!-- Pour etre sur que ie utilise la derniere version du moteur de rendu -->
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS For Bootstrap select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+    <!-- Font awesome de bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <!--
+    <link rel="stylesheet" href="assets/css/style.css">
+    -->
+    <!-- HTML5 Shiv-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS input -->
+    <link href="../vendor/kartik-v/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- Sweet alert  -->
+    <!-- doc : https://github.com/t4t5/sweetalert -->
+
+    <script src="../bower_components/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>"> 
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-sweetalert/dist/sweetalert.css">
     
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
-    <!-- Permet des inclusions dans mon head depuis la vue -->
-    <?php echo $this->section("head") ?>
 </head>
 <body>
     <div id="navbar-wrapper">
@@ -47,10 +61,10 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <?php
-setlocale(LC_TIME, 'fra_fra');
-echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
-?>
-                                                                <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                                  setlocale(LC_TIME, 'fra_fra');
+                                  echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
+                                ?>
+                                <ul class="dropdown-menu dropdown-menu-flag" role="menu">
                                     <li>
                                         <a href="#">
                                             <img src="<?= $this->assetUrl('img/whatsapp_PNG23.png') ?>" alt="Français" width="28px" height="18px">
@@ -71,81 +85,115 @@ echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
                 </div>
             </nav>
         </header>
-    </div>
-    <div id="wrapper">
+</div>
+      <div id="wrapper">
         <div id="sidebar-wrapper">
+
             <aside id="sidebar">
                 <ul id="sidemenu" class="sidebar-nav">
                     <div class="container-fluid">
   
-  <div class="row">
-    <div>
-      
-      <!-- menu -->
-      <div id="MainMenu">
-        <div class="list-group panel">
+                      <div class="row">
+                          
+                          <!-- menu -->
+                          <div id="MainMenu">
+                            <div class="list-group panel">
 
-        <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-            <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-          <span class="sidebar-title1">
-          Gestion des utilisateurs   <i class="fa fa-caret-down"></i></a>
-          <div class="collapse" id="demo1">
-            <a href="" class="list-group-item">Liste des Utilisateurs</a>
-            <a href="" class="list-group-item">Ajout d'utilisateur</a>
-          </div>
-
-          <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-          <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
-          <span class="sidebar-title1">Gestion Fiche de contact   <i class="fa fa-caret-down"></i></a>
-          <div class="collapse" id="demo2">
-            <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Liste des fiches <i class="fa fa-caret-down"></i></a>
-            <div class="collapse list-group-submenu" id="SubMenu1">
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">Détails de la fiche</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">Marquer comme lu</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">Suppression</a>
-            </div>
-            <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
-          </div>
+                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                                <span class="sidebar-title1">
+                                  Gestion des utilisateurs  
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
 
 
-          <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-            <span class="sidebar-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-          <span class="sidebar-title1">
-          Gestion des Evènements   <i class="fa fa-caret-down"></i></a>
-          <div class="collapse" id="demo3">
-            <a href="" class="list-group-item">Ajouter un évènement</a>
-            <a href="" class="list-group-item">Liste des Evènements</a>
-          </div>
+                              <div class="collapse" id="demo1">
+                                <a href="" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="" class="list-group-item">Ajout d'utilisateur</a>
+                              </div>
 
-          <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-            <span class="sidebar-icon"><i class="fa fa-fire" aria-hidden="true"></i></span>
-          <span class="sidebar-title1">
-          Gestion des Activités   <i class="fa fa-caret-down"></i></a>
-          <div class="collapse" id="demo4">
-            <a href="" class="list-group-item">Liste des Activités</a>
-            <a href="<?= $this->url('activity_activity') ?>" class="list-group-item">Ajouter une activité</a>
-            <a href="" class="list-group-item">Liste des Catégories</a>
-            <a href="" class="list-group-item">Ajouter une catégorie</a>
-          </div>
 
-          <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-            <span class="sidebar-icon"><i class="fa fa-camera" aria-hidden="true"></i>
-</span>
-          <span class="sidebar-title1">
-          Médias   <i class="fa fa-caret-down"></i></a>
-          <div class="collapse" id="demo5">
-            <a href="" class="list-group-item">Ajouter un média</a>
-            <a href="" class="list-group-item">Galerie</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    
-</div>
+                              <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-newspaper-o"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                  Gestion Fiche de contact   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo2">
+                                <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+                                  Liste des fiches
+                                  <i class="fa fa-caret-down"></i>
+                                </a>
+                                <div class="collapse list-group-submenu" id="SubMenu1">
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Détails de la fiche</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Marquer comme lu</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Suppression</a>
+                                </div>
+                                <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
+                              </div>
+
+                              <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                Gestion des Evènements   
+                                <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo3">
+                                <a href="" class="list-group-item">Ajouter un évènement</a>
+                                <a href="" class="list-group-item">Liste des Evènements</a>
+                              </div>
+
+                              <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-fire" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                  Gestion des Activités   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo4">
+                                <a href="" class="list-group-item">Liste des Activités</a>
+                                <a href="" class="list-group-item">Ajouter une activité</a>
+                                <a href="" class="list-group-item">Liste des Catégories</a>
+                                <a href="" class="list-group-item">Ajouter une catégorie</a>
+                              </div>
+
+                              <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-camera" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">            
+                                  Médias   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo5">
+                                <a href="" class="list-group-item">Ajouter un média</a>
+                                <a href="" class="list-group-item">Galerie</a>
+                              </div>
+
+                            </div>
+                          </div>
+
+                      </div>
+
+                    </div>
                 </ul>
-            </aside>            
-        </div>
+            </aside> 
+
+</div> 
         <main id="page-content-wrapper" role="main">
         <div class="content">
         <!-- <div id="page-wrapper"> -->

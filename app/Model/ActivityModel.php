@@ -1,15 +1,25 @@
-<?php
+<?php 
 
 namespace Model;
+use W\Model\Model as Model;
 
 
-//use \W\Model\Model;
-
-/**
- * Classe requise par l'AuthentificationModel, éventuellement à étendre par le UsersModel de l'appli
- */
-class ActivityModel extends \W\Model\Model
+class ActivityModel extends Model
 {
-    
-    
+
+	public function findWhitAuthor($id_activity)
+	{
+		if (!is_numeric($id_activity)){
+			return false;
+		}
+
+		$sql ='SELECT * FROM activity as A, category as U WHERE A.idUsr = U.id AND A.id = :id';
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':id', $id_activity);
+		$sth->execute();
+
+		return $sth->fetch();
+	}
 }
+
+?>
