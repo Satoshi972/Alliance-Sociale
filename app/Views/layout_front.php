@@ -27,11 +27,11 @@
 <body>
 
 <!-- Début Top header -->
-    <main class="container-fluid">
+    <main class="container-fluid topheader">
         <div class="row">
             <div class="col-lg-12 top-header">
-                <ul>
-                    <li><a href="#">connexion</a></li>
+                <ul class="reseau">
+                    <li><a href="<?php echo $this->url('login') ?>">connexion</a></li>
                     <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
                     <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li>
                 </ul>
@@ -39,86 +39,124 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row logos">
 
                 <div class="col-sm-3">
-                    <a href="#"><img src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" alt="logos" class="img-responsive img-circle" width= "260px;"></a>
+                    <a href="#"><img src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
                 </div>
 
                 <div class="col-sm-6">
-                   <h1>test</h1>
+                   <img class="img-responsive carousel" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
                 </div>
 
-                <div class="col-sm-3">
-                  <!--   <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/97226011/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>    
-                                  -->               
-                </div>
+               <!--  <div class="col-sm-3">
+                    <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/97226011/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>    
+                                                
+                </div> -->
         </div>
             
        
     </main>
  
 <!-- Fin Top header -->
- <nav>
-       <img class="logo" src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" width="70px"//>
-        <ul>
-            <li class="accueil"><a href="index.php">Accueil</a></li>
-            <li class="presentation"><a href="presentation.php">Presentation</a>
-                <ul class="submenu">
-                    <li><a href="#">Qui sommes-nous</a>
-                    <p>
-                        <img class="logo" src="<?= $this->assetUrl('img/maxresdefault.jpg') ?>" width="80px"/>
-                    </p>
-                    <p class="resume">
-                       Afin de répondre aux besoins des administrés et de faciliter le quotidien des parents, la ville met à votre disposition « l’Espace Famille ».  
-                    </p>
-                    </li>
-                    <li><a href="#">La Mission</a></li>
-                    <li><a href="#">L'équipe</a></li>
-                    <li><a href="#">Témoignages</a></li>
-                </ul>
+ <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar">test</span>
+          </button>
+          <a class="navbar-brand" href=""></a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
+            <li class="dropdown">
+
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Presentation
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo $this->url('default_home') ?>">Qui sommes nous</a></li>
+        <!--         <li>La Mission</li>
+                <li>L'équipe</li>
+                <li>Témoignages</li> -->
+              </ul>
             </li>
-            <li class="evenements"><a href="evenements.php">Evènements</a>
-                <ul class="submenu">
-                    <li><a href="#">Evènements à venir</a></li>
-                    <li><a href="#">Evènements passés</a></li>
-                </ul>
+
+            <li class="dropdown">
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Evènements
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>Evènements à venir</li>
+                <li>Evènements passés</li>
+              </ul>
             </li>
-            <li class="activites"><a href="http://localhost/PROJET/Alliance-Sociale/public/activities/">Nos Activités</a>
-                <ul class="submenu">
-                    <li><a href="#">Vie Sociale</a></li>
-                    <li><a href="#">Citoyenneté</a></li>
-                    <li><a href="#">Vie Quotidienne</a></li>
-                    <li><a href="#">Education</a></li>
-                    <li><a href="#">Sports et Loisirs</a></li>
-                    <li><a href="#">Animation</a></li>
-                </ul>
+
+            <li class="dropdown">
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Nos Activités
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>Vie Sociale</li>
+                <li>Citoyenneté</li>
+                <li>Vie Quotidienne</li>
+                <li>Education</li>
+                <li>Sports et Loisirs</li>
+                <li>Animation</li>
+              </ul>
             </li>
-            <li class="contact"><a href="contact.php">Contactez nous</a>
-                <ul class="submenu">
-                    <li><a href="#">Où sommes-nous</a></li>
-                    <li><a href="#">Nos sites</a></li>
-                    <li><a href="#">La Commune</a></li>
-                    <li><a href="#">Formations</a></li>
-                    <li><a href="#">Bénévolat</a></li>
-                </ul>
+
+            <li class="dropdown">
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Contactez nous
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>Où sommes-nous</li>
+                <li>Nos sites</li>
+                <li>La Commune</li>
+                <li>Formations</li>
+                <li>Bénévolat</li>
+              </ul>
             </li>
-            <li class="inscription"><a href="inscription.php">Inscriptions</a>
-                <ul class="submenu">
-                    <li><a href="#">Activités</a></li>
-                    <li><a href="#">Animation</a></li>
-                    <li><a href="#">Adhésions</a></li>
-                </ul>
+
+            <li class="dropdown">
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Inscriptions
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>Activités</li>
+                <li>Animation</li>
+                <li>Adhésions</li>
+              </ul>
             </li>
-            <li class="galeries"><a href="galeries.php">Galeries</a>
-                <ul class="submenu">
-                    <li><a href="#">Photos souvenirs</a></li>
-                    <li><a href="#">Derniers évènements</a></li>
-                    <li><a href="#">Vidéos</a></li>
-                </ul>
+
+            <li class="dropdown">
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Galeries
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>Medias souvenirs</li>
+                <li>Derniers évènements</li>
+                <li>Vidéos</li>
+              </ul>
             </li>
-            <li class="galeries"><a href="http://localhost/PROJET/Alliance-Sociale/public/">Espace Administration</a></li>
-        </ul>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </nav>
 
 
@@ -129,7 +167,7 @@
         </section>
 
     <!-- Début footer -->
-        <footer>
+        <footer class="bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -164,9 +202,6 @@
         </footer>
 
     <!-- Fin footer -->
-
-
-          
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
