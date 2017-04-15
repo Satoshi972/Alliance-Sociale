@@ -55,7 +55,6 @@ $this->stop('main_content');
 $this->start('script');
 ?>
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 
 <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
 <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
@@ -71,7 +70,7 @@ $("#picture").fileinput(
   <script>
   $( function() {
     $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
-    $( "#stop" ).datepicker({format: 'yyyy/mm/dd'});
+    $( "#end" ).datepicker({format: 'yyyy/mm/dd'});
 	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
   } );
   </script>
