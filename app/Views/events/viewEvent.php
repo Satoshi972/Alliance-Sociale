@@ -45,7 +45,7 @@ $this->start('main_content');
 	?> -->
 	<?php if(!empty($infos['quota'])): ?>
 	<div class="list-group-item text-center">
-		<h4 class="list-group-item-heading">Quota</h4>
+		<h4 class="list-group-item-heading">Description</h4>
 		<p class="list-group-item-text"><?=$infos['quota'];?></p>
 	</div>
 	<?php endif; ?>

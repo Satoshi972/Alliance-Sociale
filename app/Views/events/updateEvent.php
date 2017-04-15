@@ -2,14 +2,13 @@
 $this->layout('layout_front',['title' => 'Maj de l\'event']);
 $this->start('main_content');
 ?>
-<?php var_dump($infos); ?>
 
-<form method="post" class="form-horizontal text-center" enctype="multipart/form-data">
+<form method="post" class="form-horizontal text-center">
 	<legend class="text-center">Modifier l'évènement</legend>
 	<div class="form-group">
-		<label for="picture"></label>
+		<label for="Affiche"></label>
 		<img src="/Alliance-Sociale/public/ <?= $infos['picture']?>" alt="Affiche">
-		<input type="file" id="picture" name="picture" accept="image/*">
+		<input type="file" accept="image/*">
 	</div>
 
 	<div class="form-group">
@@ -26,7 +25,7 @@ $this->start('main_content');
 	</div>
 	<div class="form-group">
 		<label for="content">Description de l'évènement</label>
-		<textarea name="content" id="content" cols="30" rows="10" class="form-control" id="content" name="content" ><?=$infos['content'] ?></textarea>
+		<textarea name="" id="" cols="30" rows="10" class="form-control" id="content" name="content" ><?=$infos['content'] ?></textarea>
 	</div>
 
 	<div class="form-group">
