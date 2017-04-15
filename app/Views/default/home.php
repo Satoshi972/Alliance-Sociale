@@ -104,6 +104,7 @@
 <table class="1">
 		<thead>
 			<tr>
+                <th>Event</th>
                 <th>Titre</th>
                 <th>Détails</th>
                 <th>Depuis</th>
@@ -114,7 +115,7 @@
        <?php foreach($infospres as $infopres): ?>
         <tbody>
             <tr>
-                
+                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" height="200px" width="200px"></td>
                 <td><?= $infopres['title']?></td>
                 <td><?= $infopres['content']?></td>
                 <td><?= $infopres['start']?></td>
@@ -128,11 +129,12 @@
         <?php endforeach; ?> 
           
     </table>
-    
+<a href="www.google.fr">Voir tous les évènements présents</a>
 <h3>Liste des Evènements passés :</h3>
 <table class="2">
 		<thead>
 			<tr>
+                <th>Event</th>
                 <th>Titre</th>
                 <th>Détails</th>
                 <th>Début</th>
@@ -143,7 +145,7 @@
        <?php foreach($infospas as $infopas): ?>
         <tbody>
             <tr>
-                
+                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" height="200px" width="200px"></td>
                 <td><?= $infopas['title']?></td>
                 <td><?= $infopas['content']?></td>
                 <td><?= $infopas['start']?></td>
@@ -157,7 +159,7 @@
         <?php endforeach; ?>   
         
        	</table>       
-                          
+<a href="www.google.fr">Voir tous les évènements passés</a>               
 
 <?php $this->stop('main_content') 
 
