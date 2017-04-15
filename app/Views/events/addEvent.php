@@ -56,6 +56,9 @@ $this->start('script');
 ?>
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
+<!-- JQuery UI -->
+<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
+
 <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
 <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
 <!-- <script>
