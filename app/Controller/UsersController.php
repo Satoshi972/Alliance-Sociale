@@ -14,6 +14,7 @@ class UsersController extends Controller
         $errors = [];
         $post = [];
         $success = false;
+        $displayForm = true;
         
         if(!empty($_POST)) {
             
@@ -51,6 +52,7 @@ class UsersController extends Controller
                 $enter->insert($datas);
                 
                 $success = true;
+                $displayForm = false;
             }
             else
             {
@@ -63,6 +65,7 @@ class UsersController extends Controller
         $params = [
         'success' => $success,
         'errors'  => $errors,
+        'displayForm' => $displayForm,
         ];
         
         $this->show('users/add_users', $params);
@@ -102,6 +105,7 @@ class UsersController extends Controller
         $errors = [];
         $post = [];
         $success = false;
+        $displayForm = true;
 
         if(!empty($_POST)) {
             
@@ -135,6 +139,7 @@ class UsersController extends Controller
                 //Met à jour les donnés dans la base
                 $up->update($datas,$id);
                 $success = true;
+                $displayForm = false;
 
             }
 
@@ -153,6 +158,7 @@ class UsersController extends Controller
         'affiche'=> $detailid, //Affecte à 'affiche' les données relatives à l'user'
         'success' => $success,
         'errors'  => $errors,
+        'displayForm' => $displayForm,
         ];
         
         $this->show('users/update_users', $params);
