@@ -7,9 +7,9 @@ use \W\Controller\Controller;
 class FrontController extends Controller
 {
 
-	public function adhesion()
+	public function accession()
 	{
-		$this->show('adhesion/adhesion');
+		$this->show('accession/accession');
 	}
 
 }

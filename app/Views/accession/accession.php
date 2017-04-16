@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="col-md-12 text-center">
-				<button type="submit" id="submitForm" class="btn btn-primary"><a href="<?= $this->assetUrl('fichier/fiche adhesion alliance.pdf') ?>">Téléchager la fiche d'adhésion</a></button>
+				<button type="submit" id="submitForm" class="btn btn-default"><a href="<?= $this->assetUrl('files/fiche adhesion alliance.pdf') ?>">Téléchager la fiche d'adhésion</a></button>
 			</div>
 
 		</div>
