@@ -51,8 +51,13 @@
 
 
 
+
         #Qui sommes nous
         ['GET|POST','/about', 'AboutFront#views', 'about'],
 
+
+        #Adhesion
+        ['GET|POST', '/accession', 'Front#accession', 'accession'],
+        
 
 	);
