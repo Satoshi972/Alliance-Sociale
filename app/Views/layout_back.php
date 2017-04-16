@@ -4,110 +4,241 @@
     <meta charset="UTF-8">
     <title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Permet la compatibilité avec MS IE-EDGE -->
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
+
+    <!-- Google font Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet"> 
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
+
+    <?php echo $this->section("sliderCss") ?>
+    
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+    <!-- Google font Open -->
+
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+
+
     
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
+    
     <?php echo $this->section("head") ?>
 </head>
+
+
 <body>
-
-
-
-
-<div class="nav-side-menu">
-    <div class="brand">Espace Administration</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" class="menu-content collapse out">
-                <!-- <li>
-                  <a href="#">
-                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                  </a>
-                </li> -->
-
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-users fa-lg"></i> Gestion des utilisateurs <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="#">Création</a></li>
-                    <li><a href="#">Suppression</a></li>
-                    <li><a href="#">Modification</a></li>
-                    <li><a href="#">Détails de l'utilisateur</a></li>
-                    <li><a href="#">Contact Direct</a></li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Gestion des Activités <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>Création des Activités</li>
-                  <li>Suppression des Activités</li>
-                  <li>Modification des Activités</li>
-                  <li>Détails de l'activité</li>
-                  <li>Association Médias</li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> Gestion fiche de contact <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>Liste des fiches</li>
-                  <li><a href="#">Détails de de la fiche</a>
-                        <ul>
-                            <li><a href="#">Marquer comme lu</a></li>
-                            <li><a href="#">Suppression</a></li>
+    <div id="navbar-wrapper">
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Espace Administration</a>
+                    </div>
+                    <div id="navbar-collapse" class="collapse navbar-collapse">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <?php
+                                  setlocale(LC_TIME, 'fra_fra');
+                                  echo strftime('<BR>%A %d %B %Y'); // jeudi 11 octobre 2012, 16:03
+                                ?>
+                                <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                                    <li>
+                                        <a href="#">
+                                            <img src="<?= $this->assetUrl('img/whatsapp_PNG23.png') ?>" alt="Français" width="28px" height="18px">
+                                            <span>Français</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/user-icon-png-pnglogocom.img.png') ?>" class="img-responsive img-thumbnail img-circle">Identifiant</a>
+                                <ul class="dropdown-menu dropdown-block" role="menu">
+                                    <li><a href="#">Mon compte</a></li>
+                                    <li><a href="#">Déconnexion</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li><a href="#">Recherche mot clé</a></li>
-                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+
+            <aside id="sidebar">
+                <ul id="sidemenu" class="sidebar-nav">
+                    <div class="container-fluid">
+  
+                      <div class="row">
+                          
+                          <!-- menu -->
+                          <div id="MainMenu">
+                            <div class="list-group panel">
+
+                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                                <span class="sidebar-title1">
+                                  Gestion des utilisateurs  
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
 
 
-                    <li data-toggle="collapse" data-target="#events" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Gestion des Evènements <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="events">
-                  <li>Création Evènements</li>
-                  <li>Suppression Evènements</li>
-                  <li>Modification Evènements</li>
-                  <li>Détails Evènements</li>
-                  <li>Association Médias</li>
+                              <div class="collapse" id="demo1">
+                                <a href="" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="" class="list-group-item">Ajout d'utilisateur</a>
+                              </div>
+
+
+                              <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-newspaper-o"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                  Gestion Fiche de contact   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo2">
+                                <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+                                  Liste des fiches
+                                  <i class="fa fa-caret-down"></i>
+                                </a>
+                                <div class="collapse list-group-submenu" id="SubMenu1">
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Détails de la fiche</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Marquer comme lu</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Suppression</a>
+                                </div>
+                                <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
+                              </div>
+
+                              <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                Gestion des Evènements   
+                                <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo3">
+                                <a href="" class="list-group-item">Ajouter un évènement</a>
+                                <a href="" class="list-group-item">Liste des Evènements</a>
+                              </div>
+
+                              <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-fire" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">
+                                  Gestion des Activités   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo4">
+                                <a href="" class="list-group-item">Liste des Activités</a>
+                                <a href="" class="list-group-item">Ajouter une activité</a>
+                                <a href="" class="list-group-item">Liste des Catégories</a>
+                                <a href="" class="list-group-item">Ajouter une catégorie</a>
+                              </div>
+
+                              <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-camera" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title1">            
+                                  Médias   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo5">
+                                <a href="" class="list-group-item">Ajouter un média</a>
+                                <a href="" class="list-group-item">Galerie</a>
+                              </div>
+
+                            </div>
+                          </div>
+
+                      </div>
+
+                    </div>
                 </ul>
+            </aside> 
 
-
-            </ul>
-     </div>
-</div>
-
-        <div>
-            <?= $this->section('main_content') ?>
         </div>
-          
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+
+        <main id="page-content-wrapper" role="main">
+          <div class="content">
+              <?= $this->section('main_content') ?>
+          </div>
+        </main>
+
+    </div> 
+
+  <!-- Zone de script -->
+
+
+
+
+
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+  <!-- Latest compiled JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
+
+  <!-- Fiche qui contient nos fonctions personalisée -->
+  <script src="<?= $this->assetUrl('js/function.js')?>"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-
-<!-- Permet des inclusions de scripts depuis la vue -->
+    <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+   
+    <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
+    
+
+  <!-- Fin zone de script -->
 </body>
 </html>
