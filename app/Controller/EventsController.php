@@ -45,15 +45,17 @@ class EventsController extends MasterController
 		$infos = $activity->findAll();
 		$event = new events();
 		$post = [];
-		$error = [];
-
+		$errors = [];
+        
 		if(!empty($_POST))
 		{
 			date('Y-m-d',strtotime($_POST['start']));
 			date('Y-m-d',strtotime($_POST['end']));
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
-
+            
+            $date = $post['start'];
+            
 			if(!v::notEmpty()->alpha('_-?!.')->length(2,50)->validate($post['title']))
 			{
 				$errors[] = 'Votre title doit faire entre 2 et 50 caractères';
@@ -66,14 +68,24 @@ class EventsController extends MasterController
 
 			if(!v::notEmpty()->date('Y-m-d')->validate($post['start']))
 			{
+                $errorstart = true;
 				$errors[] = 'Une erreur est surevenue au niveau de la date de début, faites y attention...';
 			}
 
-			if(!isset($error['start']) || !empty($post['end']))
+            
+            if(!isset($errorstart) && empty($post['end']))
 			{
-				if(!v::date('Y-m-d')->between($post['start'], date('Y')+3)->validate($post['end']))
+               $post['end'] = NULL;			
+			}
+            
+			elseif(!isset($errorstart) && isset($post['end']))
+			{
+                $test= date( "Y-m-d", strtotime( "$date +3 years" ) );
+				if(!v::date('Y-m-d')->validate($post['end']) || !v::date()->between($post['start'], $test)->validate($post['end']))
 				{
 					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
+                    
+                    echo $test;
 				}				
 			}
 			else
@@ -90,8 +102,9 @@ class EventsController extends MasterController
 				$mimetype = $img->mime();
 				$ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 				$newName = uniqid('img_').'.'.$ext;
-				
-				if($maxSize<$size)
+				$maxSize = (1024 * 1000) * 2;
+                $uploadDir = 'localhost/Alliance-Sociale/public/assets/img'; // Répertoire d'upload    
+				if($maxSize < $size)
 				{
 					$errors[] = 'fichier trop gros, il doit faire 2 mo max';
 				}
@@ -123,14 +136,18 @@ class EventsController extends MasterController
 			}
 			else
 			{
-				var_dump($_FILES['picture']['error']);
+				//var_dump($_FILES['picture']['error']);
 				$errors[] = 'Erreur lors de la réception de l\'image';
 			}
 
-			if(count($error)>0)
+			if(count($errors)>0)
 			{
-				$textError = implode('<br>', $error);
+				$textError = implode('<br>', $errors);
 				$result = '<p class="alert alert-danger">'.$textError.'</p>';
+                echo $result;
+                $this->show('events/addEvent',[
+			     'infos'  => $infos,
+			     ]);
 			}
 			else
 			{
@@ -147,18 +164,20 @@ class EventsController extends MasterController
 				if($event->insert($datas))
 				{
 					$result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+                    echo $result;
 				}
 				
 			}
 		}
 		else
 		{
+      
 		$this->show('events/addEvent',[
 			'infos'  => $infos,
 			]);
 		}
 
-		echo $result;
+		
 	}
 
 	public function updateEvent($id)

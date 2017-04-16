@@ -13,12 +13,12 @@ $this->start('main_content');
 <form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="picture">Image</label>
-		<input type="file" id="picture" class="picture">
+		<input type="file" name="picture" id="picture" class="picture">
 	</div>
 
 	<div class="form-group">
 		<label for="title">Titre</label>
-		<input type="text" id="title" class="title" class="form-control">
+		<input type="text" name='title' id="title" class="title" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -46,7 +46,7 @@ $this->start('main_content');
 	</div>
 
 	<div class="text-center">
-		<input type="submitend" class="btn btn-primary" value="Envoyer">
+		<input type="submit" class="btn btn-primary" value="Envoyer">
 	</div>
 </form>
 
