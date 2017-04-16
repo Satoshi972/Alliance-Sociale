@@ -5,8 +5,8 @@
 		['GET', '/home', 'Default#home', 'default_home'],
 
 		#gestion des activites
-		['GET', '/activities', 'Activities#activities', 'default_activities'],
-		// ['GET', '/activity/', 'Activity#activity', 'default_activity'],
+		//['GET', '/activities', 'Activities#activities', 'default_activities'],
+		['GET', '/activity', 'Activity#activity', 'default_activity'],
 		
 		# Gestions des utilisateurs			
 		['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
