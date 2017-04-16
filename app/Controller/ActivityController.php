@@ -48,7 +48,7 @@ class ActivityController extends MasterController
 
             (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
 
-            (array_keys($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
+            //(array_keys($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
             
             ];
             

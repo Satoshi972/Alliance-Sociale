@@ -9,9 +9,12 @@ $this->start('main_content');?>
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
-
-
-        <h2>Ajouter une activitée</h2>
+      <div class="col-md-8 col-md-offset-2 text-center well  text-center">
+        <div class="col-md-12 jumbotron">        
+          <h2>Ajouter une activitée</h2>
+      </div>
+        
+      
 
           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
             <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
@@ -65,7 +68,7 @@ $this->start('main_content');?>
           
         </form>
       </div>
-   
+   </div>
   </div>
 </div>
 <?php $this->stop('main_content'); ?>
