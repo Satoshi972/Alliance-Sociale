@@ -34,4 +34,9 @@ class DefaultController extends MasterController
 		$this->show('default/home', $params);
 	}
 
+  public function admin()
+  {
+    $this->show('default/admin');
+  }
+
 }

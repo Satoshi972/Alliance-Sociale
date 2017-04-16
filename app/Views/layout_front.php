@@ -72,7 +72,7 @@
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
+            <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
             <li class="dropdown">
 
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -132,7 +132,7 @@
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Inscriptions
+                Adhésion
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">

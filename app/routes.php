@@ -2,7 +2,9 @@
 	
 	$w_routes = array(
 
-		['GET', '/', 'Default#home', 'default_home'],
+		#pages d'accueil
+		['GET', '/', 	  'Default#home',  'default_home'],
+		['GET', '/admin', 'Default#admin', 'admin'],
 
 		#gestion des activites
 		//['GET', '/activities', 'Activities#activities', 'default_activities'],
@@ -17,10 +19,10 @@
 
 
 		#gestion_medias#
-		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
-		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listMedias'], // Listes Médias
-		['GET|POST', '/medias/listGuest/[i:page]', 'Medias#listMediasGuest', 'listMediasGuest'], // Listes Médias pour invité
-		['GET|POST', '/medias/album', 'Medias#listAlbum', 	'album'], // Listes Albums
+		['GET|POST', '/medias', 			 		'Medias#addMedias', 	  'addmedias'], // Ajouts médias
+		['GET|POST', '/medias/list/[i:page]',		'Medias#listMedias', 	  'listMedias'], // Listes Médias
+		['GET|POST', '/medias/listGuest/[i:page]',  'Medias#listMediasGuest', 'listMediasGuest'], // Listes Médias pour invité
+		['GET|POST', '/medias/album', 				'Medias#listAlbum', 	  'album'], // Listes Albums
 		//['GET|POST', '/medias/album/[s:idE]', 'Medias#listMediasByCats', 'album_cat'], // Listes Médias
 
         #Routes login-logout
@@ -49,15 +51,10 @@
         #Contact front
         ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
 
-
-
-
         #Qui sommes nous
         ['GET|POST','/about', 'AboutFront#views', 'about'],
 
-
         #Adhesion
-        ['GET|POST', '/accession', 'Front#accession', 'accession'],
-        
+        ['GET|POST', '/accession', 'Front#accession', 'accession'], 
 
 	);
