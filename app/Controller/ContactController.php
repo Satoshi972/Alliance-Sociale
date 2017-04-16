@@ -115,47 +115,7 @@ if(isset($_GET['order']) && isset($_GET['column'])){
         
     }
     }
-     public function ajaxLoadContact()
-	{
-        $select = new ContactsModel();
-        
-                
-        $order = '';
-// On vérifie que les paramètres d'url sont définis
-if(isset($_GET['order']) && isset($_GET['column'])){
 
-	// Attention aux fautes de frappes :
-	// Le paramètre GET doit correspondre à ce qui est envoyé dans l'url
-	if($_GET['column'] == 'date'){
-		$order = 'date';
-	}
-	// L'opérateur de comparaison == permet de comparer l'égalité entre deux données
-	// L'opérateur d'affectation = permet de définir une valeur à une variable
-	elseif($_GET['column'] == 'titre'){
-		$order = 'title';
-	}
-	elseif($_GET['column'] == 'email'){
-		$order = 'mail';
-	}
-
-	if($_GET['order'] == 'asc'){
-		$order2= ' ASC';
-	}
-	elseif($_GET['order'] == 'desc'){
-		$order2= ' DESC';
-	}
-
-        $contacts = $select->findAll($orderBy = $order, $orderDir = $order2, $limit = null, $offset = null);
-        } else {
-        $contacts = $select->findAll();
-        
-    }
-        echo json_encode($contacts);
-        
-        $this->show('contacts/ajax_load_contacts');
-        
-        
-    }
     
      public function updateCheck()
 	{

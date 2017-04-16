@@ -103,7 +103,7 @@ class MasterController extends Controller
 		// 0 = off (for production use)
 		// 1 = client messages
 		// 2 = client and server messages
-		$mail->SMTPDebug = 2;
+		$mail->SMTPDebug = 0;
 		//Ask for HTML-friendly debug output
 		$mail->Debugoutput = 'html';
 		//Set the hostname of the mail server
@@ -118,9 +118,9 @@ class MasterController extends Controller
 		//Whether to use SMTP authentication
 		$mail->SMTPAuth = true;
 		//Username to use for SMTP authentication - use full email address for gmail
-		$mail->Username = "912e93c76442cd";
+		$mail->Username = "d1fc96c5cb4154";
 		//Password to use for SMTP authentication
-		$mail->Password = "505965f06bf856";
+		$mail->Password = "fa0e38dfe36215";
 		//Set who the message is to be sent from
 		$mail->setFrom('from@example.com', 'First Last');
 		//Set an alternative reply-to address
