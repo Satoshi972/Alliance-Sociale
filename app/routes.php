@@ -48,4 +48,11 @@
 
         #Contact front
         ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
+
+
+
+        #Qui sommes nous
+        ['GET|POST','/about', 'AboutFront#views', 'about'],
+
+
 	);
