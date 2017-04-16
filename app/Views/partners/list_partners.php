@@ -3,6 +3,7 @@
   <?php $this->start('main_content') ?>
 
   <div class="container">
+
     <div class="col-md-12">
 
       <div class="col-md-12 jumbotron text-center">
@@ -12,17 +13,13 @@
           
  
           <div class="col-xs-3">
-          <h4><?=$partner['name'];?></h4>
+            <?=$partner['name'];?>
             
-            <div class="col-md-12">
-            
-            <img src="<?=$this->assetUrl($partner['url']);?>" class="img-responsive" style="width: 70%; height: 50%;" alt="medias" frameborder="0" scrolling="no"></th>
+            <img src="<?=$this->assetUrl($partner['url']);?>" class="img-responsive thumbnail" style="width: 70%; height: 50%;" alt="medias" frameborder="0" scrolling="no"></th>
 
-            <button type="button" class="btn btn-default btn-sm""><a href="<?= $this->url('update_partners', ['id' => $partner['id']])?>">Modifier</a></button>
+            <button type="button" class="btn btn-default btn-sm"><a href="<?= $this->url('update_partners', ['id' => $partner['id']])?>">Modifier</a></button>
              |
-
-            <button type="button" class="btn btn-default btn-sm""><a href="<?= $this->url('del_partners', ['id' => $partner['id']]) ?>">Supprimer</a></button>
-            </div>
+            <button type="button" class="btn btn-default btn-sm"><a href="<?= $this->url('del_partners', ['id' => $partner['id']]) ?>">Supprimer</a></button>
 
           </div>
           <?php endforeach; ?>
