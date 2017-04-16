@@ -36,10 +36,10 @@ $this->start('main_content');
 		</div>
 
 		<div class="form-group">
-			<label for="activity">Catégorie</label>
-			<select name="activity" id="activity" class="form-control">
+			<label for="event">Evenement</label>
+			<select name="event" id="event" class="form-control">
 				<?php foreach ($list as $key => $value):?>
-					<option value="<?= $value['act_id'] ?>"><?= $value['name'] ?></option>
+					<option value="<?= $value['id_event'] ?>"><?= $value['title'] ?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>

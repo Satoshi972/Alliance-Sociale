@@ -3,16 +3,12 @@
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
 
-
-
 		#gestion_medias#
-		
-		// Ajouts médias
-		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'],
-		// Listes Médias
-		['GET|POST', '/medias/list/[i:pages]', 'Medias#listMedias', 'listmedias'],
+		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
+		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listmedias'], // Listes Médias
+		['GET|POST', '/medias/album', 'Medias#listAlbum', 	'album'], // Listes Albums
+		//['GET|POST', '/medias/album/[s:idE]', 'Medias#listMediasByCats', 'album_cat'], // Listes Médias
 
-        
         #Routes login-logout
         ['GET|POST','/login', 'User#login', 'login'],
         ['GET|POST','/ajax_login', 'User#ajax_login', 'ajax_login'],
