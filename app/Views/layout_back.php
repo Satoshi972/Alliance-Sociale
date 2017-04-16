@@ -107,7 +107,7 @@
                           <div id="MainMenu">
                             <div class="list-group panel">
 
-                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                              <a href="#demo1" class="accordion-toggle collapsed toggle-switch list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
                                       Gestion des utilisateurs  
