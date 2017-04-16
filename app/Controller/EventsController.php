@@ -75,7 +75,7 @@ class EventsController extends MasterController
             
             if(!isset($errorstart) && empty($post['end']))
 			{
-               $post['end'] = NULL;			
+               $post['end'] = null;			
 			}
             
 			elseif(!isset($errorstart) && isset($post['end']))
@@ -90,11 +90,11 @@ class EventsController extends MasterController
 			}
 			else
 			{
-				$post['end'] = NULL;
+				$post['end'] = null;
 			}
 
 
-			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
+			/*if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
 			{
 
 				$img = i::make($_FILES['picture']['tmp_name']);
@@ -138,7 +138,7 @@ class EventsController extends MasterController
 			{
 				//var_dump($_FILES['picture']['error']);
 				$errors[] = 'Erreur lors de la réception de l\'image';
-			}
+			} */
 
 			if(count($errors)>0)
 			{
@@ -152,19 +152,25 @@ class EventsController extends MasterController
 			else
 			{
 				$datas = [
+                    
 					'title' 	=> $post['title'],
-					'picture' 	=> $post['picture'],
 					'content' 	=> $post['content'],
 					'start' 	=> $post['start'],
 					'end' 		=> $post['end'],
-					'act_id' 	=> $post['activity'],
-					'quota' 	=> $post['quota'],
+					'quota'     => 10,
+                    'id_activity' => 'A12',
+                    'picture' => 'edededed',
+					
 				];
 
 				if($event->insert($datas))
 				{
-					$result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+                    $result = '<p class="alert alert-success">Evenement bien enregistré </p>';
                     echo $result;
+                     $this->show('events/addEvent',[
+			     'infos'  => $infos,
+			     ]);
+					
 				}
 				
 			}
