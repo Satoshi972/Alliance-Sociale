@@ -12,7 +12,7 @@
         <?php foreach($partners as $partner): ?>
           
  
-          <div class="col-xs-3">
+          <div class="col-md-3">
             <?=$partner['name'];?>
             
             <img src="<?=$this->assetUrl($partner['url']);?>" class="img-responsive thumbnail" style="width: 70%; height: 50%;" alt="medias" frameborder="0" scrolling="no"></th>
