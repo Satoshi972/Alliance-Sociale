@@ -2,7 +2,7 @@
 	
 	$w_routes = array(
 
-		['GET', '/home', 'Default#home', 'default_home'],
+		['GET', '/', 'Default#home', 'default_home'],
 
 		#gestion des activites
 		//['GET', '/activities', 'Activities#activities', 'default_activities'],
@@ -15,10 +15,14 @@
 		['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
 		['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
 
-		#gestion_medias		
+
+		#gestion_medias#
 		['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
-		['GET|POST', '/medias/list', 'Medias#listMedias', 'listmedias'], // Listes Médias
-        
+		['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listMedias'], // Listes Médias
+		['GET|POST', '/medias/listGuest/[i:page]', 'Medias#listMediasGuest', 'listMediasGuest'], // Listes Médias pour invité
+		['GET|POST', '/medias/album', 'Medias#listAlbum', 	'album'], // Listes Albums
+		//['GET|POST', '/medias/album/[s:idE]', 'Medias#listMediasByCats', 'album_cat'], // Listes Médias
+
         #Routes login-logout
         ['GET|POST','/login', 'User#login', 'login'],
         ['GET|POST','/ajax_login', 'User#ajax_login', 'ajax_login'],
@@ -34,7 +38,6 @@
         #Routes contacts
         ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
         ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
-        ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
         ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
 		#Gestion des Partenaires

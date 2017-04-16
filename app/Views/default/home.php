@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout_front', ['title' => 'Accueil']) ?>
 
 
 <?php $this->start('sliderCss') ?>
