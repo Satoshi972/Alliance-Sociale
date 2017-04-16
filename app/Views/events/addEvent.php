@@ -8,7 +8,7 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
-
+<div id="result"></div>
 <legend class="text-center">Cr&eacute;ation d'&eacute;v&egrave;nement</legend>
 <form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
@@ -18,7 +18,11 @@ $this->start('main_content');
 
 	<div class="form-group">
 		<label for="title">Titre</label>
+
 		<input type="text" name='title' id="title" class="title" class="form-control">
+
+		
+
 	</div>
 
 	<div class="form-group">
@@ -55,6 +59,9 @@ $this->stop('main_content');
 $this->start('script');
 ?>
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+
+<!-- JQuery UI -->
+<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 
 <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
 <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
