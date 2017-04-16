@@ -34,7 +34,7 @@
 
     
 
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar1.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
     
