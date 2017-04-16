@@ -65,7 +65,7 @@
                                 </span>
                             </div>
                         </form>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right navdate">
                             <li class="dropdown">
                                 <?php
                                   setlocale(LC_TIME, 'fra_fra');
@@ -109,8 +109,8 @@
 
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                                <span class="sidebar-title1">
-                                  Gestion des utilisateurs  
+                                <span class="sidebar-title">
+                                      Gestion des utilisateurs  
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -126,8 +126,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-newspaper-o"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                  Gestion Fiche de contact   
+                                <span class="sidebar-title">
+                                      Gestion Fiche de contact   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -149,8 +149,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                Gestion des Evènements   
+                                <span class="sidebar-title">
+                                    Gestion des Evènements   
                                 <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -164,8 +164,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-fire" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                  Gestion des Activités   
+                                <span class="sidebar-title">
+                                      Gestion des Activités   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -181,8 +181,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-camera" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">            
-                                  Médias   
+                                <span class="sidebar-title">            
+                                      Médias   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -205,7 +205,7 @@
 
 
         <main id="page-content-wrapper" role="main">
-          <div class="content">
+          <div class="content contenu">
               <?= $this->section('main_content') ?>
           </div>
         </main>
