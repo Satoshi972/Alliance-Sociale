@@ -2,7 +2,7 @@
 	
 	$w_routes = array(
 
-		['GET', '/home', 'Default#home', 'default_home'],
+		['GET', '/', 'Default#home', 'default_home'],
 
 		#gestion des activites
 		//['GET', '/activities', 'Activities#activities', 'default_activities'],
