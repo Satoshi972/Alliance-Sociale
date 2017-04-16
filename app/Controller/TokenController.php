@@ -115,7 +115,7 @@ if(!empty($_POST)){
     $checktoken = $check->findAll3($post["token"]);
     $checktoken2 = $check2->findAll4($post["token"]);
 //foreach($checktoken as $check):
-    var_dump($checktoken);
+    
 if(empty($post['password'])){
      
     $errors[] = 'Le mot de passe doit être complété';
@@ -125,7 +125,7 @@ if(empty($post['password'])){
             
             foreach($checktoken as $check):
                 
-            $update->update(["password" => $post['password']], $check['id']
+            $update->update(["password" => password_hash($post['password'], PASSWORD_DEFAULT)], $check['id']
                                          );   
                 
             endforeach; 

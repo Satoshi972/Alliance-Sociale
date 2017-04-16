@@ -1,20 +1,35 @@
-<?php $this->layout('layout', ['title' => 'Demander un nouveau mot de passe']) ?>
+<?php $this->layout('layout_back', ['title' => 'Demander un nouveau mot de passe']) ?>
 
     <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-        <h1>Entrez votre email pour recevoir le lien pour redéfinir le mot de passe !</h1>
+       <div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 col-md-offset-2 text-center well">
+        <div class="col-md-12 jumbotron">  
+       
+        <h1>Entrez votre e-mail</h1>
         
         <div id="result"></div>
         
         <form method="post" id="checkform2">
-
-		    <input type="email" name="email" id="email">
-		    <button type="submit" id="ask_token">Recevoir le lien</button>
+            
+            <div class="form-group">
+            <label for="email">E-mail :</label>
+		    <input type="email" name="email" id="email" class="form-control">
+            </div>
+            
+		    <button type="submit" id="ask_token" class="btn btn-default">Recevoir le lien</button>
 	
 
 	    </form>
       
+       </div>
+        </div>
+      </div>
+    </div>
+</div>
      
 <?php    
 $this->stop('main_content');
@@ -27,31 +42,7 @@ $this->start('script');
 <script>
         $(function(){
             
-         
-            
-            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				
-                    if (value.staut == 0){resHTML+='<td>Non Lu</td>';} else {resHTML+='<td>Lu</td>';} 
-                    
-                    
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
-            
+      
             // Suppression utilisateur avec DOM modifié à la volé
 	$('body').on('click', 'a.deleteContact', function(element){
 		element.preventDefault(); // Bloque l'action par défaut de l'élement
@@ -63,29 +54,6 @@ $this->start('script');
 			success: function(resultat){
 				$('#mon_resultat').html(resultat); 
                 
-				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				resHTML+= '<td>'+
-                    
-                    
-                    
-                    value.staut+'</td>';
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
 			 }
 		});
 	}); 

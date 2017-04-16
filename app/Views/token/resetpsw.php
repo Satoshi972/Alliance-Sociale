@@ -3,31 +3,43 @@
     <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
+       <div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 col-md-offset-2 text-center well">
+        <div class="col-md-12 jumbotron">  
         <h1>Entrez votre nouveau mot de passe</h1>
         
         <div id="result"></div>
         
        <?php  
-var_dump($checkfirstname);
+
 if (!empty($checkfirstname)){ ?>
-        
-        <?php echo "Bonjour ".$checkfirstname.' '.$checklastname.'. Vous êtes sur le point de réinitialiser le mot de passe!!!'; ?>
+        <div id="hide">
+        <?php echo "Bonjour ".$checkfirstname.' '.$checklastname.'. Vous êtes sur le point de réinitialiser votre mot de passe!!!'; ?>
         
         <form method="post" id="checkform4">
-
-		    <input type="password" name="password" id="password">
+            <div class="form-group">
+            <label for="password">Mot de Passe :</label>
+		    <input type="password" name="password" id="password" class="form-control">
+		    </div>
 		    <input type="hidden" name="token" value="<?= $_GET["token"] ?>">
-		    <button type="submit" id="new_mdp">Changer le mot de passe</button>
+		    <button type="submit" id="new_mdp" class="btn btn-default">Changer le mot de passe</button>
 	
 
 	    </form>
-      
+      </div>
       <?php } else {
     
        echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
     
 } ?>
-       
+  </div>
+        </div>
+      </div>
+    </div>
+</div>
+             
 <?php    
 $this->stop('main_content');
 
@@ -41,29 +53,6 @@ $this->start('script');
             
          
             
-            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				
-                    if (value.staut == 0){resHTML+='<td>Non Lu</td>';} else {resHTML+='<td>Lu</td>';} 
-                    
-                    
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
-            
             // Suppression utilisateur avec DOM modifié à la volé
 	$('body').on('click', 'a.deleteContact', function(element){
 		element.preventDefault(); // Bloque l'action par défaut de l'élement
@@ -75,29 +64,7 @@ $this->start('script');
 			success: function(resultat){
 				$('#mon_resultat').html(resultat); 
                 
-				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				resHTML+= '<td>'+
-                    
-                    
-                    
-                    value.staut+'</td>';
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
+			
 			 }
 		});
 	}); 
@@ -172,7 +139,7 @@ $this->start('script');
                     data: form_user.serialize(), // On récupère les données à envoyer
                     success: function(resultat){
                         $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                        $('#hide').hide(); // Permet de vider les champs du formulaire.. 
                     }
                 });
             });

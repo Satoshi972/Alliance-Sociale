@@ -26,13 +26,29 @@ $this->start('main_content');
 
 
 	
-	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
+	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
 				<input type="file" id="medias" name="medias[]" multiple>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="event">Evenement</label>
+			<select name="event" id="event" class="form-control">
+				<?php foreach ($list as $key => $value):?>
+					<option value="<?= $value['id_event'] ?>"><?= $value['title'] ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="visible">Ces médias seront-ils visibles a tous?</label>
+			<input type="checkbox" value="1" name="visible" id="visible">
+		</div>
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">

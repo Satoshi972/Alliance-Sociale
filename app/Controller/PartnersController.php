@@ -201,8 +201,13 @@ class PartnersController extends Controller
         $del = new PartnersModel();
         $remove = $del -> delete($id);
 
+        if ($remove){
+            $success = true;
+        }
+
         $this->show('partners/del_partners',[
         'affiche'=> $remove,
+        'success'=> $success,
         ]);
     }
 

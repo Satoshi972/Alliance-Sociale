@@ -16,12 +16,15 @@ $this->start('main_content'); ?>
 ?>
 
     <br>
-    <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist" method="post">
-    
-	<span>Rechercher ce mot-clé</span> 
-	<input type="text" id="search" name="search" minlength="1">
-	<input type="submit" id="submitsearch" value="Envoyer" >
-	
+    <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist" method="post" class="form-inline">
+        <div class="form-group">
+            <label for="search">Rechercher :</label>
+           
+            <input type="text" id="search" name="search" minlength="1" class="form-control" placeholder="Mot clé">
+        </div>
+        <div class="form-group">
+            <input type="submit" id="submitsearch" value="Envoyer" class="btn btn-default">
+        </div>
     </form>
     
     <p>Trier par : 
@@ -35,7 +38,7 @@ $this->start('main_content'); ?>
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=asc">Date (croissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=desc">Date (décroissant)</a>
 		<div id="result"></div>
-	<table>
+	<table class="table table-hover">
 		<thead>
 			<tr>
                 <th>Vue</th>
@@ -49,13 +52,13 @@ $this->start('main_content'); ?>
         <?php if(isset($contacts)){ ?>
         <?php foreach($contacts as $contact): ?>
         <tbody>
-            <tr>
+            <tr <?php if ($contact['staut'] == 0) {echo 'class="danger"';} else {echo  'class="success"';} ?>>
             
                 <td><?php if ($contact['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></td>
                 <td><?= $contact['title']?></td>
                 <td><?= $contact['mail']?></td>
                 <td><?= $contact['date']?></td>
-                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
                 
                 
 
@@ -116,13 +119,13 @@ $this->start('main_content'); ?>
         <?php } elseif (isset($donnees)){ ?>
         <?php foreach($donnees as $donnee): ?>
         <tbody>
-            <tr>
+            <tr <?php if ($donnee['staut'] == 0) {echo 'class="danger"';} else {echo  'class="success"';} ?>>
             <?php if ($donnee['staut'] == 0) {$donnee['staut'] = 'Non lu';} else {$donnee['staut'] = 'Lu';} ?>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['staut']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
-                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['staut']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
                 
                 
                 <!-- Modal -->
@@ -209,28 +212,7 @@ $this->start('script');
             
          
             
-            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				
-                    if (value.staut == 0){resHTML+='<td>Non Lu</td>';} else {resHTML+='<td>Lu</td>';} 
-                    
-                    
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
+            
             
             // Suppression utilisateur avec DOM modifié à la volé
 	$('body').on('click', 'a.deleteContact', function(element){
@@ -243,29 +225,7 @@ $this->start('script');
 			success: function(resultat){
 				$('#mon_resultat').html(resultat); 
                 
-				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				resHTML+= '<td>'+
-                    
-                    
-                    
-                    value.staut+'</td>';
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
+					
 			 }
 		});
 	}); 
