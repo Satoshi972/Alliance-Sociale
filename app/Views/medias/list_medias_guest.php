@@ -27,7 +27,7 @@
 			<?php
 				 for($i=1; $i<=$nbPages; $i++): //On fait notre boucle	
 			?>
-	          	<li><a href="<?=$this->url('listMedias',['page'=>$i])?>"><?=$i ?></a></li>
+	          	<li><a href="<?=$this->url('listMediasGuest',['page'=>$i])?>"><?=$i ?></a></li>
 			<?php endfor; ?>
 		</ul>
 	</section>
