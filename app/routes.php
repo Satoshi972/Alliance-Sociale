@@ -1,10 +1,13 @@
 <?php
 	
 	$w_routes = array(
+
 		['GET', '/home', 'Default#home', 'default_home'],
-		['GET', '/activity/', 'Activity#activity', 'default_activity'],
 
-
+		#gestion des activites
+		['GET', '/activities', 'Activities#activities', 'default_activities'],
+		// ['GET', '/activity/', 'Activity#activity', 'default_activity'],
+		
 		# Gestions des utilisateurs			
 		['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
 		['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
@@ -28,25 +31,18 @@
         ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
         ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
         
-         #Routes contacts
+        #Routes contacts
         ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
         ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
         ['GET|POST','/loadcontact', 'Contact#ajaxLoadContact', 'ajaxLoadContact'],
         ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
-
-		//Gestion des Partenaires
-			//Vue du slide
-		['GET|POST', '/partners/list', 'Partners#partners', 'partners'],
-			//Ajout des Partenaires
-		['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],
-			//Modification des Partenaires
-		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],
-			//Suppression des Partenaires
-		['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],
+		#Gestion des Partenaires
+		['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+		['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],//Ajout des Partenaires
+		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],//Modification des Partenaires
+		['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],//Suppression des Partenaires
 
         #Contact front
         ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
-
-
 	);
