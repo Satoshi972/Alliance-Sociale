@@ -1,0 +1,15 @@
+CREATE TRIGGER `custom_id` BEFORE INSERT ON `activity`
+ FOR EACH ROW SET NEW.cat_id = 
+  CONCAT("A",COALESCE((SELECT MAX(Id)+1 from activity),1))
+
+CREATE TRIGGER `custom_id_little` BEFORE INSERT ON `little_events`
+ FOR EACH ROW SET NEW.lit_id = 
+  CONCAT("LIT",COALESCE((SELECT MAX(Id)+1 from little_events),1))
+
+CREATE TRIGGER `custom_id_big` BEFORE INSERT ON `big_events`
+ FOR EACH ROW SET NEW.big_id = 
+  CONCAT("BIG",COALESCE((SELECT MAX(Id)+1 from big_events),1))
+
+ CREATE TRIGGER `custom_id_category` BEFORE INSERT ON `category`
+ FOR EACH ROW SET NEW.cat_id = 
+  CONCAT("CAT",COALESCE((SELECT MAX(Id)+1 from category),1))
