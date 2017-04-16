@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Se connecter']) ?>
+<?php $this->layout('layout_front', ['title' => 'Se connecter']) ?>
 
 <?php 
 //début du bloc main_content
