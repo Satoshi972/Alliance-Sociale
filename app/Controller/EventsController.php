@@ -52,6 +52,7 @@ class EventsController extends MasterController
 			date('Y-m-d',strtotime($_POST['start']));
 			date('Y-m-d',strtotime($_POST['end']));
 
+			var_dump($_POST);
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 
 			if(!v::notEmpty()->alpha('_-?!.')->length(2,50)->validate($post['title']))

@@ -8,7 +8,7 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
-
+<div id="result"></div>
 <legend class="text-center">Cr&eacute;ation d'&eacute;v&egrave;nement</legend>
 <form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
@@ -18,7 +18,7 @@ $this->start('main_content');
 
 	<div class="form-group">
 		<label for="title">Titre</label>
-		<input type="text" id="title" class="title" class="form-control">
+		<input type="text" id="title" name="title" class="title" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -46,7 +46,7 @@ $this->start('main_content');
 	</div>
 
 	<div class="text-center">
-		<input type="submitend" class="btn btn-primary" value="Envoyer">
+		<input type="submit" class="btn btn-primary" value="Envoyer">
 	</div>
 </form>
 
