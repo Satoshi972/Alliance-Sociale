@@ -54,7 +54,7 @@
                          <li><?= $activite['name']?></li>
                          <li><?= $activite['category']?></li>
                          <li><?= $activite['content']?></li>
-                         <li><?= $activite['picture']?></li>
+                         <li><?= $activite['picture']?></li>s
                       </ul>
                     </div>
                     <div class="modal-footer">
