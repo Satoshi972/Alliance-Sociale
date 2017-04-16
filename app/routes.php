@@ -43,4 +43,13 @@
 		['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],
 			//Suppression des Partenaires
 		['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],
+
+		#Gestion des évenements
+        // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
+        ['GET|POST','/events',               'Events#listEvents',  'listEvent'],
+        ['GET|POST','/events/listAll',       'Events#jsonEvent',   'listAllEvent'],
+        ['GET|POST','/events/add',           'Events#addEvent',    'addEvent'],
+        ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
+        ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
+        ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
 	);
