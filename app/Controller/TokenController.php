@@ -77,10 +77,11 @@ if($checked === true){
  public function resetpsw()
 	{
         
-    $check = new Reset_pswModel();  
+    $check = new Reset_pswModel(); 
+    if (isset($_GET['token'])){    
     $checktoken = $check->findAll3($_GET["token"]);
     //foreach($checktoken as $check):
-    var_dump($checktoken);
+    }
     if (!empty($checktoken)){
         foreach($checktoken as $check):
         $this->show('token/resetpsw', ['checkfirstname' => $check["firstname"],
