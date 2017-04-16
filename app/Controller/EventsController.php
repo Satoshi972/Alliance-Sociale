@@ -70,8 +70,10 @@ class EventsController extends MasterController
 				$errors[] = 'Une erreur est surevenue au niveau de la date de début, faites y attention...';
 			}
 
+			#s'il n'y a pas d'erreur sur la date de début ET que l'utilisateur a bien rentré une date de fin
 			if(!isset($error['start']) || !empty($post['end']))
 			{
+				#Je vérifie le bon format de date (pour mysql), soit année, mois, jours, puis je vérifie que la seconde dae soit compris dans une fourchette : entre la date de début et 3 plus tard (car un event qui commence aujourd'hui et c'est fini hier n'as pas de sens....)
 				if(!v::date('Y-m-d')->between($post['start'], date('Y')+3)->validate($post['end']))
 				{
 					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
