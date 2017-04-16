@@ -45,4 +45,8 @@
 
         #Contact front
         ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
+
+        #Adhesion
+        ['GET|POST', '/adhesion', 'Front#adhesion', 'adhesion'],
+        
 	);
