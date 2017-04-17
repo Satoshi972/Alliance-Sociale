@@ -4,7 +4,7 @@
 
 
 	
-	<div class="container">
+
 		<div class="row">
 			<div class="col-lg-12">
 
@@ -112,7 +112,7 @@
 
 									<div class="form-group">
 										<div class="col-md-12">
-											<input type="email" id="email" name="email" placeholder="Saisissez votre email" class="form-control">
+											<input type="mail" id="mail" name="mail" placeholder="Saisissez votre email" class="form-control">
 										</div>
 									</div>
 
@@ -149,5 +149,5 @@
 
 			</div>
 		</div>
-	</div>
+
 <?php $this->stop('main_content') ?>

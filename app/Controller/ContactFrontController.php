@@ -22,7 +22,7 @@ class ContactFrontController extends MasterController
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['title'])) ? 'Le titre est invalide' : null,
             
             //On vérifie que le champ email soit non vide et qu'il soit valide
-            (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+            (!v::notEmpty()->email()->validate($post['mail'])) ? 'L\'adresse email est invalide' : null,
             
             //On vérifie que le contenu ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 250 caractères
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu est invalide' : null,
@@ -34,7 +34,7 @@ class ContactFrontController extends MasterController
 
             $datas = [
             'title'   => $post['title'],
-            'email'   => $post['email'],
+            'mail'   => $post['mail'],
             'content' => $post['content'],
             ];
         	
