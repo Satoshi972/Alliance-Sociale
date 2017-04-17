@@ -49,8 +49,7 @@
                       <ul>
                          <li><?= $activite['name']?></li>
                          <li><?= $activite['content']?></li>
-                         <li><?= $activite["picture"] ?></li>
-                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" alt="logo">
+                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" class='img-responsive img-thumbnail text-center' alt="logo">
                       </ul>
                     </div>
                     <div class="modal-footer">

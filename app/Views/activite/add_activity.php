@@ -13,7 +13,7 @@ $this->start('main_content');?>
 
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-2 text-center well  text-center">
+      <div class="col-md-6 col-md-offset-3 text-center well  text-center">
         <div class="col-md-12 jumbotron">        
           <h2>Ajouter une activitée</h2>
       </div>
@@ -55,7 +55,7 @@ $this->start('main_content');?>
             <div class="col-md-12">
               <select name="category" id="category" class="form-control">
                <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                  <option value="<?= $value['cat_id'] ?>"><?= $value['name'] ?></option>
                <?php endforeach; ?>
               </select>
             </div>

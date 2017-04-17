@@ -44,10 +44,10 @@ class ActivityController extends MasterController
             
             $err = [
             //On vérifie que lastname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'Le nom de l\'activité doit contenir entre 2 et 30 caractères' : null,
             
             //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu doit contenir entre 2 et 600 caractères' : null,
 
             (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
 
@@ -199,9 +199,9 @@ class ActivityController extends MasterController
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
-            (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
+            (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['name'])) ? 'Le nom de l\'activité doit contenir entre 2 et 30 caractères' : null,
             
-            (!v::notEmpty()->alpha('-.')->length(2, 600)->validate($post['content'])) ? 'Le prénom est invalide' : null,
+            (!v::notEmpty()->alpha('-.')->length(2, 600)->validate($post['content'])) ? 'Le contenu doit contenir entre 2 et 600 caractères' : null,
 
             (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
 
@@ -210,8 +210,6 @@ class ActivityController extends MasterController
             ];
             
             $errors = array_filter($err);
-            var_dump($_FILES['picture']).'<br>';
-            var_dump($_FILES).'<br>';
             if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 
                 $finfo = new \finfo();
