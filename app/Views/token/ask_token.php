@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Demander un nouveau mot de passe']) ?>
+<?php $this->layout('layout_front', ['title' => 'Demander un nouveau mot de passe']) ?>
 
     <?php 
 //début du bloc main_content
@@ -6,7 +6,7 @@ $this->start('main_content'); ?>
        <div class ="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-2 text-center well">
+      <div class="col-md-8 text-center well jumbo">
         <div class="col-md-12 jumbotron">  
        
         <h1>Entrez votre e-mail</h1>

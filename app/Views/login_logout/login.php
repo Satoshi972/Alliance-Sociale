@@ -8,7 +8,7 @@ $this->start('main_content'); ?>
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-2 text-center well">
+      <div class="col-md-8 text-center well jumbo">
         <div class="col-md-12 jumbotron">   
 
    <h1>Entrez vos identifiants !</h1>

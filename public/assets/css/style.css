@@ -18,9 +18,9 @@ a:hover {
 }
 
 h1 {
-	color: #F92672;
+	color: #F92672 !important;
 }
 
 h2 {
-	color: #66D9EF;
+	color: #66D9EF!important;
 }

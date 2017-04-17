@@ -17,9 +17,11 @@
     Latest compiled JavaScript
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <?php echo $this->section("sliderCss") ?>
+    <link rel="stylesheet" href="<?= $this->assetUrl('jumboCss') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+    
 
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
