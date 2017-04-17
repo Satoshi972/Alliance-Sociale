@@ -39,8 +39,8 @@
 .img-home {
     border-radius:50px !important;
     object-fit:cover;
-    max-height: 180px;
-    max-width: 180px;
+    max-height: 90px;
+    max-width: 90px;
    
 }
 
