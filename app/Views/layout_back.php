@@ -15,20 +15,32 @@
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
 
+    <?php echo $this->section("sliderCss") ?>
+    
     <!-- Font awesome -->
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
     <!-- Google font Open -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+
+
     
 
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar1.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
     
     <?php echo $this->section("head") ?>
 </head>
+
 
 <body>
     <div id="navbar-wrapper">
@@ -53,7 +65,7 @@
                                 </span>
                             </div>
                         </form>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right navdate">
                             <li class="dropdown">
                                 <?php
                                   setlocale(LC_TIME, 'fra_fra');
@@ -97,15 +109,15 @@
 
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                                <span class="sidebar-title1">
-                                  Gestion des utilisateurs  
+                                <span class="sidebar-title">
+                                      Gestion des utilisateurs  
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
 
 
                               <div class="collapse" id="demo1">
-                                <a href="" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="/" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
 
@@ -114,8 +126,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-newspaper-o"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                  Gestion Fiche de contact   
+                                <span class="sidebar-title">
+                                      Gestion Fiche de contact   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -137,8 +149,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                Gestion des Evènements   
+                                <span class="sidebar-title">
+                                    Gestion des Evènements   
                                 <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -152,8 +164,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-fire" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">
-                                  Gestion des Activités   
+                                <span class="sidebar-title">
+                                      Gestion des Activités   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -169,8 +181,8 @@
                                 <span class="sidebar-icon">
                                   <i class="fa fa-camera" aria-hidden="true"></i>
                                 </span>
-                                <span class="sidebar-title1">            
-                                  Médias   
+                                <span class="sidebar-title">            
+                                      Médias   
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
@@ -193,7 +205,7 @@
 
 
         <main id="page-content-wrapper" role="main">
-          <div class="content">
+          <div class="content contenu">
               <?= $this->section('main_content') ?>
           </div>
         </main>
@@ -201,6 +213,10 @@
     </div> 
 
   <!-- Zone de script -->
+
+
+
+
 
 
   <!-- jQuery library -->
@@ -221,151 +237,7 @@
    
     <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
-    <script>
-        $(function(){
-            
-         
-            
-            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
 
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				
-                    if (value.staut == 0){resHTML+='<td>Non Lu</td>';} else {resHTML+='<td>Lu</td>';} 
-                    
-                    
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
-            
-            // Suppression utilisateur avec DOM modifié à la volé
-	$('body').on('click', 'a.deleteContact', function(element){
-		element.preventDefault(); // Bloque l'action par défaut de l'élement
-
-		$.ajax({
-			method: 'post',
-			url: '<?= $this->url('ajaxDeleteContact') ?>',
-			data: {id_user: $(this).data('id')}, 
-			success: function(resultat){
-				$('#mon_resultat').html(resultat); 
-                
-				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				resHTML+= '<td>'+
-                    
-                    
-                    
-                    value.staut+'</td>';
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
-			 }
-		});
-	}); 
-            
-            // $('#submitForm').click(function(el){
-            //     el.preventDefault(); // On bloque l'action par défaut
-
-            //     var form_user = $('#checkform'); // On récupère le formulaire
-            //     $.ajax({
-            //         method: 'post',
-            //         url: '<?= $this->url("ajax_login") ?>',
-            //         data: form_user.serialize(), // On récupère les données à envoyer
-            //         success: function(resultat){
-            //             $('#result').html(resultat);
-            //             form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-            //         }
-            //     });
-            // });
-            
-            $('#ask_token').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform2'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_ask_token") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-        
-             $('#submitform2').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform3'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_logout") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-            
-            /*$('#submitform3').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform4'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("updateCheck") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            }); */
-            
-            $('#new_mdp').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform4'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_resetpsw") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-            
-            
-            
-        });
-</script>
 
   <!-- Fin zone de script -->
 </body>

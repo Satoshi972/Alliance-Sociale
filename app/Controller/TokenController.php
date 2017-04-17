@@ -77,10 +77,11 @@ if($checked === true){
  public function resetpsw()
 	{
         
-    $check = new Reset_pswModel();  
+    $check = new Reset_pswModel(); 
+    if (isset($_GET['token'])){    
     $checktoken = $check->findAll3($_GET["token"]);
     //foreach($checktoken as $check):
-    var_dump($checktoken);
+    }
     if (!empty($checktoken)){
         foreach($checktoken as $check):
         $this->show('token/resetpsw', ['checkfirstname' => $check["firstname"],
@@ -115,7 +116,7 @@ if(!empty($_POST)){
     $checktoken = $check->findAll3($post["token"]);
     $checktoken2 = $check2->findAll4($post["token"]);
 //foreach($checktoken as $check):
-    var_dump($checktoken);
+    
 if(empty($post['password'])){
      
     $errors[] = 'Le mot de passe doit être complété';
@@ -125,7 +126,7 @@ if(empty($post['password'])){
             
             foreach($checktoken as $check):
                 
-            $update->update(["password" => $post['password']], $check['id']
+            $update->update(["password" => password_hash($post['password'], PASSWORD_DEFAULT)], $check['id']
                                          );   
                 
             endforeach; 

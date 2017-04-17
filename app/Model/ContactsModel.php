@@ -2,6 +2,7 @@
 namespace Model;
 
 
+
 class ContactsModel extends \W\Model\Model
 {
     
@@ -79,3 +80,4 @@ class ContactsModel extends \W\Model\Model
     
     
 }
+

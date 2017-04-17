@@ -19,12 +19,12 @@ class MasterController extends Controller
 		$uploadDir = 'assets/medias/'; // Répertoire d'upload
 		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
 		$filesClean = []; // Tableau final qui contiendras les chemin respectifs des médias
-		$nbMedias = count($files);//contient le nombre de medias
+		$nbMedias = count($files['name']);//contient le nombre de medias
 		$filesKey = array_keys($files);//contient les entètes de chaque entrée du tableau
 
-	
-		// var_dump($nbMedias).'<br>';
-		// var_dump($filesKey).'<br>';
+		//var_dump($files).'<br>';
+		//var_dump($nbMedias).'<br>';
+		//var_dump($filesKey).'<br>';
 		for ($i=0; $i < $nbMedias; $i++)
 		{ 
 			$finfo = new \finfo();
@@ -40,54 +40,120 @@ class MasterController extends Controller
 	        $extension = pathinfo($filesClean[$i]['name'], PATHINFO_EXTENSION); //récupère l'extension de mon fichier
 	        // var_dump($mimeType).'<br>';
 	        // var_dump($extension).'<br>';
+	        if($filesClean[0]['error'] === 0)
+	        {
 
-	        if(in_array($mimeType, $mimeTypeAvailable))
-			{
-
-				if($filesClean[$i]['size'] <= $maxSize)
+		        if(in_array($mimeType, $mimeTypeAvailable))
 				{
 
-					if(!is_dir($uploadDir))
+					if($filesClean[$i]['size'] <= $maxSize)
 					{
-						mkdir($uploadDir, 0755);
+
+						if(!is_dir($uploadDir))
+						{
+							mkdir($uploadDir, 0755);
+						}
+
+						$newMediaName = uniqid('media').'.'.$extension;
+						//var_dump($newMediaName).'<br>';
+
+						if(!move_uploaded_file($filesClean[$i]['tmp_name'], $uploadDir.$newMediaName))
+						{
+							#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+							//return false;
+							continue; //ignore le fichier avec l'erreur
+						}
+						else
+						{
+							$datas[$i] = $uploadDir.$newMediaName;
+							//var_dump($datas[$i]);
+						}
+
 					}
-
-					$newMediaName = uniqid('media').'.'.$extension;
-					//var_dump($newMediaName).'<br>';
-
-					if(!move_uploaded_file($filesClean[$i]['tmp_name'], $uploadDir.$newMediaName))
+					else 
 					{
-						#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+						#$errors[] = 'La taille du fichier excède 50 Mo';
 						//return false;
-						continue; //ignore le fichier avec l'erreur
-					}
-					else
-					{
-						$datas[$i] = $uploadDir.$newMediaName;
-						//var_dump($datas[$i]);
+						continue;
 					}
 
 				}
 				else 
 				{
-					#$errors[] = 'La taille du fichier excède 50 Mo';
+					#$errors[] = 'Le fichier n\'est pas une Vidéo valide';
 					//return false;
 					continue;
 				}
 
-			}
-			else 
-			{
-				#$errors[] = 'Le fichier n\'est pas une Vidéo valide';
-				//return false;
-				continue;
-			}
+	        }
+	        else
+	        {
+	        	continue;
+	        }
 		}
 
 		//return $filesClean;
 		return (!empty($datas)) ? $datas : null;
 	}
+/*
+	public function checkImg($files)
+	{
+		$filesClean = []; 
+		$filesKey = array_keys($files);
+		$maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
+		$uploadDir = 'assets/uploads/img'; // Répertoire d'upload
+		$mimeTypeAvailable = ['image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
 
+		foreach ($filesKey as $key) 
+		{
+			// var_dump($key).'br>';
+            $filesClean[$key] = $files[$key];
+        }
+        //var_dump($filesClean).'<br>';
+        var_dump($filesClean['tmp_name']);
+
+        $finfo = new \finfo();
+
+		$mimeType = $finfo->file($filesClean['tmp_name'], FILEINFO_MIME_TYPE); //récupere le mimetype de mo médias
+        $extension = pathinfo($filesClean['name'], PATHINFO_EXTENSION); //récupère l'extension de mon fichier
+
+		if(in_array($mimeType, $mimeTypeAvailable))
+		{
+
+			if($filesClean['size'] <= $maxSize)
+			{
+
+				if(!is_dir($uploadDir))
+				{
+					mkdir($uploadDir, 0755);
+				}
+
+				$newName = uniqid('img').'.'.$extension;
+				//var_dump($newName).'<br>';
+
+				if(!move_uploaded_file($filesClean['tmp_name'], $uploadDir.$newMediaName))
+				{
+					#$errors[] = 'Erreur lors de l\'upload de la vidéo';
+					//return false;
+					return false; //ignore le fichier avec l'erreur
+				}
+				else
+				{
+					return  $uploadDir.$newMediaName;
+					//var_dump($datas[$i]);
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+*/
 	/**
 	* Permet l'envoi de mail
 	* @param $mail = mail attendu
@@ -103,7 +169,7 @@ class MasterController extends Controller
 		// 0 = off (for production use)
 		// 1 = client messages
 		// 2 = client and server messages
-		$mail->SMTPDebug = 2;
+		$mail->SMTPDebug = 0;
 		//Ask for HTML-friendly debug output
 		$mail->Debugoutput = 'html';
 		//Set the hostname of the mail server
@@ -118,9 +184,9 @@ class MasterController extends Controller
 		//Whether to use SMTP authentication
 		$mail->SMTPAuth = true;
 		//Username to use for SMTP authentication - use full email address for gmail
-		$mail->Username = "912e93c76442cd";
+		$mail->Username = "d1fc96c5cb4154";
 		//Password to use for SMTP authentication
-		$mail->Password = "505965f06bf856";
+		$mail->Password = "fa0e38dfe36215";
 		//Set who the message is to be sent from
 		$mail->setFrom('from@example.com', 'First Last');
 		//Set an alternative reply-to address
@@ -135,7 +201,9 @@ class MasterController extends Controller
 		//Replace the plain text body with one created manually
 		//$lien = $this->generateUrl('login');
 
+
 		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw?token=';
+
 
 		$mail->Body = 'Voici votre <a href="'.$lien.$token.'">lien</a> de pour changer votre mot de passe ';
 		//$mail->Body = 'Voici votre lien de pour changer votre mot de passe <a href="'.$_SERVER['DOCUMENT_ROOT'].$lien.'/'.$token.'">lien</a>';
@@ -162,4 +230,5 @@ class MasterController extends Controller
 		allowTo(['admin','editor']);
 
 	}
+
 }

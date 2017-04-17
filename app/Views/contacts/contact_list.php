@@ -16,12 +16,15 @@ $this->start('main_content'); ?>
 ?>
 
     <br>
-    <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist" method="post">
-    
-	<span>Rechercher ce mot-clé</span> 
-	<input type="text" id="search" name="search" minlength="1">
-	<input type="submit" id="submitsearch" value="Envoyer" >
-	
+    <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist" method="post" class="form-inline">
+        <div class="form-group">
+            <label for="search">Rechercher :</label>
+           
+            <input type="text" id="search" name="search" minlength="1" class="form-control" placeholder="Mot clé">
+        </div>
+        <div class="form-group">
+            <input type="submit" id="submitsearch" value="Envoyer" class="btn btn-default">
+        </div>
     </form>
     
     <p>Trier par : 
@@ -35,7 +38,7 @@ $this->start('main_content'); ?>
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=asc">Date (croissant)</a> |
 		<a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=desc">Date (décroissant)</a>
 		<div id="result"></div>
-	<table>
+	<table class="table table-hover">
 		<thead>
 			<tr>
                 <th>Vue</th>
@@ -49,13 +52,13 @@ $this->start('main_content'); ?>
         <?php if(isset($contacts)){ ?>
         <?php foreach($contacts as $contact): ?>
         <tbody>
-            <tr>
+            <tr <?php if ($contact['staut'] == 0) {echo 'class="danger"';} else {echo  'class="success"';} ?>>
             
                 <td><?php if ($contact['staut'] == 0) {echo 'Non lu';} else {echo 'Lu';} ?></td>
                 <td><?= $contact['title']?></td>
                 <td><?= $contact['mail']?></td>
                 <td><?= $contact['date']?></td>
-                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
                 
                 
 
@@ -116,13 +119,13 @@ $this->start('main_content'); ?>
         <?php } elseif (isset($donnees)){ ?>
         <?php foreach($donnees as $donnee): ?>
         <tbody>
-            <tr>
+            <tr <?php if ($donnee['staut'] == 0) {echo 'class="danger"';} else {echo  'class="success"';} ?>>
             <?php if ($donnee['staut'] == 0) {$donnee['staut'] = 'Non lu';} else {$donnee['staut'] = 'Lu';} ?>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['staut']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
-                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: orange; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
-                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['staut']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
+                <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
                 
                 
                 <!-- Modal -->
@@ -196,4 +199,118 @@ $this->start('main_content'); ?>
      
  <?php  
     
-$this->stop('main_content'); ?>
+$this->stop('main_content');
+
+
+$this->start('script');
+
+?>
+
+
+<script>
+        $(function(){
+            
+         
+            
+            
+            
+            // Suppression utilisateur avec DOM modifié à la volé
+	$('body').on('click', 'a.deleteContact', function(element){
+		element.preventDefault(); // Bloque l'action par défaut de l'élement
+
+		$.ajax({
+			method: 'post',
+			url: '<?= $this->url('ajaxDeleteContact') ?>',
+			data: {id_user: $(this).data('id')}, 
+			success: function(resultat){
+				$('#mon_resultat').html(resultat); 
+                
+					
+			 }
+		});
+	}); 
+            
+            $('#submitForm').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_login") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            $('#ask_token').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform2'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_ask_token") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+        
+             $('#submitform2').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform3'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_logout") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            /*$('#submitform3').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform4'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("updateCheck") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            }); */
+            
+            $('#new_mdp').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#checkform4'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("ajax_resetpsw") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+            
+            
+            
+        });
+</script> 
+
+
+<?php
+    $this->stop('script');
+?>
