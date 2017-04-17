@@ -17,6 +17,7 @@
     <!--Latest compiled JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <?php echo $this->section("sliderCss") ?>
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/jumboCss.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
@@ -45,12 +46,12 @@
         </div>
         <div class="row">
 
-                <div class="col-sm-3">
-                    <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
+                <div class="col-xs-2">
+                    <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-thumbnail logos"></a>
                 </div>
 
-                <div class="col-sm-6">
-                   <img class="img-responsive carousel" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
+                <div class="col-xs-10">
+                   <img class="img-responsive homepic" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
                 </div>
 
                <!--  <div class="col-sm-3">
