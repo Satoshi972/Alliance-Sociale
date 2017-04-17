@@ -117,7 +117,7 @@
 
 
                               <div class="collapse" id="demo1">
-                                <a href="/" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="<?= $this->url('add_users') ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
 
