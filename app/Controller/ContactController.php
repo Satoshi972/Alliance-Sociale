@@ -110,7 +110,7 @@ class ContactController extends MasterController
             
             echo $result; // On envoi le résultat
         
-        $this->show('contacts/ajax_del_contacts');
+        $this->show('contacts/contactlist');
         
         
     }
