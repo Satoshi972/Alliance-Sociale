@@ -62,16 +62,14 @@ $w_routes = array(
 
     #Gestion des évenements
     // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
-    ['GET|POST','/events',               'Events#listEvents',  'listEvent'],
-    ['GET|POST','/events/listAll',       'Events#jsonEvent',   'listAllEvent'],
-    ['GET|POST','/events/add',           'Events#addEvent',    'addEvent'],
-    ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
-    ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
-    ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
-    ['GET|POST','/events/listPresent',   'Events#listPresent', 'listPresentEvent'],
-    ['GET|POST','/events/listPast',      'Events#listPast',   'listPastEvent'],
-
-
-
+    ['GET|POST','/events',                   'Events#listEvents',       'listEvent'],
+    ['GET|POST','/events/listAll',           'Events#jsonEvent',        'listAllEvent'],
+    ['GET|POST','/events/add',               'Events#addEvent',         'addEvent'],
+    ['GET|POST','/events/viewBack/[i:id]',   'Events#viewEvent',        'viewEvent'],
+    ['GET|POST','/events/view/[i:id]',       'Events#viewEventFront',   'viewEventFront'],
+    ['GET|POST','/events/update/[i:id]',     'Events#updateEvent',      'updateEvent'],
+    ['GET|POST','/events/delete/[i:id]',     'Events#deleteEvent',      'deleteEvent'],
+    ['GET|POST','/events/listPresent',       'Events#listPresent',      'listPresentEvent'],
+    ['GET|POST','/events/listPast',          'Events#listPast',         'listPastEvent'],
 
 	);

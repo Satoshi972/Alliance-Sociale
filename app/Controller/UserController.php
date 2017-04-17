@@ -21,9 +21,8 @@ class UserController extends Controller
     
     public function login()
 	{
-        
-                $this->show('login_logout/login');
-            }
+        $this->show('login_logout/login');
+    }
     
     
     public function ajax_login()
@@ -62,6 +61,8 @@ class UserController extends Controller
                             $login->logUserIn($user);
                            
                             $result = '<div class="alert alert-success">Vous êtes connecté</div>';
+                            if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
+                            $this->show('admin');
             
                             echo $result; // On envoi le résultat
                         }
@@ -76,12 +77,9 @@ class UserController extends Controller
         
         
         $this->show('login_logout/ajax_login', ['errors' => $errors]);
-        
-        
-        
-        
-        
+           
     }
+
     public function logout()
 	{    
      $find = new UsersModel();

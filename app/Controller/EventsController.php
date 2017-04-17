@@ -11,13 +11,10 @@ use Intervention\Image\ImageManagerStatic as i;
 
 class EventsController extends MasterController
 {
-	public function home()
-	{
-		$this->show('events/home');
-	}
-
 	public function listEvents()
 	{
+		 // $roles = ['admin','editor'];
+   		 // $this->allowTo($roles);
 		$this->show('events/list');
 	}
 
@@ -30,10 +27,25 @@ class EventsController extends MasterController
 
 	public function viewEvent($id)
 	{
+		 // $roles = ['admin','editor'];
+    	// $this->allowTo($roles);
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();
 		$this->show('events/viewEvent',[
+			'infos'    => $infos,
+			'activity' => $activiy,
+		]);
+	}
+
+	public function viewEventFront($id)
+	{
+		 // $roles = ['admin','editor'];
+    	// $this->allowTo($roles);
+		$event = new events();
+		$infos = $event->find($id);
+		$activiy = $event->selectAct();
+		$this->show('events/viewEventFront',[
 			'infos'    => $infos,
 			'activity' => $activiy,
 		]);

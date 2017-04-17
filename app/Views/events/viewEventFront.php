@@ -1,8 +1,8 @@
 <?php 
-$this->layout('layout_back',['title' => 'Fiche de l\'event']);
+$this->layout('layout_front',['title' => 'Fiche de l\'event']);
 $this->start('main_content');
 ?>
-<legend class="text-center">Fiche de l'évenement</legend>
+<legend class="text-center">Fiche de l'évènement</legend>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Affiche</h4>
 		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
@@ -51,17 +51,10 @@ $this->start('main_content');
 	</div>
 	<?php endif; ?>
 
+
 	<div class="text-center">
-		<a href="<?=$this->url('listEvent') ?>">
-			<button class="btn btn-default">Retour a la liste</button>
-		</a>
-
-		<a href="<?=$this->url('updateEvent',['id'=>$infos['id']]) ?>">
-			<button class="btn btn-info">Modification</button>
-		</a>
-
-		<a href="<?=$this->url('deleteEvent',['id'=>$infos['id']]) ?>">
-			<button class="btn btn-danger">Suppression</button>
+		<a href="<?=$this->url('default_home') ?>">
+			<button class="btn btn-default">Retour a l'accueil</button>
 		</a>
 	</div>
 

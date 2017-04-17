@@ -5,7 +5,7 @@
 
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">-->
     <!--<link rel="stylesheet" href="//d2d3qesrx8xj6s.cloudfront.net/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066"> -->
 <?php $this->stop('sliderCss') ?>
@@ -30,7 +30,7 @@
           'class="active"'; } ?>
           ></li>
                     <?php } ?>
-                    <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
                    <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
                 </ol>
                 
@@ -79,7 +79,7 @@
                             <p>
                                 Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
-                    </div>
+                    </div>-->
                    <!-- <div class="item">
                         <img src="http://placehold.it/1200x500/34495e/2c3e50" alt="Third slide">
                         <div class="carousel-caption">
@@ -107,7 +107,7 @@
     </div>
 
 
-    <h2>Liste des Evènements présents :</h2>
+    <h2>Liste des Evènements en cours :</h2>
     
 <table class="table table-hover">
 		<thead>

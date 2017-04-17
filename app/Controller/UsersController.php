@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
-         // $roles = ['admin','editor'];
+         // $roles = ['admin's];
         // $this->allowTo($roles);
 
         $enter = new UsersModel();
@@ -112,7 +112,7 @@ class UsersController extends Controller
     //Update users
     public function updateUsers($id){
 
-         // $roles = ['admin','editor'];
+         // $roles = ['admin'];
         // $this->allowTo($roles);
 
         //Connexion à la base pour l'update et pour remplissage du formulaire
@@ -188,23 +188,24 @@ class UsersController extends Controller
     //Suppression users
 
     public function delUsers($id){
-        // $roles = ['admin','editor'];
+        // $roles = ['admin'];
         // $this->allowTo($roles);
 
         $success = false;
         $del = new UsersModel();
         
-        $remove = $del -> delete($id);
+        $del -> delete($id);
+        // $remove = $del -> delete($id);
 
-        if ($remove) {
-            $success = true;
+        // if ($remove) {
+        //     $success = true;
 
-        }
+        // }
 
-        $this->show('users/del_users',[
-        'affiche'=> $remove,
-        'success'=> $success,
-        ]);
+        // $this->show('users/del_users',[
+        // 'affiche'=> $remove,
+        // 'success'=> $success,
+        // ]);
 
     }
     
