@@ -107,6 +107,7 @@ class EventsModel extends \W\Model\Model
         }
 		$sth = $this->dbh->prepare($sql);
         
+	}
 
 	public function selectAct()
 	{
@@ -127,7 +128,6 @@ class EventsModel extends \W\Model\Model
 		$sth->execute();
 		return $sth->fetchAll(\PDO::FETCH_ASSOC);
 	}
-}
 
 }
 
