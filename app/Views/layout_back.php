@@ -106,7 +106,7 @@
                           <!-- menu -->
                           <div id="MainMenu">
                             <div class="list-group panel">
-
+                              <?php if($w_user['role'] === 'admin'): ?>
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -120,7 +120,7 @@
                                 <a href="<?= $this->url('list_users') ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
-
+                              <?php endif; ?>
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
