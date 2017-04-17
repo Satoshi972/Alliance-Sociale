@@ -245,7 +245,7 @@
       <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
       <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
       <script>
-      $(function())
+      $(function()
       {
          $('#calendar').fullCalendar({
             events: "<?= $this->url('listAllEvent'); ?>",
@@ -263,7 +263,7 @@
                 $('#fullCalModal').modal();
             }
         });
-         console.log(<?= $this->url('listAllEvent'); ?>);
+         console.log('<?= $this->url('listAllEvent'); ?>');
        });
       </script>
 
