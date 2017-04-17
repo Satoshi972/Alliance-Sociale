@@ -53,11 +53,6 @@ $this->start('script');
         var picture = '/Alliance_Sociale/public/';
         var lien = '/Alliance-Sociale/public/events/view/';
 
-        // $('#calendar').fullCalendar({
-        //   editable: false,
-        //   events: "<?= $this->url('listAllEvent'); ?>"
-        // });
-
       $('#calendar').fullCalendar({
             events: "<?= $this->url('listAllEvent'); ?>",
             header: {
