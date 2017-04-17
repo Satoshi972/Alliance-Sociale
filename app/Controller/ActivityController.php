@@ -23,7 +23,7 @@ class ActivityController extends MasterController
         $success = false;
         $maxSize = (1024 * 1000) * 2;
 
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
 
 

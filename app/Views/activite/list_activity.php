@@ -1,4 +1,4 @@
-<?php $this->layout('layout_front', ['title' => 'Les utilisateurs']) ?>
+<?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
 
   <?php $this->start('main_content') ?>
 
@@ -48,7 +48,6 @@
                     <div class="modal-body">
                       <ul>
                          <li><?= $activite['name']?></li>
-
                          <li><?= $activite['content']?></li>
                          <li><?= $activite["picture"] ?></li>
                          <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" alt="logo">

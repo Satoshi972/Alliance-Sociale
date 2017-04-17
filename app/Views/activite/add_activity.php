@@ -48,25 +48,28 @@ $this->start('main_content');?>
             </div>
           </div>
 
-      <div class="input-group">
-      <label for="category">Catégorie de la nouvelle activité :</label>
-  
-      <select name="category" id="category" class="form-control">
-       <?php foreach ($category as $key => $value): ?>
-          <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-       <?php endforeach; ?>
-      </select>
-    </div>
-               
-          
           <div class="form-group">
-            <label class="col-md-2 control-label" for="picture">photos</label>
-            <div class="col-md-10">
-            <input type="file" name="picture" id="picture" accept="image/*">
+            <div class="col-md-12 text-center">
+              <label for="category">Catégorie de la nouvelle activité :</label>
+            </div>
+            <div class="col-md-12">
+              <select name="category" id="category" class="form-control">
+               <?php foreach ($category as $key => $value): ?>
+                  <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+               <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+                         
+          <div class="form-group">
+            <div class="col-md-12 text-center">
+              <label class="control-label" for="picture">photos</label>
+            </div>
+            <div class="col-md-12">
+              <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
           
-
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
               <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activitées</button>
