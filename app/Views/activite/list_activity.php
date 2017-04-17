@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
+<?php $this->layout('layout_front', ['title' => 'Les utilisateurs']) ?>
 
   <?php $this->start('main_content') ?>
 
@@ -12,23 +12,19 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Id</th>
+
           <th>Activité</th>
-          <th>category</th>
         </tr>
       </thead>
 
       <tbody>
-        <?php foreach($activity as $activite): ?>
+        <?php foreach($activity as $activite): ?>          
           <tr>
-            <td>
-              <?=$activite['id'];?>
-            </td>
             <td>
               <?=$activite['name'];?>
             </td>
             <td>
-              <?=$activite['category'];?>
+              <!-- <?=$activite['category'];?> -->
             </td>
         <!--Détails users via lien-->
 			<!--<td>
@@ -52,9 +48,10 @@
                     <div class="modal-body">
                       <ul>
                          <li><?= $activite['name']?></li>
-                         <li><?= $activite['category']?></li>
+
                          <li><?= $activite['content']?></li>
-                         <li><?= $activite['picture']?></li>s
+                         <li><?= $activite["picture"] ?></li>
+                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" alt="logo">
                       </ul>
                     </div>
                     <div class="modal-footer">

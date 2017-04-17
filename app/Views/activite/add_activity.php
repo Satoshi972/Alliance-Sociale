@@ -1,5 +1,5 @@
 <?php
-$this->layout('layout_back', ['title' => 'Ajouter une activité']);
+$this->layout('layout_front', ['title' => 'Ajouter une activité']);
 $this->start('main_content');?>
 
 

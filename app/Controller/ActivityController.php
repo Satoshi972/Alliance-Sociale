@@ -129,11 +129,15 @@ class ActivityController extends MasterController
 
     public function listActivity()
     {
+        $category = new categoryModel();
+        $cat = $category->findAll();
+
         $newActivity = new Activity();
         $activity = $newActivity->findAll();
 
         $params = [
-        'activity' => $activity
+        'activity' => $activity,
+        'cat'      => $cat
         ];
 
         $this->show('activite/list_activity', $params);
@@ -273,7 +277,7 @@ class ActivityController extends MasterController
     $delactivity = new Activity();
     $remove = $delactivity -> delete($id);
 
-    $this->show('activite/del_activite',[
+    $this->show('activite/del_activity',[
         'affiche' => $remove,
         ]);
    } 
