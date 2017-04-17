@@ -106,7 +106,12 @@ $this->start('main_content'); ?>
                 
                 
                 </td>
-                <td><a href="#" class="deleteContact" data-id="<?= $contact['id'] ?>">Supprimer</a></td>
+                <td>
+                <form action="<?= $this->url('ajaxDeleteContact') ?>" id=checkform5 method=post>
+                <input type=hidden name="hidden" value="<?= $contact['id']?>">
+                <button type=submit class="btn btn-default" id="submitform4">Supprimer</button>
+                </form>
+                </td>
             </tr>
             
         </tbody>
@@ -173,7 +178,12 @@ $this->start('main_content'); ?>
                 
                 
                 </td>
-                <td><a href="#" class="deleteContact" data-id="<?= $donnee['id'] ?>">Supprimer</a></td>
+                <td>
+                <form action="<?= $this->url('ajaxDeleteContact') ?>" id=checkform5 method=post>
+                <input type=hidden name="hidden" value="<?= $donnee['id']?>">
+                <button type=submit class="btn btn-default" id="submitform4">Supprimer</button>
+                </form>
+                </td>
             </tr>
             
             

@@ -97,32 +97,34 @@ class ContactController extends MasterController
     
     public function ajaxDeleteContact()
 	{
+        $select = new ContactsModel();
+        $redirect =new Controller;
         
-        // $_POST['id_user'] => renommée comme cela via ajax
-        if(isset($_POST['id_user']) && !empty($_POST['id_user']) && is_numeric($_POST['id_user'])){
+        if(!empty($_POST)){
+            // Nettoyage des données
+            foreach($_POST as $key => $value){
+            $post[$key] = trim(strip_tags($value));
+                
 
-	   $id_user = (int) $_POST['id_user'];
+	   
             
-            $select = new ContactsModel();
-            $select->delete($id_user);
+           
+            $select->delete($post['hidden']);
             
-            $result = '<div class="alert alert-success">Message de contact #'.$id_user.' supprimé</div>';
-            
-            echo $result; // On envoi le résultat
-        
-        $this->show('contacts/contactlist');
+        $redirect->redirectToRoute('contactList');
+        $this->show('contacts/ajax_del_contacts');
         
         
     }
     }
-
+    }
     
      public function updateCheck()
 	{
          // $roles = ['admin','editor'];
         // $this->allowTo($roles);
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        //$roles = ['admin','editor'];
+        //$this->allowTo($roles);
         
         $select = new ContactsModel();
         $redirect =new Controller;
