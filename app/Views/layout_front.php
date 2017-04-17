@@ -140,15 +140,18 @@
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Contactez nous</a></li>
+                Contactez nous</a>
+            </li>
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Adhésion</a></li>
+                Adhésion</a>
+            </li>
 
             <li class="dropdown">
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Galeries</a></li>
+              <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Galeries</a>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
