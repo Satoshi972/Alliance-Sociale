@@ -1,9 +1,13 @@
 <?php 
 $this->layout('layout_front',['title' => 'Maj de l\'event']);
+$this->start('head');
+?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
+<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
+<?php
+$this->stop('head');
 $this->start('main_content');
 ?>
-<?php var_dump($infos); ?>
-
 <form method="post" class="form-horizontal text-center" enctype="multipart/form-data">
 	<legend class="text-center">Modifier l'évènement</legend>
 	<div class="form-group">
@@ -61,6 +65,21 @@ $this->start('main_content');
 $this->stop('main_content');
 $this->start('script');
 ?>
+<!-- Jquery -->
+<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+
+<!-- JQuery UI -->
+<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
+<script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
+<script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
+<script>
+	$("#picture").fileinput(
+	{
+		'showUpload':false,
+		'showCaption' : false,
+		language: "fr",
+	});
+</script>
 <script>
 	$( function() {
 	    $( "#start" ).datepicker({ dateFormat: "yy-mm-dd"});

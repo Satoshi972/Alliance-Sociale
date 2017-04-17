@@ -51,11 +51,6 @@ class EventsController extends MasterController
         
 		if(!empty($_POST))
 		{
-			// date('Y-m-d',strtotime($_POST['start']));
-			// date('Y-m-d',strtotime($_POST['end']));
-
-			var_dump($_POST);
-			var_dump($_FILES);
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
             
@@ -138,7 +133,6 @@ class EventsController extends MasterController
 			}
 			else
 			{
-				//var_dump($_FILES['picture']['error']);
 				$errors[] = 'Erreur lors de la réception de l\'image';
 			}
 
