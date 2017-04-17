@@ -195,9 +195,9 @@
 
 
         <main id="page-content-wrapper" role="main">
-          <div class="content contenu">
+          
               <?= $this->section('main_content') ?>
-          </div>
+          
         </main>
 
     </div> 
