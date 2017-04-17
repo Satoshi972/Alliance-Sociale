@@ -217,16 +217,12 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
 
-  <!-- Fiche qui contient nos fonctions personalisée -->
-  <script src="<?= $this->assetUrl('js/function.js')?>"></script>
-
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-   
-    <!-- Permet des inclusions de scripts depuis la vue -->
-    <?php echo $this->section("script") ?>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+ 
+  <!-- Permet des inclusions de scripts depuis la vue -->
+  <?php echo $this->section("script") ?>
 
 
   <!-- Fin zone de script -->
