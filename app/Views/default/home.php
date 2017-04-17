@@ -136,6 +136,8 @@
           
     </table>
 <a href="www.google.fr">Voir tous les évènements présents</a>
+
+
 <h2>Liste des Evènements passés :</h2>
 <table class="table table-hover">
 		<thead>
