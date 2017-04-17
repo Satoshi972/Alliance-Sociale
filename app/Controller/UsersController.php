@@ -37,7 +37,7 @@ class UsersController extends Controller
             //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
             (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe est invalide' : null,
 
-            (!in_array($post['role'], $roles))
+            (!in_array($post['role'], $roles)) ? 'Le role reçu semble avoir un probème' : null,
             ];
             
             $errors = array_filter($err);
