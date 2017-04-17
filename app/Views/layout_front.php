@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
-    
 
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
@@ -180,7 +179,27 @@
             
         </section>
         <section class="content-right text-center">
-            <p>calendrier</p>
+            <!-- Zone calendrier -->
+            <div id="calendar"></div>
+            <!-- detail de mon event -->
+            <div id="fullCalModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                            <h4 id="modalTitle" class="modal-title"></h4>
+                        </div>
+                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
+                        <div id="modalBody" class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <a id="link" ><button class="btn btn-primary">Plus d'info</button></a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            <!-- Zone calendrier -->
+
             <!-- Zone inclusion widget meteo -->
              <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=2&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=dark"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 108px;height: 244px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
         </section>
@@ -229,10 +248,14 @@
     <!-- JQuery UI -->
     <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 
-
-
     <!-- Bootstrap Core JavaScript -->
     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+
+    <!-- Full calendar -->
+    <script src="<?= $this->assetUrl('js/fullcalendar/moments.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/fullcalendar/fullcalendar.min.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
 
     <!-- API Facebook -->
 
@@ -251,6 +274,30 @@ $(document).ready(function(){
     e.stopPropagation();
     e.preventDefault();
   });
+  //Full calendar commence ici
+  var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+        var picture = '/Alliance_Sociale/public/';
+        var lien = '/Alliance-Sociale/public/events/view/';
+        
+  $('#calendar').fullCalendar({
+            events: "<?= $this->url('listAllEvent'); ?>",
+            header: {
+                left: '',
+                center: 'prev title next',
+                right: ''
+            },
+            eventClick:  function(event, jsEvent, view) {
+                $('#modalTitle').html(event.title);
+                $('#picture').attr('src',picture+event.picture);
+                $('#modalBody').html(event.content);
+                $('#link').attr('href',lien+event.id);
+                $('#fullCalModal').modal();
+            }
+        });
+  //Fin du full calendar
 });
 </script>
 
