@@ -37,7 +37,7 @@
     max-height: 360px !important;
 }
 .img-home {
-    border-radius:20px;
+    border-radius:50px !important;
     object-fit:cover;
     max-height: 180px;
     max-width: 180px;
@@ -47,8 +47,7 @@
 .img-home:hover {
     
     object-fit:cover;
-    max-height: 200px;
-    max-width: 200px;
+    border-radius:0px !important;
    
 }
 

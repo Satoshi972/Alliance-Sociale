@@ -69,5 +69,7 @@ $w_routes = array(
     ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
     ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
     ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
+    ['GET|POST','/events/listPresent',   'Events#listPresent', 'listPresentEvent'],
+    ['GET|POST','/events/listPast',      'Events#listPast',   'listPastEvent'],
 
 	);

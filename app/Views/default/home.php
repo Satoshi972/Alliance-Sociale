@@ -46,7 +46,7 @@
           }
     ?>
     ">
-                        <a href="http://ton lien"><img src="http://localhost/Alliance-Sociale/public/<?=$infosfut[$i]['picture'] ?>" alt="<?php if ($i== 0) {
+                        <a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infosfut[$i]['id'] ?>"><img src="http://localhost/Alliance-Sociale/public/<?=$infosfut[$i]['picture'] ?>" alt="<?php if ($i== 0) {
           echo
           'First'; }
           elseif ($i== 1){
@@ -54,10 +54,16 @@
             }
           elseif ($i== 2){
               echo 'Third';
-          } ?> slide" class="img-responsive"></a>
+          }
+          elseif ($i== 3){
+              echo 'Fourth';
+          }
+          elseif ($i== 4){
+              echo 'fifth';
+          }?> slide" class="img-responsive"></a>
                         <div class="carousel-caption">
                             <h3>
-                                <a  class="link-home" href ="http://ton lien"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
+                                <a  class="link-home" href ="http://localhost/Alliance-Sociale/public/events/view/<?=$infosfut[$i]['id'] ?>"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
                             <p>
                                 <?=$infosfut[$i]['content'] ?></p>
                         </div>
@@ -126,7 +132,7 @@
                 <td><?= $infopres['content']?></td>
                 <td><?= $infopres['start']?></td>
                 <td><?= $infopres['end']?></td>
-                <td><a href="www.google.fr">Voir</a></td>
+                <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
                 
             </tr>
             <?php endforeach; ?> 
@@ -135,7 +141,7 @@
         
           
     </table>
-<a href="www.google.fr">Voir tous les évènements présents</a>
+<a href="<?= $this->url('listPresentEvent') ?>">Voir tous les évènements présents</a>
 
 
 <h2>Liste des Evènements passés :</h2>
@@ -159,7 +165,7 @@
                 <td><?= $infopas['content']?></td>
                 <td><?= $infopas['start']?></td>
                 <td><?= $infopas['end']?></td>
-                <td><a href="www.google.fr">Voir</a></td>
+                <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
                 
             </tr>
             <?php endforeach; ?>
@@ -168,7 +174,7 @@
            
         
        	</table>       
-<a href="www.google.fr">Voir tous les évènements passés</a>               
+<a href="<?= $this->url('listPastEvent') ?>">Voir tous les évènements passés</a>               
 
 
 <?php $this->stop('main_content'); 

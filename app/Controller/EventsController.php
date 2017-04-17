@@ -340,5 +340,35 @@ class EventsController extends MasterController
 		$event->delete($id);
 		$this->show('events/list');
 	}
+    
+    public function listPresent()
+	{
+		date_default_timezone_set('America/Martinique');
+        
+        $find = new events();
+        $infospres =$find->findAllEventsPres($orderBy = 'end', $orderDir = 'ASC', $limit = null, $offset = null);
+        
+        
+        $params = [
+                   "infospres" => $infospres,
+                   
+                  
+                  ];
+		$this->show('events/listPresent', $params);
+	}
+    
+    public function listPast()
+	{
+		date_default_timezone_set('America/Martinique');
+               
+        $find = new events();
+        $infospas =$find->findAllEventsPas($orderBy = 'end', $orderDir = 'ASC', $limit = null, $offset = null);
+        
+        $params = [
+                   "infospas" => $infospas,
+                  
+                  ];
+		$this->show('events/listPast', $params);
+	}
 }
 ?>
