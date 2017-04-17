@@ -9,7 +9,10 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
-
+<div class ="container">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="col-md-8 text-center well jumbo">
 	<div class="col-md-6 col-md-offset-3">
 		<h2>Ajout des médias</h2>
 	</div>
@@ -56,7 +59,10 @@ $this->start('main_content');
 			</div>
 		</div>
 	</form>
-
+   </div>
+  </div>
+ </div>
+</div>
 <?php 
 $this->stop('main_content'); 
 $this->start('script'); 
