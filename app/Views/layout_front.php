@@ -46,7 +46,7 @@
         <div class="row">
 
                 <div class="col-sm-3">
-                    <a href="#"><img src="<?= $this->assetUrl('img/quiz_au-soeeeleil-soleil_29832.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
+                    <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
                 </div>
 
                 <div class="col-sm-6">
