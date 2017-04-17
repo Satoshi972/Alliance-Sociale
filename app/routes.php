@@ -16,30 +16,31 @@ $w_routes = array(
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
 	['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
 
-
-	#gestion_medias#
-	['GET|POST', '/medias', 	           'Medias#addMedias', 	    'addmedias'], // Ajouts médias
-	['GET|POST', '/medias/list/[i:page]',	   'Medias#listMedias',     'listMedias'], // Listes Médias
-	['GET|POST', '/medias/listGuest/[i:page]', 'Medias#listMediasGuest','listMediasGuest'], // Listes Médias pour invité
-	['GET|POST', '/medias/album', 		   'Medias#listAlbum', 	    'album'], // Listes Albums
+	#gestion_medias
+	['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
+	['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listMedias'], // Listes Médias
+	['GET|POST', '/medias/listGuest/[i:page]', 'Medias#listMediasGuest', 'listMediasGuest'], // Listes Médias pour invité
+            ['GET|POST', '/medias/album', 'Medias#listAlbum',       'album'], // Listes Albums
+	['GET|POST', '/medias/delete/[i:id]', 'Medias#deleteMedias', 	'deleteMedias'], // Listes Albums
 	//['GET|POST', '/medias/album/[s:idE]', 'Medias#listMediasByCats', 'album_cat'], // Listes Médias
 
-        #Routes login-logout
-        ['GET|POST','/login', 'User#login', 'login'],
-        ['GET|POST','/ajax_login', 'User#ajax_login', 'ajax_login'],
-        ['GET|POST','/logout', 'User#logout', 'logout'],
-        ['GET|POST','/ajax_logout', 'User#ajax_logout', 'ajax_logout'],
-        
-        #Routes du token et du resetpsw
-        ['GET|POST','/token', 'token#ask_token', 'ask_token'],
-        ['GET|POST','/token/', 'token#ajax_ask_token', 'ajax_ask_token'],
-        ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
-        ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
-        
-        #Routes contacts
-        ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
-        ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
-        ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
+
+    #Routes login-logout
+    ['GET|POST','/login', 'User#login', 'login'],
+    ['GET|POST','/ajax_login', 'User#ajax_login', 'ajax_login'],
+    ['GET|POST','/logout', 'User#logout', 'logout'],
+    ['GET|POST','/ajax_logout', 'User#ajax_logout', 'ajax_logout'],
+    
+    #Routes du token et du resetpsw
+    ['GET|POST','/token', 'token#ask_token', 'ask_token'],
+    ['GET|POST','/token/', 'token#ajax_ask_token', 'ajax_ask_token'],
+    ['GET|POST','/resetpsw', 'token#resetpsw', 'resetpsw'],
+    ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
+    
+    #Routes contacts
+    ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
+    ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+    ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
 	#Gestion des Partenaires
 	['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
@@ -47,22 +48,22 @@ $w_routes = array(
 	['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],//Modification des Partenaires
 	['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],//Suppression des Partenaires
 
-        #Contact front
-        ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
+    #Contact front
+    ['GET|POST', '/contact_front', 'ContactFront#addContact', 'contactfront'],
 
-        #Qui sommes nous
-        ['GET|POST','/about', 'AboutFront#views', 'about'],
+    #Qui sommes nous
+    ['GET|POST','/about', 'AboutFront#views', 'about'],
 
-        #Adhesion
-        ['GET|POST', '/accession', 'Front#accession', 'accession'], 
+    #Adhesion
+    ['GET|POST', '/accession', 'Front#accession', 'accession'], 
 
-        #Gestion des évenements
-        // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
-        ['GET|POST','/events',               'Events#listEvents',  'listEvent'],
-        ['GET|POST','/events/listAll',       'Events#jsonEvent',   'listAllEvent'],
-        ['GET|POST','/events/add',           'Events#addEvent',    'addEvent'],
-        ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
-        ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
-        ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
+    #Gestion des évenements
+    // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
+    ['GET|POST','/events',               'Events#listEvents',  'listEvent'],
+    ['GET|POST','/events/listAll',       'Events#jsonEvent',   'listAllEvent'],
+    ['GET|POST','/events/add',           'Events#addEvent',    'addEvent'],
+    ['GET|POST','/events/view/[i:id]',   'Events#viewEvent',   'viewEvent'],
+    ['GET|POST','/events/update/[i:id]', 'Events#updateEvent', 'updateEvent'],
+    ['GET|POST','/events/delete/[i:id]', 'Events#deleteEvent', 'deleteEvent'],
 
 	);

@@ -99,11 +99,9 @@ class MediasController extends MasterController
 		//var_dump($currentPage);
  
 		$firstEntry= ($currentPage-1)*$MediasPerPages; // On calcul la première entrée à lire
-		var_dump($firstEntry);
 		# La requête sql pour récupérer les messages de la page actuelle.
 		$retour_messages= $medias->listPageMedias($firstEntry, $MediasPerPages);
  
-		var_dump($retour_messages);
 		$params = [
 			//'images' => $images,
 			'medias'	  => $retour_messages,
@@ -143,11 +141,9 @@ class MediasController extends MasterController
 		//var_dump($currentPage);
  
 		$firstEntry= ($currentPage-1)*$MediasPerPages; // On calcul la première entrée à lire
-		var_dump($firstEntry);
 		# La requête sql pour récupérer les messages de la page actuelle.
 		$retour_messages= $medias->listPageMedias($firstEntry, $MediasPerPages);
  
-		var_dump($retour_messages);
 		$params = [
 			//'images' => $images,
 			'medias'	  => $retour_messages,
@@ -204,6 +200,13 @@ class MediasController extends MasterController
 		];
 
 		$this->show('medias/album', $params);
+	}
+
+	public function deleteMedias($id)
+	{
+		$medias = new medias();
+		$medias->delete($id);
+		$this->redirectToRoute('listMedias',['page'=>1]);
 	}
 
 	/*
