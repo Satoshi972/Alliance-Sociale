@@ -26,7 +26,7 @@
 .container .img-responsive {
     margin: 0 auto;
     display: block;
-    max-height: 360px ;
+    max-height: 340px ;
     background-size: cover;
     max-width: 782px ;
     width:100%;
@@ -34,7 +34,7 @@
 }
 .slide {
     max-width: 782px !important;
-    max-height: 360px !important;
+    max-height: 340px !important;
 }
 .img-home {
     border-radius:50px !important;
