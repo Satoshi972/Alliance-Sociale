@@ -6,8 +6,11 @@ $w_routes = array(
 	['GET', '/admin', 'Default#admin', 'admin'],
 
 	#gestion des activites
-	//['GET', '/activities', 'Activities#activities', 'default_activities'],
-	['GET', '/activity', 'Activity#activity', 'default_activity'],
+    ['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
+    ['GET|POST', '/activite/list', 'Activity#listActivity', 'list_activite'], 
+    ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
+    ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
+    ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
@@ -69,11 +72,6 @@ $w_routes = array(
     ['GET|POST','/events/listPast',      'Events#listPast',   'listPastEvent'],
 
 
-        #Activités
-        ['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
-        ['GET|POST', '/activite/list', 'Activity#listActivity', 'list_activite'], 
-        ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
-        ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
-        ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
+
 
 	);
