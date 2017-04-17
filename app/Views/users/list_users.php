@@ -1,5 +1,7 @@
 <?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
-
+<?php $this->start('head') ?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
+<?php $this->stop('head') ?>
   <?php $this->start('main_content') ?>
  
 <div class ="container">
@@ -79,4 +81,27 @@
     </div>
   </div>
 </div>
+
+
     <?php $this->stop('main_content') ?>
+
+    <?php $this->start('script') ?>
+ <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
+
+ <script>
+
+/* $(function(){
+    swal({
+ 
+  title: "Êtes-vous sur de vouloir supprimer cet utilisateur?",
+  text: "Your will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+});
+  });*/
+ </script>
+
+    <?php $this->stop('script') ?>
