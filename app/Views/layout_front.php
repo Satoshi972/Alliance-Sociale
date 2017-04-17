@@ -18,7 +18,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <?php echo $this->section("sliderCss") ?>
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
+
     <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+
+    <!-- CSS pour le calendrier -->
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
 
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
@@ -157,7 +161,16 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <div class="container-full">
 
+      <div class="row">
+          
+          <div class="col-md-12">
+
+            <div class="col-md-3">
+              
+            </div>
 
 
         <section class="content-left">
@@ -236,8 +249,6 @@
 
 <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
-
-
 
 </body>
 </html>

@@ -107,11 +107,18 @@ class EventsModel extends \W\Model\Model
         }
 		$sth = $this->dbh->prepare($sql);
         
+
+	public function selectAct()
+	{
+
+		$sql = 'SELECT A.name, A.act_id FROM events as E, Activity as A WHERE A.act_id = E.id_activity';
+		$sth = $this->dbh->prepare($sql);
+		// $sth->bindValue(':id', $string, PARAM_INT);
 		$sth->execute();
 
 		return $sth->fetchAll();
 	}
-    
+  
 	public function eventMedias()
 	{
 		$sql = 'SELECT * FROM events as E, medias as M WHERE M.id_related = E.id_event';
@@ -120,5 +127,7 @@ class EventsModel extends \W\Model\Model
 		$sth->execute();
 		return $sth->fetchAll(\PDO::FETCH_ASSOC);
 	}
+}
+
 }
 
