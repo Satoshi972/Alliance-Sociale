@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\UsersModel;
+use \Model\RoleModel as role;
 use Respect\Validation\Validator as v;
 
 class UsersController extends Controller
@@ -15,6 +16,9 @@ class UsersController extends Controller
         $post = [];
         $success = false;
         $displayForm = true;
+
+        $role = new role();
+        $roles  = $role->findAll();
         
         if(!empty($_POST)) {
             
@@ -32,6 +36,8 @@ class UsersController extends Controller
             
             //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
             (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe est invalide' : null,
+
+            (!in_array($post['role'], $roles))
             ];
             
             $errors = array_filter($err);
@@ -63,9 +69,10 @@ class UsersController extends Controller
         // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
         
         $params = [
-        'success' => $success,
-        'errors'  => $errors,
+        'success'     => $success,
+        'errors'      => $errors,
         'displayForm' => $displayForm,
+        'roles'       => $roles,
         ];
         
         $this->show('users/add_users', $params);

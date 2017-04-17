@@ -44,7 +44,7 @@ class UserController extends Controller
             if(!v::filterVar(FILTER_VALIDATE_EMAIL)->validate($post['ident'])){
                 $errors[] = 'L\'adresse email est invalide';
             }
-            if(!v::stringType()->notEmpty()->validate($post['password'])){
+            if(!v::alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->notEmpty()->validate($post['password'])){
                 $errors[] = 'Le mot de passe doit être complété';
             }
 

@@ -47,24 +47,20 @@ $this->start('script');
 <script>
         $(function(){
             
-         
-            
-         
-            
             // Suppression utilisateur avec DOM modifié à la volé
-	$('body').on('click', 'a.deleteContact', function(element){
-		element.preventDefault(); // Bloque l'action par défaut de l'élement
+        	$('body').on('click', 'a.deleteContact', function(element){
+        		element.preventDefault(); // Bloque l'action par défaut de l'élement
 
-		$.ajax({
-			method: 'post',
-			url: '<?= $this->url('ajaxDeleteContact') ?>',
-			data: {id_user: $(this).data('id')}, 
-			success: function(resultat){
-				$('#mon_resultat').html(resultat); 
-          
-			 }
-		});
-	}); 
+        		$.ajax({
+        			method: 'post',
+        			url: '<?= $this->url('ajaxDeleteContact') ?>',
+        			data: {id_user: $(this).data('id')}, 
+        			success: function(resultat){
+        				$('#mon_resultat').html(resultat); 
+                  
+        			 }
+        		});
+        	}); 
             
             $('#submitForm').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
@@ -140,9 +136,7 @@ $this->start('script');
                     }
                 });
             });
-            
-            
-            
+      
         });
 </script> 
 
