@@ -171,8 +171,8 @@
                               </a>
 
                               <div class="collapse" id="demo4">
-                                <a href="" class="list-group-item">Liste des Activités</a>
-                                <a href="" class="list-group-item">Ajouter une activité</a>
+                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
+                                <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
                                 <a href="" class="list-group-item">Liste des Catégories</a>
                                 <a href="" class="list-group-item">Ajouter une catégorie</a>
                               </div>
@@ -237,7 +237,7 @@
    
     <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
-    
+
 
   <!-- Fin zone de script -->
 </body>

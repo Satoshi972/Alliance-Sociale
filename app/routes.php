@@ -68,4 +68,12 @@ $w_routes = array(
     ['GET|POST','/events/listPresent',   'Events#listPresent', 'listPresentEvent'],
     ['GET|POST','/events/listPast',      'Events#listPast',   'listPastEvent'],
 
+
+        #Activités
+        ['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
+        ['GET|POST', '/activite/list', 'Activity#listActivity', 'list_activite'], 
+        ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
+        ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
+        ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
+
 	);
