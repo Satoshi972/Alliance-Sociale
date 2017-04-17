@@ -149,8 +149,13 @@
             </li>
 
             <li class="dropdown">
+            <?php if(!empty($w_user)): ?>
               <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Galeries</a>
+              <?php else: ?>
+                <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Galeries</a>
+              <?php endif; ?>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
