@@ -46,16 +46,18 @@ class EventsController extends MasterController
 		$event = new events();
 		$post = [];
 		$errors = [];
+		$uploadDir = 'assets/medias/';
+		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
         
 		if(!empty($_POST))
 		{
-			date('Y-m-d',strtotime($_POST['start']));
-			date('Y-m-d',strtotime($_POST['end']));
+			// date('Y-m-d',strtotime($_POST['start']));
+			// date('Y-m-d',strtotime($_POST['end']));
 
 			var_dump($_POST);
+			var_dump($_FILES);
+
 			$post = array_map('trim', array_map('strip_tags', $_POST));
-            
-            $date = $post['start'];
             
 			if(!v::notEmpty()->alpha('_-?!.')->length(2,50)->validate($post['title']))
 			{
@@ -69,41 +71,33 @@ class EventsController extends MasterController
 
 			if(!v::notEmpty()->date('Y-m-d')->validate($post['start']))
 			{
-                $errorstart = true;
-				$errors[] = 'Une erreur est surevenue au niveau de la date de début, faites y attention...';
+				$start = false;
+				$errors[] = 'Une erreur est survenue au niveau de la date de début, faites y attention...';
 			}
-
-
-            
-            if(!isset($errorstart) && empty($post['end']))
-			{
-               $post['end'] = null;			
-			}
-            
-			elseif(!isset($errorstart) && isset($post['end']))
-			{
-                $test= date( "Y-m-d", strtotime( "$date +3 years" ) );
-				if(!v::date('Y-m-d')->validate($post['end']) || !v::date()->between($post['start'], $test)->validate($post['end']))
 
 			#s'il n'y a pas d'erreur sur la date de début ET que l'utilisateur a bien rentré une date de fin
-			if(!isset($error['start']) || !empty($post['end']))
+			if($start && !empty($post['end']))
 			{
 				#Je vérifie le bon format de date (pour mysql), soit année, mois, jours, puis je vérifie que la seconde dae soit compris dans une fourchette : entre la date de début et 3 plus tard (car un event qui commence aujourd'hui et c'est fini hier n'as pas de sens....)
-				if(!v::date('Y-m-d')->between($post['start'], date('Y')+3)->validate($post['end']))
 
+				$start = strtotime(($post['start']));
+
+				if(!v::date('Y-m-d')->validate($post['end']))
 				{
-					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
-                    
-                    echo $test;
+					$errors[] = 'Une erreur est survenue au niveau de la date de fin, faites y attention...';
+				}
+				elseif($start > strtotime($post['end']))
+				{
+					$errors[] = 'La date de fin ne peut etre inférieure a celle de début';
 				}				
 			}
-			else
+
+			if(!v::intVal()->validate($post['quota']))
 			{
-				$post['end'] = null;
+				$errors[] = 'Veuillez saisir un chiffre';
 			}
 
-
-			/*if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
+			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
 			{
 
 				$img = i::make($_FILES['picture']['tmp_name']);
@@ -112,7 +106,6 @@ class EventsController extends MasterController
 				$ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 				$newName = uniqid('img_').'.'.$ext;
 				$maxSize = (1024 * 1000) * 2;
-                $uploadDir = 'localhost/Alliance-Sociale/public/assets/img'; // Répertoire d'upload    
 				if($maxSize < $size)
 				{
 					$errors[] = 'fichier trop gros, il doit faire 2 mo max';
@@ -147,39 +140,42 @@ class EventsController extends MasterController
 			{
 				//var_dump($_FILES['picture']['error']);
 				$errors[] = 'Erreur lors de la réception de l\'image';
-			} */
+			}
 
 			if(count($errors)>0)
 			{
 				$textError = implode('<br>', $errors);
 				$result = '<p class="alert alert-danger">'.$textError.'</p>';
-                echo $result;
-                $this->show('events/addEvent',[
-			     'infos'  => $infos,
-			     ]);
 			}
 			else
 			{
-				$datas = [
-                    
-					'title' 	=> $post['title'],
-					'content' 	=> $post['content'],
-					'start' 	=> $post['start'],
-					'end' 		=> $post['end'],
-					'quota'     => 10,
-                    'id_activity' => 'A12',
-                    'picture' => 'edededed',
-					
-				];
+				if(!empty($post['end']))
+				{
+					$datas = [
+						'title' 	  => $post['title'],
+						'content' 	  => $post['content'],
+						'start' 	  => $post['start'],
+						'end' 		  => $post['end'],
+						'quota'   	  => $post['quota'],
+	                    'id_activity' => $post['activity'],
+	                    'picture'     => $post['picture'],
+					];
+				}
+				else
+				{
+					$datas = [
+						'title' 	  => $post['title'],
+						'content' 	  => $post['content'],
+						'start' 	  => $post['start'],
+						'quota'   	  => $post['quota'],
+	                    'id_activity' => $post['activity'],
+	                    'picture'     => $post['picture'],
+					];
+				}
 
 				if($event->insert($datas))
 				{
                     $result = '<p class="alert alert-success">Evenement bien enregistré </p>';
-                    echo $result;
-                     $this->show('events/addEvent',[
-			     'infos'  => $infos,
-			     ]);
-					
 				}
 				
 			}
@@ -192,7 +188,7 @@ class EventsController extends MasterController
 			]);
 		}
 
-		
+		echo $result;
 	}
 
 	public function updateEvent($id)
@@ -204,17 +200,14 @@ class EventsController extends MasterController
 		$list  = $activity->findAll();
 
 		$picture = $infos['picture'];
-
+		$uploadDir = 'assets/medias/';
+		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
 
 		$post = [];
 		$error = [];
 
 		if(!empty($_POST))
 		{
-			var_dump($_FILES).'<br>';
-			date('Y-m-d',strtotime($_POST['start'])); //pour avoir le bon format de onnée dans ma bdd
-			date('Y-m-d',strtotime($_POST['end']));
-			var_dump($_POST).'<br>';
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 
@@ -230,19 +223,25 @@ class EventsController extends MasterController
 
 			if(!v::notEmpty()->date('Y-m-d')->validate($post['start']))
 			{
+				$start = false;
 				$errors[] = 'Une erreur est surevenue au niveau de la date de début, faites y attention...';
 			}
+			
+			#s'il n'y a pas d'erreur sur la date de début ET que l'utilisateur a bien rentré une date de fin
+			if($start && !empty($post['end']))
+			{
+				#Je vérifie le bon format de date (pour mysql), soit année, mois, jours, puis je vérifie que la seconde dae soit compris dans une fourchette : entre la date de début et 3 plus tard (car un event qui commence aujourd'hui et c'est fini hier n'as pas de sens....)
 
-			if(!isset($error['start']) || !empty($post['end']))
-			{
-				if(!v::date('Y-m-d')->between($post['start'], date('Y')+3)->validate($post['end']))
+				$start = strtotime(($post['start']));
+
+				if(!v::date('Y-m-d')->validate($post['end']))
 				{
-					$errors[] = 'Une erreur est surevenue au niveau de la date de fin, faites y attention...';
+					$errors[] = 'Une erreur est survenue au niveau de la date de fin, faites y attention...';
+				}
+				elseif($start > strtotime($post['end']))
+				{
+					$errors[] = 'La date de fin ne peut etre inférieure a celle de début';
 				}				
-			}
-			else
-			{
-				$post['end'] = NULL;
 			}
 
 
@@ -298,40 +297,53 @@ class EventsController extends MasterController
 			}
 			else
 			{
-				$datas = [
-					'title' 		=> $post['title'],
-					'picture' 		=> $picture,
-					'content' 		=> $post['content'],
-					'start' 		=> $post['start'],
-					'end' 			=> $post['end'],
-					'id_activity' 	=> $post['activity'],
-					'quota' 		=> $post['quota'],
-				];
+				if(!empty($post['end']))
+				{
+					$datas = [
+						'title' 	  => $post['title'],
+						'content' 	  => $post['content'],
+						'start' 	  => $post['start'],
+						'end' 		  => $post['end'],
+						'quota'   	  => $post['quota'],
+	                    'id_activity' => $post['activity'],
+	                    'picture'     => $post['picture'],
+					];
+				}
+				else
+				{
+					$datas = [
+						'title' 	  => $post['title'],
+						'content' 	  => $post['content'],
+						'start' 	  => $post['start'],
+						'quota'   	  => $post['quota'],
+	                    'id_activity' => $post['activity'],
+	                    'picture'     => $picture,
+					];
+				}
 
 				if($event->update($datas,$id))
 				{
 					$result = '<p class="alert alert-success">Evenement bien enregistré </p>';
-				}
-				else
-				{
-					var_dump($event->update($datas,$id));
-				}
-				
+				}				
 			}
 
 		}
+		else
+		{
 			$this->show('events/updateEvent',[
 				'infos' => $infos,
 				'list'  => $list,
 			]);
+		}
 
+			 echo $result;
 	}
 
 	public function deleteEvent($id)
 	{
 		$event = new events();
 
-		$events->delete($id);
+		$event->delete($id);
 		$this->show('events/list');
 	}
 }

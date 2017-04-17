@@ -18,11 +18,7 @@ $this->start('main_content');
 
 	<div class="form-group">
 		<label for="title">Titre</label>
-
-		<input type="text" name='title' id="title" class="title" class="form-control">
-
-		
-
+		<input type="text" name='title' id="title" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -49,6 +45,11 @@ $this->start('main_content');
 		</select>
 	</div>
 
+	<div class="form-group">
+		<label for="quota">Ajouter un quota:</label>
+		<input type="number" id="quota" name="quota" class="form-control">
+	</div>
+
 	<div class="text-center">
 		<input type="submit" class="btn btn-primary" value="Envoyer">
 	</div>
@@ -65,7 +66,7 @@ $this->start('script');
 
 <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
 <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
-<!-- <script>
+ <script>
 $("#picture").fileinput(
 	{
 		'showUpload':false,
@@ -73,13 +74,13 @@ $("#picture").fileinput(
 		language: "fr",
 	});
 </script>
--->
+
   <script>
   $( function() {
 
 	  	//Date picker
-	    $( "#start" ).datepicker({format: 'yyyy/mm/dd'});
-	    $( "#end" ).datepicker({format: 'yyyy/mm/dd'});
+	    $( "#start" ).datepicker({ dateFormat: "yy-mm-dd"});
+	    $( "#end" ).datepicker({ dateFormat: "yy-mm-dd"});
 		$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
 
 		//gestion de mon formulaire d'envoi
