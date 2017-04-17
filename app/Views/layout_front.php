@@ -76,89 +76,80 @@
           <a class="navbar-brand" href=""></a>
         </div>
 
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse dropdown">
           <ul class="nav navbar-nav">
             <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
             <li class="dropdown">
 
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Presentation
-                <span class="caret"></span>
-              </a>
-
-              <ul class="dropdown-menu">
-                <li><a href="<?php echo $this->url('default_home') ?>">Qui sommes nous</a></li>
-        <!--         <li>La Mission</li>
-                <li>L'équipe</li>
-                <li>Témoignages</li> -->
-              </ul>
-            </li>
+                Presentation</a></li>
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Evènements
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>Evènements à venir</li>
-                <li>Evènements passés</li>
-              </ul>
-            </li>
+                Evènements</a></li>
+
+
+
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Nos Activités
-                <span class="caret"></span>
-              </a>
+                <span class="caret"></span></a>
 
               <ul class="dropdown-menu">
-                <li>Vie Sociale</li>
-                <li>Citoyenneté</li>
-                <li>Vie Quotidienne</li>
-                <li>Education</li>
-                <li>Sports et Loisirs</li>
-                <li>Animation</li>
-              </ul>
-            </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Formations <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">Formation du personnel</a></li>
+          <li><a tabindex="-1" href="#">Prevention et secours civique</a></li>
+          <li><a tabindex="-1" href="#">BAFA</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Comité des jeunes <span class="caret"></span></a>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">Gymnastique</a></li>
+          <li><a tabindex="-1" href="#">Judo</a></li>
+          <li><a tabindex="-1" href="#">Zumba</a></li>
+          <li><a tabindex="-1" href="#">Randonnée</a></li>
+          <li><a tabindex="-1" href="#">Danse traditionnelle</a></li>
+          <li><a tabindex="-1" href="#">Accueil de loisirs (sans hébergement)</a></li>
+          <li><a tabindex="-1" href="#">Couture</a></li>
+          <li><a tabindex="-1" href="#">Cuisine</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Education<span class="caret"></span></a> 
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">Accompagnement scolaire</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Animation<span class="caret"></span></a> 
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">Autres</a></li>
+        </ul>
+      </li>
+            </ul>
+                
+
+
+
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Contactez nous
-                <span class="caret"></span>
-              </a>
-
-              <ul class="dropdown-menu">
-                <li>Où sommes-nous</li>
-                <li>Nos sites</li>
-                <li>La Commune</li>
-                <li>Formations</li>
-                <li>Bénévolat</li>
-              </ul>
-            </li>
+                Contactez nous</a></li>
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Adhésion
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>Activités</li>
-                <li>Animation</li>
-                <li>Adhésions</li>
-              </ul>
-            </li>
+                Adhésion</a></li>
 
             <li class="dropdown">
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Galeries
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>Medias souvenirs</li>
-                <li>Derniers évènements</li>
-                <li>Vidéos</li>
-              </ul>
-            </li>
+                Galeries</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -247,6 +238,16 @@
           js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+
+        <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
 
 
 <!-- Permet des inclusions de scripts depuis la vue -->
