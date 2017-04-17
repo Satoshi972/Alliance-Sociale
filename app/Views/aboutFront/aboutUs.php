@@ -68,56 +68,72 @@
 						</div>
 					</div>
 
-					<div class="row text-center">
 
-						<div class="col-md-2">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+
+							<div class="col-md-4">							
 								<figure>
 									<h5 class="text-center">Chargé d'Acceuil</h5>
 									<img src="<?= $this->assetUrl('teamAS/Tania Gris Desormaux.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 									<figcaption class="text-center">Mme Tania GROS-DESORMEAUX</figcaption>
 								</figure>
-						</div>
-
-						<div class="col-md-2">
-							<figure>
+							</div>
+							<div class="col-md-4">
+								<figure>
 								<h5 class="text-center">Référente Famille</h5>
 								<img src="<?= $this->assetUrl('teamAS/Sandrine Poulin.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 								<figcaption class="text-center">Mme Sandrine POULIN</figcaption>
 							</figure>
-						</div>
-
-						<div class="col-md-2">
-							<figure>
+							</div>
+							<div class="col-md-4">
+								<figure>
 								<h5 class="text-center">Chargé d'Animation</h5>
 								<img src="<?= $this->assetUrl('teamAS/Pamela Cabit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
 								<figcaption class="text-center">Mme Pamela CABIT</figcaption>
-							</figure>
+							</figure>								
+							</div>
 						</div>
-						
-						<div class="col-md-2">
-							<figure>
-								<h5 class="text-center">Acompagnement Scolarité</h5>
-								<img src="<?= $this->assetUrl('teamAS/Lydie Milton.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
-								<figcaption class="text-center">Mme Lydie MILTON</figcaption>
-							</figure>
-						</div>
+					</div>
 
-						<div class="col-md-2">
-							<figure>
-								<h5 class="text-center">Animateur de Loisirs</h5>
-								<img src="<?= $this->assetUrl('teamAS/Dominique Rosina.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
-								<figcaption class="text-center">Mr Dominique ROSINA</figcaption>
-							</figure>
-						</div>
 
-						<div class="col-md-2">
+
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+
+							<div class="col-md-4">							
+
 							<figure>
 								<h5 class="text-center">Référent Jeunesse</h5>
 								<img src="<?= $this->assetUrl('teamAS/Roger Gabrit.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail" >
 								<figcaption class="text-center">Mr Roger GABRIT</figcaption>
 							</figure>
+							</div>
+							<div class="col-md-4">
+							<figure>
+								<h5 class="text-center">Animateur de Loisirs</h5>
+								<img src="<?= $this->assetUrl('teamAS/Dominique Rosina.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<figcaption class="text-center">Mr Dominique ROSINA</figcaption>
+							</figure>
+							</div>
+							<div class="col-md-4">
+							<figure>
+								<h5 class="text-center"> Scolarité</h5>
+								<img src="<?= $this->assetUrl('teamAS/Lydie Milton.jpg') ?>" alt="personnel" class="img-responsive img-thumbnail">
+								<figcaption class="text-center">Mme Lydie MILTON</figcaption>
+							</figure>							
+							</div>
 						</div>
-					</div>							
+					</div>
+			
+
+
+
+
+
+
+					
+						
 			</section>
 
 	    </div>
