@@ -5,8 +5,8 @@
 
 <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//d2d3qesrx8xj6s.cloudfront.net/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066">
+    --><!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" href="//d2d3qesrx8xj6s.cloudfront.net/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066"> -->
 <?php $this->stop('sliderCss') ?>
 
 
@@ -15,8 +15,8 @@
                     <?php //var_dump($infosfut[0]['content']); ?>
                     <?php //var_dump($infosfut[0]['picture']); ?>
                         
-                <h1>Accueil :</h1>
-               <div class="container">
+                <h1 style='text-align:center'>Accueil </h1>
+               
                
     
     <div class="row">
@@ -57,7 +57,7 @@
           } ?> slide" class="img-responsive"></a>
                         <div class="carousel-caption">
                             <h3>
-                                <a href="http://ton lien"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
+                                <a  class="link-home" href ="http://ton lien"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
                             <p>
                                 <?=$infosfut[$i]['content'] ?></p>
                         </div>
@@ -98,14 +98,14 @@
             </div>
         </div>
     </div>
-</div>
+
 
     <h2>Liste des Evènements présents :</h2>
     
-<table class="1">
+<table class="table table-hover">
 		<thead>
-			<tr>
-                <th>Event</th>
+			<tr class="success">
+                <th>Evènement</th>
                 <th>Titre</th>
                 <th>Détails</th>
                 <th>Depuis</th>
@@ -113,10 +113,15 @@
                 <th>Voir l'évènement</th>
 			</tr>
 		</thead>
-       <?php foreach($infospres as $infopres): ?>
+       
         <tbody>
-            <tr>
-                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" height="200px" width="200px"></td>
+           <?php foreach($infospres as $infopres): ?>
+            <tr class="info">
+                <td>
+                
+                <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
+                  
+                </td>
                 <td><?= $infopres['title']?></td>
                 <td><?= $infopres['content']?></td>
                 <td><?= $infopres['start']?></td>
@@ -124,18 +129,18 @@
                 <td><a href="www.google.fr">Voir</a></td>
                 
             </tr>
-            
+            <?php endforeach; ?> 
         </tbody>
                 
-        <?php endforeach; ?> 
+        
           
     </table>
 <a href="www.google.fr">Voir tous les évènements présents</a>
-<h3>Liste des Evènements passés :</h3>
-<table class="2">
+<h2>Liste des Evènements passés :</h2>
+<table class="table table-hover">
 		<thead>
-			<tr>
-                <th>Event</th>
+			<tr class="success">
+                <th>Evènement</th>
                 <th>Titre</th>
                 <th>Détails</th>
                 <th>Début</th>
@@ -143,10 +148,11 @@
                 <th>Voir l'évènement</th>
 			</tr>
 		</thead>
-       <?php foreach($infospas as $infopas): ?>
+       
         <tbody>
-            <tr>
-                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" height="200px" width="200px"></td>
+           <?php foreach($infospas as $infopas): ?>
+            <tr class="warning">
+                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
                 <td><?= $infopas['title']?></td>
                 <td><?= $infopas['content']?></td>
                 <td><?= $infopas['start']?></td>
@@ -154,16 +160,28 @@
                 <td><a href="www.google.fr">Voir</a></td>
                 
             </tr>
-            
+            <?php endforeach; ?>
         </tbody>
                 
-        <?php endforeach; ?>   
+           
         
        	</table>       
 <a href="www.google.fr">Voir tous les évènements passés</a>               
 
-<?php $this->stop('main_content') 
+
+<?php $this->stop('main_content'); 
+
+$this->start('script');
+
+?>
 
 
+<script>
 
+           
+</script> 
+
+
+<?php
+    $this->stop('script');
 ?>

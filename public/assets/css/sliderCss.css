@@ -3,7 +3,7 @@
     position: absolute;
     top: 50px;
     width: 96.66666666666666%;
-    color: #FFF;
+    color:azure;
 }
 .btn-min-block
 {
@@ -26,8 +26,43 @@
 .container .img-responsive {
     margin: 0 auto;
     display: block;
-    height: 400px !important;
+    max-height: 360px ;
     background-size: cover;
-    max-width: 100%;
+    max-width: 782px ;
     width:100%;
+    object-fit:cover; 
 }
+.slide {
+    max-width: 782px !important;
+    max-height: 360px !important;
+}
+.img-home {
+    border-radius:20px;
+    object-fit:cover;
+    max-height: 180px;
+    max-width: 180px;
+   
+}
+
+.img-home:hover {
+    
+    object-fit:cover;
+    max-height: 200px;
+    max-width: 200px;
+   
+}
+
+.link-home {
+    display: block;
+   
+    background:white !important;
+    padding: 10px;
+   
+    border-radius: 30px !important;
+    color: deepskyblue !important;
+    font-weight: bold;
+   
+}
+.modal-dialog {width:600px;}
+.thumbnail {margin-bottom:6px;}
+
