@@ -54,7 +54,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?= $this->url('admin') ?>">Espace Administration</a>
+                        <a class="navbar-brand" href="#">Espace Administration</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         <form class="navbar-form navbar-left" role="search">
@@ -117,8 +117,8 @@
 
 
                               <div class="collapse" id="demo1">
-                                <a href="<?= $this->url('list_users') ?>" class="list-group-item">Liste des Utilisateurs</a>
-                                <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
+                                <a href="/" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
 
 
@@ -133,7 +133,15 @@
                               </a>
 
                               <div class="collapse" id="demo2">
-                                <a href="<?= $this->url('contactList') ?>" class="list-group-item">Liste des Fiches</a>
+                                <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">
+                                  Liste des fiches
+                                  <i class="fa fa-caret-down"></i>
+                                </a>
+                                <div class="collapse list-group-submenu" id="SubMenu1">
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Détails de la fiche</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Marquer comme lu</a>
+                                  <a href="#" class="list-group-item" data-parent="#SubMenu1">Suppression</a>
+                                </div>
                                 <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
                               </div>
 
@@ -148,8 +156,8 @@
                               </a>
 
                               <div class="collapse" id="demo3">
-                                <a href="<?= $this->url('addEvent') ?>" class="list-group-item">Ajouter un évènement</a>
-                                <a href="<?= $this->url('listEvent') ?>" class="list-group-item">Liste des Evènements</a>
+                                <a href="" class="list-group-item">Ajouter un évènement</a>
+                                <a href="" class="list-group-item">Liste des Evènements</a>
                               </div>
 
                               <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -163,9 +171,10 @@
                               </a>
 
                               <div class="collapse" id="demo4">
-                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
-                                <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
-                                <a href="<?= $this->url('list_category') ?>" class="list-group-item">Liste des Catégories</a>
+                                <a href="" class="list-group-item">Liste des Activités</a>
+                                <a href="" class="list-group-item">Ajouter une activité</a>
+                                <a href="" class="list-group-item">Liste des Catégories</a>
+                                <a href="" class="list-group-item">Ajouter une catégorie</a>
                               </div>
 
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -179,8 +188,8 @@
                               </a>
 
                               <div class="collapse" id="demo5">
-                                <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
-                                <a href="<?= $this->url('listMedias') ?>" class="list-group-item">Galerie</a>
+                                <a href="" class="list-group-item">Ajouter un média</a>
+                                <a href="" class="list-group-item">Galerie</a>
                               </div>
 
                             </div>

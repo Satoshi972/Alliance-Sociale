@@ -7,11 +7,7 @@ $w_routes = array(
 
 	#gestion des activites
 	//['GET', '/activities', 'Activities#activities', 'default_activities'],
-	['GET|POST', '/activite', 'Activity#addActivity', 'add_activite'], //Ajout
-    ['GET|POST', '/activite/list', 'Activity#listActivity', 'list_activite'], 
-    ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
-    ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
-    ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
+	['GET', '/activity', 'Activity#activity', 'default_activity'],
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
