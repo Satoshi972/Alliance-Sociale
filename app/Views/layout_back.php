@@ -57,14 +57,7 @@
                         <a class="navbar-brand" href="#">Espace Administration</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </span>
-                            </div>
-                        </form>
+                        
                         <ul class="nav navbar-nav navbar-right navdate">
                             <li class="dropdown">
                                 <?php
