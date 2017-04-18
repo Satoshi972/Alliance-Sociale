@@ -61,7 +61,7 @@
                         <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>">Modifier</a>
                         
                     
-                        <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $user['id'] ?>">Supprimer</a>
+                        <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $activite['id'] ?>">Supprimer</a>
                             
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
