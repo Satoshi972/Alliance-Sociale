@@ -4,6 +4,15 @@ $this->start('head');
 ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
 <link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
+ <style type="text/css">
+.ui-datepicker {
+   background: #c1c6c8;
+   border: 1px solid black round;
+   color: black;
+   width: 6vw,
+   height: auto;
+ }
+</style>
 <?php
 $this->stop('head');
 $this->start('main_content');
