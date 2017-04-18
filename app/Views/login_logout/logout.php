@@ -4,11 +4,11 @@
 //début du bloc main_content
 $this->start('main_content'); ?>
        
-<div class ="container">
+
   <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-8 text-center well jumbo">
-        <div class="col-md-12 jumbotron">   
+   <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-12">
+      <!--   <div class="col-md-12 jumbotron">  -->  
         <h1>Déconnexion</h1>
         
         <div id="result"></div>
@@ -21,7 +21,7 @@ $this->start('main_content'); ?>
         <form id=checkform3 method=post>
             
             <input type=hidden value="lol">
-            <button type=submit id="submitform2" class="btn btn-default">Oui je veux me déconnecter</button>
+            <button type=submit id="submitform2" class="btn btn-primary">Oui je veux me déconnecter</button>
             
         
        </form>
@@ -41,8 +41,8 @@ $this->start('main_content'); ?>
         </div>
       </div>
     </div>
-  </div>
-</div>     
+ <!--  </div>
+      </div> -->     
      
  <?php    
 $this->stop('main_content'); 
