@@ -19,7 +19,7 @@
             
             <img src="<?=$this->assetUrl($partner['url']);?>" class="img-responsive thumbnail" style="width: 70%; height: 50%;" alt="medias" frameborder="0" scrolling="no"></th>
 
-            <button type="button" class="btn btn-default btn-sm"><a href="<?= $this->url('update_partners', ['id' => $partner['id']])?>">Modifier</a></button>
+            <a href="<?= $this->url('update_partners', ['id' => $partner['id']])?>" class="btn btn-info">Modifier</a></button>
              |
             <a href="<?= $this->url('del_partners', ['id' => $partner['id']]) ?>" class='delete btn btn-danger' data-id="<?=$partner['id'] ?>">Supprimer</a>
 
@@ -46,7 +46,7 @@
 
       swal({
             title: 'Attention',
-            text: 'Vous allez supprimer cette utilisateur',
+            text: 'Vous allez supprimer ce partenaire',
             type: 'warning',
             showCancelButton: true,
             closeOnConfirm: false,
