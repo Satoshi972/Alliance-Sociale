@@ -1,36 +1,23 @@
 <?php
-$this->layout('layout_back', ['title' => 'Détail de l\'utilisateur']);
+$this->layout('layout_front', ['title' => 'Détail de l\'activité']);
 $this->start('main_content');
 ?>
 
-  <?php if(!empty($affiche)):?>
-    
-    <p>
-      <?=$affiche['firstname']; ?>
-    </p>
+    <div class="list-group-item text-center">
+      <h4 class="list-group-item-heading">Affiche</h4>
+      <p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
+    </div>
 
-    <p>
-      <?=$affiche['lastname']; ?>
-    </p>
+    <div class="list-group-item text-center">
+      <h4 class="list-group-item-heading">Intitulé</h4>
+      <p class="list-group-item-text"><?=$infos['name'];?></p>
+    </div>
 
-    <p>
-      <?=$affiche['email']; ?>
-    </p>
+    <div class="list-group-item text-center">
+      <h4 class="list-group-item-heading">Intitulé</h4>
+      <p class="list-group-item-text"><?=$infos['content'];?></p>
+    </div>
 
-    <p>
-      <?=$affiche['phone']; ?>
-    </p>
-
-    <p>
-      <?=$affiche['role']; ?>
-    </p>
-
-
-    <?php endif ?>
-
-    <a href="update/<?=$affiche['id']; ?>">Modifier</a>
-
-    <a href="delete/<?=$affiche['id']; ?>">Supprimer</a>
 
     
   <?php  $this->stop('main_content');?>

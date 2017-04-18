@@ -6,7 +6,6 @@ $this->start('main_content');
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Affiche</h4>
 		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
-		
 	</div>
 
 	<div class="list-group-item text-center">

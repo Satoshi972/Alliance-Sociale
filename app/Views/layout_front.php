@@ -107,9 +107,9 @@
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Formations <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">Formation du personnel</a></li>
-          <li><a tabindex="-1" href="#">Prevention et secours civique</a></li>
-          <li><a tabindex="-1" href="#">BAFA</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>10]) ?>">Formation du personnel</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>11]) ?>">Prevention et secours civique</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>12]) ?>">BAFA</a></li>
         </ul>
       </li>
       <li class="dropdown-submenu">
@@ -118,38 +118,38 @@
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">Gymnastique</a></li>
-          <li><a tabindex="-1" href="#">Judo</a></li>
-          <li><a tabindex="-1" href="#">Zumba</a></li>
-          <li><a tabindex="-1" href="#">Randonnée</a></li>
-          <li><a tabindex="-1" href="#">Danse traditionnelle</a></li>
-          <li><a tabindex="-1" href="#">Accueil de loisirs (sans hébergement)</a></li>
-          <li><a tabindex="-1" href="#">Couture</a></li>
-          <li><a tabindex="-1" href="#">Cuisine</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>1]) ?>">Gymnastique</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>2]) ?>">Judo</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>3]) ?>">Zumba</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>4]) ?>">Randonnée</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>6]) ?>">Danse traditionnelle</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>7]) ?>">Accueil de loisirs (sans hébergement)</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>8]) ?>">Couture</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>9]) ?>">Cuisine</a></li>
         </ul>
       </li>
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Education<span class="caret"></span></a> 
         <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">Accompagnement scolaire</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>5]) ?>">Accompagnement scolaire</a></li>
         </ul>
       </li>
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Animation<span class="caret"></span></a> 
         <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">Autres</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>13]) ?>">Autres</a></li>
         </ul>
       </li>
             </ul>
   
 
             <li class="dropdown">
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="<?php echo $this->url('about') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Contactez nous</a>
             </li>
 
             <li class="dropdown">
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="<?php echo $this->url('accession') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Adhésion</a>
             </li>
 

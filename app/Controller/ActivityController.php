@@ -153,15 +153,15 @@ class ActivityController extends MasterController
     // public function detailsActivity()
     public function detailsActivity($id)
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
         $newActivity = new Activity();
         $detailactivity = $newActivity->find($id);
 
         // $this->show('activite/detailsActivity',[
         $this->show('activite/details_Activity',[
-            'affiche' => $detailactivity
+            'infos' => $detailactivity
             ]);
     }
 

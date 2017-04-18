@@ -54,7 +54,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Espace Administration</a>
+                        <a class="navbar-brand" href="/admin">Espace Administration</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         
@@ -76,8 +76,8 @@
                             <li class="dropdown">
                                 <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/user-icon-png-pnglogocom.img.png') ?>" class="img-responsive img-thumbnail img-circle">Identifiant</a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
-                                    <li><a href="#">Mon compte</a></li>
-                                    <li><a href="#">Déconnexion</a></li>
+                                    <!-- <li><a href="#">Mon compte</a></li> -->
+                                    <li><a href="logout">Déconnexion</a></li>
                                 </ul>
                             </li>
                         </ul>
