@@ -54,7 +54,7 @@ $this->start('main_content');
 
 	<div class="text-center">
 		<a href="<?=$this->url('default_home') ?>">
-			<button class="btn btn-default">Retour a l'accueil</button>
+			<button class="btn btn-info">Retour a l'accueil</button>
 		</a>
 	</div>
 

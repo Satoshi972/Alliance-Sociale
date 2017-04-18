@@ -123,6 +123,7 @@
                           if(s)
                           {
                               myTr.remove();
+                              location.reload();
                               // $('#result').html(res);
                           }
                       }
