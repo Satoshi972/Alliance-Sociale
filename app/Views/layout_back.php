@@ -172,7 +172,7 @@
 
                               <div class="collapse" id="demo5">
                                 <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
-                                <a href="<?= $this->url('listMedias',['page'=>1]) ?>" class="list-group-item">Galerie</a>
+                                <a href="<?= $this->url('listMediasBack',['page'=>1]) ?>" class="list-group-item">Galerie</a>
                               </div>
 
                               <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
