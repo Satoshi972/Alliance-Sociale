@@ -14,19 +14,18 @@
     <!-- Bootstrap CSS -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
-
+    <!-- 66-->
     <?php echo $this->section("sliderCss") ?>
     
     <!-- Font awesome -->
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>">
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
     <!-- Google font Open -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
+    <link href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
@@ -101,7 +100,7 @@
                           <div id="MainMenu">
                             <div class="list-group panel">
 
-                              <?php if($w_user['role'] === 'admin'): ?>
+                              
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -114,7 +113,7 @@
                                 <a href="<?= $this->url('list_users') ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
-                              <?php endif; ?>
+                              
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -126,7 +125,7 @@
 
                               <div class="collapse" id="demo2">
                                 <a href="<?= $this->url('contactList') ?>" class="list-group-item">Liste des fiches</a>
-                                <a href="javascript:;" class="list-group-item">Recherche mot clé</a>
+                                
                               </div>
 
 
@@ -212,22 +211,14 @@
 
   <!-- Zone de script -->
 
-
-
-
-
-
   <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+  <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script> 
+  <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script> 
   <!-- Latest compiled JavaScript -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/bootstrap.min.js')?>"></script> 
  
   <!-- Permet des inclusions de scripts depuis la vue -->
   <?php echo $this->section("script") ?>
