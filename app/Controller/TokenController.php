@@ -147,3 +147,4 @@ if($checked === true){
         $this->show('token/ajax_resetpsw');
     }
 }
+}
