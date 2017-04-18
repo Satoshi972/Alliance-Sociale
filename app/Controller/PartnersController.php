@@ -11,6 +11,9 @@ class PartnersController extends Controller
     //Affichage des partenaires
     public function partners()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+
         $partnersModel = new PartnersModel();
         $partners = $partnersModel->findAll();
         
@@ -22,6 +25,9 @@ class PartnersController extends Controller
     
     //Ajout de partenaires
     public function addPartners(){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
@@ -33,7 +39,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -106,6 +112,8 @@ class PartnersController extends Controller
         
     //Modification des partenaires
     public function updatePartners($id){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $enter = new PartnersModel();
         $errors = [];
@@ -118,7 +126,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -197,12 +205,19 @@ class PartnersController extends Controller
     
     //Suppression des partenaires
     public function delPartners($id){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $del = new PartnersModel();
         $remove = $del -> delete($id);
 
+        if ($remove){
+            $success = true;
+        }
+
         $this->show('partners/del_partners',[
         'affiche'=> $remove,
+        'success'=> $success,
         ]);
     }
 

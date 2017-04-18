@@ -1,5 +1,7 @@
 <?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
-
+<?php $this->start('head') ?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
+<?php $this->stop('head') ?>
   <?php $this->start('main_content') ?>
  
 <div class ="container">
@@ -59,9 +61,12 @@
                       </div>
                       <div class="modal-footer">
                    
-                        <a href="<?= $this->url('update_users', ['id' => $user['id']]) ?>">Modifier</a>
+                        <a href="<?= $this->url('update_users', ['id' => $user['id']]) ?>" class="btn btn-info">Modifier</a>
 
-                        <a href="<?= $this->url('del_users', ['id' => $user['id']]) ?>" >Supprimer</a>
+                        <!-- <button onclick="delete" id='delete' data-uri="<?= $this->url('del_users', ['id' => $user['id']]) ?>" >Supprimer</button> -->
+
+                        <a href="<?= $this->url('del_users', ['id' => $user['id']]) ?>" class='delete btn btn-danger' data-id="<?= $user['id'] ?>" >Supprimer</a>
+
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
@@ -79,4 +84,54 @@
     </div>
   </div>
 </div>
+
+
     <?php $this->stop('main_content') ?>
+
+    <?php $this->start('script') ?>
+ <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
+
+ <script>
+
+ $(function(){
+
+  $('.delete').on('click', function(e)
+  {
+      e.preventDefault();
+      var $this = $(this);
+      var id = $(this).data('id');
+      var myTr = $(this).parent().parent();
+      //var url = '/Alliance-Sociale/public/users/delete/'+id;
+
+      swal({
+            title: 'Attention',
+            text: 'Vous allez supprimer cette utilisateur',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            disableButtonsOnConfirm: true,
+            confirmLoadingButtonColor: '#DD6B55'
+          }, function(){
+              swal('Suppression effectuée');
+
+                  $.ajax({
+                      type: 'POST',
+                      url: $this.attr('href'),
+                      data: {id : id},
+                      success: function(s)
+                      {
+                          if(s)
+                          {
+                              myTr.remove();
+                              location.reload();
+                              // $('#result').html(res);
+                          }
+                      }
+                  });
+          });
+      });
+
+  });
+ </script>
+
+    <?php $this->stop('script') ?>

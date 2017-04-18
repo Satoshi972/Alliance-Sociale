@@ -1,6 +1,5 @@
 <?php
 
-;
 
 namespace Controller;
 
@@ -21,9 +20,8 @@ class UserController extends Controller
     
     public function login()
 	{
-        
-                $this->show('login_logout/login');
-            }
+        $this->show('login_logout/login');
+    }
     
     
     public function ajax_login()
@@ -44,7 +42,7 @@ class UserController extends Controller
             if(!v::filterVar(FILTER_VALIDATE_EMAIL)->validate($post['ident'])){
                 $errors[] = 'L\'adresse email est invalide';
             }
-            if(!v::stringType()->notEmpty()->validate($post['password'])){
+            if(!v::alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->notEmpty()->validate($post['password'])){
                 $errors[] = 'Le mot de passe doit être complété';
             }
 
@@ -54,15 +52,18 @@ class UserController extends Controller
                 $enter = new AuthentificationModel();
                 $user = $enter->isValidLoginInfo($post['ident'], $post['password']);
                 $infos = $find->find($user);
-                var_dump($user);
-                var_dump($infos);
+               
 
                     if(!empty($user)){
 
 
                             $login->logUserIn($user);
-                            echo "Vous êtes connecté";
-                 var_dump($_SESSION['user']);
+                           
+                            $result = '<div class="alert alert-success">Vous êtes connecté</div>';
+                            if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
+                            $this->show('admin');
+            
+                            echo $result; // On envoi le résultat
                         }
                         else { // password_verify
                             $errors[] = 'Le couple identifiant/mot de passe est invalide';
@@ -75,26 +76,23 @@ class UserController extends Controller
         
         
         $this->show('login_logout/ajax_login', ['errors' => $errors]);
-        
-        
-        
-        
-        
+           
     }
+
     public function logout()
 	{    
      $find = new UsersModel();
         
      if (isset($_SESSION["user"])){
-        $infos = $find->find($_SESSION['$user']);
          
-        $this->show('login_logout/logout', ['$_SESSION["user"]' => $_SESSION["user"],
-                                            '$infos["firstname"]' => $infos["firstname"],
-                                            '$infos["lastname"]' => $infos["lastname"],
-                                           
+        $infos = $find->find($_SESSION['user']);
+         
+        $this->show('login_logout/logout', ['infos' => $infos,
                                            ]);   
          
-     } else $this->show('login_logout/logout');
+     } else 
+         
+    $this->show('login_logout/logout');
          
 	
      }   
@@ -105,6 +103,10 @@ class UserController extends Controller
      $logout = new AuthentificationModel();
      $logout->logUserOut();
      
+     $result = '<div class="alert alert-success" style="text-align:center">Vous êtes déconnecté</div>';
+            
+     echo $result; // On envoi le résultat
+         
      $this->show('login_logout/ajax_logout');
          
      }

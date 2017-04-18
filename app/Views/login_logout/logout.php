@@ -1,31 +1,48 @@
-<?php $this->layout('layout_back', ['title' => 'Se déconnecter']) ?>
+<?php $this->layout('layout_front', ['title' => 'Se déconnecter']) ?>
 
     <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-        <h1>Entrez vos identifiants !</h1>
+       
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8 text-center well jumbo">
+        <div class="col-md-12 jumbotron">   
+        <h1>Déconnexion</h1>
         
         <div id="result"></div>
-      <?php if(isset($_SESSION['user'])): ?>
-		<?php echo $_SESSION['firstname'].' '.$_SESSION['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
+      <?php if(isset($infos)){
+?>
+    <div id='hide'>
+		<?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
 
 		
         <form id=checkform3 method=post>
+            
             <input type=hidden value="lol">
-            <button type=submit id="submitform2">Oui je veux me déconnecter</button>
-        
+            <button type=submit id="submitform2" class="btn btn-default">Oui je veux me déconnecter</button>
+            
         
        </form>
+</div>
+
+<?php 
 
 
-<?php else: ?>
-	<p style="text-align:center;">
-		Tu es déjà déconnecté, tu n'existes pas !!
+
+}else{ ?>
+	<p style="color:red">
+		Tu n'es pas connecté !!!
 
 		
 	</p>
-<?php endif; ?>
-      
+<?php } ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>     
      
  <?php    
 $this->stop('main_content'); 
@@ -40,28 +57,7 @@ $this->start('script');
             
          
             
-            $.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				
-                    if (value.staut == 0){resHTML+='<td>Non Lu</td>';} else {resHTML+='<td>Lu</td>';} 
-                    
-                    
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
+           
             
             // Suppression utilisateur avec DOM modifié à la volé
 	$('body').on('click', 'a.deleteContact', function(element){
@@ -74,29 +70,7 @@ $this->start('script');
 			success: function(resultat){
 				$('#mon_resultat').html(resultat); 
                 
-				$.getJSON("<?= $this->url('ajaxLoadContact') ?>", function(result){
-			console.log(result); // équivalent à un var_dump()
-
-			var resHTML = '';
-
-			$.each(result, function(key, value){
-				resHTML+= '<tr>';
-				resHTML+= '<td>'+
-                    
-                    
-                    
-                    value.staut+'</td>';
-				resHTML+= '<td>'+value.title+'</td>';
-				resHTML+= '<td>'+value.mail+'</td>';
-				resHTML+= '<td>'+value.date+'</td>';
-                resHTML+= '<td><a href="#" class="viewContact" data-id="'+value.id+'">Voir</td>';
-				resHTML+= '<td><a href="#" class="deleteContact" data-id="'+value.id+'">Supprimer</td>';
-				resHTML+= '</tr>';
-                
-			});
-
-			$('#contactsAjax').html(resHTML);
-		});	
+			
 			 }
 		});
 	}); 
@@ -141,7 +115,7 @@ $this->start('script');
                     data: form_user.serialize(), // On récupère les données à envoyer
                     success: function(resultat){
                         $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                        $('#hide').hide(); // Permet de vider les champs du formulaire.. 
                     }
                 });
             });

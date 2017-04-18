@@ -1,5 +1,5 @@
 
-<?php $this->layout('layout_back', ['title' => 'Medias - Ajout des Medias']) ?>
+<?php $this->layout('layout_back', ['title' => 'Medias - Ajout des Medias']);
 
 $this->start('head');
 ?>
@@ -9,7 +9,10 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
-
+<div class ="container">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="col-md-8 text-center well jumbo">
 	<div class="col-md-6 col-md-offset-3">
 		<h2>Ajout des médias</h2>
 	</div>
@@ -26,13 +29,29 @@ $this->start('main_content');
 
 
 	
-	<form method="post" id="picture" class="form-horizontal" enctype="multipart/form-data">
+	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
 			<div class="col-md-4">
 				<input type="file" id="medias" name="medias[]" multiple>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="event">Evenement</label>
+			<select name="event" id="event" class="form-control">
+				<?php foreach ($list as $key => $value):?>
+					<option value="<?= $value['id_event'] ?>"><?= $value['title'] ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="visible">Ces médias seront-ils visibles a tous?</label>
+			<input type="checkbox" value="1" name="visible" id="visible">
+		</div>
 
 		<div class="form-group">
 			<div class="col-md-4 col-md-offset-4">
@@ -40,7 +59,10 @@ $this->start('main_content');
 			</div>
 		</div>
 	</form>
-
+   </div>
+  </div>
+ </div>
+</div>
 <?php 
 $this->stop('main_content'); 
 $this->start('script'); 

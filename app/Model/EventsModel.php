@@ -1,11 +1,10 @@
 <?php 
 namespace Model;
 
-
 class EventsModel extends \W\Model\Model
 {
     
-  public function findAllEventsFut($orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
+  	public function findAllEventsFut($orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
 	{
 
 		$sql = 'SELECT * FROM ' . $this->table. ' WHERE start > NOW()';
@@ -108,9 +107,30 @@ class EventsModel extends \W\Model\Model
         }
 		$sth = $this->dbh->prepare($sql);
         
+        $sth->execute();
+        
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function selectAct()
+	{
+
+		$sql = 'SELECT A.name, A.act_id FROM events as E, Activity as A WHERE A.act_id = E.id_activity';
+		$sth = $this->dbh->prepare($sql);
+		// $sth->bindValue(':id', $string, PARAM_INT);
 		$sth->execute();
 
 		return $sth->fetchAll();
 	}
-    
+  
+	public function eventMedias()
+	{
+		$sql = 'SELECT * FROM events as E, medias as M WHERE M.id_related = E.id_event';
+		$sth = $this->dbh->prepare($sql);
+
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
 }
+

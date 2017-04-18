@@ -10,6 +10,9 @@ class ContactFrontController extends MasterController
 {
     public function addContact()
     {
+         // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
+        
         $contact = new ContactsModel();
         $errors = [];
         $post = [];
@@ -19,13 +22,13 @@ class ContactFrontController extends MasterController
     	if(!empty($_POST)) {
         $err = [
             //On vérifie que le titre ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['title'])) ? 'Le titre est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['title'])) ? 'Le titre doit contenir entre 2 et 30 caractères' : null,
             
             //On vérifie que le champ email soit non vide et qu'il soit valide
-            (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+            (!v::notEmpty()->email()->validate($post['mail'])) ? 'L\'adresse email est invalide' : null,
             
             //On vérifie que le contenu ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 250 caractères
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu doit contenir entre 2 et 600 caractères' : null,
         ];
 
         $errors = array_filter($err);
@@ -34,7 +37,7 @@ class ContactFrontController extends MasterController
 
             $datas = [
             'title'   => $post['title'],
-            'email'   => $post['email'],
+            'mail'   => $post['mail'],
             'content' => $post['content'],
             ];
         	

@@ -63,9 +63,9 @@ $this->start('main_content');
               <div class="col-md-10 text-center">
                 <select name="role" id="role" class="form-control text-center">
                   <option value="0">Choisissez le role</option>
-                  <option value="member">membre</option>
-                  <option value="editor">editeur</option>
-                  <option value="admin">administrateur</option>
+                  <?php foreach ($roles as $key => $value):?>
+                    <option value="<?=$value['name']?>"><?=$value['name']?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
             </div>

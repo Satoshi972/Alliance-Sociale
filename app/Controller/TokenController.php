@@ -20,14 +20,8 @@ class TokenController extends MasterController
     
     public function ask_token()
 	{
-        
-
-
- 
- 
-
-                $this->show('token/ask_token');
-            }
+        $this->show('token/ask_token');
+    }
         
 public function ajax_ask_token()
 	{
@@ -77,10 +71,11 @@ if($checked === true){
  public function resetpsw()
 	{
         
-    $check = new Reset_pswModel();  
+    $check = new Reset_pswModel(); 
+    if (isset($_GET['token'])){    
     $checktoken = $check->findAll3($_GET["token"]);
     //foreach($checktoken as $check):
-    var_dump($checktoken);
+    }
     if (!empty($checktoken)){
         foreach($checktoken as $check):
         $this->show('token/resetpsw', ['checkfirstname' => $check["firstname"],
@@ -107,52 +102,49 @@ if($checked === true){
         $post = [];
         $errors = [];
         
-if(!empty($_POST)){
+        if(!empty($_POST)){
 
-	// équivalent au foreach de nettoyage
-	$post = array_map('trim', array_map('strip_tags', $_POST));
-    
-    $checktoken = $check->findAll3($post["token"]);
-    $checktoken2 = $check2->findAll4($post["token"]);
-//foreach($checktoken as $check):
-    var_dump($checktoken);
-if(empty($post['password'])){
-     
-    $errors[] = 'Le mot de passe doit être complété';
-            }
+        	// équivalent au foreach de nettoyage
+        	$post = array_map('trim', array_map('strip_tags', $_POST));
+            
+            $checktoken = $check->findAll3($post["token"]);
+            $checktoken2 = $check2->findAll4($post["token"]);
+        //foreach($checktoken as $check):
+            
+        if(empty($post['password'])){
+             
+            $errors[] = 'Le mot de passe doit être complété';
 
-            if(count($errors) === 0){
-            
-            foreach($checktoken as $check):
-                
-            $update->update(["password" => $post['password']], $check['id']
-                                         );   
-                
-            endforeach; 
-                
-                
-            foreach($checktoken2 as $check2):    
-                
-            $delete->delete($check2['id']);
-                
-            endforeach;
-                
-            echo $result = '<div class="alert alert-success">Le mot de passe a bien été changé</div>';
-	
+                    if(count($errors) === 0){
+                    
+                    foreach($checktoken as $check):
+                        
+                    $update->update(["password" => password_hash($post['password'], PASSWORD_DEFAULT)], $check['id']
+                                                 );   
+                        
+                    endforeach; 
+                        
+                        
+                    foreach($checktoken2 as $check2):    
+                        
+                    $delete->delete($check2['id']);
+                        
+                    endforeach;
+                        
+                    echo $result = '<div class="alert alert-success">Le mot de passe a bien été changé</div>';
 
-	     
-                
-                
-            } else {
-            echo $result = '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>';
-            
-            }
-            //endforeach;
-            //echo $result; 
-            
-}
+                    $this->show('login');	
+                        
+                    } else {
+                    echo $result = '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>';
+                    
+                    }
         
-        $this->show('token/ajax_resetpsw');
-        
+        }
     }
+    else
+    {
+        $this->show('token/ajax_resetpsw');
+    }
+}
 }

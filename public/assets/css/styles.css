@@ -1,0 +1,169 @@
+body{
+    font-family: 'Source code pro', Calibri, serif;
+    margin:0px;
+    padding:0px;
+    /*background-image: url(../img/maxresdefault.jpg);*/
+    background-size: cover;
+}
+
+/* ---------------------
+        top header
+------------------------ */
+.top-header ul{
+    text-align: right;
+}
+.top-header ul li{
+    margin-right: 30px;
+     display: inline-block;
+
+}
+.top-header ul li a{
+
+}
+
+.top-header ul li a >img{
+    width: 30px;
+}
+
+
+/* ---------------------
+        fin top header
+------------------------ */
+
+nav{
+    width:100%;
+    background-color: #424558;
+     /*position: fixed;*/
+     float:left;
+}
+.logo{
+    float:left;
+    margin: 7px 20px 0 20px;
+}
+nav >ul{
+   margin-left:400px;
+    padding:0px;
+}
+nav >ul::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+nav >ul >li{
+    float:left;
+    position:relative; 
+}
+nav a{
+    display:inline-block;
+    text-decoration: none;
+}
+nav li{
+    list-style-type: none;
+}
+.submenu{
+    display:none;
+}
+
+nav input[type=checkbox]{
+    display:none;
+}
+nav label{
+    display:none;
+}
+nav a{
+    display:inline-block;
+    text-decoration: none;
+}
+nav >ul>li>a{
+    padding:20px 30px;
+    color:#FFF;
+}
+nav > ul> li:hover a{
+    padding:15px 30px 20px 30px; 
+}
+nav li:hover .submenu{
+    display:inline-block;
+    position: absolute;
+    top: 100%;
+    left:0px;
+    padding:0px;
+    z-index:1000;
+}
+.submenu li a{
+    padding:15px 30px;
+    font-size:13px;
+    color:#222538;
+    width:270px;
+}
+.submenu li{
+    border-bottom: 1px solid #CCC;
+}
+.accueil:hover{
+    border-top: 5px solid #e44d26;
+    background-color: RGBa(228, 77, 38, 0.15);
+}
+.presentation:hover{
+    border-top: 5px solid #0070bb;
+    background-color: RGBa(000, 112, 192, 0.15);
+}
+.evenements:hover{
+    border-top: 5px solid #f1dc4f;
+    background-color: RGBa(241, 211, 79, 0.15);
+}
+.activites:hover{
+    border-top: 5px solid #f1dc4f;
+    background-color: rgba(98, 98, 98, 0.15);
+}
+.contact:hover{
+    border-top: 5px solid #3fa2f7;
+    background-color: rgba(60, 193, 242, 0.15);
+}
+.inscription:hover{
+    border-top: 5px solid #34f03b;
+    background-color: rgba(79, 197, 241, 0.15);
+}
+.galeries:hover{
+    border-top: 5px solid #d30ff7;
+    background-color: rgba(240, 44, 218, 0.19);
+}
+.presentation .submenu{
+    background-color: RGB(000, 160, 240);
+}
+.evenements .submenu{
+    background-color: RGB(250, 215, 100);
+}
+.activites .submenu{
+    background-color: rgb(145, 138, 113);
+}
+.contact .submenu{
+    background-color: rgb(6, 214, 252);
+}
+.inscription .submenu{
+    background-color: rgb(16, 247, 16);
+}
+.galeries .submenu{
+    background-color: rgb(152, 67, 237);
+}
+.submenu li:hover a{
+    color: #EEE;
+    font-weight: bold;
+}
+.presentation .submenu li:hover{
+    background-color: RGB(000, 115, 200);
+}
+.evenements .submenu li:hover{
+    background-color: RGB(200, 165, 75);
+}
+.activites .submenu li:hover{
+    background-color: rgb(180, 178, 175);
+}
+.contact .submenu li:hover{
+    background-color: rgb(7, 162, 190);
+}
+.inscription .submenu li:hover{
+    background-color: rgb(7, 150, 7);
+}
+.galeries .submenu li:hover{
+    background-color: rgb(79, 13, 145);
+}
+
