@@ -100,7 +100,7 @@
 
       swal({
             title: 'Attention',
-            text: 'Vous allez supprimer cet élément',
+            text: 'Vous allez supprimer cette activité',
             type: 'warning',
             showCancelButton: true,
             closeOnConfirm: false,
