@@ -8,13 +8,22 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
+
+
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 col-md-offset-3 text-center well">
+
+          <div class="col-md-12 jumbotron">
+            <h2>Cr&eacute;ation d'&eacute;v&egrave;nement</h2>
+          </div>
+
 <div id="result"></div>
-<legend class="text-center">Cr&eacute;ation d'&eacute;v&egrave;nement</legend>
+
+
 <form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
-	<div class="form-group">
-		<label for="picture">Image</label>
-		<input type="file" name="picture" id="picture" class="picture">
-	</div>
+
 
 	<div class="form-group">
 		<label for="title">Titre</label>
@@ -46,14 +55,26 @@ $this->start('main_content');
 	</div>
 
 	<div class="form-group">
-		<label for="quota">Ajouter un quota:</label>
+		<label class="control-label text-center" for="quota">Ajouter un quota:</label>
 		<input type="number" id="quota" name="quota" class="form-control">
 	</div>
+
+	<div class="form-group">
+		<label class="control-label text-center" for="picture">Image</label>	
+		<input type="file" name="picture" id="picture" class="picture">		
+	</div>
+
 
 	<div class="text-center">
 		<input type="submit" class="btn btn-primary" value="Envoyer">
 	</div>
 </form>
+
+     </div>
+    </div>
+  </div>
+</div>
+
 
 <?php
 $this->stop('main_content');
