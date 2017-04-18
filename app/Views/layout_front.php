@@ -13,9 +13,9 @@
     
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
     <!-- jQuery library -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!--Latest compiled JavaScript
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <!--Latest compiled JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <?php echo $this->section("sliderCss") ?>
     <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/jumboCss.css') ?>">
@@ -87,22 +87,18 @@
         <div id="navbar" class="navbar-collapse collapse dropdown">
           <ul class="nav navbar-nav">
             <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
-            <li class="dropdown">
+            <li>
 
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Presentation</a></li>
+              <a href="<?php echo $this->url('about') ?>">Presentation</a></li>
 
-            <li class="dropdown">
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <li>
+              <a href="<?php echo $this->url('default_home') ?>">
                 Evènements</a></li>
-
-
-
-
+                
             <li class="dropdown">
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Nos Activités
-                <span class="caret"></span></a>
+            <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               Nos Activités
+               <span class="caret"></span></a>
 
               <ul class="dropdown-menu">
       <li class="dropdown-submenu">
@@ -144,28 +140,22 @@
             </ul>
   
 
-            <li class="dropdown">
-              <a href="<?php echo $this->url('about') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Contactez nous</a>
+            <li>
+              <a href="<?php echo $this->url('contactfront') ?>"> Contactez nous</a>
             </li>
 
-            <li class="dropdown">
-              <a href="<?php echo $this->url('accession') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Adhésion</a>
+            <li>
+              <a href="<?php echo $this->url('accession') ?>"> Adhésion</a>
             </li>
 
             <li class="dropdown">
               <?php if(!empty($w_user)): ?>
 
-             <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
-               Galeries</a>
+             <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
 
              <?php else: ?>
 
-               <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
-               Galeries</a>
+               <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
 
              <?php endif; ?>
             </li>

@@ -21,9 +21,10 @@ $w_routes = array(
 
 	#gestion_medias
 	['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
-	['GET|POST', '/medias/list/[i:page]', 'Medias#listMedias', 'listMedias'], // Listes Médias
+    ['GET|POST', '/medias/list/[i:page]',      'Medias#listMedias', 'listMedias'], // Listes Médias
+	['GET|POST', '/medias/listBack/[i:page]',  'Medias#listMediasBack', 'listMediasBack'], // Listes Médias
 	['GET|POST', '/medias/listGuest/[i:page]', 'Medias#listMediasGuest', 'listMediasGuest'], // Listes Médias pour invité
-            ['GET|POST', '/medias/album', 'Medias#listAlbum',       'album'], // Listes Albums
+    ['GET|POST', '/medias/album', 'Medias#listAlbum',       'album'], // Listes Albums
 	['GET|POST', '/medias/delete/[i:id]', 'Medias#deleteMedias', 	'deleteMedias'], // Listes Albums
 	//['GET|POST', '/medias/album/[s:idE]', 'Medias#listMediasByCats', 'album_cat'], // Listes Médias
 

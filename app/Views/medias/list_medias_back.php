@@ -1,5 +1,5 @@
 
-<?php $this->layout('layout_front', ['title' => 'Medias - Listes des Medias']) ?>
+<?php $this->layout('layout_Back', ['title' => 'Medias - Listes des Medias']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -18,6 +18,8 @@
 		<figure class="col-xs-3">
 	    	<!-- <img src="/Alliance-Sociale/public/<?php// echo $media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias"> -->
 	    	<iframe src="/Alliance-Sociale/public/<?=$media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no"></iframe>
+	    	
+	    	<figcaption><a href="<?= $this->url('deleteMedias',['id'=>$media['id']]) ?>" class="btn btn-dange text-center">Supprimer</a></figcaption>
 	    </figure>
 	<?php 	endforeach; ?> 
 	</section>

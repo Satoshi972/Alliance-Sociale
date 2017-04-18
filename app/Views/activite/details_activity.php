@@ -14,7 +14,7 @@ $this->start('main_content');
     </div>
 
     <div class="list-group-item text-center">
-      <h4 class="list-group-item-heading">Intitulé</h4>
+      <h4 class="list-group-item-heading">Description</h4>
       <p class="list-group-item-text"><?=$infos['content'];?></p>
     </div>
 

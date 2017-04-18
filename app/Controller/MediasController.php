@@ -112,6 +112,48 @@ class MediasController extends MasterController
 		$this->show('medias/list_medias', $params);
 	}	
 
+	public function listMediasBack($page)
+	{
+		$medias = new medias();
+		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
+
+		$MediasPerPages  = 12; #Nous allons afficher 12 images par pages
+		$nbMedias		 = $medias->nbMedias(); //Compte le nombre de médias en bdd 
+		$nbPages 		 = ceil($nbMedias/$MediasPerPages); #Permet d'obtenir un chiffre rond, pour mon nombre de pages
+
+		
+		if(isset($page)) # Si la variable $_GET['page'] existe...
+		{
+		      $currentPage=intval($page);
+
+	 
+		     if($currentPage>$nbPages) # Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nbPages...
+		     {
+		          $currentPage=$nbPages;
+		     }
+		}
+		else
+		{
+		     $currentPage=1; #La page actuelle est la n°1 
+		     // $pages = 1;   
+		}
+
+		//var_dump($currentPage);
+ 
+		$firstEntry= ($currentPage-1)*$MediasPerPages; // On calcul la première entrée à lire
+		# La requête sql pour récupérer les messages de la page actuelle.
+		$retour_messages= $medias->listPageMedias($firstEntry, $MediasPerPages);
+ 
+		$params = [
+			//'images' => $images,
+			'medias'	  => $retour_messages,
+			'nbPages'	  => $nbPages,
+			'currentPage' => $currentPage,
+			'page'		  => $page,
+		];
+		$this->show('medias/list_medias_back', $params);
+	}	
+
 	public function listMediasGuest($page)
 	{
 		$medias = new medias();
