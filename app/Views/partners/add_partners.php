@@ -13,17 +13,15 @@ $this->stop('head');
 $this->start('main_content');?>
 
 
-
-
-
 <div class ="container">
 	<div class="row">
 		<div class="col-md-12">
 
 			<div class="col-md-6 col-md-offset-3 text-center well">
 
-
-				<h2>Ajouter un partenaire</h2>
+				<div class="col-md-12 jumbotron">        
+          			<h2>Ajouter un partenaire</h2>
+      			</div>
 
 					<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
 						<p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
@@ -46,8 +44,8 @@ $this->start('main_content');?>
 					
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="url">Logo</label>
-						<div class="col-md-10">
-						<input type="file" name="url" id="url" accept="image/*">
+						<div class="col-md-8">
+						<input type="file" name="url" id="picture" accept="image/*">
 						</div>
 					</div>
 					
@@ -64,3 +62,20 @@ $this->start('main_content');?>
 	</div>
 </div>
 <?php $this->stop('main_content'); ?>
+
+<?php
+$this->start('script'); 
+?>
+    <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
+    <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
+<script>
+  $("#picture").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        language: "fr"
+      });
+</script>
+<?php
+$this->stop('script'); 
+?>

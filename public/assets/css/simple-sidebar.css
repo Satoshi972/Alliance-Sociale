@@ -1,8 +1,8 @@
 
- * Start Bootstrap - Modern Business (http://startbootstrap.com/)
+/* * Start Bootstrap - Modern Business (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+ */*/
 
 /* Global Styles */
 
@@ -80,6 +80,10 @@ header.carousel .fill {
     .img-related {
         margin-bottom: 30px;
     }
+    .fb-page {
+        /*margin-left:20%;*/
+        width:100%;
+    }
 }
 
 @media(max-width:767px) {
@@ -91,7 +95,14 @@ header.carousel .fill {
         height: 70%;
     }
     .fb-page {
-        margin-left:20%;
+        /*margin-left:20%;*/
+        width:100%;
+    }
+    .panel-heading, .panel-body {
+        border-color:white;
+    }
+    .table-hover {
+        width:100%;
     }
 }
 
