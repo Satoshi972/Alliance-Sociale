@@ -13,8 +13,8 @@ class EventsController extends MasterController
 {
 	public function listEvents()
 	{
-		 $roles = ['admin','editor'];
-   		 $this->allowTo($roles);
+		 // $roles = ['admin','editor'];
+   // 		 $this->allowTo($roles);
 		$this->show('events/list');
 	}
 

@@ -25,8 +25,8 @@ class PartnersController extends Controller
     
     //Ajout de partenaires
     public function addPartners(){
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
         $enter = new PartnersModel();
         $errors = [];

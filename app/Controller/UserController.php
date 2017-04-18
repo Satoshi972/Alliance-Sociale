@@ -59,9 +59,7 @@ class UserController extends Controller
 
                             $login->logUserIn($user);
                            
-                            $result = '<div class="alert alert-success">Vous êtes connecté</div>';
-                            if($w_user['role'] === 'admin' || $w_user['role'] === 'editor')
-                            $this->show('admin');
+                            
             
                             echo $result; // On envoi le résultat
                         }
