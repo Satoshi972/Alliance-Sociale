@@ -55,7 +55,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/admin">Espace Administration</a>
+                        <a class="navbar-brand" href="<?php echo $this->url('admin') ?>">Espace Administration</a>
                     </div>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         
@@ -172,7 +172,7 @@
 
                               <div class="collapse" id="demo5">
                                 <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
-                                <a href="<?= $this->url('listMedias') ?>" class="list-group-item">Galerie</a>
+                                <a href="<?= $this->url('listMedias',['page'=>1]) ?>" class="list-group-item">Galerie</a>
                               </div>
 
                               <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
