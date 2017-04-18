@@ -64,3 +64,20 @@ $this->start('main_content');?>
 	</div>
 </div>
 <?php $this->stop('main_content'); ?>
+
+<?php
+$this->start('script'); 
+?>
+    <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
+    <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
+<script>
+  $("#picture").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        language: "fr"
+      });
+</script>
+<?php
+$this->stop('script'); 
+?>
