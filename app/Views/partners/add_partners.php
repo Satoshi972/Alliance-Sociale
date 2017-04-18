@@ -2,6 +2,14 @@
 
 $this->layout('layout_back', ['title' => 'Ajouter un partenaire']);
 
+$this->start('head');
+?>
+
+<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
+
+<?php
+$this->stop('head');
+
 $this->start('main_content');?>
 
 

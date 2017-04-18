@@ -15,8 +15,7 @@ $this->start('main_content'); ?>
        <?php  
 
 if (!empty($checkfirstname)){ ?>
-        <div id="hide">
-        <?php echo "Bonjour ".$checkfirstname.' '.$checklastname.'. Vous êtes sur le point de réinitialiser votre mot de passe!!!'; ?>
+        
         
         <form method="post" id="checkform4">
             <div class="form-group">
@@ -28,7 +27,7 @@ if (!empty($checkfirstname)){ ?>
 	
 
 	    </form>
-      </div>
+     
       <?php } else {
     
        echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
@@ -139,7 +138,7 @@ $this->start('script');
                     data: form_user.serialize(), // On récupère les données à envoyer
                     success: function(resultat){
                         $('#result').html(resultat);
-                        $('#hide').hide(); // Permet de vider les champs du formulaire.. 
+                        
                     }
                 });
             });

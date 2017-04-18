@@ -7,10 +7,12 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
-
+<div class="container">
 	<!-- Zone calendrier -->
+   <div class="col-md-12 jumbotron text-center">        
+          <h2>Liste des évenements</h2>
+      </div>
   
-  <legend class="text-center">liste des évenements</legend>
   <!-- possible placement du calendrier -->
   <div id="calendar"></div>
 
@@ -31,7 +33,7 @@ $this->start('main_content');
           </div>
       </div>
     </div>
-
+</div>
     <!-- Fin calendrier -->  
 <?php
 $this->stop('main_content');
