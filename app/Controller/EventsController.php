@@ -259,7 +259,8 @@ class EventsController extends MasterController
 				$mimetype = $img->mime();
 				$ext = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 				$newName = uniqid('img_').'.'.$ext;
-				
+				$maxSize = (1024 * 1000) * 2;
+
 				if($maxSize<$size)
 				{
 					$errors[] = 'fichier trop gros, il doit faire 2 mo max';
@@ -284,7 +285,7 @@ class EventsController extends MasterController
 						else
 						{
 							#ligne pour que mon image soit envoyée dans la base !!!!!!
-							$picture = $uploadDir.$newName;
+							$post['picture'] = $uploadDir.$newName;
 							
 						}
 					}
@@ -323,13 +324,14 @@ class EventsController extends MasterController
 						'start' 	  => $post['start'],
 						'quota'   	  => $post['quota'],
 	                    'id_activity' => $post['activity'],
-	                    'picture'     => $picture,
+	                    'picture'     => $post['picture'],
 					];
 				}
 
 				if($event->update($datas,$id))
 				{
 					$result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+					$this->show('events/list');
 				}				
 			}
 
