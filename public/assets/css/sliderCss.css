@@ -104,7 +104,6 @@
    
 }*/
 /*.modal-dialog {width:600px;}
-.thumbnail {margin-bottom:6px;}*/
  @media (min-width: 768px) and (max-width: 991px) {
       #myCarousel .carousel-inner .item .item-item:last-child {
         display: none;
@@ -125,7 +124,4 @@
 .carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
 .carousel-inner .item-item {
   padding:0!important;
-}
-
-
-
+.thumbnail {margin-bottom:6px;} */
