@@ -15,6 +15,9 @@ class MediasController extends MasterController
 {
 	public function addMedias()
 	{
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
+
 		$medias 	= new medias();
 		$events    	= new events();
 		$list       = $events->findAll();
@@ -41,7 +44,7 @@ class MediasController extends MasterController
 			    	{
 			    		$datas = [
 			    			'url' 		=> $tabMdedias[$i],
-			    			'id_related'=> $_POST['id_event'],
+			    			'id_related'=> $_POST['event'],
 			    			'visible'	=> (isset($_POST['visible'])) ? 1 : 0,
 			    			];
 			    		$medias->insert($datas);
@@ -114,6 +117,9 @@ class MediasController extends MasterController
 
 	public function listMediasBack($page)
 	{
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
+
 		$medias = new medias();
 		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
 
@@ -156,6 +162,9 @@ class MediasController extends MasterController
 
 	public function listMediasGuest($page)
 	{
+		$roles = ['admin','editor, member'];
+    	$this->allowTo($roles);
+
 		$medias = new medias();
 		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
 
@@ -246,6 +255,9 @@ class MediasController extends MasterController
 
 	public function deleteMedias($id)
 	{
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
+    	
 		$medias = new medias();
 		$medias->delete($id);
 		$this->redirectToRoute('listMedias',['page'=>1]);

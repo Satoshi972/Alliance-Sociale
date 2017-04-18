@@ -11,8 +11,8 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
-         // $roles = ['admin's];
-        // $this->allowTo($roles);
+         $roles = ['admin'];
+        $this->allowTo($roles);
 
         $enter = new UsersModel();
         $errors = [];
@@ -87,8 +87,8 @@ class UsersController extends Controller
     //Liste des users
     public function listUsers()
     {
-         // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+         $roles = ['admin'];
+        $this->allowTo($roles);
 
         // On instancie le model qui permet d'effectuer un findAll()
         $usersModel = new UsersModel();
@@ -114,8 +114,8 @@ class UsersController extends Controller
     //Update users
     public function updateUsers($id){
 
-         // $roles = ['admin'];
-        // $this->allowTo($roles);
+         $roles = ['admin'];
+        $this->allowTo($roles);
 
         //Connexion à la base pour l'update et pour remplissage du formulaire
         $up = new UsersModel(); 
@@ -194,8 +194,8 @@ class UsersController extends Controller
     //Suppression users
 
     public function delUsers($id){
-        // $roles = ['admin'];
-        // $this->allowTo($roles);
+        $roles = ['admin'];
+        $this->allowTo($roles);
 
         $success = false;
         $del = new UsersModel();

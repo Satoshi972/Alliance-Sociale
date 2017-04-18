@@ -20,14 +20,8 @@ class TokenController extends MasterController
     
     public function ask_token()
 	{
-        
-
-
- 
- 
-
-                $this->show('token/ask_token');
-            }
+        $this->show('token/ask_token');
+    }
         
 public function ajax_ask_token()
 	{

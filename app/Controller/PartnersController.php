@@ -11,6 +11,9 @@ class PartnersController extends Controller
     //Affichage des partenaires
     public function partners()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+
         $partnersModel = new PartnersModel();
         $partners = $partnersModel->findAll();
         
@@ -22,6 +25,9 @@ class PartnersController extends Controller
     
     //Ajout de partenaires
     public function addPartners(){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
@@ -106,6 +112,8 @@ class PartnersController extends Controller
         
     //Modification des partenaires
     public function updatePartners($id){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $enter = new PartnersModel();
         $errors = [];
@@ -197,6 +205,8 @@ class PartnersController extends Controller
     
     //Suppression des partenaires
     public function delPartners($id){
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $del = new PartnersModel();
         $remove = $del -> delete($id);
