@@ -24,7 +24,7 @@ $this->start('main_content');
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                   <h4 id="modalTitle" class="modal-title"></h4>
               </div>
-              <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
+              <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
               <div id="modalBody" class="modal-body"></div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -53,7 +53,7 @@ $this->start('script');
         var m = date.getMonth();
         var y = date.getFullYear();
         var picture = '/Alliance_Sociale/public/';
-        var lien = '/Alliance-Sociale/public/events/view/';
+        var lien = '/Alliance-Sociale/public/events/viewBack/';
 
       $('#calendar').fullCalendar({
             events: "<?= $this->url('listAllEvent'); ?>",
@@ -65,7 +65,7 @@ $this->start('script');
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
                 // $('#modalTitle').html(event.title);
-                $('#picture').attr('src',picture+event.picture);
+                //$('#picture').attr('src',picture+event.picture);
                 $('#modalBody').html(event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();

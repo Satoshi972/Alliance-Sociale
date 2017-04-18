@@ -73,7 +73,7 @@ class ActivityController extends MasterController
 							mkdir($uploadDir, 0755);
 						}
 
-						$newPictureName = uniqid('picture_').'.'.$extension;
+						$newPictureName = uniqid('img_').'.'.$extension;
 
 						if(!move_uploaded_file($_FILES['picture']['tmp_name'], $uploadDir.$newPictureName)){
 							$errors[] = 'Erreur lors de l\'upload de la photo';
@@ -179,7 +179,7 @@ class ActivityController extends MasterController
         $success = false;
         $maxSize = (1024 * 1000) * 2;
 
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
 
 

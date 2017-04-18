@@ -53,9 +53,9 @@ $this->start('main_content');
 			<?php 
 				foreach ($list as $key => $value):
 			?>
-				<option value="<?= $value['act_id'] ?>"
+				<option value="<?= $value['cat_id'] ?>"
 			<?php 
-					if($value['act_id'] = $infos['id_activity']):
+					if($value['cat_id'] = $infos['id_activity']):
 			?>
 						<?php 
 							echo "selected";

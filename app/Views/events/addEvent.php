@@ -135,7 +135,7 @@ $("#picture").fileinput(
 	                console.log('toto');
 	                $('#result').html(res);
 	                myForm.reset();
-	               /* myForm.find('input').val('');*/
+	                myForm.find('input').find('textarea').val('');
 	                //$('#comment').html()
 	            }
 	        });
