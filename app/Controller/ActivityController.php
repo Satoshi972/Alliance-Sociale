@@ -199,9 +199,9 @@ class ActivityController extends MasterController
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
-            (!v::notEmpty()->alpha('-.')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
             
-            (!v::notEmpty()->alpha('-.')->length(2, 600)->validate($post['content'])) ? 'Le prénom est invalide' : null,
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le prénom est invalide' : null,
 
             (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
 

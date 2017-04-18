@@ -33,7 +33,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -118,7 +118,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
