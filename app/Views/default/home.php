@@ -61,7 +61,7 @@
           }
           elseif ($i== 4){
               echo 'fifth';
-          }?> slide" class="img-responsive"></a>
+          }?> slide" class="img-responsive img-slide"></a>
                         <div class="carousel-caption">
                             <h3>
                                 <a  class="link-home" href ="http://localhost/Alliance-Sociale/public/events/view/<?=$infosfut[$i]['id'] ?>"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>

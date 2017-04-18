@@ -3,7 +3,7 @@
     position: absolute;
     top: 50px;
     width: 96.66666666666666%;
-    color:azure;
+    color: #FFF;
 }
 .btn-min-block
 {
@@ -23,16 +23,16 @@
     background-color: #FFF;
 }
 
-.container .img-responsive {
+.container .img-slide {
     margin: 0 auto;
     display: block;
     max-height: 340px ;
     background-size: cover;
-    max-width: 782px ;
+    max-width: 1200px ;
     width:100%;
     object-fit:cover; 
 }
-
+*/
 .topheader .homepic {
     margin: 0 auto;
     
@@ -73,10 +73,10 @@
 }
 
 
-.slide {
+/*.slide {
     max-width: 782px !important;
     max-height: 340px !important;
-}
+} */
 .img-home {
     border-radius:50px !important;
     object-fit:cover;
@@ -102,7 +102,7 @@
     color: deepskyblue !important;
     font-weight: bold;
    
-}
-.modal-dialog {width:600px;}
+}*/
+/*.modal-dialog {width:600px;}
 .thumbnail {margin-bottom:6px;}
 
