@@ -92,13 +92,18 @@
               <a href="<?php echo $this->url('about') ?>">Presentation</a></li>
 
             <li>
-              <a href="<?php echo $this->url('default_home') ?>">
-                Evènements</a></li>
+              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Evènements<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('default_home') ?>">Evènements à venir</a></li>
+
+        </ul>
+            </li>
                 
             <li class="dropdown">
             <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-               Nos Activités
-               <span class="caret"></span></a>
+               Nos Activités<span class="caret"></span></a>
 
               <ul class="dropdown-menu">
       <li class="dropdown-submenu">
