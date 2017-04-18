@@ -237,6 +237,49 @@
 
     <!-- Début footer -->
         <footer id="footerx">
+               <div id="myCarouselWrapper" class="container-fluid">
+
+    	 <div id="myCarousel" class="carousel slide">
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/bbbbbb/fff&text=1" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/CCCCCC&text=2" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/eeeeee&text=3" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/f4f4f4&text=4" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/fcfcfc/333&text=5" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/f477f4/fff&text=6" class="img-responsive"></a></div>
+    </div>
+     <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/f477f4/fff&text=7" class="img-responsive"></a></div>
+    </div>
+     <div class="item">
+      <div class="item-item col-md-3 col-sm-4"><a href="#"><img src="http://placehold.it/500/f477f4/fff&text=8" class="img-responsive"></a></div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>   
+
+</div>
                 <div class="row">
                     <div class="col-lg-12">
                     <div class="infos">
@@ -335,7 +378,29 @@ $(document).ready(function(){
   //Fin du full calendar
 });
 </script>
+<script>
+    $('#myCarousel').carousel({
+  interval: 4000
+});
 
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  for (var i=0;i<2;i++) {
+    next=next.next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+    
+</script>
 
 <!-- Permet des inclusions de scripts depuis la vue -->
     <?php echo $this->section("script") ?>
