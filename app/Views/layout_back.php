@@ -53,6 +53,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/admin">Espace Administration</a>
                     </div>
@@ -157,7 +158,6 @@
                               <div class="collapse" id="demo4">
                                 <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
                                 <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
-                                <a href="" class="list-group-item">Liste des Catégories</a>
                               </div>
 
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -173,6 +173,21 @@
                               <div class="collapse" id="demo5">
                                 <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
                                 <a href="<?= $this->url('listMedias') ?>" class="list-group-item">Galerie</a>
+                              </div>
+
+                              <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title">            
+                                      Partenaires   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo6">
+                                <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
+                                <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
                               </div>
 
                             </div>
