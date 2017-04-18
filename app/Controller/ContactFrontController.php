@@ -10,6 +10,9 @@ class ContactFrontController extends MasterController
 {
     public function addContact()
     {
+         // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
+        
         $contact = new ContactsModel();
         $errors = [];
         $post = [];

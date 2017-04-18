@@ -61,11 +61,11 @@
                       </div>
                       <div class="modal-footer">
                    
-                        <a href="<?= $this->url('update_users', ['id' => $user['id']]) ?>">Modifier</a>
+                        <a href="<?= $this->url('update_users', ['id' => $user['id']]) ?>" class="btn btn-info">Modifier</a>
 
                         <!-- <button onclick="delete" id='delete' data-uri="<?= $this->url('del_users', ['id' => $user['id']]) ?>" >Supprimer</button> -->
 
-                        <a href="<?= $this->url('del_users', ['id' => $user['id']]) ?>" id='delete' data-uri=<?= $this->url('del_users', ['id' => $user['id']]) ?> >Supprimer</a>
+                        <a href="<?= $this->url('del_users', ['id' => $user['id']]) ?>" class='delete btn btn-danger' data-id="<?= $user['id'] ?>" >Supprimer</a>
 
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -94,86 +94,42 @@
  <script>
 
  $(function(){
-      $('#delete').on('click',function(e){
-          e.preventDefault();
-        swal({
-       
-          title: "Êtes-vous sur de vouloir supprimer cet utilisateur?",
-          text: "",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Yes, delete it!",
-          closeOnConfirm: false
-        },
 
-        setTimeout(function() {
+  $('.delete').on('click', function(e)
+  {
+      e.preventDefault();
+      var $this = $(this);
+      var id = $(this).data('id');
+      var myTr = $(this).parent().parent();
+      //var url = '/Alliance-Sociale/public/users/delete/'+id;
 
-          function(){
+      swal({
+            title: 'Attention',
+            text: 'Vous allez supprimer cet élément',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            disableButtonsOnConfirm: true,
+            confirmLoadingButtonColor: '#DD6B55'
+          }, function(){
+              swal('Suppression effectuée');
 
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-          };
-        })
-
+                  $.ajax({
+                      type: 'POST',
+                      url: $this.attr('href'),
+                      data: {id : id},
+                      success: function(s)
+                      {
+                          if(s)
+                          {
+                              myTr.remove();
+                              location.reload();
+                              // $('#result').html(res);
+                          }
+                      }
+                  });
+          });
       });
-
-      // function delete(){
-      //           swal({
-       
-      //     title: "Êtes-vous sur de vouloir supprimer cet utilisateur?",
-      //     text: "",
-      //     type: "warning",
-      //     showCancelButton: true,
-      //     confirmButtonClass: "btn-danger",
-      //     confirmButtonText: "Yes, delete it!",
-      //     closeOnConfirm: false
-      //   },
-
-      //   function(){
-
-      //     $.ajax({
-      //       data : {uri:data},
-      //       success : function(),
-      //     })
-      //     swal("Deleted!", "Your imaginary file has been deleted.", "success");
-      //   });
-      // }
-
-
-
-/*      function ajax_delete(selector, title) {
-
-   $('#delete').on('click', selector, function(e){
-       e.preventDefault();
-
-       var $deleteButton = $(this);
-       swal({
-           title: title,
-           text: "Voulez-vous continuer ?",
-           type: "info",
-           showCancelButton: true,
-           closeOnConfirm: false,
-           showLoaderOnConfirm: true
-           }, function () {
-               setTimeout(function () {
-                   $.ajax({
-                       url: $deleteButton.attr('href'),
-                       data: {data('uri')},
-                       dataType: 'json',
-                       success: function(result){
-                           swal({
-                               title: '',
-                               text: result.message,
-                               type: result.status
-                               }, function() {
-                                   location.reload();
-                           });
-                       }
-                   });
-               }, 1000);
-       });
-   });
-}*/
 
   });
  </script>

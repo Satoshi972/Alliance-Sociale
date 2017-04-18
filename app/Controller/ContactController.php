@@ -121,7 +121,7 @@ class ContactController extends MasterController
     
      public function updateCheck()
 	{
-         // $roles = ['admin','editor'];
+        // $roles = ['admin','editor'];
         // $this->allowTo($roles);
         //$roles = ['admin','editor'];
         //$this->allowTo($roles);
@@ -143,6 +143,7 @@ class ContactController extends MasterController
         echo $result; // On envoi le résultat
         
         }
+        
         }
         $redirect->redirectToRoute('contactList');
         $this->show('contacts/updateCheck');

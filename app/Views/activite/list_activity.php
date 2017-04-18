@@ -1,4 +1,7 @@
 <?php $this->layout('layout_back', ['title' => 'Les utilisateurs']) ?>
+<?php $this->start('head') ?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
+<?php $this->stop('head') ?>
 
   <?php $this->start('main_content') ?>
 
@@ -49,8 +52,7 @@
                       <ul>
                          <li><?= $activite['name']?></li>
                          <li><?= $activite['content']?></li>
-                         <li><?= $activite["picture"] ?></li>
-                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" alt="logo">
+                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" class='img-responsive img-thumbnail text-center' alt="logo">
                       </ul>
                     </div>
                     <div class="modal-footer">
@@ -59,7 +61,7 @@
                         <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>">Modifier</a>
                         
                     
-                        <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" >Supprimer</a>
+                        <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $user['id'] ?>">Supprimer</a>
                             
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
@@ -80,3 +82,51 @@
 </div>
 
     <?php $this->stop('main_content') ?>
+
+     <?php $this->start('script') ?>
+ <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
+
+ <script>
+
+ $(function(){
+
+  $('.delete').on('click', function(e)
+  {
+      e.preventDefault();
+      var $this = $(this);
+      var id = $(this).data('id');
+      var myTr = $(this).parent().parent();
+      //var url = '/Alliance-Sociale/public/users/delete/'+id;
+
+      swal({
+            title: 'Attention',
+            text: 'Vous allez supprimer cet élément',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            disableButtonsOnConfirm: true,
+            confirmLoadingButtonColor: '#DD6B55'
+          }, function(){
+              swal('Suppression effectuée');
+
+                  $.ajax({
+                      type: 'POST',
+                      url: $this.attr('href'),
+                      data: {id : id},
+                      success: function(s)
+                      {
+                          if(s)
+                          {
+                              myTr.remove();
+                              location.reload();
+                              // $('#result').html(res);
+                          }
+                      }
+                  });
+          });
+      });
+
+  });
+ </script>
+
+    <?php $this->stop('script') ?>

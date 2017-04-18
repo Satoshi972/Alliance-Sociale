@@ -1,5 +1,5 @@
 <?php 
-$this->layout('layout_front',['title'=>'Création d\'évenement']);
+$this->layout('layout_back',['title'=>'Création d\'évenement']);
 $this->start('head');
 ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
