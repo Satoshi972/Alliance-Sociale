@@ -237,6 +237,7 @@
 
     <!-- Début footer -->
         <footer id="footerx">
+              <h3 style="text-align:center">Partenaires</h3>
                <div id="myCarouselWrapper" class="container-fluid">
 
     	 <div id="myCarousel" class="carousel slide">
