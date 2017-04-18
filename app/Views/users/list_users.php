@@ -105,7 +105,7 @@
 
       swal({
             title: 'Attention',
-            text: 'Vous allez supprimer cet élément',
+            text: 'Vous allez supprimer cette utilisateur',
             type: 'warning',
             showCancelButton: true,
             closeOnConfirm: false,
