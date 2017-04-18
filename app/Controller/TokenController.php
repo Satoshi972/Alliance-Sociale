@@ -83,6 +83,8 @@ if($checked === true){
     //foreach($checktoken as $check):
     }
     if (!empty($checktoken)){
+        
+        
         foreach($checktoken as $check):
         $this->show('token/resetpsw', ['checkfirstname' => $check["firstname"],
                                        'checklastname' => $check["lastname"],
@@ -113,14 +115,22 @@ if(!empty($_POST)){
 	// équivalent au foreach de nettoyage
 	$post = array_map('trim', array_map('strip_tags', $_POST));
     
+        
+        
+            
+            
     $checktoken = $check->findAll3($post["token"]);
     $checktoken2 = $check2->findAll4($post["token"]);
 //foreach($checktoken as $check):
     
-if(empty($post['password'])){
-     
-    $errors[] = 'Le mot de passe doit être complété';
-            }
+    $err = [
+        //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
+            (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe est doit contenir entre 8 et 30 caractères' : null,
+            
+        ];
+        
+        $errors = array_filter($err);
+
 
             if(count($errors) === 0){
             
