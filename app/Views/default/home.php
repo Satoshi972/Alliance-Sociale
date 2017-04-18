@@ -108,6 +108,7 @@
 
 
     <h2>Liste des Evènements en cours :</h2>
+    <div>
     
 <table class="table table-hover">
 		<thead>
@@ -116,7 +117,7 @@
                 <th>Titre</th>
                 <th>Détails</th>
                 <th>Depuis</th>
-                <th>Jusqu'à</th>
+                <th>Fin</th>
                 <th>Voir l'évènement</th>
 			</tr>
 		</thead>
@@ -142,6 +143,7 @@
         
           
     </table>
+    </div>
 <a href="<?= $this->url('listPresentEvent') ?>">Voir tous les évènements présents</a>
 
 

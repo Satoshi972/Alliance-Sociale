@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                   <img class="img-responsive carousel" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
+                   <img class="img-responsive carouselheader" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
                 </div>
 
                <!--  <div class="col-sm-3">
@@ -138,6 +138,7 @@
         </ul>
       </li>
             </ul>
+
   
 
             <li>
@@ -180,7 +181,7 @@
                     </div>
                     <div class="panel-body">
             <!-- Zone d'inclusion de Facebook -->
-            <div class="fb-page img-responsive" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>           
+            <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>           
                     </div>
                 </div>
             </div>
@@ -189,7 +190,7 @@
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-gift"></i></h4>
                     </div>
-                    <div class="panel-body img-responsive">
+                    <div class="panel-body contenu">
             <?= $this->section('main_content') ?>
                     </div>
                 </div>
@@ -199,7 +200,7 @@
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-compass"></i></h4>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body img-responsive">
 
     
 <!-- Zone calendrier -->
