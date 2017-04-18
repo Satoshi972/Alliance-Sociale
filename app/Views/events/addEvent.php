@@ -134,6 +134,8 @@ $("#picture").fileinput(
 	            {
 	                console.log('toto');
 	                $('#result').html(res);
+	                myForm.reset();
+	               /* myForm.find('input').val('');*/
 	                //$('#comment').html()
 	            }
 	        });
