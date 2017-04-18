@@ -40,8 +40,6 @@ class EventsController extends MasterController
 
 	public function viewEventFront($id)
 	{
-		 $roles = ['admin','editor'];
-    	$this->allowTo($roles);
 
 		$event = new events();
 		$infos = $event->find($id);
