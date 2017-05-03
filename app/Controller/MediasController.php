@@ -15,8 +15,8 @@ class MediasController extends MasterController
 {
 	public function addMedias()
 	{
-		$roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		/*$roles = ['admin','editor'];
+    	$this->allowTo($roles);*/
 
 		$medias 	= new medias();
 		$events    	= new events();

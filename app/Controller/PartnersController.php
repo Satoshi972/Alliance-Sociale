@@ -11,8 +11,8 @@ class PartnersController extends Controller
     //Affichage des partenaires
     public function partners()
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        /*$roles = ['admin','editor'];
+        $this->allowTo($roles);*/
 
         $partnersModel = new PartnersModel();
         $partners = $partnersModel->findAll();

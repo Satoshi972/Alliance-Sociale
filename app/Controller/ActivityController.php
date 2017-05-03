@@ -12,8 +12,8 @@ class ActivityController extends MasterController
 
 	public function addActivity()
 	{	
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        /*$roles = ['admin','editor'];
+        $this->allowTo($roles);*/
 
 		$category = new categoryModel();
         $newActivity = new Activity();

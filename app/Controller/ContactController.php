@@ -10,9 +10,9 @@ class ContactController extends MasterController
 {
 	public function contactList()
 	{
-        $roles = ['admin','editor'];
+        /*$roles = ['admin','editor'];
         $this->allowTo($roles);
-
+*/
         $errors = [];
         $post = [];
         $donnees= [];

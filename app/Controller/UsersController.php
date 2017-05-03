@@ -11,8 +11,8 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
-         $roles = ['admin'];
-        $this->allowTo($roles);
+        /* $roles = ['admin'];
+        $this->allowTo($roles);*/
 
         $enter = new UsersModel();
         $errors = [];
