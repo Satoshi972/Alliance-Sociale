@@ -58,8 +58,10 @@
                     <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
                 </div>
 
-                <div class="col-sm-6">
-                   <img class="img-responsive carouselheader" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
+                <div class="col-sm-9 text-center">
+              <!--      <img class="img-responsive carouselheader" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/> -->
+
+                <h1>Alliance sociale</h1>
                 </div>
 
                <!--  <div class="col-sm-3">
@@ -143,9 +145,6 @@
         </ul>
       </li>
             </ul>
-
-  
-
             <li>
               <a href="<?php echo $this->url('contactfront') ?>"> Contactez nous</a>
             </li>
@@ -170,15 +169,12 @@
       </div>
   </nav>
     
-<div class="container">
+<div class="container-fluid">
 
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
-            <h1 class="page-header">
-                    
-                </h1>
-            </div>
+    
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -354,6 +350,7 @@
                     </div>
                 </div>
         </footer>
+        </div>
         </div>
 
 
