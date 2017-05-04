@@ -13,8 +13,8 @@ class EventsController extends MasterController
 {
 	public function listEvents()
 	{
-		 $roles = ['admin','editor'];
-   		 $this->allowTo($roles);
+		 // $roles = ['admin','editor'];
+   // 		 $this->allowTo($roles);
 		$this->show('events/list');
 	}
 
@@ -27,8 +27,8 @@ class EventsController extends MasterController
 
 	public function viewEvent($id)
 	{
-		 $roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		// $roles = ['admin','editor'];
+  //   	$this->allowTo($roles);
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();
@@ -40,8 +40,8 @@ class EventsController extends MasterController
 
 	public function viewEventFront($id)
 	{
-		 $roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		 // $roles = ['admin','editor'];
+   //  	$this->allowTo($roles);
 
 		$event = new events();
 		$infos = $event->find($id);
@@ -54,8 +54,8 @@ class EventsController extends MasterController
 	
 	public function addEvent()
 	{
-		$roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		// $roles = ['admin','editor'];
+  //   	$this->allowTo($roles);
 
 		$activity = new activity();
 		$infos = $activity->findAll();
@@ -203,8 +203,8 @@ class EventsController extends MasterController
 
 	public function updateEvent($id)
 	{	
-		$roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		// $roles = ['admin','editor'];
+  //   	$this->allowTo($roles);
 
 		$event = new events();
 		$activity = new activity();
@@ -356,8 +356,8 @@ class EventsController extends MasterController
 
 	public function deleteEvent($id)
 	{
-		$roles = ['admin','editor'];
-    	$this->allowTo($roles);
+		// $roles = ['admin','editor'];
+  //   	$this->allowTo($roles);
     	
 		$event = new events();
 

@@ -12,8 +12,8 @@ class ActivityController extends MasterController
 
 	public function addActivity()
 	{	
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
 		$category = new categoryModel();
         $newActivity = new Activity();
@@ -132,8 +132,8 @@ class ActivityController extends MasterController
 
     public function listActivity()
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
         $category = new categoryModel();
         $cat = $category->findAll();
@@ -153,8 +153,8 @@ class ActivityController extends MasterController
     // public function detailsActivity()
     public function detailsActivity($id)
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
         $newActivity = new Activity();
         $detailactivity = $newActivity->find($id);
@@ -168,8 +168,8 @@ class ActivityController extends MasterController
 
     public function updateActivity()
    {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
 
         $category = new categoryModel();
         $upActivity = new Activity();
@@ -286,8 +286,8 @@ class ActivityController extends MasterController
 
    public function delActivity($id)
    {
-    $roles = ['admin','editor'];
-    $this->allowTo($roles);
+    // $roles = ['admin','editor'];
+    // $this->allowTo($roles);
 
     $delactivity = new Activity();
     $remove = $delactivity -> delete($id);
