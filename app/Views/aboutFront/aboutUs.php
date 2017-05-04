@@ -51,7 +51,7 @@
             <?php } ?>
 
             			<div class="col-md-12 text-center">
-				<button type="submit" id="submitForm" class="btn btn-info"><a href="<?php echo $this->url('team') ?>" style="color: white;">Découvrer notre équipe</a></button>
+				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrer notre équipe</a>
 			</div>
 <!-- 			<section class="organigramme">
 	<div class="row">
