@@ -36,7 +36,14 @@
 <!-- Début Top header -->
     <main class="container-fluid topheader">
         <div class="row">
-            <div class="col-lg-12 top-header">
+    
+          <div class="col-md-2">
+                  <a href="<?php echo $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "150px;"></a>
+          </div>
+
+
+ <!--        <div class="row"></div> -->
+            <div class="col-md-10 top-header">
                 <ul class="reseau">
                     <?php if (empty($w_user)): ?>
 
@@ -52,16 +59,19 @@
                 </ul>
             </div>
         </div>
+
+
         <div class="row">
 
-                <div class="col-sm-3">
-                    <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
-                </div>
+<!--                 <div class="col-sm-2">
+    <a href="<?php echo $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "150px;"></a>
+</div> -->
 
-                <div class="col-sm-9 text-center">
+                <div class="col-sm-12 text-center">
               <!--      <img class="img-responsive carouselheader" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/> -->
+                <h2>Centre Sociale</h2>
 
-                <h1>Alliance sociale</h1>
+                <h1 style="font-size: 90px">Alliance sociale</h1>
                 </div>
 
                <!--  <div class="col-sm-3">
@@ -75,7 +85,7 @@
  
 <!-- Fin Top header -->
   <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>

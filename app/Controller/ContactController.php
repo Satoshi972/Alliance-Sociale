@@ -121,9 +121,9 @@ class ContactController extends MasterController
     
      public function updateCheck()
 	{
-        $roles = ['admin','editor'];
+      /*  $roles = ['admin','editor'];
         $this->allowTo($roles);
-        
+        */
         $select = new ContactsModel();
         $redirect =new Controller;
         

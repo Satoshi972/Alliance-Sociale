@@ -18,6 +18,9 @@ class ContactFrontController extends MasterController
         $post = [];
         $success = false;
 
+          $redirect =new Controller;
+        
+
         $post = array_map('trim', array_map('strip_tags', $_POST));
     	if(!empty($_POST)) {
         $err = [
@@ -56,6 +59,7 @@ class ContactFrontController extends MasterController
            'errors'  => $errors,
            ];
 
+           /* $redirect->redirectToRoute('contact_front/contact_front');*/
            $this->show('contact_front/contact_front',$params);
     }
 }

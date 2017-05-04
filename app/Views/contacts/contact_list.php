@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Se connecter']) ?>
+<?php $this->layout('layout_back', ['title' => 'Messages']) ?>
 
 <?php 
 //début du bloc main_content
@@ -6,6 +6,7 @@ $this->start('main_content'); ?>
         <h1>Liste des messages de contact</h1>
         
         <div id="mon_resultat"><!-- contiendra le résultat ajax --></div>
+        
         <?php if(isset($errors)){
 			echo '<p style="color:red">'.$errors.'</p>';
 		};

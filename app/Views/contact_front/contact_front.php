@@ -12,6 +12,10 @@
 					<h1>CONTACT</h1>
 				</div>
 
+
+				 <div id="mon_resultat"><!-- contiendra le résultat ajax --></div>
+
+
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 
@@ -150,4 +154,32 @@
 			</div>
 		</div>
 
-<?php $this->stop('main_content') ?>
+<?php $this->stop('main_content')
+
+/*$this->start('script');
+
+ ?>
+
+	<script>
+		$(function(){
+
+		    $('#submitform2').click(function(el){
+                el.preventDefault(); // On bloque l'action par défaut
+
+                var form_user = $('#contact'); // On récupère le formulaire
+                $.ajax({
+                    method: 'post',
+                    url: '<?= $this->url("addContact") ?>',
+                    data: form_user.serialize(), // On récupère les données à envoyer
+                    success: function(resultat){
+                        $('#result').html(resultat);
+                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
+                    }
+                });
+            });
+		});
+	</script>
+
+ <?php
+    $this->stop('script');*/
+?>
