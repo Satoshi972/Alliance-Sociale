@@ -122,7 +122,7 @@
 					<div class="col-md-4">
 						<figure>
 							<h4 class="text-center">Secrétaire</h4>
-							<!-- <img src="<?= $this->assetUrl('teamAS/Barbos Estelle2.jpg') ?>" alt="personnel" class="thumbnail img-responsive"> -->
+							<img src="<?= $this->assetUrl('teamAS/Barbos Estelle1.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 							<figcaption class="text-center">Mme Barbos Estelle</figcaption>
 						</figure>								
 					</div>
