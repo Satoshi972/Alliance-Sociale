@@ -170,7 +170,7 @@
       </div>
   </nav>
     
-<div class="container">
+<div class="container-fluid">
 
         <!-- Marketing Icons Section -->
         <div class="row">
