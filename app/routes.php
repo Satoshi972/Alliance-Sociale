@@ -73,4 +73,7 @@ $w_routes = array(
     ['GET|POST','/events/listPresent',       'Events#listPresent',      'listPresentEvent'],
     ['GET|POST','/events/listPast',          'Events#listPast',         'listPastEvent'],
 
+     #Equipe
+    ['GET|POST', '/team', 'Team#equipe', 'team'],  
+
 	);
