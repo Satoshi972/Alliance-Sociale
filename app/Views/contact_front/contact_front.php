@@ -29,16 +29,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-
-						<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-							<p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-						<?php endif; ?>
-
-						<?php if($success == true): // La variable $success est envoyé via le controller?>
-							<p class="alert alert-success alert-dismissable" ">Votre formulaire a bien été reçu, nous vous remercions de nous avoir contactés</p>
-						<?php endif; ?>
-
+					<div class="col-md-6 col-md-offset-3" id="result">
 		            </div>
 				</div>
 
@@ -102,7 +93,7 @@
 							</div>
 					
 							<div class="col-md-12 text-center">
-								<form method="post" id="contact" class="form-horizontal">
+								<form method="post" action="<?= $this->url('contactfront') ?>" id="contact" class="form-horizontal">
 
 									<div class="form-group">
 										<div class="col-md-12">
@@ -124,7 +115,7 @@
 
 									<div class="form-group">
 										<div class="col-md-6 col-md-offset-3">
-											<button type="submit" id="submitForm" class="btn btn-primary">Envoyer message</button>
+											<input type="submit" id="submitForm" class="btn btn-primary">Envoyer message</input>
 										</div>
 									</div>
 
@@ -151,3 +142,33 @@
 		</div>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('script') ?>
+<script>
+$(function()
+{
+//gestion de mon formulaire d'envoi
+    $('form input[type="submit"]').click(function(e)
+    {
+        e.preventDefault();
+
+        var myForm = $('form');
+        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
+        var data = (formdata !== null) ? formdata : myForm.serialize();
+                       
+        $.ajax(
+        {
+            method: myForm.attr('method'),
+            url: myForm.attr('action'),
+            contentType: false, // obligatoire pour de l'upload
+            processData: false, // obligatoire pour de l'upload
+            cache: false,
+            data: data,
+            success: function(res)
+            {
+                $('#result').html(res);
+            }
+        });
+    });           
+})
+</script>
+<?php $this->stop('script') ?>
