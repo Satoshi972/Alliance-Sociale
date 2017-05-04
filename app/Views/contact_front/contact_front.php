@@ -12,21 +12,7 @@
 					<h1>CONTACT</h1>
 				</div>
 
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
 
-						<div class="col-md-12 text-center">
-							<h2>Adresse</h2>
-						</div>
-						
-						<div class="col-md-12 text-center">
-			                <h3>Centre Social Alliance sociale</h3>
-			                <p>LCR Résidence Gaïac<br>
-			                Quartier Cédalise<br>
-			                97290 LE MARIN<br></p>
-		                </div>
-		            </div>
-				</div>
 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" id="result">
@@ -71,6 +57,26 @@
 							</div>
 
 					</div>
+
+
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+
+						<div class="col-md-12 text-center">
+							<h2>Adresse</h2>
+						</div>
+						
+						<div class="col-md-12 text-center">
+			                <h3>Centre Social Alliance sociale</h3>
+			                <p>LCR Résidence Gaïac<br>
+			                Quartier Cédalise<br>
+			                97290 LE MARIN<br></p>
+		                </div>
+		            </div>
+				</div>
+
+
 
 
 	            <div class="row">
@@ -136,6 +142,21 @@
 	                			<iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d8567.76622421761!2d-60.883391124781355!3d14.475283333856556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d14.474780099999998!2d-60.877898099999996!5e0!3m2!1sfr!2s!4v1492000624835" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 	                		</div>
 							
+						</div>
+
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+
+								<div class="col-md-12 text-center">
+									<h2>Téléphones</h2>
+								</div>
+								
+								<div class="col-md-12 text-center">
+					                <p>0596 74 76 58<br>
+					                0696 27 65 85<br>
+					               </p>
+				                </div>
+				            </div>
 						</div>
 
 
