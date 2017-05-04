@@ -112,13 +112,6 @@
 			<div class="row">
 				<div class="col-md-12">
 
-					<div class="col-md-4">							
-						<figure>
-							<h4 class="text-center">Assesseurs</h4>
-							<img src="<?= $this->assetUrl('teamAS/Maran Marie-Claude.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
-							<figcaption class="text-center">Mme Maran Marie-Claude</figcaption>
-						</figure>
-					</div>
 					<div class="col-md-4">
 						<figure>
 							<h4 class="text-center">Trésorière</h4>
@@ -133,6 +126,13 @@
 							<figcaption class="text-center">Mme Barbos Estelle</figcaption>
 						</figure>								
 					</div>
+					<div class="col-md-4">							
+						<figure>
+							<h4 class="text-center">Assesseurs</h4>
+							<img src="<?= $this->assetUrl('teamAS/Maran Marie-Claude.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
+							<figcaption class="text-center">Mme Maran Marie-Claude</figcaption>
+						</figure>
+					</div>
 				</div>
 			</div>
 
@@ -142,21 +142,21 @@
 
 					<div class="col-md-4">							
 						<figure>
-							<!-- <h5 class="text-center">Chargé d'Acceuil</h5> -->
+							<h4 class="text-center">Assesseurs</h4>
 							<img src="<?= $this->assetUrl('teamAS/Doyen Sylviane.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 							<figcaption class="text-center">Mme Doyen Sylviane</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-4">
 						<figure>
-						<!-- <h5 class="text-center">Référente Famille</h5> -->
+						<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Joseph-Mathurin Viviane.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mme Joseph-Mathurin Viviane</figcaption>
 					</figure>
 					</div>
 					<div class="col-md-4">
 						<figure>
-<!-- 						<h5 class="text-center">Chargé d'Animation</h5> -->
+						<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Bias Jacqueline.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mme Bias Jacqueline</figcaption>
 					</figure>								
@@ -172,21 +172,21 @@
 					<div class="col-md-4">							
 
 					<figure>
-						<!-- <h5 class="text-center">Référent Jeunesse</h5> -->
+						<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Deval Chantal.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" >
 						<figcaption class="text-center">Mme Deval Chantal</figcaption>
 					</figure>
 					</div>
 					<div class="col-md-4">
 					<figure>
-						<!-- <h5 class="text-center">Animateur de Loisirs</h5> -->
+						<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Hayot Jennyfer.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mme Hayot Jennyfer</figcaption>
 					</figure>
 					</div>
 					<div class="col-md-4">
 					<figure>
-						<!-- <h5 class="text-center">Scolarité</h5> -->
+						<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Neris Yasmina.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mme Neris Yasmina.jpeg</figcaption>
 					</figure>							
@@ -201,31 +201,27 @@
 					<div class="col-md-4">							
 
 					<figure>
-					<!-- 	<h5 class="text-center">Référent Jeunesse</h5> -->
-						<img src="<?= $this->assetUrl('teamAS/Neris Yasmina.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" >
-						<figcaption class="text-center">Mme Neris Yasmina.jpeg</figcaption>
+					<h4 class="text-center">Assesseurs</h4>
+						<img src="<?= $this->assetUrl('teamAS/Cliryx Léonard.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" >
+						<figcaption class="text-center">Mr Cliryx Léonard</figcaption>
 					</figure>
 					</div>
 					<div class="col-md-4">
 					<figure>
-				<!-- 		<h5 class="text-center">Animateur de Loisirs</h5> -->
+					<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Adjutor Jacques.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mr Adjutor Jacques</figcaption>
 					</figure>
 					</div>
 					<div class="col-md-4">
 					<figure>
-						<!-- <h5 class="text-center">Scolarité</h5> -->
+					<h4 class="text-center">Assesseurs</h4>
 						<img src="<?= $this->assetUrl('teamAS/Boungo Paul-Andre.jpeg') ?>" alt="personnel" class="thumbnail img-responsive">
 						<figcaption class="text-center">Mr Boungo Paul-Andre</figcaption>
 					</figure>							
 					</div>
 				</div>
 			</div>
-
-			
-
-
 	      </div>
 
 
