@@ -33,11 +33,50 @@
 		            </div>
 				</div>
 
+				<div class="col-md-6 col-md-offset-3">
+
+								
+							<div class="col-md-12 text-center">	
+								<h2>Formulaire de contact</h2>
+							</div>
+					
+							<div class="col-md-12 text-center">
+								<form method="post" action="<?= $this->url('contactfront') ?>" id="contact" class="form-horizontal">
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="title" name="title" placeholder="Saisissez votre Titre" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="mail" id="mail" name="mail" placeholder="Saisissez votre email" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<textarea type="text" id="content" name="content" rows="5" placeholder="Saisissez votre Contenu"  class="form-control"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-6 col-md-offset-3">
+											<input type="submit" id="submitForm" class="btn btn-primary" value="Envoyer message"></input>
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+					</div>
+
 
 	            <div class="row">
 	            	<div class="col-md-12">
 	            		
-						<div class="col-md-4">
+						<div class="col-md-6">
 							
 							<div class="col-md-12 text-center">
 								<h2>Nos horaires</h2>
@@ -86,45 +125,9 @@
 
 						</div>
 
-						<div class="col-md-4">
-								
-							<div class="col-md-12 text-center">	
-								<h2>Formulaire de contact</h2>
-							</div>
-					
-							<div class="col-md-12 text-center">
-								<form method="post" action="<?= $this->url('contactfront') ?>" id="contact" class="form-horizontal">
 
-									<div class="form-group">
-										<div class="col-md-12">
-											<input type="text" id="title" name="title" placeholder="Saisissez votre Titre" class="form-control">
-										</div>
-									</div>
 
-									<div class="form-group">
-										<div class="col-md-12">
-											<input type="mail" id="mail" name="mail" placeholder="Saisissez votre email" class="form-control">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-md-12">
-											<textarea type="text" id="content" name="content" rows="5" placeholder="Saisissez votre Contenu"  class="form-control"></textarea>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-md-6 col-md-offset-3">
-											<input type="submit" id="submitForm" class="btn btn-primary">Envoyer message</input>
-										</div>
-									</div>
-
-								</form>
-							</div>
-
-					</div>
-
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="col-md-12 text-center">
 								<h2>Nous trouver</h2>
 							</div>
@@ -134,6 +137,10 @@
 	                		</div>
 							
 						</div>
+
+
+
+
 
 	            	</div>
 	            </div>
