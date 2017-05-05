@@ -64,15 +64,13 @@ class UserController extends Controller
                             $this->show('admin');
             
                             echo $result; // On envoi le résultat
-                        }
-                        else { // password_verify
-                            $errors[] = 'Le couple identifiant/mot de passe est invalide';
-                        }
+                    } else { // password_verify
+                        $errors[] = 'Le couple identifiant/mot de passe est invalide'; 
                     }
-                    else { // utilisateur inexistant, donc email inexistant en bdd
+                } else { // utilisateur inexistant, donc email inexistant en bdd
                         $errors[] = 'Le couple identifiant/mot de passe est invalide';
-                    }
                 }
+        }
         
         
         $this->show('login_logout/ajax_login', ['errors' => $errors]);
@@ -90,29 +88,29 @@ class UserController extends Controller
         $this->show('login_logout/logout', ['infos' => $infos,
                                            ]);   
          
-     } else 
+     } else {
          
-    $this->show('login_logout/logout');
-         
+        $this->show('login_logout/logout');
+        }    
 	
      }   
         
         
      public function ajax_logout(){
          
-     $logout = new AuthentificationModel();
-     $logout->logUserOut();
-     
-     $result = '<div class="alert alert-success" style="text-align:center">Vous êtes déconnecté</div>';
-            
-     echo $result; // On envoi le résultat
-         
-     $this->show('login_logout/ajax_logout');
+         $logout = new AuthentificationModel();
+         $logout->logUserOut();
+
+         $result = '<div class="alert alert-success" style="text-align:center">Vous êtes déconnecté</div>';
+
+         echo $result; // On envoi le résultat
+
+         $this->show('login_logout/ajax_logout');
          
      }
         
         
-     }
+}
     
 
         
