@@ -1,4 +1,4 @@
-<?php $this->layout('layout_back', ['title' => 'Se connecter']) ?>
+<?php $this->layout('layout_back', ['title' => 'Listes des messages']) ?>
 <?php $this->start('head') ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
 <?php $this->stop('head') ?>
