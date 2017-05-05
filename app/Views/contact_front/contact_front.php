@@ -12,6 +12,54 @@
 					<h1>CONTACT</h1>
 				</div>
 
+
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3" id="result">
+		            </div>
+				</div>
+
+				<div class="col-md-6 col-md-offset-3">
+
+								
+							<div class="col-md-12 text-center">	
+								<h2>Formulaire de contact</h2>
+							</div>
+					
+							<div class="col-md-12 text-center">
+								<form method="post" action="<?= $this->url('contactfront') ?>" id="contact" class="form-horizontal">
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="text" id="title" name="title" placeholder="Saisissez votre Titre" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<input type="mail" id="mail" name="mail" placeholder="Saisissez votre email" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-12">
+											<textarea type="text" id="content" name="content" rows="5" placeholder="Saisissez votre Contenu"  class="form-control"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-6 col-md-offset-3">
+											<input type="submit" id="submitForm" class="btn btn-primary" value="Envoyer message"></input>
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+					</div>
+
+
+
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 
@@ -28,25 +76,13 @@
 		            </div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
 
-						<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-							<p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-						<?php endif; ?>
-
-						<?php if($success == true): // La variable $success est envoyé via le controller?>
-							<p class="alert alert-success alert-dismissable" ">Votre formulaire a bien été reçu, nous vous remercions de nous avoir contactés</p>
-						<?php endif; ?>
-
-		            </div>
-				</div>
 
 
 	            <div class="row">
 	            	<div class="col-md-12">
 	            		
-						<div class="col-md-4">
+						<div class="col-md-6">
 							
 							<div class="col-md-12 text-center">
 								<h2>Nos horaires</h2>
@@ -95,45 +131,9 @@
 
 						</div>
 
-						<div class="col-md-4">
-								
-							<div class="col-md-12 text-center">	
-								<h2>Formulaire de contact</h2>
-							</div>
-					
-							<div class="col-md-12 text-center">
-								<form method="post" id="contact" class="form-horizontal">
 
-									<div class="form-group">
-										<div class="col-md-12">
-											<input type="text" id="title" name="title" placeholder="Saisissez votre Titre" class="form-control">
-										</div>
-									</div>
 
-									<div class="form-group">
-										<div class="col-md-12">
-											<input type="mail" id="mail" name="mail" placeholder="Saisissez votre email" class="form-control">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-md-12">
-											<textarea type="text" id="content" name="content" rows="5" placeholder="Saisissez votre Contenu"  class="form-control"></textarea>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-md-6 col-md-offset-3">
-											<button type="submit" id="submitForm" class="btn btn-primary">Envoyer message</button>
-										</div>
-									</div>
-
-								</form>
-							</div>
-
-					</div>
-
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="col-md-12 text-center">
 								<h2>Nous trouver</h2>
 							</div>
@@ -144,6 +144,25 @@
 							
 						</div>
 
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+
+								<div class="col-md-12 text-center">
+									<h2>Téléphones</h2>
+								</div>
+								
+								<div class="col-md-12 text-center">
+					                <p>0596 74 76 58<br>
+					                0696 27 65 85<br>
+					               </p>
+				                </div>
+				            </div>
+						</div>
+
+
+
+
+
 	            	</div>
 	            </div>
 
@@ -151,3 +170,33 @@
 		</div>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('script') ?>
+<script>
+$(function()
+{
+//gestion de mon formulaire d'envoi
+    $('form input[type="submit"]').click(function(e)
+    {
+        e.preventDefault();
+
+        var myForm = $('form');
+        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
+        var data = (formdata !== null) ? formdata : myForm.serialize();
+                       
+        $.ajax(
+        {
+            method: myForm.attr('method'),
+            url: myForm.attr('action'),
+            contentType: false, // obligatoire pour de l'upload
+            processData: false, // obligatoire pour de l'upload
+            cache: false,
+            data: data,
+            success: function(res)
+            {
+                $('#result').html(res);
+            }
+        });
+    });           
+})
+</script>
+<?php $this->stop('script') ?>

@@ -10,8 +10,13 @@ class ContactController extends MasterController
 {
 	public function contactList()
 	{
+
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
+
         //$roles = ['admin','editor'];
        //$this->allowTo($roles);
+
 
         $errors = [];
         $post = [];
@@ -120,9 +125,14 @@ class ContactController extends MasterController
     }
     
      public function updateCheck()
+
+	{
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
      {
         //$roles = ['admin','editor'];
         //$this->allowTo($roles);
+
         
         $select = new ContactsModel();
         $redirect =new Controller;
