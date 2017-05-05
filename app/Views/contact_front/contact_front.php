@@ -6,13 +6,28 @@
 	
 
 		<div class="row">
+
 			<div class="col-lg-12">
 
 				<div class="col-sm-12 text-center">
 					<h1>CONTACT</h1>
 				</div>
 
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
 
+						<div class="col-md-12 text-center">
+							<h2>Adresse</h2>
+						</div>
+						
+						<div class="col-md-12 text-center">
+			                <h3>Centre Social Alliance sociale</h3>
+			                <p>LCR Résidence Gaïac<br>
+			                Quartier Cédalise<br>
+			                97290 LE MARIN<br></p>
+		                </div>
+		            </div>
+				</div>
 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" id="result">
@@ -57,26 +72,6 @@
 							</div>
 
 					</div>
-
-
-
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-
-						<div class="col-md-12 text-center">
-							<h2>Adresse</h2>
-						</div>
-						
-						<div class="col-md-12 text-center">
-			                <h3>Centre Social Alliance sociale</h3>
-			                <p>LCR Résidence Gaïac<br>
-			                Quartier Cédalise<br>
-			                97290 LE MARIN<br></p>
-		                </div>
-		            </div>
-				</div>
-
-
 
 
 	            <div class="row">
@@ -144,6 +139,8 @@
 							
 						</div>
 
+				</div>
+
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3">
 
@@ -159,15 +156,10 @@
 				            </div>
 						</div>
 
-
-
-
-
 	            	</div>
 	            </div>
 
 			</div>
-		</div>
 
 <?php $this->stop('main_content') ?>
 <?php $this->start('script') ?>
@@ -175,25 +167,22 @@
 $(function()
 {
 //gestion de mon formulaire d'envoi
-    $('form input[type="submit"]').click(function(e)
+    $('form').on('submit',function(e)
     {
         e.preventDefault();
 
         var myForm = $('form');
-        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
-        var data = (formdata !== null) ? formdata : myForm.serialize();
-                       
+  
         $.ajax(
         {
             method: myForm.attr('method'),
             url: myForm.attr('action'),
-            contentType: false, // obligatoire pour de l'upload
-            processData: false, // obligatoire pour de l'upload
-            cache: false,
-            data: data,
+            data: myForm.serialize(),
             success: function(res)
             {
-                $('#result').html(res);
+                // $('.form-control').val("");
+                $('form')[0].reset();
+                $('#result').html(res).fadeIn(2000).fadeOut(5000);
             }
         });
     });           

@@ -5,14 +5,17 @@
 <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-       
+
+
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Liste des messages de contact</h1>
-       </div>
-        
+
+    <div class="col-md-12 jumbotron text-center">
+        <h2>Listes des messages de contact</h2>
+    </div>
+               
+
         <div id="mon_resultat"><!-- contiendra le résultat ajax --></div>
         <?php if(isset($errors)){
 			echo '<p style="color:red">'.$errors.'</p>';
@@ -218,11 +221,15 @@ $this->start('main_content'); ?>
 	</table>
    
 
-    </div>
+
+
+     </div>
+
   </div>
 </div>
      
  <?php  
+
     
 $this->stop('main_content');
 
