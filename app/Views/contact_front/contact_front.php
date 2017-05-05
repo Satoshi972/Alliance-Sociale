@@ -119,6 +119,9 @@
                         </table>
                     </div>
 
+<<<<<<< HEAD
+				</div>
+=======
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3">
 
@@ -133,6 +136,10 @@
 				                </div>
 				            </div>
 						</div>
+
+>>>>>>> origin/Dev
+
+
 
 				<div class="col-md-6">
 					<div class="col-md-12 text-center">
