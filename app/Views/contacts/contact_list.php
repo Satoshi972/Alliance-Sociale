@@ -1,9 +1,17 @@
 <?php $this->layout('layout_back', ['title' => 'Se connecter']) ?>
-
+<?php $this->start('head') ?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
+<?php $this->stop('head') ?>
 <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
+       
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 jumbotron text-center">
         <h1>Liste des messages de contact</h1>
+       </div>
         
         <div id="mon_resultat"><!-- contiendra le résultat ajax --></div>
         <?php if(isset($errors)){
@@ -46,7 +54,7 @@ $this->start('main_content'); ?>
                     <th>Email</th>
                     <th>Date</th>
                     <th>Lire le message</th>
-                    <th>Supprimer le message</th>
+                   <!-- <th>Supprimer le message</th>-->
                 </tr>
             </thead>
             <?php if(isset($contacts)){ ?>
@@ -58,7 +66,7 @@ $this->start('main_content'); ?>
                     <td><?= $contact['title']?></td>
                     <td><?= $contact['mail']?></td>
                     <td><?= $contact['date']?></td>
-                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Voir</button>
+                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Détails</button>
                 
                 
 
@@ -95,6 +103,7 @@ $this->start('main_content'); ?>
 
                                 </form>
                                 <?php } ?>
+                                 <a href="<?= $this->url('ajaxDeleteContact', ['id' => $contact['id']]) ?>" class='delete btn btn-danger' data-id="<?= $contact['id'] ?>" >Supprimer</a>
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                               </div>
@@ -106,12 +115,13 @@ $this->start('main_content'); ?>
                 
                 
                     </td>
-                    <td>
+                   <!-- <td>
                         <form action="<?= $this->url('ajaxDeleteContact') ?>" id=checkform5 method=post>
                         <input type=hidden name="hidden" value="<?= $contact['id']?>">
                         <button type=submit class="btn btn-default" id="submitform4">Supprimer</button>
                         </form>
-                    </td>
+                         <a href="<?= $this->url('ajaxDeleteContact', ['id' => $contact['id']]) ?>" class='delete btn btn-danger' data-id="<?= $contact['id'] ?>" >Supprimer</a>
+                    </td> -->
                  </tr>
             
         </tbody>
@@ -130,7 +140,7 @@ $this->start('main_content'); ?>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['title']); ?></strong></td>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['mail']); ?></strong></td>
                 <td><strong><?= preg_replace('`'.$chainesearch.'`isU','<span style="font-weight: bold; color: blue; font-size:25px">$0</span>', $donnee['date']); ?></strong></td>
-                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Voir</button>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$donnee['id'];?>">Détails</button>
                 
                 
                   <!-- Modal -->
@@ -164,6 +174,8 @@ $this->start('main_content'); ?>
 
                         </form>
                         <?php } ?>
+                         
+                         <a href="<?= $this->url('ajaxDeleteContact', ['id' => $donnee['id']]) ?>" class='delete btn btn-danger' data-id="<?= $donnee['id'] ?>" >Supprimer</a>
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
@@ -178,12 +190,13 @@ $this->start('main_content'); ?>
                 
                 
                 </td>
-                <td>
+                <!--<td>
                     <form action="<?= $this->url('ajaxDeleteContact') ?>" id=checkform5 method=post>
                     <input type=hidden name="hidden" value="<?= $donnee['id']?>">
                     <button type=submit class="btn btn-default" id="submitform4">Supprimer</button>
                     </form>
-                </td>
+                     <a href="<?= $this->url('ajaxDeleteContact', ['id' => $donnee['id']]) ?>" class='delete btn btn-danger' data-id="<?= $donnee['id'] ?>" >Supprimer</a>
+                </td> -->
             </tr>
             
             
@@ -205,7 +218,9 @@ $this->start('main_content'); ?>
 	</table>
    
 
-
+    </div>
+  </div>
+</div>
      
  <?php  
     
@@ -216,11 +231,46 @@ $this->start('script');
 
 ?>
 
+<script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
 
 <script>
         $(function(){
             
-         
+         $('.delete').on('click', function(e)
+         {
+          e.preventDefault();
+          var $this = $(this);
+          var id = $(this).data('id');
+          var myTr = $(this).parent().parent();
+          //var url = '/Alliance-Sociale/public/users/delete/'+id;
+
+      swal({
+            title: 'Attention',
+            text: 'Vous allez supprimer cette utilisateur',
+            type: 'warning',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            disableButtonsOnConfirm: true,
+            confirmLoadingButtonColor: '#DD6B55'
+          }, function(){
+              swal('Suppression effectuée');
+
+                  $.ajax({
+                      type: 'POST',
+                      url: $this.attr('href'),
+                      data: {id : id},
+                      success: function(s)
+                      {
+                          if(s)
+                          {
+                              myTr.remove();
+                              location.reload();
+                              // $('#result').html(res);
+                          }
+                      }
+                  });
+          });
+      });
             
             
             

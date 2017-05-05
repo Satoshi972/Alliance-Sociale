@@ -49,7 +49,7 @@
 
 									<div class="form-group">
 										<div class="col-md-6 col-md-offset-3">
-											<input type="submit" id="submitForm" class="btn btn-primary" value="Envoyer message"></input>
+											<input type="submit" id="submitForm" class="btn btn-primary" value="Envoyer message">
 										</div>
 									</div>
 

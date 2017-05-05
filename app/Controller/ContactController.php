@@ -100,12 +100,14 @@ class ContactController extends MasterController
                 
     }
     
-    public function ajaxDeleteContact()
+    public function ajaxDeleteContact($id)
 	{
+         $success = false;
         $select = new ContactsModel();
-        $redirect =new Controller;
+       // $redirect =new Controller;
         
-        if(!empty($_POST)){
+        $select->delete($id);
+        /*if(!empty($_POST)){
             // Nettoyage des données
             foreach($_POST as $key => $value){
             $post[$key] = trim(strip_tags($value));
@@ -121,7 +123,7 @@ class ContactController extends MasterController
         
         
             }
-        }
+        }*/
     }
     
      public function updateCheck()

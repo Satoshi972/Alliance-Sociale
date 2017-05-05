@@ -43,7 +43,7 @@ $w_routes = array(
     
     #Routes contacts
     ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
-    ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+    ['GET|POST','/deletecontact/[i:id]', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
     ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
 
 	#Gestion des Partenaires
