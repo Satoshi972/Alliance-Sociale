@@ -14,10 +14,6 @@ class ContactController extends MasterController
         // $roles = ['admin','editor'];
         // $this->allowTo($roles);
 
-        //$roles = ['admin','editor'];
-       //$this->allowTo($roles);
-
-
         $errors = [];
         $post = [];
         $donnees= [];
@@ -43,7 +39,7 @@ class ContactController extends MasterController
         		$order = 'mail';
         	}
             elseif($_GET['column'] == 'view'){
-        		$order = 'staut';
+        		$order = 'statut';
         	}
 
         	if($_GET['order'] == 'asc'){
@@ -126,15 +122,8 @@ class ContactController extends MasterController
         }*/
     }
     
-     public function updateCheck()
-
+    public function updateCheck()
 	{
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
-     {
-        //$roles = ['admin','editor'];
-        //$this->allowTo($roles);
-
         
         $select = new ContactsModel();
         $redirect =new Controller;
@@ -146,7 +135,7 @@ class ContactController extends MasterController
             $post[$key] = trim(strip_tags($value));
         
         
-            $update = $select->update(["staut"=> 1,],$post["hidden"]);
+            $update = $select->update(["statut"=> 1,],$post["hidden"]);
 
             $result = '<div class="alert alert-success">Le message est maintenant marqué comme lu !</div>';
 
@@ -160,5 +149,4 @@ class ContactController extends MasterController
         
     }
     
-}
 }
