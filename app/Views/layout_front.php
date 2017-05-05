@@ -324,24 +324,32 @@
                     <div class="col-lg-12">
                     <div class="infos">
                         <div class="row">
-                            <div class="col-sm-6 text-center coord">
+                            <div class="col-sm-4 text-center coord">
                                 <h3>Centre Social Alliance sociale</h3>
                                 <p>LCR Résidence Gaïac<br>
                                 Quartier Cédalise<br>
                                 97290 LE MARIN</p>
-
  <!--                                <div class="slider">
                                     Slider partenaire
                                 </div> -->
                             </div>
 
-                            <div class="col-sm-6 text-center coord">
+                            <div class="col-sm-4 text-center coord">
+                                <h2>Téléphones</h2>
+
+                                <p>0596 74 76 58<br>
+                                0696 27 65 85<br>
+                                </p>
+                            </div>
+
+                            <div class="col-sm-4 text-center coord">
                                 <h3>Horaire</h3>
 
                                 <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
                                 Du Mardi au Vendredi : 8h00 à 17h00<br>
                                 Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
                             </div>
+
                             </div>
                             </div>
                             <br>
