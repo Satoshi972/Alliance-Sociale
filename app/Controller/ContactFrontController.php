@@ -40,10 +40,10 @@ class ContactFrontController extends MasterController
             	
                 $contact->insert($datas);
                        
-                echo $result = '<p class="alert-dismissable alert-success">Votre formulaire a bien été envoyé</p>';
+                $result = '<p class="alert alert-success">Votre formulaire a bien été envoyé</p>';
             }
             else {
-                echo $result = '<p class="alert-dismissable alert-danger">'.implode('<br>', $errors).'</p>';
+                $result = '<p class="alert alert-danger">'.implode('<br>', $errors).'</p>';
             }
     	}
         else
@@ -51,9 +51,9 @@ class ContactFrontController extends MasterController
            $this->show('contact_front/contact_front');
         }
 
-        // if(!empty($result))
-        // {
-        //     echo $result;
-        // }
+        if(!empty($result))
+        {
+            echo $result;
+        }
     }
 }
