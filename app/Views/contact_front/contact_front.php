@@ -11,7 +11,9 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3" id="result"></div>
+			<div class="col-md-6 col-md-offset-3">
+				<div id="result"></div>
+			</div>
 		</div>
 
 		<div class="col-md-6 col-md-offset-3">
@@ -172,15 +174,18 @@ $(function()
 	        data: myForm.serialize(),
 	        success: function(res)
 	        {
-	            console.log(res);
-	            if(res == "1kikou")
+	        	// $('#result').html(res);
+	        	$('#result').removeClass();
+	         //    console.log(res);
+
+	            if(res == "success")
 	            {
 	            	$('#result').html("Votre formulaire a bien été envoyé").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
 	            	$('form')[0].reset();
 	            }
 	            else
 	            {
-	            	$('#result').html(res).addClass('alert-dismissable alert-danger').fadeIn(2000).fadeOut(5000);
+	            	$('#result').html(res).fadeIn(2000).fadeOut(5000);
 	            }
 	        }
 	    });

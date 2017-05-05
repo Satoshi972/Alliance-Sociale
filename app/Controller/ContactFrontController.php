@@ -41,11 +41,12 @@ class ContactFrontController extends MasterController
             	
                 $contact->insert($datas);
                        
-                $result = true;
+                $result = "success";
                 // $result = '<p class="alert-dismissable alert-success">Votre formulaire a bien été envoyé</p>';
             }
             else {
                 $result = implode('<br>', $errors);
+                $result = '<p class="alert-dismissable alert-danger">'.implode('<br>', $errors).'</p>';
                 // $textErrors = implode('<br>', $errors);
             }
     	}
