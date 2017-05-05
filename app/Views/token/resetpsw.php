@@ -3,7 +3,7 @@
     <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-       <div class ="container">
+<div class ="container">
   <div class="row">
     <div class="col-md-12">
       <div class="col-md-8 text-center well jumbo">
@@ -12,9 +12,7 @@ $this->start('main_content'); ?>
         
         <div id="result"></div>
         
-       <?php  
-
-if (!empty($checkfirstname)){ ?>
+       <?php if (!empty($checkfirstname)){ ?>
         
         
         <form method="post" id="checkform4">
@@ -28,15 +26,15 @@ if (!empty($checkfirstname)){ ?>
 
 	    </form>
      
-      <?php } else {
+        <?php } else {
     
-       echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
+        echo "Désolé il vous faut un lien mail valide pour réinitialiser votre mot de passe";
     
-} ?>
-  </div>
+        } ?>
         </div>
       </div>
     </div>
+  </div>
 </div>
              
 <?php    

@@ -10,8 +10,13 @@ class ContactController extends MasterController
 {
 	public function contactList()
 	{
+
         // $roles = ['admin','editor'];
         // $this->allowTo($roles);
+
+        //$roles = ['admin','editor'];
+       //$this->allowTo($roles);
+
 
         $errors = [];
         $post = [];
@@ -50,13 +55,13 @@ class ContactController extends MasterController
             
                  
 
-                $contacts = $select->findAll($orderBy = $order, $orderDir = $order2, $limit = null, $offset = null);
-            
-                $params = ["contacts" => $contacts];
-                $this->show('contacts/contact_list', $params);  
+            $contacts = $select->findAll($orderBy = $order, $orderDir = $order2, $limit = null, $offset = null);
+
+            $params = ["contacts" => $contacts];
+            $this->show('contacts/contact_list', $params);  
             
                 
-                } elseif(!empty($_POST)){
+        } elseif(!empty($_POST)){
             
 
         	// équivalent au foreach de nettoyage
@@ -85,13 +90,13 @@ class ContactController extends MasterController
                 $this->show('contacts/contact_list', $params);  
         	} 
             }    
-            }else {
+        }else {
                 $contacts = $select->findAll();
                 
                 $params = ["contacts" => $contacts];
                 $this->show('contacts/contact_list', $params);  
                 
-            }
+        }
                 
     }
     
@@ -110,19 +115,24 @@ class ContactController extends MasterController
             
            
             $select->delete($post['hidden']);
-            
-        $redirect->redirectToRoute('contactList');
-        $this->show('contacts/ajax_del_contacts');
+
+            $redirect->redirectToRoute('contactList');
+            $this->show('contacts/ajax_del_contacts');
         
         
-    }
-    }
+            }
+        }
     }
     
      public function updateCheck()
+
 	{
         // $roles = ['admin','editor'];
         // $this->allowTo($roles);
+     {
+        //$roles = ['admin','editor'];
+        //$this->allowTo($roles);
+
         
         $select = new ContactsModel();
         $redirect =new Controller;
@@ -134,13 +144,13 @@ class ContactController extends MasterController
             $post[$key] = trim(strip_tags($value));
         
         
-        $update = $select->update(["staut"=> 1,],$post["hidden"]);
+            $update = $select->update(["staut"=> 1,],$post["hidden"]);
+
+            $result = '<div class="alert alert-success">Le message est maintenant marqué comme lu !</div>';
+
+            echo $result; // On envoi le résultat
         
-        $result = '<div class="alert alert-success">Le message est maintenant marqué comme lu !</div>';
-            
-        echo $result; // On envoi le résultat
-        
-        }
+            }
         
         }
         $redirect->redirectToRoute('contactList');
@@ -148,4 +158,5 @@ class ContactController extends MasterController
         
     }
     
+}
 }

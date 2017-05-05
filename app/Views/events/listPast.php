@@ -18,43 +18,43 @@
     <div class="col-md-12">
       <div class="col-md-8 text-center well jumbo">
           
-<h1 style='text-align:center'>Liste des évènements passés</h1>
+      <h1 style='text-align:center'>Liste des évènements passés</h1>
 
-<table class="table table-hover">
-		<thead>
-			<tr class="success">
-                <th>Evènement</th>
-                <th>Titre</th>
-                <th>Détails</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Voir l'évènement</th>
-			</tr>
-		</thead>
-       
-        <tbody>
-           <?php foreach($infospas as $infopas): ?>
-            <tr class="warning">
-                <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
-                <td><?= $infopas['title']?></td>
-                <td><?= $infopas['content']?></td>
-                <td><?= $infopas['start']?></td>
-                <td><?= $infopas['end']?></td>
-                <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
-                
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-                
-           
-        
-       	</table>    
+        <table class="table table-hover">
+                <thead>
+                    <tr class="success">
+                        <th>Evènement</th>
+                        <th>Titre</th>
+                        <th>Détails</th>
+                        <th>Début</th>
+                        <th>Fin</th>
+                        <th>Voir l'évènement</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                   <?php foreach($infospas as $infopas): ?>
+                    <tr class="warning">
+                        <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                        <td><?= $infopas['title']?></td>
+                        <td><?= $infopas['content']?></td>
+                        <td><?= $infopas['start']?></td>
+                        <td><?= $infopas['end']?></td>
+                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+
+
+
+            </table>    
           
           
-      </div>
       </div>
     </div>
+  </div>
 </div>
-   <?php $this->stop('main_content'); 
+<?php $this->stop('main_content'); 
 
-    ?>
+?>

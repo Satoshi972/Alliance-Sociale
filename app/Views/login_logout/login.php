@@ -8,28 +8,28 @@ $this->start('main_content'); ?>
 
   <div class="row">
      <div class="col-md-6 col-md-offset-3">
-    <div class="col-md-12">
-     <!--    <div class="col-md-12 jumbotron">    -->
+        <div class="col-md-12">
+        <!--    <div class="col-md-12 jumbotron">    -->
 
-   <h1>Entrez vos identifiants !</h1>
-    <div id="result"></div>
+        <h1>Entrez vos identifiants !</h1>
+        <div id="result"></div>
 
-	<form method="post" id="checkform">
-        <div class="form-group">
-		<label for="ident">E-mail :</label>
-		<input type="email" name="ident" id="ident" class="form-control">
-        </div>
+        <form method="post" id="checkform">
+            <div class="form-group">
+            <label for="ident">E-mail :</label>
+            <input type="email" name="ident" id="ident" class="form-control">
+            </div>
 
-		<div class="form-group">
-		<label for="password">Mot de passe :</label>
-		<input type="password" name="password" id="password" class="form-control"> 
-        </div>
+            <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" class="form-control"> 
+            </div>
 
-		<br>
-		<button type="submit" id="submitForm" class="btn btn-primary">Se connecter</button>
-	</form>
-    <a href="<?= $this->url('ask_token') ?>">Mot de passe oublié ?</a> 
-<!--           </div> -->
+            <br>
+            <button type="submit" id="submitForm" class="btn btn-primary">Se connecter</button>
+        </form>
+        <a href="<?= $this->url('ask_token') ?>">Mot de passe oublié ?</a> 
+         <!--           </div> -->
         </div>
       </div>
     </div>

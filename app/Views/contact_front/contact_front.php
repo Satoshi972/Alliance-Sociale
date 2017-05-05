@@ -9,7 +9,9 @@
 		</div>
 
 		<div class="row">
+
 			<div class="col-md-6 col-md-offset-3">
+
 
 				<div class="col-md-12 text-center">
 					<h2>Adresse</h2>
@@ -117,7 +119,25 @@
                         </table>
                     </div>
 
+<<<<<<< HEAD
 				</div>
+=======
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+
+								<div class="col-md-12 text-center">
+									<h2>Téléphones</h2>
+								</div>
+								
+								<div class="col-md-12 text-center">
+					                <p>0596 74 76 58<br>
+					                0696 27 65 85<br>
+					               </p>
+				                </div>
+				            </div>
+						</div>
+
+>>>>>>> origin/Dev
 
 
 
