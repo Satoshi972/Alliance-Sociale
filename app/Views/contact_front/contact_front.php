@@ -168,25 +168,22 @@
 $(function()
 {
 //gestion de mon formulaire d'envoi
-    $('form input[type="submit"]').click(function(e)
+    $('form').on('submit',function(e)
     {
         e.preventDefault();
 
         var myForm = $('form');
-        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
-        var data = (formdata !== null) ? formdata : myForm.serialize();
-                       
+  
         $.ajax(
         {
             method: myForm.attr('method'),
             url: myForm.attr('action'),
-            contentType: false, // obligatoire pour de l'upload
-            processData: false, // obligatoire pour de l'upload
-            cache: false,
-            data: data,
+            data: myForm.serialize(),
             success: function(res)
             {
-                $('#result').html(res);
+                // $('.form-control').val("");
+                $('form')[0].reset();
+                $('#result').html(res).fadeIn(2000).fadeOut(5000);
             }
         });
     });           
