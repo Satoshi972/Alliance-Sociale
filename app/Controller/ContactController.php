@@ -159,3 +159,4 @@ class ContactController extends MasterController
     }
     
 }
+}
