@@ -11,24 +11,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-
-				<div class="col-md-12 text-center">
-					<h2>Adresse</h2>
-				</div>
-				
-				<div class="col-md-12 text-center">
-	                <h3>Centre Social Alliance sociale</h3>
-	                <p>LCR Résidence Gaïac<br>
-	                Quartier Cédalise<br>
-	                97290 LE MARIN<br></p>
-                </div>
-            </div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3" id="result">
-            </div>
+			<div class="col-md-6 col-md-offset-3" id="result"></div>
 		</div>
 
 		<div class="col-md-6 col-md-offset-3">
@@ -38,7 +21,7 @@
 			</div>
 			
 			<div class="col-md-12 text-center">
-				<form method="post" action="<?= $this->url('contactfront') ?>" id="contact" class="form-horizontal">
+				<form method="post" action="<?= $this->url('contactfront') ?>" class="form-horizontal" enctype="multipart/form-data">
 
 					<div class="form-group">
 						<div class="col-md-12">
@@ -67,6 +50,22 @@
 				</form>
 			</div>
 
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+				<div class="col-md-12 text-center">
+					<h2>Adresse</h2>
+				</div>
+				
+				<div class="col-md-12 text-center">
+	                <h3>Centre Social Alliance sociale</h3>
+	                <p>LCR Résidence Gaïac<br>
+	                Quartier Cédalise<br>
+	                97290 LE MARIN<br></p>
+                </div>
+            </div>
 		</div>
 
         <div class="row">
@@ -121,8 +120,6 @@
 
 				</div>
 
-
-
 				<div class="col-md-6">
 					<div class="col-md-12 text-center">
 						<h2>Nous trouver</h2>
@@ -175,9 +172,16 @@ $(function()
 	        data: myForm.serialize(),
 	        success: function(res)
 	        {
-	            // $('.form-control').val("");
-	            $('form')[0].reset();
-	            $('#result').html(res).fadeIn(2000).fadeOut(5000);
+	            console.log(res);
+	            if(res == "1kikou")
+	            {
+	            	$('#result').html("Votre formulaire a bien été envoyé").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
+	            	$('form')[0].reset();
+	            }
+	            else
+	            {
+	            	$('#result').html(res).addClass('alert-dismissable alert-danger').fadeIn(2000).fadeOut(5000);
+	            }
 	        }
 	    });
 	});           

@@ -13,7 +13,8 @@ class ContactFrontController extends MasterController
         $contact = new ContactsModel();
         $errors = [];
         $post = [];
-        $result = null;
+        // $success = false;
+        $result = false;
 
         if(!empty($_POST)) {
             $post = array_map('trim', array_map('strip_tags', $_POST));
@@ -40,10 +41,12 @@ class ContactFrontController extends MasterController
             	
                 $contact->insert($datas);
                        
-                $result = '<p class="alert alert-success">Votre formulaire a bien été envoyé</p>';
+                $result = true;
+                // $result = '<p class="alert-dismissable alert-success">Votre formulaire a bien été envoyé</p>';
             }
             else {
-                $result = '<p class="alert alert-danger">'.implode('<br>', $errors).'</p>';
+                $result = implode('<br>', $errors);
+                // $textErrors = implode('<br>', $errors);
             }
     	}
         else
@@ -51,9 +54,8 @@ class ContactFrontController extends MasterController
            $this->show('contact_front/contact_front');
         }
 
-        if(!empty($result))
-        {
-            echo $result;
-        }
+      echo $result;
+      // debug($result);
+
     }
 }
