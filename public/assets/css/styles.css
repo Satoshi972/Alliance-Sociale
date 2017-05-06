@@ -73,6 +73,7 @@ nav label{
 nav a{
     display:inline-block;
     text-decoration: none;
+    font-size:20px;
 }
 nav >ul>li>a{
     padding:20px 30px;

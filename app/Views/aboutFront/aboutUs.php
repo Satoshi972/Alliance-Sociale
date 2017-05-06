@@ -14,7 +14,7 @@
 	    	<section class="president">	
 	    		<div class="row">
 					<div class="col-md-12 text-center">
-						<h1>Mot du president</h1>
+						<h1>Mot de la presidente</h1>
 					</div>
 
 

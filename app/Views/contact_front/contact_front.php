@@ -11,8 +11,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div id="result"></div>
+			<div class="col-md-6 col-md-offset-3" id="result">
 			</div>
 		</div>
 
@@ -175,7 +174,7 @@ $(function()
 	        success: function(res)
 	        {
 	        	// $('#result').html(res);
-	        	$('#result').removeClass();
+	        	// $('#result').removeClass();
 	         //    console.log(res);
 
 	            if(res == "success")
