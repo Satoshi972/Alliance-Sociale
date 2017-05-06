@@ -101,15 +101,15 @@ nav li:hover .submenu{
 }
 .accueil:hover{
     border-top: 5px solid #e44d26;
-    background-color: RGBa(228, 77, 38, 0.15);
+    background-color: rgba(228, 77, 38, 0.15);
 }
 .presentation:hover{
     border-top: 5px solid #0070bb;
-    background-color: RGBa(000, 112, 192, 0.15);
+    background-color: rgba(00, 112, 192, 0.15);
 }
 .evenements:hover{
     border-top: 5px solid #f1dc4f;
-    background-color: RGBa(241, 211, 79, 0.15);
+    background-color: rgba(241, 211, 79, 0.15);
 }
 .activites:hover{
     border-top: 5px solid #f1dc4f;
@@ -128,10 +128,10 @@ nav li:hover .submenu{
     background-color: rgba(240, 44, 218, 0.19);
 }
 .presentation .submenu{
-    background-color: RGB(000, 160, 240);
+    background-color: rgba(00, 160, 240);
 }
 .evenements .submenu{
-    background-color: RGB(250, 215, 100);
+    background-color: rgba(250, 215, 100);
 }
 .activites .submenu{
     background-color: rgb(145, 138, 113);
@@ -150,10 +150,10 @@ nav li:hover .submenu{
     font-weight: bold;
 }
 .presentation .submenu li:hover{
-    background-color: RGB(000, 115, 200);
+    background-color: rgba(00, 115, 200);
 }
 .evenements .submenu li:hover{
-    background-color: RGB(200, 165, 75);
+    background-color: rgba(200, 165, 75);
 }
 .activites .submenu li:hover{
     background-color: rgb(180, 178, 175);
