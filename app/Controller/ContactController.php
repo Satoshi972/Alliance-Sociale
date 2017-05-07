@@ -148,5 +148,18 @@ class ContactController extends MasterController
         $this->show('contacts/updateCheck');
         
     }
+
+    public function ListAllContact()
+    {
+        $contact = new ContactsModel();
+        $list = $contact->findAll();
+        $this->showJson($list);
+    }
+
+    public function deleteAllContact()
+    {
+        $contact = new ContactsModel();
+        $list = $contact->deleteAll();
+    }
     
 }

@@ -76,6 +76,14 @@ class ContactsModel extends \W\Model\Model
 
 		return $sth->fetchAll();
 	}
+
+	public function deleteAll()
+	{
+		#supprime toutes les entrées dans la table et remet le auto increment a 0
+		$sql = 'TRUNCATE contacts';
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+	}
     
     
 }

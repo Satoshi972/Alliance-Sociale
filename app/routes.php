@@ -44,7 +44,9 @@ $w_routes = array(
     #Routes contacts
     ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
     ['GET|POST','/deletecontact/[i:id]', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+    ['GET|POST','/deleteallcontact', 'Contact#DeleteAllContact', 'deleteAllContact'],
     ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
+    ['GET|POST','/listAll', 'Contact#ListAllContact', 'allContact'],
 
 	#Gestion des Partenaires
 	['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
