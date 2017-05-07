@@ -18,8 +18,8 @@
     <?php echo $this->section("sliderCss") ?>
     
     <!-- Font awesome -->
-    <link rel="stylesheet" href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>">
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Google font Open -->
 
@@ -122,7 +122,8 @@
                               </div>
                               
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                                <span class="sidebar-icon"><i class="fa fa-sticky-note" aria-hidden="true"></i>
+</span>
                                 <span class="sidebar-title">
                                       Gestion Fiche de contact  
                                   <i class="fa fa-caret-down"></i>
@@ -192,6 +193,36 @@
                               </a>
 
                               <div class="collapse" id="demo6">
+                                <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
+                                <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
+                              </div>
+
+                              <a href="#management" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-info" aria-hidden="true"></i>
+
+                                </span>
+                                <span class="sidebar-title">            
+                                      Gestion du site   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="management">
+                                <a href="<?= $this->url('updateAboutInfos') ?>" class="list-group-item">Info a propos</a>
+                              </div>
+
+                              <a href="#statistics" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title">            
+                                      Statistiques  
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="statistics">
                                 <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
                                 <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
                               </div>
