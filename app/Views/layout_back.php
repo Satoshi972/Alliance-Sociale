@@ -208,7 +208,7 @@
         </div>
 
 
-        <main id="page-content-wrapper" role="main">
+        <main id="page-content-wrapper" role="main" class="container">
           
               <?= $this->section('main_content') ?>
           

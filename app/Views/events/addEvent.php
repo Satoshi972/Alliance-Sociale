@@ -136,7 +136,6 @@ $("#picture").fileinput(
 	                $('#result').html(res);
 	                myForm.reset();
 	                myForm.find('input').find('textarea').val('');
-	                //$('#comment').html()
 	            }
 	        });
 	    });         

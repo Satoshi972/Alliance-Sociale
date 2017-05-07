@@ -74,7 +74,11 @@ $w_routes = array(
     ['GET|POST','/events/listPast',          'Events#listPast',         'listPastEvent'],
 
        #Equipe
-    ['GET|POST', '/team', 'Team#equipe', 'team'],  
+    ['GET|POST', '/team', 'Team#equipe', 'team'], 
 
-
+    #Gestion des information du site
+    ['GET|POST', '/management/siteInfos', 'Management#siteInfos', 'siteInfos'],
+    ['GET|POST', '/management/aboutInfos', 'Management#aboutInfos', 'aboutInfos'],
+    ['GET|POST', '/management/site', 'Management#updateSiteInfos', 'updateSiteInfos'],
+    ['GET|POST', '/management/about', 'Management#updateAboutInfos', 'updateAboutInfos'],
 	);
