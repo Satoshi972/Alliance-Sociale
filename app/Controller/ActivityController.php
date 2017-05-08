@@ -18,6 +18,14 @@ class ActivityController extends MasterController
 		$category = new categoryModel();
         $newActivity = new Activity();
 
+        $list = $category->findAll();
+        #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
+        $listCat = []; 
+        foreach ($list as $key => $value) 
+        {
+            $listCat[] = $value['name'];
+        }
+
         $errors = [];
         $post = [];
         $success = false;
@@ -25,18 +33,6 @@ class ActivityController extends MasterController
 
         $uploadDir = 'assets/img/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
-
-
-		$list = $category->findAll();
-
-        $listCat = [
-        'CAT1' => 'Formation',
-        'CAT2' => 'Comité des jeunes',
-        'CAT3' => 'Sports et loisirs',
-        'CAT4' => 'Education',
-        'CAT5' => 'Animation',
-        ];
-
 
 		if(!empty($_POST)) {
             
@@ -49,10 +45,7 @@ class ActivityController extends MasterController
             //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu est invalide' : null,
 
-            (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
-
-            //(array_keys($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
-            
+            (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,            
             ];
             
             $errors = array_filter($err);
@@ -166,7 +159,7 @@ class ActivityController extends MasterController
     }
 
 
-    public function updateActivity()
+    public function updateActivity($id)
    {
         // $roles = ['admin','editor'];
         // $this->allowTo($roles);
@@ -174,12 +167,14 @@ class ActivityController extends MasterController
         $category = new categoryModel();
         $upActivity = new Activity();
 
+        $detail = $upActivity->find($id);
+
         $list = $category->findAll();
         #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
         $listCat = []; 
         foreach ($list as $key => $value) 
         {
-            $listCat[] = =value['name'];
+            $listCat[] = $value['name'];
         }     
 
 
@@ -193,18 +188,15 @@ class ActivityController extends MasterController
 
 
         if(!empty($_POST)) {
-            
+            var_dump($_POST);
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
             
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le prénom est invalide' : null,
+            (!v::notEmpty()->alnum('-?!")(\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 900)->validate($post['content'])) ? 'La description est invalide' : null,
 
-            (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
-
-            (array_keys($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
-            
+            (!in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
             ];
             
             $errors = array_filter($err);
@@ -232,7 +224,7 @@ class ActivityController extends MasterController
                         }
                         else
                         {
-                            $post['picture'] = $uploadDir.$newPictureName;
+                            $picture = $uploadDir.$newPictureName;
                         }
                     }
                     else {
@@ -245,7 +237,8 @@ class ActivityController extends MasterController
                 }
             }
             else {
-                $errors[] = 'Aucune photo sélectionnée';
+                $picture = $detail['picture']; //on recupere la photo deja en bdd
+                // $errors[] = 'Aucune photo sélectionnée';
             }
 
             
@@ -256,7 +249,7 @@ class ActivityController extends MasterController
                 'name'       => $post['name'],
                 'category'   => $post['category'],
                 'content'    => $post['content'],
-                'picture'    => $post['picture'],
+                'picture'    => $picture,
                 ];
                 
                 //Intègre les donnés dans la base
@@ -275,7 +268,8 @@ class ActivityController extends MasterController
         $params = [
         'success'  => $success,
         'errors'   => $errors,
-        'category' => $list
+        'category' => $list,
+        'detail'   => $detail
         ];
         
         // $this->show('activite/update_activite', $params);

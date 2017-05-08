@@ -58,7 +58,7 @@
                     <div class="modal-footer">
                    
                         <!-- <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a> -->
-                        <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>">Modifier</a>
+                        <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>" class="btn btn-primary">Modifier</a>
                         
                     
                         <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $activite['id'] ?>">Supprimer</a>

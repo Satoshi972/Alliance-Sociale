@@ -55,7 +55,7 @@ $this->start('main_content');?>
             <div class="col-md-12">
               <select name="category" id="category" class="form-control">
                <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['cat_id'] ?>"><?= $value['name'] ?></option>
+                  <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
                <?php endforeach; ?>
               </select>
             </div>

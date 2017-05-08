@@ -33,7 +33,7 @@ $this->start('main_content');?>
               <label class="control-label " for="name">Nom de l'Activité</label>
             </div> 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="name" id="name">
+              <input type="text" class="form-control" name="name" id="name" value="<?= $detail['name'] ?>">
             </div>
           </div>
 
@@ -42,7 +42,7 @@ $this->start('main_content');?>
               <label class="control-label" for="content">Description de l'activité</label>
             </div>
             <div class="col-md-12">
-              <textarea  type="text" class="form-control" name="content" id="content" rows=5></textarea>
+              <textarea  type="text" class="form-control" name="content" id="content" rows=5><?= $detail['content'] ?></textarea>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ $this->start('main_content');?>
             <div class="col-md-12">
               <select name="category" id="category" class="form-control">
                <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['cat_id'] ?>"><?= $value['name'] ?></option>
+                  <option value="<?= $value['name'] ?>"<?php if($value['name'] == $detail['category']){echo "selected";} ?>><?= $value['name'] ?></option>
                <?php endforeach; ?>
               </select>
             </div>
@@ -61,16 +61,17 @@ $this->start('main_content');?>
                          
           <div class="form-group">
             <div class="col-md-12 text-center">
-              <label class="control-label" for="picture">photos</label>
+              <label class="control-label" for="picture">Affiche</label>
             </div>
             <div class="col-md-12">
+              <img src="/Alliance-Sociale/public/<?= $detail['picture']?>" alt="Affiche">
               <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
           
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activitées</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Mettre a jour</button>
             </div>
           </div>
           
