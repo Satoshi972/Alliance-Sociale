@@ -179,7 +179,7 @@ class ActivityController extends MasterController
         $listCat = []; 
         foreach ($list as $key => $value) 
         {
-            $listCat[] = =value['name'];
+            $listCat[] = value['name'];
         }     
 
 
