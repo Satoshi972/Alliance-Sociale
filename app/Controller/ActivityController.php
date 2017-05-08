@@ -174,6 +174,15 @@ class ActivityController extends MasterController
         $category = new categoryModel();
         $upActivity = new Activity();
 
+        $list = $category->findAll();
+        #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
+        $listCat = []; 
+        foreach ($list as $key => $value) 
+        {
+            $listCat[] = =value['name'];
+        }     
+
+
         $errors = [];
         $post = [];
         $success = false;
@@ -181,17 +190,6 @@ class ActivityController extends MasterController
 
         $uploadDir = 'assets/img/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
-
-
-        $list = $category->findAll();
-
-        $listCat = [
-        'CAT1' => 'Formation',
-        'CAT2' => 'Comité des jeunes',
-        'CAT3' => 'Sports et loisirs',
-        'CAT4' => 'Education',
-        'CAT5' => 'Animation',
-        ];
 
 
         if(!empty($_POST)) {
@@ -296,5 +294,12 @@ class ActivityController extends MasterController
         'affiche' => $remove,
         ]);
    } 
+
+   public function showAllActivities()
+   {
+        $activity = new Activity();
+        $list = $activity->findAll();
+        $this->showJson($list);
+   }
 
 }

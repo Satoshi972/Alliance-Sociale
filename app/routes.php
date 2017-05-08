@@ -11,6 +11,7 @@ $w_routes = array(
     ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
     ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
     ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
+    ['GET', '/activite/showAll', 'Activity#showAllActivities', 'showAllActivities'],
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
@@ -18,9 +19,7 @@ $w_routes = array(
 	['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
     ['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
-    ['GET', '/users/listActivity', 'Users#nbrPoeplesByActivity', 'nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
-	['GET', '/users/listAll', 'Users#nbrTotal', 'nbrTotal'], //Liste tous les adhérents
-
+    
 	#gestion_medias
 	['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
     ['GET|POST', '/medias/list/[i:page]',      'Medias#listMedias', 'listMedias'], // Listes Médias
@@ -86,4 +85,9 @@ $w_routes = array(
     ['GET|POST', '/management/about',      'Management#updateAboutInfos',  'updateAboutInfos'],
 
     #Statistiques
+    ['GET',      '/users/listActivity', 'Statistics#nbrPoeplesByActivity',  'nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
+    ['GET',      '/users/listAll',      'Statistics#nbrTotal',              'nbrTotal'], //Liste tous les adhérents
+    ['GET|POST', '/Statistics/users/[a:activity]',   'Statistics#listPeopleByActivity',                 'listUsersActivity'],
+    ['GET|POST', '/Statistics/users',   'Statistics#users',                 'userStat'],
+
 	);

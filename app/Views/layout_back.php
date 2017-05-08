@@ -223,7 +223,7 @@
                               </a>
 
                               <div class="collapse" id="statistics">
-                                <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Nombre d'adhérent</a>
+                                <a href="<?= $this->url('userStat') ?>" class="list-group-item">Nombre d'adhérent</a>
                               </div>
 
                             </div>

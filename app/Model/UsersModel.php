@@ -7,8 +7,8 @@ class UsersModel extends \W\Model\Model
   #Permet de compter tous les adhérent, en fonction de leurs activitée
   public function nbrPoeplesByActivity()
   {
-  	$sql = 'SELECT activity as "activité", COUNT(*) as "nombre d\'adhérents" FROM users GROUP BY activity';
-  	$sth = $this->dbh->prêpare($sql);
+  	$sql = 'SELECT activity as "activity", COUNT(*) as "nbUsers" FROM users GROUP BY activity';
+  	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchAll();
   }
@@ -16,9 +16,18 @@ class UsersModel extends \W\Model\Model
   public function nbrTotal()
   {
   	$sql = "SELECT count(*) FROM users WHERE activity IS NOT NULL";
-  	$sth = $this->dbh->prêpare($sql);
+  	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchAll();
+  }
+
+  public function listPeopleByActivity($activity)
+  {
+    $sql = 'SELECT * FROM users WHERE activity = :activity';
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':activity', $activity);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
 }

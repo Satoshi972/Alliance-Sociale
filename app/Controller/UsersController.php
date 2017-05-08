@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\UsersModel;
+use \Model\UsersModel as users;
 use \Model\RoleModel as role;
 use \Model\ActivityModel as activity;
 use Respect\Validation\Validator as v;
@@ -23,7 +23,7 @@ class UsersController extends Controller
             $listActivity[] = $value['name'];
         }
 
-        $enter = new UsersModel();
+        $enter = new users();
         $errors = [];
         $post = [];
         $success = false;
@@ -116,7 +116,7 @@ class UsersController extends Controller
         // $this->allowTo($roles);
 
         // On instancie le model qui permet d'effectuer un findAll()
-        $usersModel = new UsersModel();
+        $usersModel = new users();
         $users = $usersModel->findAll();
         
         $params = [
@@ -128,7 +128,7 @@ class UsersController extends Controller
     //Détails des users
     public function detailsUsers($id){
         
-        $users = new UsersModel(); // liaison avec table article
+        $users = new users(); // liaison avec table article
         $detailid  = $users->find($id);
         
         $this->show('users/details_users',[
@@ -143,7 +143,7 @@ class UsersController extends Controller
         // $this->allowTo($roles);
 
         //Connexion à la base pour l'update et pour remplissage du formulaire
-        $up = new UsersModel(); 
+        $up = new users(); 
           
         $errors = [];
         $post = [];
@@ -251,7 +251,7 @@ class UsersController extends Controller
         // $this->allowTo($roles);
 
         $success = false;
-        $del = new UsersModel();
+        $del = new users();
         
         $del -> delete($id);
         // $remove = $del -> delete($id);
@@ -266,21 +266,6 @@ class UsersController extends Controller
         // 'success'=> $success,
         // ]);
 
-    }
-
-    public function nbrPoeplesByActivity()
-    {
-        $users = new users();
-        $list = $users->nbrPoeplesByActivity();
-        $this->showJson($list);
-    }
-
-    public function nbrTotal()
-    {
-        $users = new users();
-        $list = $users->nbrTotal();
-        $this->showJson($list);
-    }
-    
+    }   
     
 }

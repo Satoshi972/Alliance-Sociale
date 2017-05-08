@@ -36,8 +36,8 @@ class DefaultController extends MasterController
 
     public function admin()
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
         $this->show('default/admin');
     }
 

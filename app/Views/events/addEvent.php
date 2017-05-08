@@ -60,7 +60,7 @@ $this->start('main_content');
 
 		<div class="form-group">
 			<label class="control-label text-center" for="picture">Image</label>	
-			<input type="file" name="picture" id="picture" class="picture">		
+			<input type="file" name="picture" id="picture" class="picture" accept="image/*">		
 		</div>
 
 
@@ -93,8 +93,10 @@ $this->start('script');
 <script>
 $("#picture").fileinput(
 	{
-		'showUpload':false,
-		'showCaption' : false,
+		'showUpload'  :false,
+		'showCaption' :false,
+		'showRemove'  :true,
+		'maxFileCount': 10,
 		language: "fr",
 	});
 </script>
