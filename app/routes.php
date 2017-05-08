@@ -17,7 +17,9 @@ $w_routes = array(
 	['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
 	['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
-	['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
+    ['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
+    ['GET', '/users/listActivity', 'Users#nbrPoeplesByActivity', 'nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
+	['GET', '/users/listAll', 'Users#nbrTotal', 'nbrTotal'], //Liste tous les adhérents
 
 	#gestion_medias
 	['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
@@ -64,7 +66,6 @@ $w_routes = array(
     ['GET|POST', '/accession', 'Front#accession', 'accession'], 
 
     #Gestion des évenements
-    // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
     ['GET|POST','/events',                   'Events#listEvents',       'listEvent'],
     ['GET|POST','/events/listAll',           'Events#jsonEvent',        'listAllEvent'],
     ['GET|POST','/events/add',               'Events#addEvent',         'addEvent'],
@@ -79,8 +80,10 @@ $w_routes = array(
     ['GET|POST', '/team', 'Team#equipe', 'team'], 
 
     #Gestion des information du site
-    ['GET|POST', '/management/siteInfos', 'Management#siteInfos', 'siteInfos'],
-    ['GET|POST', '/management/aboutInfos', 'Management#aboutInfos', 'aboutInfos'],
-    ['GET|POST', '/management/site', 'Management#updateSiteInfos', 'updateSiteInfos'],
-    ['GET|POST', '/management/about', 'Management#updateAboutInfos', 'updateAboutInfos'],
+    ['GET|POST', '/management/siteInfos',  'Management#siteInfos',         'siteInfos'],
+    ['GET|POST', '/management/aboutInfos', 'Management#aboutInfos',        'aboutInfos'],
+    ['GET|POST', '/management/site',       'Management#updateSiteInfos',   'updateSiteInfos'],
+    ['GET|POST', '/management/about',      'Management#updateAboutInfos',  'updateAboutInfos'],
+
+    #Statistiques
 	);

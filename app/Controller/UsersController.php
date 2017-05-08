@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\UsersModel;
 use \Model\RoleModel as role;
+use \Model\ActivityModel as activity;
 use Respect\Validation\Validator as v;
 
 class UsersController extends Controller
@@ -13,6 +14,14 @@ class UsersController extends Controller
          
         //  $roles = ['admin'];
         // $this->allowTo($roles);
+        $activity = new activity();
+        $activities = $activity->findAll();
+        $listActivity = [];
+
+        foreach ($activities as $key => $value) 
+        {
+            $listActivity[] = $value['name'];
+        }
 
         $enter = new UsersModel();
         $errors = [];
@@ -22,6 +31,12 @@ class UsersController extends Controller
 
         $role = new role();
         $roles  = $role->findAll();
+        $listRoles = [];
+
+        foreach ($roles as $key => $value) 
+        {
+            $listRoles[] = $value['name'];
+        }
         
         if(!empty($_POST)) {
             
@@ -42,7 +57,13 @@ class UsersController extends Controller
             //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
             (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe doit contenir minimum 8 caractères' : null,
 
-            // (!in_array($post['role'], $roles)) ? 'Le role reçu semble avoir un probème' : null,
+            (!preg_match("#^0|1[0-9]{14}#", $post['caf'])) ? 'Le numéro de caf doit faire 15 chiffres' : null,
+
+            (!v::notEmpty()->date('Y-m-d')->validate($post['birthday'])) ? 'Veuillez selectionner une date de naissance correcte' : null,
+
+            (!in_array($post['role'], $listRoles)) ? 'Le role reçu semble avoir un probème' : null,
+
+            (!in_array($post['activity'], $listActivity)) ? 'L\'activité reçue semble avoir un probème' : null,
             ];
             
             $errors = array_filter($err);
@@ -57,6 +78,9 @@ class UsersController extends Controller
                 'phone'    => $post['phone'],
                 'role'     => $post['role'],
                 'password' => password_hash($post['password'], PASSWORD_DEFAULT),
+                'activity' => $post['activity'],
+                'caf'      => $post['caf'],
+                'birthday' => $post['birthday']
                 ];
                 
                 //Intègre les donnés dans la base
@@ -77,7 +101,8 @@ class UsersController extends Controller
         'success'     => $success,
         'errors'      => $errors,
         'displayForm' => $displayForm,
-        'roles'       => $roles,
+        'roles'       => $listRoles,
+        'activity'    => $listActivity,
         ];
         
         $this->show('users/add_users', $params);
@@ -125,29 +150,50 @@ class UsersController extends Controller
         $success = false;
         $displayForm = true;
 
-        $role = ['admin','editor','member'];
+        $activity = new activity();
+        $activities = $activity->findAll();
+        $listActivity = [];
+
+        foreach ($activities as $key => $value) 
+        {
+            $listActivity[] = $value['name'];
+        }
+
+        $role = new role();
+        $roles  = $role->findAll();
+        $listRoles = [];
+
+        foreach ($roles as $key => $value) 
+        {
+            $listRoles[] = $value['name'];
+        }
 
         if(!empty($_POST)) {
             
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
-
-            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['firstname'])) ? 'Le prénom doit contenir entre 2 et 30 caractères' : null,
-            
+            //On vérifie que lastname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['lastname'])) ? 'Le nom doit contenir entre 2 et 30 caractères' : null,
             
+            //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
+            (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['firstname'])) ? 'Le prénom doit contenir entre 2 et 30 caractères' : null,
+            
+            //On vérifie que le champ email soit non vide et qu'il soit valide
             (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
 
             (!v::numeric()->length(10, 10)->validate($post['phone'])) ? 'Le numéro de téléphone doit comporter 10 numéros' : null,
+            
+            //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
+            (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe doit contenir minimum 8 caractères' : null,
 
-            (!v::alnum()->noWhitespace()->length(8, 20)->validate($post['password'])) ? 'Le mot de passe doit contenir entre 8 et 20 caractères' : null,
+            (!preg_match("#^0|1[0-9]{14}#", $post['caf'])) ? 'Le numéro de caf doit faire 15 chiffres' : null,
 
-            (!in_array($post['role'], $role)) ? 'Veuillez un role pour l\'utilisateur' : null,
+            (!v::notEmpty()->date('Y-m-d')->validate($post['birthday'])) ? 'Veuillez selectionner une date de naissance correcte' : null,
 
-           /* (!v::phone()->notEmpty()->validate($post['phone'])) ? 'Saisissez un numéro valide' : null,
-*/    
-       
+            (!in_array($post['role'], $listRoles)) ? 'Le role reçu semble avoir un probème' : null,
+
+            (!in_array($post['activity'], $listActivity)) ? 'L\'activité reçue semble avoir un probème' : null,
             ];
             
             $errors = array_filter($err);
@@ -161,7 +207,12 @@ class UsersController extends Controller
                 'email'    => $post['email'],
                 'phone'    => $post['phone'],
                 'role'     => $post['role'],
-                 ];
+                'password' => password_hash($post['password'], PASSWORD_DEFAULT),
+                'activity' => $post['activity'],
+                'caf'      => $post['caf'],
+                'birthday' => $post['birthday']
+                ];
+                
                 
                 //Met à jour les donnés dans la base
                 $up->update($datas,$id);
@@ -182,10 +233,12 @@ class UsersController extends Controller
         // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
         
         $params = [
-        'affiche'=> $detailid, //Affecte à 'affiche' les données relatives à l'user'
-        'success' => $success,
-        'errors'  => $errors,
+        'success'     => $success,
+        'errors'      => $errors,
         'displayForm' => $displayForm,
+        'roles'       => $listRoles,
+        'activity'    => $listActivity,
+        'affiche'     => $detailid,
         ];
         
         $this->show('users/update_users', $params);
@@ -213,6 +266,20 @@ class UsersController extends Controller
         // 'success'=> $success,
         // ]);
 
+    }
+
+    public function nbrPoeplesByActivity()
+    {
+        $users = new users();
+        $list = $users->nbrPoeplesByActivity();
+        $this->showJson($list);
+    }
+
+    public function nbrTotal()
+    {
+        $users = new users();
+        $list = $users->nbrTotal();
+        $this->showJson($list);
     }
     
     

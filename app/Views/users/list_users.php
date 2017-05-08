@@ -2,7 +2,7 @@
 <?php $this->start('head') ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/sweetalert.css') ?>">
 <?php $this->stop('head') ?>
-  <?php $this->start('main_content') ?>
+<?php $this->start('main_content') ?>
  
 <div class ="container">
   <div class="row">
@@ -52,11 +52,15 @@
                       </div>
                       <div class="modal-body">
                         <ul>
-                           <li><?= $user['firstname']?></li>
-                           <li><?= $user['lastname']?></li>
-                           <li><?= $user['email']?></li>
-                           <li><?= $user['phone']?></li>
-                           <li><?= $user['role']?></li>   
+                          <!-- Les "espaces" sont des caractere invisible mis en place pour une sortie visuelle pour l'utilisateur, ne pas y toucher !!!!! Pour générer le caractere 2 combinaison (depends du systeme) alt 225 OU alt 0160-->
+                           <li>Prénom:     <?= $user['firstname']?></li>
+                           <li>Nom:          <?= $user['lastname']?></li>
+                           <li>Email:         <?= $user['email']?></li>
+                           <li>GSM:          <?= $user['phone']?></li>
+                           <li>Date Naiss: <?= $user['birthday']?></li>
+                           <li>#Caf:           <?= $user['caf']?></li>   
+                           <li>Privilèges:   <?= $user['role']?></li>   
+                           <li>Activité:      <?= $user['activity']?></li>   
                         </ul>
                       </div>
                       <div class="modal-footer">
@@ -86,9 +90,9 @@
 </div>
 
 
-    <?php $this->stop('main_content') ?>
+<?php $this->stop('main_content') ?>
 
-    <?php $this->start('script') ?>
+<?php $this->start('script') ?>
  <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
 
  <script>
@@ -118,14 +122,11 @@
                       type: 'POST',
                       url: $this.attr('href'),
                       data: {id : id},
-                      success: function(s)
+                      success: function()
                       {
-                          if(s)
-                          {
                               myTr.remove();
                               location.reload();
                               // $('#result').html(res);
-                          }
                       }
                   });
           });
@@ -134,4 +135,4 @@
   });
  </script>
 
-    <?php $this->stop('script') ?>
+<?php $this->stop('script') ?>

@@ -209,7 +209,7 @@
                               </a>
 
                               <div class="collapse" id="management">
-                                <a href="<?= $this->url('updateAboutInfos') ?>" class="list-group-item">Info a propos</a>
+                                <a href="<?= $this->url('updateAboutInfos') ?>" class="list-group-item">Informations a propos</a>
                               </div>
 
                               <a href="#statistics" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -223,8 +223,7 @@
                               </a>
 
                               <div class="collapse" id="statistics">
-                                <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
-                                <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
+                                <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Nombre d'adhérent</a>
                               </div>
 
                             </div>
