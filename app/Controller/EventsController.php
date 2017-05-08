@@ -292,16 +292,11 @@ class EventsController extends MasterController
 						else
 						{
 							#ligne pour que mon image soit envoyée dans la base !!!!!!
-							$post['picture'] = $uploadDir.$newName;
+							$picture = $uploadDir.$newName;
 							
 						}
 					}
 				}
-			}
-			else
-			{
-				//var_dump($_FILES['picture']['error']);
-				$errors[] = 'Erreur lors de la réception de l\'image';
 			}
 
 			if(count($error)>0)
@@ -320,7 +315,7 @@ class EventsController extends MasterController
 						'end' 		  => $post['end'],
 						'quota'   	  => $post['quota'],
 	                    'id_activity' => $post['activity'],
-	                    'picture'     => $post['picture'],
+	                    'picture'     => $picture,
 					];
 				}
 				else
@@ -331,7 +326,7 @@ class EventsController extends MasterController
 						'start' 	  => $post['start'],
 						'quota'   	  => $post['quota'],
 	                    'id_activity' => $post['activity'],
-	                    'picture'     => $post['picture'],
+	                    'picture'     => $picture,
 					];
 				}
 
