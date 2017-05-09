@@ -15,7 +15,15 @@ class UsersModel extends \W\Model\Model
 
   public function nbrTotal()
   {
-  	$sql = "SELECT count(*) FROM users WHERE activity IS NOT NULL";
+    $sql = "SELECT count(*) as 'total' FROM users";
+    $sth = $this->dbh->prepare($sql);
+    $sth->execute();
+    return $sth->fetchAll();
+  } 
+
+  public function nbrTotalA()
+  {
+  	$sql = "SELECT count(*) as 'total' FROM users WHERE activity <> 'none'";
   	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchAll();
@@ -26,6 +34,32 @@ class UsersModel extends \W\Model\Model
     $sql = 'SELECT * FROM users WHERE activity = :activity';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':activity', $activity);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
+
+  public function filterByAge($age1, $age2)
+  {
+    /*
+      Renvoie un nombre de jours, donc il faut faire un calcul via le nombre de jour
+      1  an  = 365
+      5  ans = 1825
+      15 ans = 5475
+      18 ans = 6570
+    */
+    $sql = 'SELECT * FROM users WHERE DATEDIFF(CURRENT_DATE, birthday) BETWEEN :age1 AND :age2';
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':age1', $age1, \PDO::PARAM_INT);
+    $sth->bindValue(':age2', $age2, \PDO::PARAM_INT);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
+
+  public function searchPeoples($search)
+  {
+    $sql = 'SELECT * FROM users WHERE firstname LIKE "%:search%" OR lastname LIKE "%:search%"';
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':search',$search);
     $sth->execute();
     return $sth->fetchAll();
   }

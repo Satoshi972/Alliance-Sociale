@@ -15,7 +15,7 @@ $w_routes = array(
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
-	['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
+	['GET|POST', '/users/list/[i:age1]/[i:age2]', 'Users#listUsers', 'list_users'], //List users
 	['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
     ['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
@@ -85,9 +85,10 @@ $w_routes = array(
     ['GET|POST', '/management/about',      'Management#updateAboutInfos',  'updateAboutInfos'],
 
     #Statistiques
-    ['GET',      '/users/listActivity', 'Statistics#nbrPoeplesByActivity',  'nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
-    ['GET',      '/users/listAll',      'Statistics#nbrTotal',              'nbrTotal'], //Liste tous les adhérents
-    ['GET|POST', '/Statistics/users/[a:activity]',   'Statistics#listPeopleByActivity',                 'listUsersActivity'],
-    ['GET|POST', '/Statistics/users',   'Statistics#users',                 'userStat'],
+    ['GET','/users/listActivity','Statistics#nbrPoeplesByActivity','nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
+    ['GET','/users/listAll','Statistics#nbrTotal','nbrTotal'], //Liste toutes les personne dans la bdd
+    ['GET','/users/listAllA','Statistics#nbrTotalA','nbrTotalA'], //Liste tous les adhérents
+    ['GET|POST', '/Statistics/users/[a:activity]','Statistics#listPeopleByActivity','listUsersActivity'],
+    ['GET|POST', '/Statistics/users','Statistics#users','userStat'],
 
 	);

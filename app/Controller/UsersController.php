@@ -110,15 +110,27 @@ class UsersController extends Controller
     
     
     //Liste des users
-    public function listUsers()
+    public function listUsers($age1, $age2)
     {
         //  $roles = ['admin'];
         // $this->allowTo($roles);
 
-        // On instancie le model qui permet d'effectuer un findAll()
+        #convertion age en jours
+        $age1 = $age1*365;
+        $age2 = $age2*365;
+
         $usersModel = new users();
-        $users = $usersModel->findAll();
+        $users = $usersModel->filterByAge($age1, $age2);
+
+        $post = [];
+
+        if(!empty($_POST))
+        {
+            $post = array_map('trim', array_map('strip_tags', $_POST));
+            $users = $usersModel->searchPeoples($post['search']);
+        }
         
+        // die(var_dump($users));
         $params = [
         'users' => $users
         ];
@@ -187,7 +199,7 @@ class UsersController extends Controller
             //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
             (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe doit contenir minimum 8 caractères' : null,
 
-            (!preg_match("#^0|1[0-9]{14}#", $post['caf'])) ? 'Le numéro de caf doit faire 15 chiffres' : null,
+            (!preg_match("#[0-9]{7}#", $post['caf'])) ? 'Le numéro de caf doit faire 7 chiffres' : null,
 
             (!v::notEmpty()->date('Y-m-d')->validate($post['birthday'])) ? 'Veuillez selectionner une date de naissance correcte' : null,
 

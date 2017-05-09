@@ -117,7 +117,7 @@
                                 </span>
                               </a>
                               <div class="collapse" id="demo1">
-                                <a href="<?= $this->url('list_users') ?>" class="list-group-item">Liste des Utilisateurs</a>
+                                <a href="<?= $this->url('list_users', ['age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
                               </div>
                               

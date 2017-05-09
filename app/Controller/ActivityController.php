@@ -49,8 +49,7 @@ class ActivityController extends MasterController
             ];
             
             $errors = array_filter($err);
-/*            var_dump($_FILES['picture']).'<br>';
-            var_dump($_FILES).'<br>';*/
+
 			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 
 				$finfo = new \finfo();
@@ -188,7 +187,6 @@ class ActivityController extends MasterController
 
 
         if(!empty($_POST)) {
-            var_dump($_POST);
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
@@ -200,8 +198,7 @@ class ActivityController extends MasterController
             ];
             
             $errors = array_filter($err);
-            var_dump($_FILES['picture']).'<br>';
-            var_dump($_FILES).'<br>';
+
             if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 
                 $finfo = new \finfo();

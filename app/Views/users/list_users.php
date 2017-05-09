@@ -9,9 +9,24 @@
     <div class="col-md-12">
    
       <div class="col-md-12 jumbotron text-center">
-        <h2>Création utilisateur</h2>
+        <h2>Liste des utilisateurs</h2>
       </div>
-
+      <div class="row">
+        <form method="POST" class="form-horizontal text-center col-xs-3">
+          <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
+        </form>
+      </div>
+      <p class="text-center row">Afficher : 
+        <a href="<?= $this->url('list_users', ['age1' => 0, 'age2'=> 150]) ?>">Tous</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 0, 'age2'=> 3]) ?>">-3 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 3, 'age2'=> 8]) ?>">3 - 8 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 9, 'age2'=> 15]) ?>">9 - 15 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 16, 'age2'=> 18]) ?>">16 - 18 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 19, 'age2'=> 25]) ?>">19 - 25 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 26, 'age2'=> 35]) ?>">26 - 35 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 36, 'age2'=> 45]) ?>">36 - 45 ans</a>
+         |  <a href="<?= $this->url('list_users', ['age1' => 46, 'age2'=> 150]) ?>">+45 ans</a>
+      </p>
       <table class=" table table-striped">
         <thead>
           <tr>
@@ -93,46 +108,44 @@
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('script') ?>
- <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
+<script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
 
- <script>
-
- $(function(){
+<script>
+$(function(){
 
   $('.delete').on('click', function(e)
   {
-      e.preventDefault();
-      var $this = $(this);
-      var id = $(this).data('id');
-      var myTr = $(this).parent().parent();
-      //var url = '/Alliance-Sociale/public/users/delete/'+id;
+    e.preventDefault();
+    var $this = $(this);
+    var id = $(this).data('id');
+    var myTr = $(this).parent().parent();
+    //var url = '/Alliance-Sociale/public/users/delete/'+id;
 
-      swal({
-            title: 'Attention',
-            text: 'Vous allez supprimer cette utilisateur',
-            type: 'warning',
-            showCancelButton: true,
-            closeOnConfirm: false,
-            disableButtonsOnConfirm: true,
-            confirmLoadingButtonColor: '#DD6B55'
-          }, function(){
-              swal('Suppression effectuée');
+    swal({
+          title: 'Attention',
+          text: 'Vous allez supprimer cette utilisateur',
+          type: 'warning',
+          showCancelButton: true,
+          closeOnConfirm: false,
+          disableButtonsOnConfirm: true,
+          confirmLoadingButtonColor: '#DD6B55'
+        }, function(){
+            swal('Suppression effectuée');
 
-                  $.ajax({
-                      type: 'POST',
-                      url: $this.attr('href'),
-                      data: {id : id},
-                      success: function()
-                      {
-                              myTr.remove();
-                              location.reload();
-                              // $('#result').html(res);
-                      }
-                  });
-          });
-      });
-
-  });
- </script>
+                $.ajax({
+                    type: 'POST',
+                    url: $this.attr('href'),
+                    data: {id : id},
+                    success: function()
+                    {
+                            myTr.remove();
+                            location.reload();
+                            // $('#result').html(res);
+                    }
+                });
+        });
+    });
+});
+</script>
 
 <?php $this->stop('script') ?>

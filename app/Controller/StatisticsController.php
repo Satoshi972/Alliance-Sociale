@@ -24,15 +24,27 @@ class StatisticsController extends MasterController
         $this->showJson($list);
     }
 
+    public function nbrTotalA()
+    {
+        $users = new users();
+        $list = $users->nbrTotalA();
+        $this->showJson($list);
+    }
+
     public function listPeopleByActivity($activity)
     {
     	$users = new users();
         $list = $users->listPeopleByActivity($activity);
-        $this->showJson($list);
+        $params = [
+            'users' => $list,
+            'activitySelected' => $activity,
+        ];
+        $this->show('statistics/userStatList', $params);
     }
 
 	public function users()
 	{
         $this->show('statistics/userStat');
 	}
+
 }

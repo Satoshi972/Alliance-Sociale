@@ -92,6 +92,8 @@ $this->start('script');
       {
         'showUpload':false,
         'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 10,
         language: "fr"
       });
 </script>

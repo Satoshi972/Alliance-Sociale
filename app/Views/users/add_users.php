@@ -57,7 +57,7 @@ $this->start('main_content');
             <div class="form-group"> 
               <label class="col-md-2 control-label" for="birthday">Date de Naissance</label>
               <div class="col-md-10 text-center">
-                <input type="date" class="form-control datepicker" name="birthday" id="birthday" data-provide="datepicker">
+                <input type="text" class="form-control datepicker" name="birthday" id="birthday" data-provide="datepicker">
               </div>
             </div>
 
