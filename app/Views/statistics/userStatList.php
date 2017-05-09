@@ -77,6 +77,17 @@ $this->start('main_content');
       </table>  
     </div>
   </div>
+  <section class="row text-center">
+    <!--  Pour l'affichage, on centre la liste des pages -->
+    <ul class="pagination">
+      <?php
+         for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
+      ?>
+              <li><a href="<?=$this->url('list_users', ['page'=> $page])?>"><?=$i ?></a></li>
+      <?php endfor; ?>
+    </ul>
+    <a href="<?= $this->url('userStat') ?>">Retour aux stats</a>
+  </section>
 </div>
 
 

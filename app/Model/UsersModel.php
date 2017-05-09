@@ -7,7 +7,7 @@ class UsersModel extends \W\Model\Model
   #Permet de compter tous les adhérent, en fonction de leurs activitée
   public function nbrPoeplesByActivity()
   {
-  	$sql = 'SELECT activity as "activity", COUNT(*) as "nbUsers" FROM users GROUP BY activity';
+  	$sql = 'SELECT activity as "activity", COUNT(*) as "nbUsers" FROM users u, suscribe_to s WHERE id_usr = u.id GROUP BY activity';
   	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchAll();
@@ -23,17 +23,19 @@ class UsersModel extends \W\Model\Model
 
   public function nbrTotalA()
   {
-  	$sql = "SELECT count(*) as 'total' FROM users WHERE activity <> 'none'";
+  	$sql = "SELECT count(*) as 'total' FROM users u, suscribe_to s WHERE id_usr = u.id";
   	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchColumn();
   }
 
-  public function listPeopleByActivity($activity)
+  public function listPeopleByActivity($activity, $firstEntry, $PeoplePerPages)
   {
-    $sql = 'SELECT * FROM users WHERE activity = :activity';
+    $sql = 'SELECT * FROM users u, suscribe_to s WHERE id_usr = u.id AND activity = :activity ORDER BY u.id DESC LIMIT :firstEntry, :PeoplePerPages';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':activity', $activity);
+    $sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);
+    $sth->bindValue(':PeoplePerPages', $PeoplePerPages, \PDO::PARAM_INT);
     $sth->execute();
     return $sth->fetchAll(\PDO::FETCH_ASSOC);
   }

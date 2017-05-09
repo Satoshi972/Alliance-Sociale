@@ -9,7 +9,7 @@ function nbrPoeplesByActivity()
 			{
 				var urlA = '/Alliance-Sociale/public/Statistics/users/';
 				res += '<div class="col-xs-3">';
-				urlA += val.activity;
+				urlA += val.activity+'/1';
 				res += '<a href="'+urlA+'">';
 				res += '<figure>';
 				$.each(activities, function(key, value) 

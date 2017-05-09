@@ -9,6 +9,7 @@ $this->start('head');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css" integrity="sha256-nFp4rgCvFsMQweFQwabbKfjrBwlaebbLkE29VFR0K40=" crossorigin="anonymous" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.standalone.min.css" integrity="sha256-RMGrTGgTqr/RK4mbfJ/9dLy8Dz0oetp7mREUfq7o3IA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
 <?php
 $this->stop('head');
 $this->start('main_content');
@@ -96,14 +97,15 @@ $this->start('main_content');
             </div>
 
             <div class="form-group">             
-              <label class="col-md-2 control-label" for="activity">Activité</label>
+             <label class="col-md-2 control-label" for="activity">Activité</label>
               <div class="col-md-10 text-center">
-                <select name="activity" id="activity" class="form-control text-center">
+                <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
                   <?php foreach ($activity as $key => $value):?>
-                    <option value="<?=$value?>"<?php if($value == $affiche['activity']){echo 'selected';} ?>><?=$value?></option>
+                    <option value="<?=$value?>"
+                        <?php if($suscribed == $value){echo 'selected';} ?>><?=$value?></option>
                   <?php endforeach; ?>
                 </select>
-              </div>
+              </div> 
             </div>
 
             <div class="form-group">
@@ -125,12 +127,20 @@ $this->start('script');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" integrity="sha256-urCxMaTtyuE8UK5XeVYuQbm/MhnXflqZ/B9AOkyTguo=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.fr.min.js" integrity="sha256-IRibTuqtDv2uUUN/0iTrhnrvvygNczxRRAbPgCbs+LE=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <script>
   $('.datepicker').datepicker({
     format: 'yyyy-mm-dd',
     language: 'fr'
-
 });
+$(function()
+{
+  $(document).ready(function() {
+
+      $('#activity').multiselect();
+
+  });
+})
 </script>
 <?php 
 $this->stop('script');

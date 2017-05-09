@@ -31,13 +31,39 @@ class StatisticsController extends MasterController
         $this->showJson($list);
     }
 
-    public function listPeopleByActivity($activity)
+    public function listPeopleByActivity($activity, $page)
     {
     	$users = new users();
-        $list = $users->listPeopleByActivity($activity);
+
+        $PeoplePerPages  = 50;
+        $nbPoeple        = $users->nbrTotal();
+        $nbPages         = ceil($nbPoeple/$PeoplePerPages);
+
+        
+        if(isset($page))
+        {
+              $currentPage=intval($page);
+     
+             if($currentPage>$nbPages)
+             {
+                  $currentPage=$nbPages;
+             }
+        }
+        else
+        {
+             $currentPage=1; 
+        }
+
+        $firstEntry= ($currentPage-1)*$PeoplePerPages; 
+        // $users= $usersModel->filterByAge($age1, $age2, $firstEntry, $PeoplePerPages);
+
+        $list = $users->listPeopleByActivity($activity, $firstEntry, $PeoplePerPages);
+
         $params = [
             'users' => $list,
             'activitySelected' => $activity,
+            'page'  => $page,
+            'nbPages' => $nbPages,
         ];
         $this->show('statistics/userStatList', $params);
     }

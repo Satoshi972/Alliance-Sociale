@@ -88,7 +88,7 @@ $w_routes = array(
     ['GET','/users/listActivity','Statistics#nbrPoeplesByActivity','nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
     ['GET','/users/listAll','Statistics#nbrTotal','nbrTotal'], //Liste toutes les personne dans la bdd
     ['GET','/users/listAllA','Statistics#nbrTotalA','nbrTotalA'], //Liste tous les adhérents
-    ['GET|POST', '/Statistics/users/[a:activity]','Statistics#listPeopleByActivity','listUsersActivity'],
+    ['GET|POST', '/Statistics/users/[a:activity]/[i:page]','Statistics#listPeopleByActivity','listUsersActivity'],
     ['GET|POST', '/Statistics/users','Statistics#users','userStat'],
 
 	);

@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use \Model\UsersModel as users;
 use \Model\RoleModel as role;
 use \Model\ActivityModel as activity;
+use \Model\SuscribeToModel as suscribe;
 use Respect\Validation\Validator as v;
 
 class UsersController extends Controller
@@ -14,6 +15,7 @@ class UsersController extends Controller
          
         //  $roles = ['admin'];
         // $this->allowTo($roles);
+        $suscribe = new suscribe();
         $activity = new activity();
         $activities = $activity->findAll();
         $listActivity = [];
@@ -37,9 +39,16 @@ class UsersController extends Controller
         {
             $listRoles[] = $value['name'];
         }
-        
+
+        $activitySelected = [];        
         if(!empty($_POST)) {
-            die(var_dump($_POST));
+
+            if(isset($_POST['activity']))
+            {
+                $activitySelected = array_map('trim', array_map('strip_tags', $_POST['activity']));
+                unset($_POST['activity']);
+            }
+
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
@@ -63,11 +72,25 @@ class UsersController extends Controller
 
             (!in_array($post['role'], $listRoles)) ? 'Le role reçu semble avoir un probème' : null,
 
-            (!in_array($post['activity'], $listActivity)) ? 'L\'activité reçue semble avoir un probème' : null,
+            // (!in_array($post['activity'], $listActivity)) ? 'L\'activité reçue semble avoir un probème' : null,
             ];
             
             $errors = array_filter($err);
-            
+            if(!empty($activitySelected))
+            {
+                foreach ($activitySelected as $key => $value) 
+                {
+                    if(!in_array($value, $listActivity))
+                    {
+                        $errors[] = 'Une des activités sélectionnée n\'est pas reconnue';
+                    }
+                }
+            }
+            else
+            {
+                $errors[] = 'Aucune activité sélectionnée';
+            }
+
             if(count($errors) === 0){
                 
                 $datas = [
@@ -78,22 +101,26 @@ class UsersController extends Controller
                 'phone'    => $post['phone'],
                 'role'     => $post['role'],
                 'password' => password_hash($post['password'], PASSWORD_DEFAULT),
-                'activity' => $post['activity'],
+                // 'activity' => $post['activity'],
                 'caf'      => $post['caf'],
                 'birthday' => $post['birthday']
                 ];
-                
+    
                 //Intègre les donnés dans la base
                 $enter->insert($datas);
-                
+                foreach ($activitySelected as $key => $value) 
+                {
+                    $data = "";
+                    $data = $value;
+                    $suscribe->insertTo($data);
+                }
                 $success = true;
                 $displayForm = false;
             }
             else
             {
                 $textErrors = implode('<br>', $errors);
-            }
-            
+            }          
         }
         // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
         
@@ -162,6 +189,7 @@ class UsersController extends Controller
         'page'  => $page,
         'age1'  => $age1,
         'age2'  => $age2,
+        // 'activity' => $suscribeList,
         ];
         $this->show('users/list_users', $params);
     }
@@ -185,6 +213,14 @@ class UsersController extends Controller
 
         //Connexion à la base pour l'update et pour remplissage du formulaire
         $up = new users(); 
+        $suscribe = new suscribe();
+
+        $sList = $suscribe->suscribeTo($id);
+        $suscribeList = [];
+        foreach ($sList as $key => $value) 
+        {
+           $suscribeList = $value['activity'];
+        }
           
         $errors = [];
         $post = [];
@@ -210,7 +246,13 @@ class UsersController extends Controller
         }
 
         if(!empty($_POST)) {
-            
+
+            if(isset($_POST['activity']))
+            {
+                $activitySelected = array_map('trim', array_map('strip_tags', $_POST['activity']));
+                unset($_POST['activity']);
+            }
+
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
@@ -234,11 +276,23 @@ class UsersController extends Controller
 
             (!in_array($post['role'], $listRoles)) ? 'Le role reçu semble avoir un probème' : null,
 
-            (!in_array($post['activity'], $listActivity)) ? 'L\'activité reçue semble avoir un probème' : null,
             ];
             
             $errors = array_filter($err);
-            
+            if(!empty($activitySelected))
+            {
+                foreach ($activitySelected as $key => $value) 
+                {
+                    if(!in_array($value, $listActivity))
+                    {
+                        $errors[] = 'Une des activités sélectionnée n\'est pas reconnue';
+                    }
+                }
+            }
+            else
+            {
+                $errors[] = 'Aucune activité sélectionnée';
+            }
             if(count($errors) === 0){
                 
                 $datas = [
@@ -249,7 +303,6 @@ class UsersController extends Controller
                 'phone'    => $post['phone'],
                 'role'     => $post['role'],
                 'password' => password_hash($post['password'], PASSWORD_DEFAULT),
-                'activity' => $post['activity'],
                 'caf'      => $post['caf'],
                 'birthday' => $post['birthday']
                 ];
@@ -257,6 +310,13 @@ class UsersController extends Controller
                 
                 //Met à jour les donnés dans la base
                 $up->update($datas,$id);
+                $suscribe->deleteTo($id);
+                foreach ($activitySelected as $key => $value) 
+                {
+                    $data = "";
+                    $data = $value;
+                    $suscribe->updateTo($data, $id);
+                }
                 $success = true;
                 $displayForm = false;
 
@@ -280,6 +340,7 @@ class UsersController extends Controller
         'roles'       => $listRoles,
         'activity'    => $listActivity,
         'affiche'     => $detailid,
+        'suscribed'    => $suscribeList,
         ];
         
         $this->show('users/update_users', $params);
