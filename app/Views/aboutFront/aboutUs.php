@@ -19,7 +19,7 @@
 						</div>
 						<p style="text-align:justify;">Nous sommes un Centre Social qui est un lieu de vie, d’écoute, d’animation, d’activités, de services, d’apprentissages et d’initiatives pour les habitants.
 
-Ouvert à tous, il a pour mission de créer du lien social et de contribuer au « mieux vivre ensemble » dans son quartier, dans sa ville.</p>
+Ouvert à tous, il a pour mission de créer du lien social et de contribuer au « mieux vivre ensemble » dans notre quartier, dans notre ville.</p>
 					</div>
 				</div>
 			</section>
