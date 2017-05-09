@@ -116,7 +116,7 @@ class TokenController extends MasterController
                 if(empty($post['password'])){
 
                     $errors[] = 'Le mot de passe doit être complété';
-
+                }
                     if(count($errors) === 0){
 
                         foreach($checktoken as $check):
@@ -135,7 +135,7 @@ class TokenController extends MasterController
 
                         echo $result = '<div class="alert alert-success">Le mot de passe a bien été changé</div>';
 
-                        $this->show('login');	
+                        //$this->show('login');	
 
                     } else {
                     echo $result = '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>';
@@ -143,9 +143,9 @@ class TokenController extends MasterController
                     }
 
                 }
-            }
-            else {
-                $this->show('token/ajax_resetpsw');
-            }
+            //}
+           // else {
+            //    $this->show('token/ajax_resetpsw');
+           // }
         }
 }

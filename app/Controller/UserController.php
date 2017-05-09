@@ -52,7 +52,7 @@ class UserController extends Controller
                 $enter = new AuthentificationModel();
                 $user = $enter->isValidLoginInfo($post['ident'], $post['password']);
                 $infos = $find->find($user);
-               
+                
 
                     if(!empty($user)){
 
@@ -60,8 +60,8 @@ class UserController extends Controller
                             $login->logUserIn($user);
                            
                             $result = '<div class="alert alert-success">Vous êtes connecté</div>';
-                            if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
-                            $this->show('admin');
+                            //if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
+                            //$this->show('admin');
             
                             echo $result; // On envoi le résultat
                     } else { // password_verify

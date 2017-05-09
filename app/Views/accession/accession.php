@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="col-md-12 text-center">
-					<p>Gagner du temps en remplissant chez vous la fiches d’inscriptions pour accéder aux différentes activités</p>
+					<p>Gagner du temps en remplissant chez vous la fiche d’inscription pour accéder aux différentes activitées</p>
 			</div>
 
 			<div class="col-md-12 text-center">
