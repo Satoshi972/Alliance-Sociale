@@ -114,7 +114,7 @@ class ManagementController extends MasterController
 
 			if(count($errors)>0)
 			{
-				$result = '<p class="alert-dismissable alert-danger"'.implode('<br>', $errors).'</p>';
+				$result = '<p class="alert-dismissable alert-danger">'.implode('<br>', $errors).'</p>';
 			}
 			else
 			{
