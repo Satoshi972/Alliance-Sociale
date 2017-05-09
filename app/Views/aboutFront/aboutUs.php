@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h1 style="font-family: 'Lobster';">Que sommes nous</h1>
+							<h2 style="font-family: 'Lobster';">Que sommes nous ?</h2>
 						</div>
 					<?php foreach($views as $view): ?>
 						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['description'];?></p>
@@ -27,7 +27,7 @@
 	    	<section class="president">	
 	    		<div class="row">
 					<div class="col-md-12 text-center">
-						<h1 style="font-family: 'Lobster';">Mot de la presidente</h1>
+						<h2 style="font-family: 'Lobster';">Mot de la presidente</h2>
 					</div>
 
 
@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h1 style="font-family: 'Lobster';">Histoire de l'association</h1>
+							<h2 style="font-family: 'Lobster';">Histoire de l'association</h2>
 						</div>
 						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['history'];?></p>
 					</div>
