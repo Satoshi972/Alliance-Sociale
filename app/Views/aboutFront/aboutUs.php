@@ -7,16 +7,28 @@
 	    <div class="col-md-12">
 
 	    <div class="jumbotron text-center"> 
-	    	<h1>Qui sommes nous?</h1>
+	    	<h1>Présentation</h1>
 	    </div>
            
             <?php if (!empty($views)){ ?>
+			<section class="histoire">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 text-center">
+							<h1>Qui sommes nous</h1>
+						</div>
+						<p style="text-align:justify;">Nous sommes un Centre Social qui est un lieu de vie, d’écoute, d’animation, d’activités, de services, d’apprentissages et d’initiatives pour les habitants.
+
+Ouvert à tous, il a pour mission de créer du lien social et de contribuer au « mieux vivre ensemble » dans son quartier, dans sa ville.</p>
+					</div>
+				</div>
+			</section>
+
 	    	<section class="president">	
 	    		<div class="row">
 					<div class="col-md-12 text-center">
 						<h1>Mot de la presidente</h1>
 					</div>
-
 
 
 					<div class="col-md-5">
@@ -42,9 +54,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h2>Histoire de l'association</h2>
+							<h1>Histoire de l'association</h1>
 						</div>
-						<p style="text-align:center"><?=$view['history'];?></p>
+						<p style="text-align:justify;"><?=$view['history'];?></p>
 					</div>
 				</div>
 			</section>
