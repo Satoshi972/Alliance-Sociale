@@ -19,7 +19,7 @@
 						</div>
 					<?php foreach($views as $view): ?>
 						<p style="text-align:justify;"><em><?=$view['description'];?></em></p>
-						<p> <a href="#">Retrouver plus en détails nos différentes actions</a> </p>
+						<p> <a href="<?= $this->assetUrl('files/projet social 2017-2020.pdf') ?>">Retrouver plus en détails nos projets socials pour 2017-2020</a></p>
 					</div>
 				</div>
 			</section>

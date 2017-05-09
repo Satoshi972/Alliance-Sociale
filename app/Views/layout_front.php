@@ -89,7 +89,7 @@
             <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
             <li>
 
-              <a href="<?php echo $this->url('about') ?>">Presentation</a></li>
+              <a href="<?php echo $this->url('about') ?>">Présentation</a></li>
 
             <li>
               <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
