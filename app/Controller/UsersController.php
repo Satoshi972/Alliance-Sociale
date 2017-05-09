@@ -39,7 +39,7 @@ class UsersController extends Controller
         }
         
         if(!empty($_POST)) {
-            
+            die(var_dump($_POST));
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             $err = [
@@ -57,7 +57,7 @@ class UsersController extends Controller
             //On vérifie que la taille du mot de passe soit comprise entre 8 et 30 caractères
             (!v::notEmpty()->length(8, 30)->validate($post['password'])) ? 'Le mot de passe doit contenir minimum 8 caractères' : null,
 
-            (!preg_match("#^0|1[0-9]{14}#", $post['caf'])) ? 'Le numéro de caf doit faire 15 chiffres' : null,
+            (!preg_match("#[0-9]{7}#", $post['caf'])) ? 'Le numéro de caf doit faire 7 chiffres' : null,
 
             (!v::notEmpty()->date('Y-m-d')->validate($post['birthday'])) ? 'Veuillez selectionner une date de naissance correcte' : null,
 
