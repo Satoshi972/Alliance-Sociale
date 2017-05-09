@@ -43,7 +43,7 @@
 						
 
 					<div class="col-md-7">					
-						<p style="text-align:justify;"><?=$view['word'];?></p>
+						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['word'];?></p>
 					</div>
 				</div>
 			</section>

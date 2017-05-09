@@ -10,6 +10,10 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+
+
+    <!-- Google Font -->
+   <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
     <!-- jQuery library -->
