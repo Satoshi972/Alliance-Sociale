@@ -8,6 +8,11 @@ $this->start('main_content');
 	<legend class="text-center">Modification des informations de la présentation</legend>
 
 	<div class="form-group">
+		<label for="word">Que sommes nous</label>
+		<textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+	</div>
+
+	<div class="form-group">
 		<label for="history">Histoire de l'association</label>
 		<textarea name="history" id="history" cols="30" rows="10" class="form-control"></textarea>
 	</div>
@@ -18,7 +23,7 @@ $this->start('main_content');
 	</div>
 
 	<div class="text-center">
-		<input type="submit" class="btn btn-primary" value="Envoyer">
+		<input type="submit" class="btn btn-primary" value="Modifier">
 	</div>
 </form>
 
@@ -38,10 +43,12 @@ $this->start('script');
 			var word = "";
 			$.each(data, function(key, value)
 			{
-				history = data.history;
-				word    = data.word;
+				description = data.description
+				history 	= data.history;
+				word    	= data.word;
 			});
 
+			$('#description').text(description);
 			$('#history').text(history);		
 			$('#word').text(word);		
 		});

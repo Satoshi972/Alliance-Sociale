@@ -11,15 +11,15 @@
 	    </div>
            
             <?php if (!empty($views)){ ?>
-			<section class="histoire">
+			<section class="about">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h1>Qui sommes nous</h1>
+							<h1>Que sommes nous</h1>
 						</div>
-						<p style="text-align:justify;">Nous sommes un Centre Social qui est un lieu de vie, d’écoute, d’animation, d’activités, de services, d’apprentissages et d’initiatives pour les habitants.
-
-Ouvert à tous, il a pour mission de créer du lien social et de contribuer au « mieux vivre ensemble » dans notre quartier, dans notre ville.</p>
+					<?php foreach($views as $view): ?>
+						<p style="text-align:justify;"><em><?=$view['description'];?></em></p>
+						<p> <a href="#">Retrouver plus en détails nos différentes actions</a> </p>
 					</div>
 				</div>
 			</section>
@@ -41,7 +41,6 @@ Ouvert à tous, il a pour mission de créer du lien social et de contribuer au �
 
 					</div>
 						
-					<?php foreach($views as $view): ?>
 
 					<div class="col-md-7">					
 						<p style="text-align:justify;"><em><?=$view['word'];?></em></p>
@@ -61,6 +60,11 @@ Ouvert à tous, il a pour mission de créer du lien social et de contribuer au �
 				</div>
 			</section>
             <?php } ?>
+
+
+					<br>
+					<br>
+					<br>
 
             			<div class="col-md-12 text-center">
 				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrer notre équipe</a>
