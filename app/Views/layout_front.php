@@ -47,7 +47,7 @@
                          <li><a href="<?php echo $this->url('logout') ?>">déconnexion</a></li>
 
                     <?php endif ?>
-                    <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
+                    <li><a href="https://www.facebook.com/AllianceSocialeduMarin/" onclick="window.open(this.href); return false;""><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
                     <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li>
                 </ul>
             </div>
@@ -55,7 +55,7 @@
         <div class="row">
 
                 <div class="col-sm-3">
-                    <a href="#"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
+                    <a href="<?php echo $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
                 </div>
 
                 <div class="col-sm-6">

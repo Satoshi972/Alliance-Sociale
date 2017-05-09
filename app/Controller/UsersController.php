@@ -180,6 +180,7 @@ class UsersController extends Controller
             $search = $post['search'];
             $users = $usersModel->searchPeoples($search);
             var_dump($usersModel->searchPeoples($search));
+            die(var_dump($users));
         }
         
         // die(var_dump($users));
