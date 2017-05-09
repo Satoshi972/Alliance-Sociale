@@ -2,10 +2,10 @@
 $this->layout('layout_back', ['title' => 'Mise a jour des infos du site']);
 $this->start('main_content');
 ?>
-<div id="result" class="text-center"></div>
 <form method="POST" action="<?= $this->url('updateAboutInfos') ?>" enctype="multipart/form-data" class="form-horizontal">
 
 	<legend class="text-center">Modification des informations de la présentation</legend>
+<div id="result" class="text-center"></div>
 
 	<div class="form-group">
 		<label for="word">Que sommes nous</label>
