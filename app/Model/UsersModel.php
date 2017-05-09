@@ -18,7 +18,7 @@ class UsersModel extends \W\Model\Model
     $sql = "SELECT count(*) as 'total' FROM users";
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
-    return $sth->fetchAll();
+    return $sth->fetchColumn();
   } 
 
   public function nbrTotalA()
@@ -26,7 +26,7 @@ class UsersModel extends \W\Model\Model
   	$sql = "SELECT count(*) as 'total' FROM users WHERE activity <> 'none'";
   	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
-  	return $sth->fetchAll();
+  	return $sth->fetchColumn();
   }
 
   public function listPeopleByActivity($activity)
@@ -35,10 +35,10 @@ class UsersModel extends \W\Model\Model
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':activity', $activity);
     $sth->execute();
-    return $sth->fetchAll();
+    return $sth->fetchAll(\PDO::FETCH_ASSOC);
   }
 
-  public function filterByAge($age1, $age2)
+  public function filterByAge($age1 = 0, $age2 = 150,$firstEntry ,$PeoplePerPages)
   {
     /*
       Renvoie un nombre de jours, donc il faut faire un calcul via le nombre de jour
@@ -47,12 +47,14 @@ class UsersModel extends \W\Model\Model
       15 ans = 5475
       18 ans = 6570
     */
-    $sql = 'SELECT * FROM users WHERE DATEDIFF(CURRENT_DATE, birthday) BETWEEN :age1 AND :age2';
+    $sql = 'SELECT * FROM users WHERE DATEDIFF(CURRENT_DATE, birthday) BETWEEN :age1 AND :age2 ORDER BY id DESC LIMIT :firstEntry, :PeoplePerPages';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':age1', $age1, \PDO::PARAM_INT);
     $sth->bindValue(':age2', $age2, \PDO::PARAM_INT);
+    $sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);
+    $sth->bindValue(':PeoplePerPages', $PeoplePerPages, \PDO::PARAM_INT);
     $sth->execute();
-    return $sth->fetchAll();
+    return $sth->fetchAll(\PDO::FETCH_ASSOC);
   }
 
   public function searchPeoples($search)
@@ -61,7 +63,7 @@ class UsersModel extends \W\Model\Model
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':search',$search);
     $sth->execute();
-    return $sth->fetchAll();
+    return $sth->fetchAll(\PDO::FETCH_ASSOC);
   }
 
 }

@@ -17,15 +17,15 @@
         </form>
       </div>
       <p class="text-center row">Afficher : 
-        <a href="<?= $this->url('list_users', ['age1' => 0, 'age2'=> 150]) ?>">Tous</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 0, 'age2'=> 3]) ?>">-3 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 3, 'age2'=> 8]) ?>">3 - 8 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 9, 'age2'=> 15]) ?>">9 - 15 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 16, 'age2'=> 18]) ?>">16 - 18 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 19, 'age2'=> 25]) ?>">19 - 25 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 26, 'age2'=> 35]) ?>">26 - 35 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 36, 'age2'=> 45]) ?>">36 - 45 ans</a>
-         |  <a href="<?= $this->url('list_users', ['age1' => 46, 'age2'=> 150]) ?>">+45 ans</a>
+        <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 0, 'age2'=> 150]) ?>">Tous</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 0, 'age2'=> 2]) ?>">-3 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 3, 'age2'=> 8]) ?>">3 - 8 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 9, 'age2'=> 15]) ?>">9 - 15 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 16, 'age2'=> 18]) ?>">16 - 18 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 19, 'age2'=> 25]) ?>">19 - 25 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 26, 'age2'=> 35]) ?>">26 - 35 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 36, 'age2'=> 45]) ?>">36 - 45 ans</a>
+         |  <a href="<?= $this->url('list_users', ['page'=> $page,'age1' => 46, 'age2'=> 150]) ?>">+45 ans</a>
       </p>
       <table class=" table table-striped">
         <thead>
@@ -102,6 +102,16 @@
       </table>  
     </div>
   </div>
+  <section class="row text-center">
+    <!--  Pour l'affichage, on centre la liste des pages -->
+    <ul class="pagination">
+      <?php
+         for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
+      ?>
+              <li><a href="<?=$this->url('list_users', ['page'=> $page,'age1' => $age1, 'age2'=> $age2])?>"><?=$i ?></a></li>
+      <?php endfor; ?>
+    </ul>
+  </section>
 </div>
 
 

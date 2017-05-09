@@ -110,29 +110,58 @@ class UsersController extends Controller
     
     
     //Liste des users
-    public function listUsers($age1, $age2)
+    public function listUsers($page, $age1, $age2)
     {
         //  $roles = ['admin'];
         // $this->allowTo($roles);
+
+        $usersModel = new users();
 
         #convertion age en jours
         $age1 = $age1*365;
         $age2 = $age2*365;
 
-        $usersModel = new users();
-        $users = $usersModel->filterByAge($age1, $age2);
+        # doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
+
+        $PeoplePerPages  = 50;
+        $nbPoeple        = $usersModel->nbrTotal();
+        $nbPages         = ceil($nbPoeple/$PeoplePerPages);
+
+        
+        if(isset($page))
+        {
+              $currentPage=intval($page);
+     
+             if($currentPage>$nbPages)
+             {
+                  $currentPage=$nbPages;
+             }
+        }
+        else
+        {
+             $currentPage=1; 
+        }
+
+        $firstEntry= ($currentPage-1)*$PeoplePerPages; 
+        $users= $usersModel->filterByAge($age1, $age2, $firstEntry, $PeoplePerPages);
 
         $post = [];
 
         if(!empty($_POST))
         {
             $post = array_map('trim', array_map('strip_tags', $_POST));
-            $users = $usersModel->searchPeoples($post['search']);
+            $search = $post['search'];
+            $users = $usersModel->searchPeoples($search);
+            var_dump($usersModel->searchPeoples($search));
         }
         
         // die(var_dump($users));
         $params = [
-        'users' => $users
+        'users' => $users,
+        'nbPages'=> $nbPages,
+        'page'  => $page,
+        'age1'  => $age1,
+        'age2'  => $age2,
         ];
         $this->show('users/list_users', $params);
     }
