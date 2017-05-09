@@ -39,8 +39,10 @@ $this->start('script');
 		$.getJSON('<?= $this->url('aboutInfos') ?>',function(data)
 		{
 			console.log(data);
+			var description = "";
 			var history = "";
 			var word = "";
+
 			$.each(data, function(key, value)
 			{
 				description = data.description;
