@@ -42,15 +42,14 @@ function nbrTotal()
 {
 	$.getJSON('/Alliance-Sociale/public/users/listAll', function(data) 
 	{
+		console.log(data);
 		var res = "";
-		$.each(data, function(index, val) 
-		{
-			console.log(val.total);
-			res += '<legend class="text-center">';
-			res += val.total;
-			res += ' Personnes dans la base de données';
-			res += '</legend>';
-		});
+	
+		res += '<legend class="text-center">';
+		res += data;
+		res += ' Personnes dans la base de données';
+		res += '</legend>';
+
 		$('#total').html(res);
 	});
 }
@@ -60,14 +59,12 @@ function nbrTotalA()
 	$.getJSON('/Alliance-Sociale/public/users/listAllA', function(data) 
 	{
 		var res = "";
-		$.each(data, function(index, val) 
-		{
-			console.log(val.total);
-			res += '<legend class="text-center">';
-			res += val.total;
-			res += ' Adhérents';
-			res += '</legend>';
-		});
+
+		res += '<legend class="text-center">';
+		res += data;
+		res += ' Adhérents';
+		res += '</legend>';
+
 		$('#totalA').html(res);
 	});
 }
