@@ -43,7 +43,7 @@ $this->start('script');
 			var word = "";
 			$.each(data, function(key, value)
 			{
-				description = data.description
+				description = data.description;
 				history 	= data.history;
 				word    	= data.word;
 			});
