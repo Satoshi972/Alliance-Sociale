@@ -3,11 +3,11 @@
 <?php $this->start('main_content') ?>
 
 
-	<div class="row">
+	<div class="about row">
 	    <div class="col-md-12">
 
 	    <div class="jumbotron text-center"> 
-	    	<h1>Présentation</h1>
+	    	<h1 style="font-family: 'Lobster';">Présentation</h1>
 	    </div>
            
             <?php if (!empty($views)){ ?>
@@ -15,10 +15,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h1>Que sommes nous</h1>
+							<h1 style="font-family: 'Lobster';">Que sommes nous</h1>
 						</div>
 					<?php foreach($views as $view): ?>
-						<p style="text-align:justify;"><?=$view['description'];?></p>
+						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['description'];?></p>
 						<p> <a href="<?= $this->assetUrl('files/projet social 2017-2020.pdf') ?>">Retrouver plus en détails nos projets socials pour 2017-2020</a></p>
 					</div>
 				</div>
@@ -27,7 +27,7 @@
 	    	<section class="president">	
 	    		<div class="row">
 					<div class="col-md-12 text-center">
-						<h1>Mot de la presidente</h1>
+						<h1 style="font-family: 'Lobster';">Mot de la presidente</h1>
 					</div>
 
 
@@ -53,18 +53,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h1>Histoire de l'association</h1>
+							<h1 style="font-family: 'Lobster';">Histoire de l'association</h1>
 						</div>
-						<p style="text-align:justify;"><?=$view['history'];?></p>
+						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['history'];?></p>
 					</div>
 				</div>
 			</section>
             <?php } ?>
-
-
-					<br>
-					<br>
-					<br>
 
             			<div class="col-md-12 text-center">
 				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrer notre équipe</a>

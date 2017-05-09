@@ -13,7 +13,7 @@
 
 
     <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Lobster|Merienda" rel="stylesheet">
     
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
     <!-- jQuery library -->

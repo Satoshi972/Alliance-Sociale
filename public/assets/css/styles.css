@@ -6,6 +6,13 @@ body{
     background-size: cover;
 }
 
+p{
+    font-family: 'Merianda';
+}
+h1{
+    font-family: 'Lobster';
+}
+
 /* ---------------------
         top header
 ------------------------ */
@@ -168,3 +175,11 @@ nav li:hover .submenu{
     background-color: rgb(79, 13, 145);
 }
 
+
+/* ---------------------
+        About
+------------------------ */
+
+/* ---------------------
+        fin About
+------------------------ */
