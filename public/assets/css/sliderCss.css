@@ -23,14 +23,14 @@
     background-color: #FFF;
 }
 
-.container .img-slide {
+.img-slide {
     margin: 0 auto;
     display: block;
-    max-height: 340px ;
-    background-size: cover;
-    max-width: 1200px ;
-    width:100%;
-    object-fit:cover; 
+    max-height: 340px !important;
+    background-size: cover !important;
+    max-width: 1200px !important;
+    width:100% !important;
+    object-fit:cover !important; 
 }
 */
 .topheader .homepic {
