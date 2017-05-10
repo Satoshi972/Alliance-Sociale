@@ -279,7 +279,10 @@
 
     /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 320px) {
-    
+        .modal-dialog {
+            width: 350px !important;
+            
+        }
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -294,7 +297,11 @@
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (min-width : 480px) {
-
+        .modal-dialog {
+            width: 400px  !important;
+            
+        }
+        
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -314,7 +321,11 @@
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) {
-
+        .modal-dialog {
+            width: 450px !important;
+            
+        }
+        
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -329,7 +340,10 @@
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
-
+        .modal-dialog {
+            width: 500px !important;
+            
+        }
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -344,6 +358,10 @@
 
     /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1200px) {
+        .modal-dialog {
+            width: 600px !important;
+            
+        }
         
         .img-slide {
         margin: 0 auto !important;
