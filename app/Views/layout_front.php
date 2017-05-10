@@ -191,7 +191,7 @@
                     </div>
                     <div class="panel-body">
             <!-- Zone d'inclusion de Facebook -->
-            <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>          
+           <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-height="205" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>         
                     </div>
                 </div>
             </div>
@@ -389,6 +389,7 @@
     <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
 
     <!-- API Facebook -->
+
 
 
 <script>(function(d, s, id) {
