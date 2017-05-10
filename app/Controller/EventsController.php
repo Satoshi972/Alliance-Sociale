@@ -75,7 +75,7 @@ class EventsController extends MasterController
 				$errors[] = 'Votre title doit faire entre 2 et 50 caractères';
 			}
 
-			if(!v::notEmpty()->alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
+			if(!v::notEmpty()->alNum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
 			{
 				$errors[] = 'Votre contenu doit faire entre 2 et 600 caractères';
 			}

@@ -26,7 +26,7 @@ class ContactFrontController extends MasterController
                 (!v::notEmpty()->email()->validate($post['mail'])) ? 'L\'adresse email est invalide' : null,
                 
                 //On vérifie que le contenu ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 250 caractères
-                (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu doit contenir entre 2 et 600 caractères' : null,
+                (!v::notEmpty()->alpha('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le contenu doit contenir entre 2 et 600 caractères' : null,
             ];
 
             $errors = array_filter($err);
