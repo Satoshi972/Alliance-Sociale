@@ -23,7 +23,7 @@ class UsersModel extends \W\Model\Model
 
   public function nbrTotalA()
   {
-  	$sql = "SELECT count(*) as 'total' FROM users u, suscribe_to s WHERE id_usr = u.id";
+  	$sql = "SELECT COUNT( DISTINCT id_usr) AS 'total' FROM suscribe_to ORDER BY id_usr";
   	$sth = $this->dbh->prepare($sql);
   	$sth->execute();
   	return $sth->fetchColumn();
