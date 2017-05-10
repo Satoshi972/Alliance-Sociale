@@ -29,7 +29,7 @@
     text-align: center !important;
     max-height: 340px !important;
     background-size: cover !important;
-    max-width: 1200px !important;
+    /*max-width: 1200px !important;*/
     width:100% !important;
     object-fit:cover !important; 
 }
