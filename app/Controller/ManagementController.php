@@ -106,8 +106,10 @@ class ManagementController extends MasterController
 		{
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 			$err=[
-				(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['description'])) ? 'Le champ doit contenir entre 2 et 600 caractères' : null,
+				(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 1000)->validate($post['description'])) ? 'Que sommes nous doit contenir entre 2 et 1000 caractères' : null,
+
 				(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['history'])) ? 'L\'histoire doit contenir entre 2 et 600 caractères' : null,
+
 				(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['word'])) ? 'Le mot de la présidente doit contenir entre 2 et 600 caractères' : null,
 			];
 			$errors = array_filter($err);
