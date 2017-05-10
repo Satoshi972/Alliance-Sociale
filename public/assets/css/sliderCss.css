@@ -274,3 +274,85 @@
     left: 0;
   }
 }
+
+/*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+    
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 150px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 200px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        
+        
+        
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 240px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 290px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+    }
