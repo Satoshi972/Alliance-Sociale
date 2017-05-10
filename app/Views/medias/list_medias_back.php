@@ -2,8 +2,6 @@
 <?php $this->layout('layout_Back', ['title' => 'Medias - Listes des Medias']) ?>
 
 <?php $this->start('main_content') ?>
-
-
 <div class="col-md-12">
 
 	<div class="col-md-6 col-md-offset-3">
@@ -30,7 +28,9 @@
 			<?php
 				 for($i=1; $i<=$nbPages; $i++): //On fait notre boucle	
 			?>
-	          	<li><a href="<?=$this->url('listMediasBack',['page'=>$i])?>"><?=$i ?></a></li>
+	          	<li>
+	          		<a href="<?=$this->url('listMediasBack',['page'=>$i])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a>
+	          	</li>
 			<?php endfor; ?>
 		</ul>
 	</section>

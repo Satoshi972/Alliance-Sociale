@@ -107,7 +107,7 @@
       <?php
          for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
       ?>
-              <li><a href="<?=$this->url('list_users', ['page'=> $page,'age1' => $age1, 'age2'=> $age2])?>"><?=$i ?></a></li>
+              <li><a href="<?=$this->url('list_users', ['page'=> $page,'age1' => $age1, 'age2'=> $age2])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
       <?php endfor; ?>
     </ul>
   </section>

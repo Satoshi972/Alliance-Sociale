@@ -369,3 +369,8 @@ body {
         font-size: 150px;
     }
   }*/
+  .pagination > li > a.current
+  {
+    /*background-color : #E5B5E3 !important;*/
+    background-color : #F4F2E2 !important;
+  }

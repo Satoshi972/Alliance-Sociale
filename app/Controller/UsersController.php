@@ -143,6 +143,7 @@ class UsersController extends Controller
         // $this->allowTo($roles);
 
         $usersModel = new users();
+        $users = "";
 
         #convertion age en jours
         $age1 = $age1*365;
