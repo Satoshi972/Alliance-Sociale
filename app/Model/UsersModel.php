@@ -61,9 +61,8 @@ class UsersModel extends \W\Model\Model
 
   public function searchPeoples($search)
   {
-    $sql = 'SELECT * FROM users WHERE firstname LIKE "%:search%" OR lastname LIKE "%:search%"';
+    $sql = "SELECT * FROM users WHERE firstname LIKE '%$search%' OR lastname LIKE '%$search%'";
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':search',$search);
     $sth->execute();
     return $sth->fetchAll(\PDO::FETCH_ASSOC);
   }

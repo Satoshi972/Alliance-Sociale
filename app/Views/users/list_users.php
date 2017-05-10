@@ -74,7 +74,15 @@
                            <li>GSM:          <?= $user['phone']?></li>
                            <li>Date Naiss: <?= $user['birthday']?></li>
                            <li>#Caf:           <?= $user['caf']?></li>   
-                           <li>Privilèges:   <?= $user['role']?></li>     
+                           <li>Privilèges:   <?= $user['role']?></li> 
+                           <li>Activité: 
+                                <ul>
+                                  <?php foreach ($activity as $key => $value) 
+                                  {
+                                    echo '<li>'.$value.'</li>';
+                                  } ?>
+                                </ul>
+                           </li>    
                         </ul>
                       </div>
                       <div class="modal-footer">

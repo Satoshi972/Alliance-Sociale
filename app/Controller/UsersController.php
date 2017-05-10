@@ -28,8 +28,7 @@ class UsersController extends Controller
         $enter = new users();
         $errors = [];
         $post = [];
-        $success = false;
-        $displayForm = true;
+        $result = false;
 
         $role = new role();
         $roles  = $role->findAll();
@@ -114,25 +113,25 @@ class UsersController extends Controller
                     $data = $value;
                     $suscribe->insertTo($data);
                 }
-                $success = true;
-                $displayForm = false;
+                $result = "success";
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = '<p class="alert-dismissable alert-danger">'.implode('<br>', $errors).'</p>';
             }          
         }
-        // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
-        
-        $params = [
-        'success'     => $success,
-        'errors'      => $errors,
-        'displayForm' => $displayForm,
-        'roles'       => $listRoles,
-        'activity'    => $listActivity,
-        ];
-        
-        $this->show('users/add_users', $params);
+        else
+        {
+            // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
+            
+            $params = [
+            'roles'       => $listRoles,
+            'activity'    => $listActivity,
+            ];
+            
+            $this->show('users/add_users', $params);
+        }
+        echo $result;
     }
     
     
@@ -180,8 +179,8 @@ class UsersController extends Controller
             $post = array_map('trim', array_map('strip_tags', $_POST));
             $search = $post['search'];
             $users = $usersModel->searchPeoples($search);
-            var_dump($usersModel->searchPeoples($search));
-            die(var_dump($users));
+            // var_dump($usersModel->searchPeoples($search));
+            // die(var_dump($users));
         }
         
         // die(var_dump($users));
@@ -191,7 +190,6 @@ class UsersController extends Controller
         'page'  => $page,
         'age1'  => $age1,
         'age2'  => $age2,
-        // 'activity' => $suscribeList,
         ];
         $this->show('users/list_users', $params);
     }

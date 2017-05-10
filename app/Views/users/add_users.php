@@ -22,14 +22,8 @@ $this->start('main_content');
           <div class="col-md-12 jumbotron text-center">
             <h2>Création utilisateur</h2>
           </div>
-           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-                <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-              <?php endif; ?>
 
-              <?php if($success == true): // La variable $success est envoyé via le controller?>
-                <p class="alert alert-success alert-dismissable" ">Votre utilisateur à été créer</p>
-              <?php endif; ?>
-
+          <p id="result" class="col-xs-12"></p>
           <form method="post" class="form-horizontal">
 
             <div class="form-group">
@@ -132,9 +126,38 @@ $('.datepicker').datepicker({
 $(function()
 {
   $(document).ready(function() {
-
       $('#activity').multiselect();
+  });
 
+  //gestion de mon formulaire d'envoi
+  $('form').on('submit',function(e)
+  {
+      e.preventDefault();
+
+      var myForm = $('form');
+
+      $.ajax(
+      {
+          method: myForm.attr('method'),
+          url: myForm.attr('action'),
+          data: myForm.serialize(),
+          success: function(res)
+          {
+            // $('#result').html(res);
+            // $('#result').removeClass();
+           //    console.log(res);
+
+              if(res == "success")
+              {
+                $('#result').html("Votre formulaire a bien été envoyé").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
+                $('form')[0].reset();
+              }
+              else
+              {
+                $('#result').html(res).fadeIn(2000).fadeOut(5000);
+              }
+          }
+      });
   });
 })
 </script>
