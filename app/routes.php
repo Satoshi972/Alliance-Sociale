@@ -50,7 +50,8 @@ $w_routes = array(
     ['GET|POST','/listAll', 'Contact#ListAllContact', 'allContact'],
 
 	#Gestion des Partenaires
-	['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+    ['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+	['GET|POST', '/partners/showAllPartners', 'Partners#showAllPartners', 'showAllPartners'],//Json
 	['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],//Ajout des Partenaires
 	['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],//Modification des Partenaires
 	['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],//Suppression des Partenaires

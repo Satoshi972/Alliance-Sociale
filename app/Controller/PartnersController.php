@@ -221,4 +221,11 @@ class PartnersController extends Controller
         ]);
     }
 
+    public function ShowAllPartners()
+    {
+        $partners = new PartnersModel();
+        $list = $partners->findAll();
+        $this->showJson($list);
+    }
+
 }
