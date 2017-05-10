@@ -29,6 +29,7 @@ $this->start('main_content');
 
               <?php if($success == true): // La variable $success est envoyé via le controller?>
                 <p class="alert alert-success alert-dismissable" ">Votre utilisateur à été Modifier</p>
+                <p><a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>">Retour a la liste d'utilisateur</a></p>
               <?php endif; ?>
 
           <?php if($displayForm === true): ?>

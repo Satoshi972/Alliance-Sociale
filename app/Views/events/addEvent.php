@@ -123,10 +123,15 @@ $( function() {
             data: data,
             success: function(res)
             {
-                console.log('toto');
-                $('#result').html(res);
-                myForm.reset();
-                myForm.find('input').find('textarea').val('');
+            	if(res == "success")
+	            {
+	            	$('#result').html("Evenement bien enregistré").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
+	                $('form')[0].reset();
+	            }
+	            else
+	            {
+	                $('#result').html(res).fadeIn(2000).fadeOut(5000);
+	            }
             }
         });
     });         

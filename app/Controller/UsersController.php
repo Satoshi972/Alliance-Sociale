@@ -59,6 +59,7 @@ class UsersController extends Controller
             
             //On vérifie que le champ email soit non vide et qu'il soit valide
             (!v::notEmpty()->email()->validate($post['email'])) ? 'L\'adresse email est invalide' : null,
+            // (!$enter->emailExists($post['email'])) ? 'L\'adresse email existe déjà en base de donnée veuillez en choisir ' ? null,
 
             (!v::numeric()->length(10, 10)->validate($post['phone'])) ? 'Le numéro de téléphone doit comporter 10 numéros' : null,
             
@@ -106,14 +107,16 @@ class UsersController extends Controller
                 ];
     
                 //Intègre les donnés dans la base
-                $enter->insert($datas);
-                foreach ($activitySelected as $key => $value) 
+                if($enter->insert($datas))
                 {
-                    $data = "";
-                    $data = $value;
-                    $suscribe->insertTo($data);
+                    foreach ($activitySelected as $key => $value) 
+                    {
+                        $data = "";
+                        $data = $value;
+                        $suscribe->insertTo($data);
+                    }
+                    $result = "success";
                 }
-                $result = "success";
             }
             else
             {

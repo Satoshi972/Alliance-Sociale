@@ -185,7 +185,7 @@ class EventsController extends MasterController
 
 				if($event->insert($datas))
 				{
-                    $result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+                    $result = 'success';
 				}
 				
 			}
