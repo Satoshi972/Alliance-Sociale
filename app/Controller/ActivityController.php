@@ -31,7 +31,7 @@ class ActivityController extends MasterController
         $success = false;
         $maxSize = (1024 * 1000) * 2;
 
-        $uploadDir = 'assets/img/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
 
 		if(!empty($_POST)) {
@@ -182,7 +182,7 @@ class ActivityController extends MasterController
         $success = false;
         $maxSize = (1024 * 1000) * 2;
 
-        $uploadDir = 'assets/img/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
 
 

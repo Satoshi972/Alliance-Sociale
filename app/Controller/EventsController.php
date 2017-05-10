@@ -62,7 +62,7 @@ class EventsController extends MasterController
 		$event = new events();
 		$post = [];
 		$errors = [];
-		$uploadDir = 'assets/medias/';
+		$uploadDir = 'assets/img/events/';
 		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
         
 		if(!empty($_POST))
@@ -213,7 +213,7 @@ class EventsController extends MasterController
 		$list  = $activity->findAll();
 
 		$picture = $infos['picture'];
-		$uploadDir = 'assets/medias/';
+		$uploadDir = 'assets/img/events/';
 		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
 
 		$post = [];
