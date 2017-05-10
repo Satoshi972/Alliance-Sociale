@@ -76,7 +76,7 @@ class ContactController extends MasterController
             
                  
 
-            $contacts = $select->findAll($orderBy = $order, $orderDir = $order2,$limit = '', $offset = null,  $firstEntry , $ContactPerPages);
+            $contacts = $select->findAllC($orderBy = $order, $orderDir = $order2,$limit = '', $offset = null,  $firstEntry , $ContactPerPages);
 
             $params = [
                 "contacts" => $contacts,

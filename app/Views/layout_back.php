@@ -132,7 +132,7 @@
 
 
                               <div class="collapse" id="demo2">
-                                <a href="<?= $this->url('contactList') ?>" class="list-group-item">Liste des fiches</a>
+                                <a href="<?= $this->url('contactList',['page'=> 1]) ?>" class="list-group-item">Liste des fiches</a>
                                 
                               </div>
 

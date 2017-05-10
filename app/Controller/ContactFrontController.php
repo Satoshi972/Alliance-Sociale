@@ -37,6 +37,7 @@ class ContactFrontController extends MasterController
                 'title'   => $post['title'],
                 'mail'    => $post['mail'],
                 'content' => $post['content'],
+                'date'    => date("Y-m-d  H:i:s"),
                 ];
             	
                 $contact->insert($datas);

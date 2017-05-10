@@ -5,7 +5,7 @@ namespace Model;
 class ContactsModel extends \W\Model\Model
 {
     
-   public function findAll($orderBy = '', $orderDir = 'ASC', $limit, $offset = null, $firstEntry , $ContactPerPages)
+   public function findAllC($orderBy = '', $orderDir = 'ASC', $limit, $offset = null, $firstEntry , $ContactPerPages)
 	{
 
 		$sql = 'SELECT * FROM ' . $this->table;
