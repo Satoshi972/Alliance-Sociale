@@ -24,7 +24,7 @@
 }
 
 .img-slide {
-    margin: 0 auto;
+    margin: 0 auto !important;
     display: block;
     text-align: center !important;
     max-height: 340px !important;
