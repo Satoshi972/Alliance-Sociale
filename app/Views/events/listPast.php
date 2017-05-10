@@ -2,8 +2,9 @@
 
 <?php $this->start('sliderCss') ?>
 
-<link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">-->
     <!--<link rel="stylesheet" href="//d2d3qesrx8xj6s.cloudfront.net/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066"> -->
 <?php $this->stop('sliderCss') ?>
@@ -13,10 +14,7 @@
 
 
 
-<div class ="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-8 text-center well jumbo">
+
           
       <h1 style='text-align:center'>Liste des évènements passés</h1>
 
@@ -51,10 +49,7 @@
             </table>    
           
           
-      </div>
-    </div>
-  </div>
-</div>
+    
 <?php $this->stop('main_content'); 
 
 ?>
