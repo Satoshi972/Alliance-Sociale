@@ -24,9 +24,3 @@ h1 {
 h2 {
 	color: #66D9EF;
 }
-
-.pagination > li > a.current
-	{
-		/*background-color : #E5B5E3 !important;*/
-		background-color : #F4F2E2 !important;
-	}

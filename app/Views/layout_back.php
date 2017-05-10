@@ -33,7 +33,7 @@
 
     
 
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar1.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/back.css') ?>">
 
     <!-- Permet des inclusions dans mon head depuis la vue -->
     

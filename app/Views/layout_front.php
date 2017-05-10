@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('css/jumboCss.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/simple-sidebar.css') ?>">
 
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/front.css') ?>">
 
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
