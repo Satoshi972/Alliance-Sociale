@@ -186,7 +186,7 @@ class MasterController extends Controller
 		//Username to use for SMTP authentication - use full email address for gmail
 		$mail->Username = "el.robard@gmail.com";
 		//Password to use for SMTP authentication
-		$mail->Password = "allinjesus77";
+		$mail->Password = "";
 		//Set who the message is to be sent from
 		$mail->setFrom('from@AllianceSocial.com', 'Alliance-Social');
 		//Set an alternative reply-to address
