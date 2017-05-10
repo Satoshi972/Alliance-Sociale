@@ -43,7 +43,7 @@ $w_routes = array(
     ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
     
     #Routes contacts
-    ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
+    ['GET|POST','/contactlist/[i:page]', 'Contact#contactList', 'contactList'],
     ['GET|POST','/deletecontact/[i:id]', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
     ['GET|POST','/deleteallcontact', 'Contact#DeleteAllContact', 'deleteAllContact'],
     ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],

@@ -5,7 +5,7 @@ namespace Model;
 class ContactsModel extends \W\Model\Model
 {
     
-   public function findAll($orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
+   public function findAll($orderBy = '', $orderDir = 'ASC', $limit, $offset = null, $firstEntry , $ContactPerPages)
 	{
 
 		$sql = 'SELECT * FROM ' . $this->table;
@@ -28,19 +28,21 @@ class ContactsModel extends \W\Model\Model
 
 			$sql .= ' ORDER BY '.$orderBy.' '.$orderDir;
 		}
-        if($limit){
-            $sql .= ' LIMIT '.$limit;
+        if($limit == ''){
+            $sql .= ' LIMIT :firstEntry, :ContactPerPages ';
             if($offset){
                 $sql .= ' OFFSET '.$offset;
             }
         }
 		$sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);		
+		$sth->bindValue(':ContactPerPages', $ContactPerPages,\PDO::PARAM_INT);
 		$sth->execute();
 
 		return $sth->fetchAll();
 	}
     
-    public function findAllsearch($chainesearch, $orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
+    public function findAllsearch($chainesearch, $orderBy = '', $orderDir = 'ASC', $limit, $offset = null, $firstEntry , $ContactPerPages)
 	{
 		$sql = 'SELECT * FROM ' . $this->table. ' WHERE title LIKE "%'. $chainesearch 
         .'%" OR mail LIKE "%'. $chainesearch 
@@ -65,13 +67,15 @@ class ContactsModel extends \W\Model\Model
 
 			$sql .= ' ORDER BY '.$orderBy.' '.$orderDir;
 		}
-        if($limit){
-            $sql .= ' LIMIT '.$limit;
+        if($limit == ''){
+            $sql .= ' LIMIT :firstEntry, :ContactPerPages';
             if($offset){
                 $sql .= ' OFFSET '.$offset;
             }
         }
 		$sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);		
+		$sth->bindValue(':ContactPerPages', $ContactPerPages,\PDO::PARAM_INT);
 		$sth->execute();
 
 		return $sth->fetchAll();
@@ -83,6 +87,28 @@ class ContactsModel extends \W\Model\Model
 		$sql = 'TRUNCATE contacts';
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
+	}
+    
+     public function nbrTotal()
+  {
+    $sql = "SELECT count(*) as 'total' FROM contacts";
+    $sth = $this->dbh->prepare($sql);
+    $sth->execute();
+    return $sth->fetchColumn();
+  } 
+    
+
+    
+    public function listPagecontact($firstEntry, $MediasPerPages)
+	{
+		$sql = 'SELECT * FROM medias ORDER BY id DESC LIMIT :firstEntry, :MediasPerPages';	
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);		
+		$sth->bindValue(':MediasPerPages',$MediasPerPages,\PDO::PARAM_INT);
+
+		$sth->execute();
+
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
 	}
     
     

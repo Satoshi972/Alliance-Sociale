@@ -27,7 +27,7 @@ $this->start('main_content'); ?>
         ?>
 
         <br>
-        <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist" method="post" class="form-inline">
+        <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist/1" method="get" class="form-inline">
             <div class="form-group">
                 <label for="search">Rechercher :</label>
 
@@ -40,14 +40,14 @@ $this->start('main_content'); ?>
     
         <p>Trier par : 
         
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=view&order=desc">Lecture (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=view&order=asc">Lecture (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=titre&order=asc">Titre (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=titre&order=desc">Titre (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=email&order=asc">Email (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=email&order=desc">Email (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=asc">Date (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist?column=date&order=desc">Date (décroissant)</a>
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=asc">Lecture (décroissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=desc">Titre (décroissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=asc">Email (croissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=desc">Email (décroissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=asc">Date (croissant)</a> |
+            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=desc">Date (décroissant)</a>
 		<div id="result"></div>
         <table class="table table-hover">
             <thead>
@@ -226,6 +226,56 @@ $this->start('main_content'); ?>
      </div>
 
   </div>
+  <section class="row text-center">
+    <!--  Pour l'affichage, on centre la liste des pages -->
+    <ul class="pagination">
+      <?php
+         for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
+      ?>
+             <?php if (isset($_GET['column']) AND $_GET['column'] == "view" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
+    
+                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "view" AND isset($_GET['order']) AND $_GET['order']== "desc") { ?>
+    
+                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "titre" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
+
+                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "titre" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
+    
+                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "email" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
+    
+                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "email" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
+    
+                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "date" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
+    
+                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "date" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
+
+                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+        
+            <?php } elseif (isset($_GET["search"])){ ?>
+                 
+                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?search=<?=$chainesearch?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 
+            <?php } else { ?>
+             
+                 <li><a href="<?=$this->url('contactList', ['page'=> $i])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+              
+            <?php } ?>
+      <?php endfor; ?>
+    </ul>
+  </section>
 </div>
      
  <?php  
@@ -266,14 +316,11 @@ $this->start('script');
                       type: 'POST',
                       url: $this.attr('href'),
                       data: {id : id},
-                      success: function(s)
+                      success: function()
                       {
-                          if(s)
-                          {
                               myTr.remove();
                               location.reload();
                               // $('#result').html(res);
-                          }
                       }
                   });
           });

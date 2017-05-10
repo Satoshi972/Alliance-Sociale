@@ -4,16 +4,41 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\ContactsModel;
-
+use \Model\ContactsModel as contact;
 
 class ContactController extends MasterController
 {
-	public function contactList()
+	public function contactList($page)
 	{
 
         // $roles = ['admin','editor'];
         // $this->allowTo($roles);
 
+        
+        $contactModel = new contact();
+        $contacteach = "";
+        
+        $ContactPerPages  = 5;
+        $nbContact        = $contactModel->nbrTotal();
+        $nbPages         = ceil($nbContact/$ContactPerPages);
+        
+        if(isset($page))
+        {
+              $currentPage=intval($page);
+     
+             if($currentPage>$nbPages)
+             {
+                  $currentPage=$nbPages;
+             }
+        }
+        else
+        {
+             $currentPage=1; 
+        }
+
+        $firstEntry= ($currentPage-1)*$ContactPerPages; 
+        //$contacteach= $contactModel->listPageMedias($firstEntry, $ContactPerPages);
+        
         $errors = [];
         $post = [];
         $donnees= [];
@@ -51,45 +76,65 @@ class ContactController extends MasterController
             
                  
 
-            $contacts = $select->findAll($orderBy = $order, $orderDir = $order2, $limit = null, $offset = null);
+            $contacts = $select->findAll($orderBy = $order, $orderDir = $order2,$limit = '', $offset = null,  $firstEntry , $ContactPerPages);
 
-            $params = ["contacts" => $contacts];
+            $params = [
+                "contacts" => $contacts,
+                "nbPages"  => $nbPages,
+			    "page"	   => $page,
+            
+            ];
             $this->show('contacts/contact_list', $params);  
             
                 
-        } elseif(!empty($_POST)){
+        } elseif(!empty($_GET)){
             
 
         	// équivalent au foreach de nettoyage
-        	$post = array_map('trim', array_map('strip_tags', $_POST)); 
+        	$get = array_map('trim', array_map('strip_tags', $_GET)); 
             
-            if(isset($post['search'])) {
+            if(isset($get['search'])) {
                 
-            if(strlen($post['search']) < 1){
+            if(strlen($get['search']) < 1){
         		$errors[] = 'Il faut au moins rentrer un caractère';
         	}    
-            $chainesearch = $post['search'];  
-                
+            $chainesearch = $get['search'];  
+            
                 if(count($errors) === 0){
                 
                 $findall = new ContactsModel();
-                $donnees = $findall->findAllsearch($chainesearch);
+                $donnees = $findall->findAllsearch($chainesearch, $orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
                     
-                $params = ["donnees" => $donnees, "chainesearch" => $chainesearch];
+                $params = ["donnees" => $donnees, 
+                           "chainesearch" => $chainesearch,
+                           "nbPages"  => $nbPages,
+			               "page"	  => $page,
+                          ];
                 $this->show('contacts/contact_list', $params);  
                     
                 }else{
-                $contacts = $select->findAll();    
+                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);    
                 $textErrors = implode('<br>', $errors);
         		$params = ["contacts" => $contacts,
-                           "errors" => $textErrors];
+                           "errors"   => $textErrors,
+                           "nbPages"  => $nbPages,
+			               "page"	  => $page,
+                          
+                          
+                          
+                          
+                          ];
                 $this->show('contacts/contact_list', $params);  
         	} 
             }    
         }else {
-                $contacts = $select->findAll();
+                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
                 
-                $params = ["contacts" => $contacts];
+                $params = ["contacts" => $contacts,
+                           "nbPages"  => $nbPages,
+			               "page"	  => $page,
+                          
+                          ];
                 $this->show('contacts/contact_list', $params);  
                 
         }
@@ -144,7 +189,7 @@ class ContactController extends MasterController
             }
         
         }
-        $redirect->redirectToRoute('contactList');
+        $redirect->redirectToRoute('contactList', ['page' => 1]);
         $this->show('contacts/updateCheck');
         
     }
