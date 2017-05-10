@@ -26,7 +26,7 @@
 .img-slide {
     margin: 0 auto;
     display: block;
-    text-align: center;
+    text-align: center !important;
     max-height: 340px !important;
     background-size: cover !important;
     max-width: 1200px !important;
