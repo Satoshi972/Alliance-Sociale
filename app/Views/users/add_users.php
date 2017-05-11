@@ -126,9 +126,8 @@ $('.datepicker').datepicker({
 });
 $(function()
 {
-  $(document).ready(function() {
-      $('#activity').multiselect();
-  });
+  
+  $('#activity').multiselect();
 
   //gestion de mon formulaire d'envoi
   $('form').on('submit',function(e)
