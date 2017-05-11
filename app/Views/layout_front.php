@@ -101,7 +101,7 @@
                 Evènements<span class="caret"></span></a>
                 <ul class="dropdown-menu">
           <li><a tabindex="-1" href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('default_home') ?>">Evènements à venir</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('listPresentEvent') ?>">Evènements en cours</a></li>
 
         </ul>
             </li>

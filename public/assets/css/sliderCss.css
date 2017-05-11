@@ -302,6 +302,30 @@
         .big-fb {
             display:none !important;
         }
+        
+        .big-pres {
+            display:none;
+        }
+        
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:block;
+        }
+        
+        .little-past {
+            display:block;
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -322,7 +346,29 @@
         object-fit:cover !important; 
         }
         
+        .big-pres {
+            display:none;
+        }
         
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:block;
+        }
+        
+        .middle-past {
+            display:block;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
         
         
         
@@ -346,6 +392,29 @@
         object-fit:cover !important; 
         }
        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
     }
 
     /* Medium Devices, Desktops */

@@ -98,7 +98,7 @@
             </div>
 
     
-            <div class="table-responsive col-md-12">
+            <div class="table-responsive col-md-12 big-pres">
             <h2>Liste des Evènements en cours :</h2>
             
                 <table class="table table-hover">
@@ -138,8 +138,73 @@
             <a href="<?= $this->url('listPresentEvent') ?>">Voir tous les évènements présents</a>
             </div>
 
+           <div class="table-responsive col-md-12 middle-pres">
+            <h2>Liste des Evènements en cours :</h2>
+            
+                <table class="table table-hover">
 
-            <div class="table-responsive col-md-12">
+                    <thead>
+                        <tr class="success">
+                            <th>Evènement</th>
+                            <th>Titre</th>
+                            <th>Voir l'évènement</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach($infospres as $infopres): ?>
+                        <tr class="info">
+                            <td>
+
+                            <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox" height="200px" width="200px">
+
+                            </td>
+                            <td><?= $infopres['title']?></td>
+                            <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
+
+                        </tr>
+                        <?php endforeach; ?> 
+                    </tbody>
+
+
+
+                </table>
+            <a href="<?= $this->url('listPresentEvent') ?>">Voir tous les évènements présents</a>
+            </div>
+           
+            <div class="table-responsive col-md-12 little-pres">
+            <h2>Liste des Evènements en cours :</h2>
+            
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr class="success">
+                            <th>Evènement</th>
+                            <th>Voir l'évènement</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach($infospres as $infopres): ?>
+                        <tr class="info">
+                            <td>
+
+                            <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox" height="200px" width="200px">
+
+                            </td>
+                            <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
+
+                        </tr>
+                        <?php endforeach; ?> 
+                    </tbody>
+
+
+
+                </table>
+            <a href="<?= $this->url('listPresentEvent') ?>">Voir tous les évènements présents</a>
+            </div>
+
+            <div class="table-responsive col-md-12 big-past">
                 <h2>Liste des Evènements passés :</h2>
                     <table class="table table-hover">
                             <thead>
@@ -171,7 +236,61 @@
 
                     <a href="<?= $this->url('listPastEvent') ?>">Voir tous les évènements passés</a>  
 
-                    </div>      
+                    </div>
+                    
+                    <div class="table-responsive col-md-12 middle-past">
+                <h2>Liste des Evènements passés :</h2>
+                    <table class="table table-hover">
+                            <thead>
+                                <tr class="success">
+                                    <th>Evènement</th>
+                                    <th>Titre</th>
+                                    <th>Voir l'évènement</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                               <?php foreach($infospas as $infopas): ?>
+                                <tr class="warning">
+                                    <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                                    <td><?= $infopas['title']?></td>
+                                    <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+
+                    </table> 
+
+                    <a href="<?= $this->url('listPastEvent') ?>">Voir tous les évènements passés</a>  
+
+                    </div>
+                    
+                    <div class="table-responsive col-md-12 little-past">
+                        <h2>Liste des Evènements passés :</h2>
+                    <table class="table table-hover">
+                            <thead>
+                                <tr class="success">
+                                    <th>Evènement</th>
+                                    <th>Voir l'évènement</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                               <?php foreach($infospas as $infopas): ?>
+                                <tr class="warning">
+                                    <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                                    <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+
+                    </table> 
+
+                    <a href="<?= $this->url('listPastEvent') ?>">Voir tous les évènements passés</a>  
+
+                    </div>            
 
        </div>
     </div>
