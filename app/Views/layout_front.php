@@ -180,11 +180,21 @@
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
-            <h1 class="page-header">
-                    
-                </h1>
+            <h1 class="page-header"></h1>
             </div>
-            <div class="col-md-3">
+            
+            <div class="col-md-6 col-md-push-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i></h4>
+                    </div>
+                    <div class="panel-body contenu">
+            <?= $this->section('main_content') ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-pull-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i></h4>
@@ -204,16 +214,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i></h4>
-                    </div>
-                    <div class="panel-body contenu">
-            <?= $this->section('main_content') ?>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -222,8 +223,8 @@
                     <div class="panel-body img-responsive">
 
     
-<!-- Zone calendrier -->
-<div id="calendar"></div>
+            <!-- Zone calendrier -->
+            <div id="calendar"></div>
             <!-- detail de mon event -->
             <div id="fullCalModal" class="modal fade">
                 <div class="modal-dialog">
