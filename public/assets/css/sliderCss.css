@@ -293,6 +293,12 @@
         width:100% !important;
         object-fit:cover !important; 
         }
+         .little-fb {
+            display:block !important ;
+        }
+        .big-fb {
+            display:none !important;
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -336,6 +342,7 @@
         width:100% !important;
         object-fit:cover !important; 
         }
+       
     }
 
     /* Medium Devices, Desktops */
@@ -353,6 +360,13 @@
         /*max-width: 1200px !important;*/
         width:100% !important;
         object-fit:cover !important; 
+        }
+        
+         .little-fb {
+            display:none !important;
+        }
+        .big-fb {
+            display:block !important;
         }
     }
 
