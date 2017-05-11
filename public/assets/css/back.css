@@ -208,7 +208,7 @@ color: white;
 
 .jumbotron {
     color: white;
-    background-color: #c60800;
+    background-color: #c60800 !important;
   }
   .well {
     background-color: #2f2626;
