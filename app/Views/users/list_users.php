@@ -107,8 +107,6 @@
 
           </tbody>
       </table>  
-    </div>
-  </div>
   <section class="row text-center">
     <!--  Pour l'affichage, on centre la liste des pages -->
     <ul class="pagination">
@@ -119,6 +117,8 @@
       <?php endfor; ?>
     </ul>
   </section>
+    </div>
+  </div>
 </div>
 
 
