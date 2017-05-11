@@ -170,12 +170,12 @@
                                 </span>
                               </a>
 
-<!--                               <div class="collapse" id="demo5">
-  <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
-  <a href="<?= $this->url('listMediasBack',['page'=>1]) ?>" class="list-group-item">Galerie</a>
-</div>
+                              <div class="collapse" id="demo5">
+                                <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
+                                <a href="<?= $this->url('listMediasBack',['page'=>1]) ?>" class="list-group-item">Galerie</a>
+                              </div>
 
-<a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+<!-- <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
   <span class="sidebar-icon">
     <i class="fa fa-handshake-o" aria-hidden="true"></i>
   </span>
@@ -188,8 +188,8 @@
 <div class="collapse" id="demo6">
   <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
   <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
-</div> -->
-
+</div>
+ -->
                               <a href="#management" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-info" aria-hidden="true"></i>
