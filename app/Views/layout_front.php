@@ -186,9 +186,9 @@
         <!-- main content -->
         <div class="col-md-6 col-md-push-3">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-gift"></i></h4>
-                </div>
+                <!--<div class="panel-heading">
+                    <!--<h1 style="text-align:center"><i class="fa fa-fw fa-gift"></i></h1>-->
+                <!--</div>-->
                 <div class="panel-body contenu">
                   <?= $this->section('main_content') ?>
                 </div>
@@ -199,7 +199,7 @@
         <div class="col-md-3 col-md-pull-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i></h4>
+                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Nou la !</h2>
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
@@ -217,7 +217,7 @@
         <div class="col-md-3">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4><i class="fa fa-fw fa-compass"></i></h4>
+              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Nos activités</h2>
             </div>
             <div class="panel-body img-responsive">
               <!-- Zone calendrier -->
