@@ -1,24 +1,18 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
 body {
-    background: #eee;
+    background: lightgray;
 }
 
-.navbar-default .navbar-brand {
-    color: white;
-}
 .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
-       background-color: #C60800;
-       color: white;
 }
 
 .navbar-default .navbar-nav #user-profile {
     height: 50px;
     padding-top: 15px;
     padding-left: 58px;
-color: white;
 }
 
 .navbar-default .navbar-nav #user-profile img {
@@ -28,7 +22,6 @@ color: white;
     top: 2px;
     left: 8px;
     padding: 1px;
-    color: white;
 }
 
 #wrapper {
@@ -69,7 +62,6 @@ color: white;
     -moz-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
-    background: #2f2626;
 }
 
 #sidebar-wrapper .sidebar-nav {
@@ -80,7 +72,6 @@ color: white;
     margin: 0;
     padding: 0;
     list-style: none;
-    background: #2f2626;
 }
 
 #sidebar-wrapper .sidebar-nav li {
@@ -205,24 +196,3 @@ color: white;
     /*background-color : #E5B5E3 !important;*/
     background-color : #F4F2E2 !important;
   }
-
-.jumbotron {
-    color: white;
-    background-color: #c60800;
-  }
-  .well {
-    background-color: #2f2626;
-    color: white;
-}
-
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #2f2626;
-    border: 1px solid #ddd;
-}
-a.list-group-item, button.list-group-item {
-    color: #f5f5f5;
-}
