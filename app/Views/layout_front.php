@@ -193,7 +193,7 @@
             <!-- Zone d'inclusion de Facebook -->
                    <div class="fb-page little-fb" 
                     data-href="https://www.facebook.com/AllianceSocialeduMarin/"
-                    data-width="300" 
+                    data-width="250" 
                     data-hide-cover="false"
                     data-show-facepile="false" 
                     data-show-posts="false"></div>
