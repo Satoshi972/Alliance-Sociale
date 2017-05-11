@@ -99,7 +99,7 @@ $this->start('main_content');
             </div>
 
             <div class="form-group">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-12 text-center">
                   <button type="submit" id="submitForm" class="btn btn-primary">Créer utilisateur</button>
               </div>
             </div>
