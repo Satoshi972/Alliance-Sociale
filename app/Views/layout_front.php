@@ -192,12 +192,15 @@
                     <div class="panel-body fb-place">
             <!-- Zone d'inclusion de Facebook -->
                    <div class="fb-page little-fb" 
-                      data-href="https://www.facebook.com/AllianceSocialeduMarin/"
-                      data-width="300" 
-                      data-hide-cover="false"
-                      data-show-facepile="false" 
-                      data-show-posts="false"></div>  
-                   <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-width="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>  
+                    data-href="https://www.facebook.com/AllianceSocialeduMarin/"
+                    data-width="300" 
+                    data-hide-cover="false"
+                    data-show-facepile="false" 
+                    data-show-posts="false"></div>
+                        
+                   <div class="fb-page middle-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-width="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>  
+                   
+                   <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-width="290" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
                     </div>
                 </div>
             </div>
