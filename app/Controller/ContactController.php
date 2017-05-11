@@ -113,7 +113,7 @@ class ContactController extends MasterController
                 $this->show('contacts/contact_list', $params);  
                     
                 }else{
-                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);    
+                $contacts = $select->findAllC($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);    
                 $textErrors = implode('<br>', $errors);
         		$params = ["contacts" => $contacts,
                            "errors"   => $textErrors,
@@ -128,7 +128,7 @@ class ContactController extends MasterController
         	} 
             }    
         }else {
-                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
+                $contacts = $select->findAllC($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
                 
                 $params = ["contacts" => $contacts,
                            "nbPages"  => $nbPages,
