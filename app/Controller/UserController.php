@@ -7,7 +7,7 @@ use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \vendor\phpmailer\phpmailer\PHPMailerAutoload;
-
+use \W\Security\AuthorizationModel;
 
 
 use Respect\Validation\Validator as v;
@@ -20,15 +20,10 @@ class UserController extends Controller
     
     public function login()
 	{
-        $this->show('login_logout/login');
-    }
-    
-    
-    public function ajax_login()
-    {
         
-        $login = new AuthentificationModel();
+       $login = new AuthentificationModel();
         $find = new UsersModel();
+        $autorisation = new AuthorizationModel();
         
         $post = [];
         $errors = [];
@@ -57,13 +52,14 @@ class UserController extends Controller
                     if(!empty($user)){
 
 
-                            $login->logUserIn($user);
-                           
+                            $login->logUserIn($infos);
+                            
                             $result = '<div class="alert alert-success">Vous êtes connecté</div>';
                             //if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
                             //$this->show('admin');
             
                             echo $result; // On envoi le résultat
+                            $verification = $autorisation->isGrantedLogin();
                     } else { // password_verify
                         $errors[] = 'Le couple identifiant/mot de passe est invalide'; 
                     }
@@ -73,7 +69,14 @@ class UserController extends Controller
         }
         
         
-        $this->show('login_logout/ajax_login', ['errors' => $errors]);
+        $this->show('login_logout/login', ['errors' => $errors]);
+    }
+    
+    
+    public function ajax_login()
+    {
+        
+       
            
     }
 

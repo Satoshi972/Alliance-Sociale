@@ -48,5 +48,42 @@ class AuthorizationModel
 		$controller = new \W\Controller\Controller();
 		$controller->redirectToRoute($app->getConfig('security_login_route_name'));
 	}
+    
+    public function isGrantedlogin()
+	{
+		$app = getApp();
+		$roleProperty = $app->getConfig('security_role_property');
+
+		//récupère les données en session sur l'utilisateur
+		$authentificationModel = new AuthentificationModel();
+		$loggedUser = $authentificationModel->getLoggedUser();
+        var_dump($loggedUser);
+		// Si utilisateur non connecté
+		if (!$loggedUser){
+			// Redirige vers le login
+			$this->redirectToLogin();
+		}
+        
+		if (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'admin'){
+			
+            $controller = new \W\Controller\Controller();
+		    $controller->redirectToRoute('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]);
+            
+		} elseif
+            (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'editor'){
+			
+            $controller = new \W\Controller\Controller();
+		    $controller->redirectToRoute('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]);
+            
+        } elseif 
+            (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'member'){
+			
+            $controller = new \W\Controller\Controller();
+		    $controller->redirectToRoute('default_home');
+            
+        }
+
+		return false;
+	}
 
 }
