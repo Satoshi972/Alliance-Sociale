@@ -78,7 +78,7 @@
                             <thead>
                                 <tr class="success">
                                     <th>Evènement</th>
-                                    <th>Voir l'évènement</th>
+                                    <th>Voir</th>
                                 </tr>
                             </thead>
 
