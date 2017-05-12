@@ -261,7 +261,7 @@ class MediasController extends MasterController
     	
 		$medias = new medias();
 		$medias->delete($id);
-		$this->redirectToRoute('listMedias',['page'=>1]);
+		$this->redirectToRoute('listMediasBack',['page'=>1]);
 	}
 
 	/*
