@@ -111,55 +111,24 @@ $this->start('script');
     format: 'yyyy-mm-dd',
     language: 'fr'
 });
-</script>
-<script>
 $("#picture").fileinput(
-	{
-		'showUpload'  :false,
-		'showCaption' :false,
-		'showRemove'  :true,
-		'maxFileCount': 10,
-		language: "fr",
-	});
-</script>
-
-<script>
-$( function() {
-
+{
+	'showUpload'  :false,
+	'showCaption' :false,
+	'showRemove'  :true,
+	'maxFileCount': 10,
+	language: "fr",
+});
+$(function()
+{
 	//gestion de mon formulaire d'envoi
-    $('form input[type="submit"]').click(function(e)
-    {
-        e.preventDefault();
-
-        var myForm = $('form');
-        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
-        var data = (formdata !== null) ? formdata : myForm.serialize();
-                       
-        $.ajax(
-        {
-            method: myForm.attr('method'),
-            url: myForm.attr('action'),
-            contentType: false, // obligatoire pour de l'upload
-            processData: false, // obligatoire pour de l'upload
-            cache: false,
-            data: data,
-            success: function(res)
-            {
-            	if(res == "success")
-	            {
-	            	$('#result').html("Evenement bien enregistré").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
-	                $('form')[0].reset();
-	            }
-	            else
-	            {
-	                $('#result').html(res).fadeIn(2000).fadeOut(5000);
-	            }
-            }
-        });
-    });         
-} );
-
-
+	$('form').on('submit',function(e)
+	{
+	    e.preventDefault();
+	    var myForm = $('form');
+	    submitForm(myForm);
+	});
+});
 </script>
 <?php
 $this->stop('script');

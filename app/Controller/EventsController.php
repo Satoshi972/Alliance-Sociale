@@ -63,6 +63,7 @@ class EventsController extends MasterController
 		$post = [];
 		$errors = [];
 		$uploadDir = 'assets/img/events/';
+		$result = false;
 		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
         
 		if(!empty($_POST))
@@ -154,8 +155,7 @@ class EventsController extends MasterController
 
 			if(count($errors)>0)
 			{
-				$textError = implode('<br>', $errors);
-				$result = '<p class="alert alert-danger">'.$textError.'</p>';
+				$result = implode('<br>', $errors);
 			}
 			else
 			{
@@ -185,6 +185,7 @@ class EventsController extends MasterController
 
 				if($event->insert($datas))
 				{
+					$this->redirectToRoute('listEvent');
                     $result = 'success';
 				}
 				
@@ -218,6 +219,8 @@ class EventsController extends MasterController
 
 		$post = [];
 		$error = [];
+
+		$result = null;
 
 		if(!empty($_POST))
 		{
@@ -301,8 +304,7 @@ class EventsController extends MasterController
 
 			if(count($error)>0)
 			{
-				$textError = implode('<br>', $error);
-				$results = '<p class="alert alert-danger">'.$textError.'</p>';
+				$results = implode('<br>', $errors);;
 			}
 			else
 			{

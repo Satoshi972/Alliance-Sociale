@@ -28,7 +28,7 @@ class ActivityController extends MasterController
 
         $errors = [];
         $post = [];
-        $success = false;
+        $result = null;
         $maxSize = (1024 * 1000) * 2;
 
         $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
@@ -102,24 +102,25 @@ class ActivityController extends MasterController
                 //Intègre les donnés dans la base
                 $newActivity->insert($datas);
                 
-                $success = true;
+                $result = "success";
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = implode('<br>', $errors);
             }
             
         }
-        // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
-        
-        $params = [
-        'success'  => $success,
-        'errors'   => $errors,
-        'category' => $list
-        ];
-        
-        $this->show('activite/add_activity', $params);
-
+        else
+        {
+            // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
+            
+            $params = [
+            'category' => $list
+            ];
+            
+            $this->show('activite/add_activity', $params);
+        }
+        echo $result;
 	}
 
     public function listActivity()

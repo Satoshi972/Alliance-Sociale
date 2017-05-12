@@ -75,6 +75,16 @@ $this->start('script');
         'showCaption' : false,
         language: "fr"
       });
+  $(function()
+	{
+		//gestion de mon formulaire d'envoi
+		$('form').on('submit',function(e)
+		{
+		    e.preventDefault();
+		    var myForm = $('form');
+		    submitForm(myForm);
+		});
+	});
 </script>
 <?php
 $this->stop('script'); 

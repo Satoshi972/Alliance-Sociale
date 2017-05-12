@@ -31,7 +31,7 @@ class PartnersController extends Controller
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
-		$success = false;
+		$result = false;
         $newPictureName = '';
         $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
         
@@ -93,20 +93,19 @@ class PartnersController extends Controller
                 ];
                 $enter = new PartnersModel();
                 $enter->insert($datas);
-				$success = true;
+				$result = "success";
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = implode('<br>', $errors);
             }
             
         }
-		 $params = [
-        'success' => $success,
-        'errors'  => $errors,
-        ];
-        
-        $this->show('partners/add_partners',$params);
+        else
+        {
+            $this->show('partners/add_partners');
+        }
+        echo $result;
     }
     
         
@@ -118,7 +117,7 @@ class PartnersController extends Controller
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
-		$success = false;
+		$result = false;
         $newPictureName = '';
         $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
         
@@ -182,24 +181,25 @@ class PartnersController extends Controller
                 
                 $enter->update($datas,$id);
 				 
-				 $success = true;
+				 $result = "success";
 
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = implode('<br>', $errors);
             }
             
         }
-		 $detailid  = $enter->find($id);
-
-		 $params = [
-        'success' => $success,
-        'errors'  => $errors,
-        'id' => $detailid,
-        ];
-        
-        $this->show('partners/update_partners', $params);
+        else
+        {
+    		$detailid  = $enter->find($id);
+    		$params = [
+            'id' => $detailid,
+            ];
+            
+            $this->show('partners/update_partners', $params);
+        }
+        echo $result;
     }
     
     

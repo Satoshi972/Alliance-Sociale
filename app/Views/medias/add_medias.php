@@ -17,18 +17,7 @@ $this->start('main_content');
 		<h2>Ajout des médias</h2>
 	</div>
 	
-	<div class="col-md-12">
-		<?php if($success == true): // La variable $success est envoyé via le controller?>
-			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
-		<?php endif; ?>
-
-		<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-			<p style="color:red"><?=implode('<br>', $errors); ?></p>
-		<?php endif; ?>
-	</div> 
-
-
-	
+	<div class="col-md-12" id='#result'></div> 
 	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
@@ -80,12 +69,23 @@ $this->start('script');
     <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
     <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
 <script>
-	$("#medias").fileinput(
-    	{
-    		'showUpload':false,
-    		'showCaption' : false,
-    		language: "fr"
-    	});
+$("#medias").fileinput(
+{
+	'showUpload':false,
+	'showCaption' : false,
+	language: "fr"
+});
+
+$(function()
+{
+  //gestion de mon formulaire d'envoi
+  $('form').on('submit',function(e)
+  {
+      e.preventDefault();
+      var myForm = $('form');
+      submitForm(myForm);
+  });
+});
 </script>
 <?php
 $this->stop('script'); 

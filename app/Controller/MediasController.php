@@ -21,15 +21,10 @@ class MediasController extends MasterController
 		$medias 	= new medias();
 		$events    	= new events();
 		$list       = $events->findAll();
-		$errors 	= [];
-		$success 	= false;
+		$result		= null;
 
 
 		$check = new Master();		
-		//var_dump($_FILES);
-		// var_dump($_FILES['picture']['error']);
-		//var_dump($_FILES).'<br>';
-
 		
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
 		{		
@@ -48,29 +43,29 @@ class MediasController extends MasterController
 			    			'visible'	=> (isset($_POST['visible'])) ? 1 : 0,
 			    			];
 			    		$medias->insert($datas);
-			        	$success = true;
+			        	$result = "success";
 			    	}
 			    }
 			    else
 			    {
-			    	$errors[] = 'Erreur, aucun médias correct détecté...';
+			    	$result[] = 'Erreur, aucun médias correct détecté...';
 			    }
 
 		    }			    
 		    else
 		    {
-		    	$errors[] = 'Erreur, aucun médias envoyé...';
+		    	$result[] = 'Erreur, aucun médias envoyé...';
 		    }
 		}
-
+		else
+		{
 			$params = [
-			'success' => $success,
-			'errors'  => $errors,
 			'list'	  => $list,
 			];
 
-	$this->show('medias/add_medias',$params);
-
+			$this->show('medias/add_medias',$params);
+		}
+		echo $result;
 	}
 
 	public function listMedias($page)

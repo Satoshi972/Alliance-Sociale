@@ -17,16 +17,8 @@ $this->start('main_content');?>
         <div class="col-md-12 jumbotron text-center">        
           <h2>Ajouter une activitée</h2>
         </div>
-        
-      
 
-          <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-            <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-          <?php endif; ?>
-
-          <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre Activité à bien été ajouter</p>
-          <?php endif; ?>
+        <div id="result"></div>
 
         <form method="post" action="<?= $this->url('add_activite') ?>" class="form-horizontal" enctype="multipart/form-data">
 
@@ -96,6 +88,17 @@ $this->start('script');
         'showRemove'  :true,
         'maxFileCount': 10,
         language: "fr"
+      });
+
+      $(function()
+      {
+        //gestion de mon formulaire d'envoi
+        $('form').on('submit',function(e)
+        {
+            e.preventDefault();
+            var myForm = $('form');
+            submitForm(myForm);
+        });
       });
 </script>
 <?php
