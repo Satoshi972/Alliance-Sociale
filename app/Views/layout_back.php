@@ -110,8 +110,8 @@
                                 </span>
                               </a>
                               <div class="collapse" id="demo1">
-                                <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
+                                <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
                               </div>
                               
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -123,12 +123,9 @@
                                 </span>
                               </a>
 
-
                               <div class="collapse" id="demo2">
                                 <a href="<?= $this->url('contactList',['page'=> 1]) ?>" class="list-group-item">Liste des fiches</a>
-                                
                               </div>
-
 
                               <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
@@ -156,8 +153,8 @@
                               </a>
 
                               <div class="collapse" id="demo4">
-                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
                                 <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
+                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
                               </div>
 
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -246,6 +243,7 @@
   <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/function.js') ?>"></script>
  
   <!-- Permet des inclusions de scripts depuis la vue -->
   <?php echo $this->section("script") ?>
