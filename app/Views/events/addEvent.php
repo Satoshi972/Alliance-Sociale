@@ -68,7 +68,7 @@ $this->start('main_content');
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-2 control-label text-center" class="control-label text-center" for="quota">Ajouter un quota:</label>
+				<label class="col-md-2 control-label text-center" class="control-label text-center" for="quota">Ajouter un quota</label>
 				<div class="col-md-10 text-center">
 				<input type="number" id="quota" name="quota" class="form-control">
 				</div>
@@ -76,7 +76,7 @@ $this->start('main_content');
 
 			<div class="form-group">
 				<label class="col-md-2 control-label text-center" for="picture">Image</label>	
-				<div class="col-md-10 text-center">
+				<div class="col-md-10">
 					<input type="file" name="picture" id="picture" class="picture" accept="image/*">
 				</div>		
 			</div>
