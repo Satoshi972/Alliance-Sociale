@@ -8,31 +8,38 @@ $this->stop('head');
 $this->start('main_content');
 ?>
 <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 well">
 	<!-- Zone calendrier -->
-   <div class="col-md-12 jumbotron text-center">        
+       <div class="col-md-12 jumbotron text-center">        
           <h2>Liste des évenements</h2>
-      </div>
+        </div>
   
-  <!-- possible placement du calendrier -->
-  <div id="calendar"></div>
+      <!-- possible placement du calendrier -->
+      <div id="calendar"></div>
 
-  <!-- detail de mon event -->
-  <div id="fullCalModal" class="modal fade">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                  <h4 id="modalTitle" class="modal-title"></h4>
-              </div>
-              <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
-              <div id="modalBody" class="modal-body"></div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <a id="link" ><button class="btn btn-primary">Plus d'info</button></a>
+      <!-- detail de mon event -->
+      <div id="fullCalModal" class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                      <h4 id="modalTitle" class="modal-title"></h4>
+                  </div>
+                  <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
+                  <div id="modalBody" class="modal-body"></div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <a id="link" ><button class="btn btn-primary">Plus d'info</button></a>
+                  </div>
               </div>
           </div>
+        </div>
       </div>
     </div>
+  </div>
+
 </div>
     <!-- Fin calendrier -->  
 <?php
