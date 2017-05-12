@@ -473,7 +473,13 @@
         }
     }
 
+.panel-body {
+    width:100%;
+    
+}
+
 .meteo {
+    width:100% !important;
     text-align: center !important;
     
 }
@@ -485,4 +491,18 @@
 .fb-place {
      text-align: center !important;
     
+}
+
+
+
+.little-fb {
+    width:100%;
+}
+
+.middle-fb {
+    width:100%;
+}
+
+.big-fb {
+    width:100%;
 }

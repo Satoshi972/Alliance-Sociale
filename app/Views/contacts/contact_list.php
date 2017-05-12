@@ -53,7 +53,10 @@ $this->start('main_content'); ?>
           </div>
         </div>
 		<div id="result"></div>
-        
+
+           
+        <div class="table-responsive col-md-12">
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -212,7 +215,7 @@ $this->start('main_content'); ?>
 		
 		<?php } ?>
 	</table>
-   
+        </div>
 
   
 
