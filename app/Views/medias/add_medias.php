@@ -17,7 +17,7 @@ $this->start('main_content');
 		<h2>Ajout des médias</h2>
 	</div>
 	
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-12">
 		<?php if($success == true): // La variable $success est envoyé via le controller?>
 			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
 		<?php endif; ?>
@@ -34,7 +34,7 @@ $this->start('main_content');
 		<!-- Image -->
 		<div class="form-group">
 			<div class="col-md-2 text-center">
-			<label class="control-label" for="medias">Envoyez vos médias</label>
+				<label class="control-label" for="medias">Envoyez vos médias</label>
 			</div>
 			<div class="col-md-10">
 				<input type="file" id="medias" name="medias[]" multiple>
@@ -55,12 +55,16 @@ $this->start('main_content');
 		</div>
 
 		<div class="form-group">
-			<label for="visible">Ces médias seront-ils visibles a tous?</label>
-			<input type="checkbox" value="1" name="visible" id="visible">
+			<div class="col-md-2 text-center">
+				<label for="visible">Ces médias seront-ils visibles a tous?</label>
+			</div>
+			<div class="col-md-10">
+				<input type="checkbox" value="1" name="visible" id="visible">
+			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-12 text-center">
 				<button type="submit" id="submitForm" class="btn btn-primary">Ajouter des médias</button>
 			</div>
 		</div>

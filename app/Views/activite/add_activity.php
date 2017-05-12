@@ -30,7 +30,7 @@ $this->start('main_content');?>
 
         <form method="post" action="<?= $this->url('add_activite') ?>" class="form-horizontal" enctype="multipart/form-data">
 
-          <div class="form-group text-center">
+          <div class="form-group">
             <div class="col-md-2 text-center">          
               <label class="control-label " for="name">Nom de l'Activité</label>
             </div> 
