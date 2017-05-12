@@ -70,7 +70,7 @@
                                 <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/user-icon-png-pnglogocom.img.png') ?>" class="img-responsive img-thumbnail img-circle">Identifiant</a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     <!-- <li><a href="#">Mon compte</a></li> -->
-                                    <li><a href="logout">Déconnexion</a></li>
+                                    <li><a href="<?php echo $this->url('logout') ?>">Déconnexion</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -93,7 +93,7 @@
                           <div id="MainMenu">
                             <div class="list-group panel">
 
-                              <!-- <?php if($w_user['role'] === 'admin'): ?>
+                              <?php if($w_user['role'] === 'admin'): ?>
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -101,14 +101,14 @@
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
-                              <?php endif; ?> -->
-                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                              <?php endif; ?>
+                              <!-- <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
                                       Gestion des utilisateurs  
                                   <i class="fa fa-caret-down"></i>
                                 </span>
-                              </a>
+                              </a> -->
                               <div class="collapse" id="demo1">
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
                                 <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>

@@ -14,6 +14,9 @@ class ManagementController extends MasterController
 {
 	public function home()
 	{
+		$roles = ['admin','editor'];
+        $this->allowTo($roles);
+
 		$site = new Site();
 
 		$infos = $site->infoSite();
@@ -23,6 +26,9 @@ class ManagementController extends MasterController
 
 	public function siteInfos()
 	{
+		$roles = ['admin','editor'];
+        $this->allowTo($roles);
+		
 		$site = new Site();
 		$infos = $site->SiteInfos();
 		$this->showJson($infos);
@@ -30,6 +36,9 @@ class ManagementController extends MasterController
 
 	public function aboutInfos()
 	{
+		$roles = ['admin','editor'];
+        $this->allowTo($roles);
+		
 		$about = new About();
 		$infos = $about->Aboutinfos();
 		$this->showJson($infos);
@@ -37,6 +46,9 @@ class ManagementController extends MasterController
 
 	public function updateSiteInfos()
 	{
+		$roles = ['admin','editor'];
+        $this->allowTo($roles);
+		
 		// $site = new Site();
 		// $infos = $site->infoAbout();
 
@@ -97,6 +109,9 @@ class ManagementController extends MasterController
 
 	public function updateAboutInfos()
 	{
+		$roles = ['admin','editor'];
+        $this->allowTo($roles);
+		
 		$about = new About();
 		$errors = [];
 		$post = [];
