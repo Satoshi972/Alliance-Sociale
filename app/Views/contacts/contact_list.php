@@ -54,8 +54,8 @@ $this->start('main_content'); ?>
         </div>
 		<div id="result"></div>
 
-           
-        <div class="table-responsive col-md-12">
+        
+        <div class="table-responsive col-md-12 text-center">
 
         <table class="table table-hover">
             <thead>
@@ -204,18 +204,20 @@ $this->start('main_content'); ?>
         
         
         
-        <?php } else { ?>
-		<tbody id="contactsAjax">
-			<?php if(empty($contacts)): ?>
-			<tr>
-				<td class="danger text-danger text-center" colspan="5">Aucun messages de contact détecté ...</td>
-			</tr>
-		<?php endif; ?>
-		</tbody>
-		
-		<?php } ?>
-	</table>
-        </div>
+
+                <?php } else { ?>
+          		<tbody id="contactsAjax">
+          			<?php if(empty($contacts)): ?>
+          			<tr>
+          				<td class="danger text-danger text-center" colspan="5">Aucun messages de contact détecté ...</td>
+          			</tr>
+          		<?php endif; ?>
+          		</tbody>
+        		
+        		<?php } ?>
+        	 </table>
+          </div> 
+
 
   
 
