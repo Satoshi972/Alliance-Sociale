@@ -10,45 +10,50 @@ $this->start('main_content'); ?>
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
+      <div class="col-md-12 well">
 
-    <div class="col-md-12 jumbotron text-center">
-        <h2>Listes des messages de contact</h2>
-    </div>
+      <div class="col-md-12 jumbotron text-center">
+          <h2>Listes des messages de contact</h2>
+      </div>
                
-
         <div id="mon_resultat"><!-- contiendra le résultat ajax --></div>
         <?php if(isset($errors)){
 			echo '<p style="color:red">'.$errors.'</p>';
-		};
+		    };
         ?>
+
         <?php if(isset($chainesearch)){
             echo 'Vous avez recherché : '.$chainesearch.' .';
         };
         ?>
 
-        <br>
+     
         <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist/1" method="get" class="form-inline">
             <div class="form-group">
                 <label for="search">Rechercher :</label>
-
                 <input type="text" id="search" name="search" minlength="1" class="form-control" placeholder="Mot clé">
             </div>
             <div class="form-group">
-                <input type="submit" id="submitsearch" value="Envoyer" class="btn btn-default">
+                <input type="submit" id="submitsearch" value="Rechercher" class="btn btn-default">
             </div>
         </form>
     
-        <p>Trier par : 
-        
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=asc">Lecture (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=desc">Titre (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=asc">Email (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=desc">Email (décroissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=asc">Date (croissant)</a> |
-            <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=desc">Date (décroissant)</a>
+        <div class="row">
+          <div class="col-md-12">
+            <p>Trier par :          
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=asc">Lecture (décroissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=desc">Titre (décroissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=asc">Email (croissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=desc">Email (décroissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=asc">Date (croissant)</a> |
+                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=desc">Date (décroissant)</a>
+            </p>
+          </div>
+        </div>
 		<div id="result"></div>
+        
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -71,11 +76,7 @@ $this->start('main_content'); ?>
                     <td><?= $contact['date']?></td>
                     <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?=$contact['id'];?>">Détails</button>
                 
-                
-
-  
-
-                          <!-- Modal -->
+                         <!-- Modal -->
                           <div class="modal fade" id="myModal<?=$contact['id'];?>" role="dialog">
                             <div class="modal-dialog">
 
@@ -113,10 +114,7 @@ $this->start('main_content'); ?>
 
                             </div>
                           </div>
-  
-
-                
-                
+               
                     </td>
                    <!-- <td>
                         <form action="<?= $this->url('ajaxDeleteContact') ?>" id=checkform5 method=post>
@@ -185,12 +183,7 @@ $this->start('main_content'); ?>
 
                     </div>
                   </div>
-                
-                
-                
-                
-                
-                
+         
                 
                 </td>
                 <!--<td>
@@ -221,11 +214,9 @@ $this->start('main_content'); ?>
 	</table>
    
 
+  
 
 
-     </div>
-
-  </div>
   <section class="row text-center">
     <!--  Pour l'affichage, on centre la liste des pages -->
     <ul class="pagination">
@@ -276,8 +267,11 @@ $this->start('main_content'); ?>
       <?php endfor; ?>
     </ul>
   </section>
+        </div>
+      </div>
+   </div>
 </div>
-     
+
  <?php  
 
     

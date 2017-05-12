@@ -14,9 +14,11 @@
 
       <div class="row">
         <div class="col-md-12">
-        <form method="POST" class="form-horizontal text-center col-xs-3">
-          <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
-        </form>
+          <div class="form-group">
+            <form method="POST" class="form-horizontal text-center col-xs-4">
+              <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher">
+            </form>
+          </div>
         </div>
       </div>
 
@@ -37,13 +39,13 @@
       </div>
       
       <div class="table-responsive col-md-12 text-center">
-        <table class=" table table-hover">
+        <table class="table table-hover text-center">
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Actions</th>
+              <th class="text-center">Id</th>
+              <th class="text-center">Nom</th>
+              <th class="text-center">Prénom</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
             <tbody>
