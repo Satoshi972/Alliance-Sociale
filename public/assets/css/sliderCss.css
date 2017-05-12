@@ -326,6 +326,13 @@
         .little-past {
             display:block;
         }
+        
+         .meteo {
+        width:100% !important;
+        height:250px !important;
+        text-align: center !important;
+
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -370,7 +377,12 @@
             display:none;
         }
         
-        
+         .meteo {
+        width:100% !important;
+        height:310px !important;
+        text-align: center !important;
+
+        }
         
     }
 
@@ -415,6 +427,13 @@
         .little-past {
             display:none;
         }
+       
+        .meteo {
+        width:100% !important;
+        height:370px !important;
+        text-align: center !important;
+
+        }
     }
 
     /* Medium Devices, Desktops */
@@ -443,6 +462,13 @@
         .big-fb {
             display:none !important;
         }
+        
+         .meteo {
+        width:100% !important;
+        height:250px !important;
+        text-align: center !important;
+
+        }
     }
 
     /* Large Devices, Wide Screens */
@@ -462,6 +488,8 @@
         width:100% !important;
         object-fit:cover !important; 
         }
+        
+        
                  .little-fb {
             display:none !important;
         }
@@ -471,6 +499,7 @@
         .big-fb {
             display:block !important;
         }
+        
     }
 
 .panel-body {
