@@ -1,24 +1,24 @@
 /* @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); */
 
 body {
-    background: #eee;
+  background: linear-gradient(#eee , brown);
 }
 
 .navbar-default .navbar-brand {
-    color: white;
+    color: #DAA520;
 }
 .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
-       background-color: #C60800;
-       color: white;
+       background-color: #27082d;
+       color: #DAA520;
 }
 
 .navbar-default .navbar-nav #user-profile {
     height: 50px;
     padding-top: 15px;
     padding-left: 58px;
-color: white;
+color: #DAA520;
 }
 
 .navbar-default .navbar-nav #user-profile img {
@@ -28,7 +28,7 @@ color: white;
     top: 2px;
     left: 8px;
     padding: 1px;
-    color: white;
+    color: #DAA520;
 }
 
 #wrapper {
@@ -69,7 +69,7 @@ color: white;
     -moz-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
-    background: #2f2626;
+    background: #27082d;
 }
 
 #sidebar-wrapper .sidebar-nav {
@@ -80,7 +80,7 @@ color: white;
     margin: 0;
     padding: 0;
     list-style: none;
-    background: #2f2626;
+    background: #27082d;
 }
 
 #sidebar-wrapper .sidebar-nav li {
@@ -107,7 +107,7 @@ color: white;
     display: inline-block;
     text-indent: 7px;
     margin-right: 10px;
-    color: #fff;
+    color: #DAA520;
     float: left;
 }
 
@@ -207,12 +207,12 @@ color: white;
   }
 
 .jumbotron {
-    color: white;
+    color: #DAA520;
     background-color: #c60800 !important;
   }
   .well {
-    background-color: #2f2626;
-    color: white;
+    background-color: #27082d;
+    color: #DAA520;
 }
 
 .list-group-item {
@@ -220,10 +220,10 @@ color: white;
     display: block;
     padding: 10px 15px;
     margin-bottom: -1px;
-    background-color: #2f2626;
+    background-color: #27082d;
     border: 1px solid #ddd;
 }
 
 a.list-group-item, button.list-group-item {
-    color: #f5f5f5;
+    color: #DAA520;
 }
