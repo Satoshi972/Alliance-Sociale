@@ -13,8 +13,8 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
-        //  $roles = ['admin'];
-        // $this->allowTo($roles);
+        $roles = ['admin'];
+        $this->allowTo($roles);
         $suscribe = new suscribe();
         $activity = new activity();
         $activities = $activity->findAll();
@@ -141,8 +141,8 @@ class UsersController extends Controller
     //Liste des users
     public function listUsers($page, $age1, $age2)
     {
-        //  $roles = ['admin'];
-        // $this->allowTo($roles);
+        $roles = ['admin'];
+        $this->allowTo($roles);
 
         $usersModel = new users();
         $users = "";
@@ -211,8 +211,8 @@ class UsersController extends Controller
     //Update users
     public function updateUsers($id){
 
-        //  $roles = ['admin'];
-        // $this->allowTo($roles);
+        $roles = ['admin'];
+        $this->allowTo($roles);
 
         //Connexion à la base pour l'update et pour remplissage du formulaire
         $up = new users(); 
@@ -222,7 +222,7 @@ class UsersController extends Controller
         $suscribeList = [];
         foreach ($sList as $key => $value) 
         {
-           $suscribeList = $value['activity'];
+           $suscribeList[] = $value['activity'];
         }
           
         $errors = [];
@@ -343,7 +343,7 @@ class UsersController extends Controller
         'roles'       => $listRoles,
         'activity'    => $listActivity,
         'affiche'     => $detailid,
-        'suscribed'    => $suscribeList,
+        'suscribed'   => $suscribeList,
         ];
         
         $this->show('users/update_users', $params);
@@ -352,25 +352,24 @@ class UsersController extends Controller
     //Suppression users
 
     public function delUsers($id){
-        // $roles = ['admin'];
-        // $this->allowTo($roles);
+        $roles = ['admin'];
+        $this->allowTo($roles);
 
         $success = false;
         $del = new users();
-        
+        $suscribe = new suscribe();
         $del -> delete($id);
-        // $remove = $del -> delete($id);
-
-        // if ($remove) {
-        //     $success = true;
-
-        // }
-
-        // $this->show('users/del_users',[
-        // 'affiche'=> $remove,
-        // 'success'=> $success,
-        // ]);
-
+        $suscribe->deleteTo($id);
     }   
+
+    public function showSuscribeTo($id)
+    {
+        $roles = ['admin'];
+        $this->allowTo($roles);
+
+        $suscribe = new suscribe();
+        $list = $suscribe->suscribeTo($id);
+        $this->showJson($list);
+    }
     
 }

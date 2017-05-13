@@ -15,7 +15,8 @@ $w_routes = array(
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
-	['GET|POST', '/users/list/[i:page]/[i:age1]/[i:age2]', 'Users#listUsers', 'list_users'], //List users
+    ['GET|POST', '/users/list/[i:page]/[i:age1]/[i:age2]', 'Users#listUsers', 'list_users'], //List users
+	['GET|POST', '/users/list/[i:id]', 'Users#showSuscribeTo', 'showSuscribeTo'], //List users
 	['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
     ['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
@@ -50,7 +51,8 @@ $w_routes = array(
     ['GET|POST','/listAll', 'Contact#ListAllContact', 'allContact'],
 
 	#Gestion des Partenaires
-	['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+    ['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+	['GET|POST', '/partners/showAllPartners', 'Partners#showAllPartners', 'showAllPartners'],//Json
 	['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],//Ajout des Partenaires
 	['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],//Modification des Partenaires
 	['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],//Suppression des Partenaires

@@ -12,9 +12,15 @@ $this->start('main_content'); ?>
         <!--    <div class="col-md-12 jumbotron">    -->
 
         <h1>Entrez vos identifiants !</h1>
-        <div id="result"></div>
-
-        <form method="post" id="checkform">
+        <div id="result">
+            
+            
+            
+        </div>
+        <?php if(!empty($errors)): ?>
+	    <p style="color:red;"><?=implode('<br>', $errors);?></p>
+        <?php endif; ?>
+        <form method="post" id="checkform" action="<?= $this->url('login') ?>">
             <div class="form-group">
             <label for="ident">E-mail :</label>
             <input type="email" name="ident" id="ident" class="form-control">
@@ -62,20 +68,20 @@ $this->start('script');
         		});
         	}); 
             
-            $('#submitForm').click(function(el){
+            /*$('#submitForm').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
 
                 var form_user = $('#checkform'); // On récupère le formulaire
                 $.ajax({
                     method: 'post',
-                    url: '<?= $this->url("ajax_login") ?>',
+                    url: '<?= $this->url("login") ?>',
                     data: form_user.serialize(), // On récupère les données à envoyer
                     success: function(resultat){
                         $('#result').html(resultat);
                         form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
                     }
                 });
-            });
+            });*/
             
             $('#ask_token').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut

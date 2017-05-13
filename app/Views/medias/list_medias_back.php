@@ -2,11 +2,15 @@
 <?php $this->layout('layout_Back', ['title' => 'Medias - Listes des Medias']) ?>
 
 <?php $this->start('main_content') ?>
-<div class="col-md-12">
 
-	<div class="col-md-6 col-md-offset-3">
-		<h2>Listes des médias</h2>
-	</div>
+
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 well">
+        <div class="col-md-12 jumbotron text-center">        
+          <h2>Listes des médias</h2>
+        </div>
 
 	<div class="col-md-12">	
 	<section class="row">
@@ -35,6 +39,8 @@
 		</ul>
 	</section>
 	</div>
+      </div>
+   </div>
+  </div>
 </div>
-
 <?php $this->stop('main_content') ?>

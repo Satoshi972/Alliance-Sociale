@@ -12,8 +12,8 @@ class ActivityController extends MasterController
 
 	public function addActivity()
 	{	
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
 		$category = new categoryModel();
         $newActivity = new Activity();
@@ -28,7 +28,7 @@ class ActivityController extends MasterController
 
         $errors = [];
         $post = [];
-        $success = false;
+        $result = null;
         $maxSize = (1024 * 1000) * 2;
 
         $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
@@ -102,30 +102,31 @@ class ActivityController extends MasterController
                 //Intègre les donnés dans la base
                 $newActivity->insert($datas);
                 
-                $success = true;
+                $result = "success";
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = implode('<br>', $errors);
             }
             
         }
-        // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
-        
-        $params = [
-        'success'  => $success,
-        'errors'   => $errors,
-        'category' => $list
-        ];
-        
-        $this->show('activite/add_activity', $params);
-
+        else
+        {
+            // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
+            
+            $params = [
+            'category' => $list
+            ];
+            
+            $this->show('activite/add_activity', $params);
+        }
+        echo $result;
 	}
 
     public function listActivity()
     {
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $category = new categoryModel();
         $cat = $category->findAll();
@@ -145,8 +146,8 @@ class ActivityController extends MasterController
     // public function detailsActivity()
     public function detailsActivity($id)
     {
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $newActivity = new Activity();
         $detailactivity = $newActivity->find($id);
@@ -160,8 +161,8 @@ class ActivityController extends MasterController
 
     public function updateActivity($id)
    {
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         $category = new categoryModel();
         $upActivity = new Activity();
@@ -275,8 +276,8 @@ class ActivityController extends MasterController
 
    public function delActivity($id)
    {
-    // $roles = ['admin','editor'];
-    // $this->allowTo($roles);
+    $roles = ['admin','editor'];
+    $this->allowTo($roles);
 
     $delactivity = new Activity();
     $remove = $delactivity -> delete($id);
@@ -288,6 +289,9 @@ class ActivityController extends MasterController
 
    public function showAllActivities()
    {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        
         $activity = new Activity();
         $list = $activity->findAll();
         $this->showJson($list);

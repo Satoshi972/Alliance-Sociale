@@ -2,30 +2,49 @@
 $this->layout('layout_back', ['title' => 'Mise a jour des infos du site']);
 $this->start('main_content');
 ?>
-<form method="POST" action="<?= $this->url('updateAboutInfos') ?>" enctype="multipart/form-data" class="form-horizontal">
 
-	<legend class="text-center">Modification des informations de la présentation</legend>
-<div id="result" class="text-center"></div>
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 well">
+          <div class="col-md-12 jumbotron text-center">
+            <h2>Modification des informations de la présentation</h2>
+          </div>
 
-	<div class="form-group">
-		<label for="word">Que sommes nous</label>
-		<textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
-	</div>
+			<form method="POST" action="<?= $this->url('updateAboutInfos') ?>" enctype="multipart/form-data" class="form-horizontal">
 
-	<div class="form-group">
-		<label for="history">Histoire de l'association</label>
-		<textarea name="history" id="history" cols="30" rows="10" class="form-control"></textarea>
-	</div>
+			<div id="result" class="text-center"></div>
 
-	<div class="form-group">
-		<label for="word">Mot de la présidente</label>
-		<textarea name="word" id="word" cols="30" rows="10" class="form-control"></textarea>
-	</div>
+				<div class="form-group">
+					<label class="col-md-2 control-label text-center" for="word">Que sommes nous</label>
+					<div class="col-md-10 text-center">
+					<textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+					</div>
+				</div>
 
-	<div class="text-center">
-		<input type="submit" class="btn btn-primary" value="Modifier">
-	</div>
-</form>
+				<div class="form-group">
+					<label class="col-md-2 control-label text-center" for="history">Histoire de l'association</label>
+					<div class="col-md-10 text-center">
+					<textarea name="history" id="history" cols="30" rows="10" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label text-center" for="word">Mot de la présidente</label>
+					<div class="col-md-10 text-center">
+					<textarea name="word" id="word" cols="30" rows="10" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<input type="submit" class="btn btn-primary" value="Modifier">
+				</div>
+			</form>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php
 $this->stop('main_content');

@@ -12,49 +12,48 @@ $this->start('main_content');
 <div class ="container">
  <div class="row">
   <div class="col-md-12">
-   <div class="col-md-8 text-center well jumbo">
-	<div class="col-md-6 col-md-offset-3">
+   <div class="col-md-12 well">
+	<div class="col-md-12 jumbotron text-center">
 		<h2>Ajout des médias</h2>
 	</div>
 	
-	<div class="col-md-6 col-md-offset-3">
-		<?php if($success == true): // La variable $success est envoyé via le controller?>
-			<p style="color:green">Bravo, vos médias ont bien été enregistré</p>
-		<?php endif; ?>
-
-		<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-			<p style="color:red"><?=implode('<br>', $errors); ?></p>
-		<?php endif; ?>
-	</div> 
-
-
-	
+	<div class="col-md-12" id='#result'></div> 
 	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
 
 		<!-- Image -->
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="medias">Envoyez vos médias</label>
-			<div class="col-md-4">
+			<div class="col-md-2 text-center">
+				<label class="control-label" for="medias">Envoyez vos médias</label>
+			</div>
+			<div class="col-md-10">
 				<input type="file" id="medias" name="medias[]" multiple>
 			</div>
 		</div>
 
 		<div class="form-group">
+			<div class="col-md-2 text-center">
 			<label for="event">Evenement</label>
-			<select name="event" id="event" class="form-control">
-				<?php foreach ($list as $key => $value):?>
-					<option value="<?= $value['id_event'] ?>"><?= $value['title'] ?></option>
-				<?php endforeach; ?>
-			</select>
+			</div>
+			<div class="col-md-10">
+				<select name="event" id="event" class="form-control">
+					<?php foreach ($list as $key => $value):?>
+						<option value="<?= $value['id_event'] ?>"><?= $value['title'] ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="visible">Ces médias seront-ils visibles a tous?</label>
-			<input type="checkbox" value="1" name="visible" id="visible">
+			<div class="col-md-2 text-center">
+				<label for="visible">Ces médias seront-ils visibles a tous?</label>
+			</div>
+			<div class="col-md-10">
+				<input type="checkbox" value="1" name="visible" id="visible">
+			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-12 text-center">
 				<button type="submit" id="submitForm" class="btn btn-primary">Ajouter des médias</button>
 			</div>
 		</div>
@@ -70,12 +69,23 @@ $this->start('script');
     <script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
     <script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
 <script>
-	$("#medias").fileinput(
-    	{
-    		'showUpload':false,
-    		'showCaption' : false,
-    		language: "fr"
-    	});
+$("#medias").fileinput(
+{
+	'showUpload':false,
+	'showCaption' : false,
+	language: "fr"
+});
+
+$(function()
+{
+  //gestion de mon formulaire d'envoi
+  $('form').on('submit',function(e)
+  {
+      e.preventDefault();
+      var myForm = $('form');
+      submitForm(myForm);
+  });
+});
 </script>
 <?php
 $this->stop('script'); 

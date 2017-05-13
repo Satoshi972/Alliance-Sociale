@@ -15,60 +15,82 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');
 ?>
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 well">
 
     <div class="text-center jumbotron">
        <h2>Cr&eacute;ation d'&eacute;v&egrave;nement</h2>
     </div>
 	<div id="result"></div>
 
-	<form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
+		<form action="<?= $this->url('addEvent')?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
 
 
-		<div class="form-group">
-			<label for="title">Titre</label>
-			<input type="text" name='title' id="title" class="form-control">
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="title">Titre</label>
+				 <div class="col-md-10 text-center">
+					<input type="text" name='title' id="title" class="form-control">
+				 </div>
+			</div>
 
-		<div class="form-group">
-			<label for="content">Contenu</label>
-			<textarea name="content" id="content" cols="30" class="form-control" rows="10"></textarea>
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="content">Contenu</label>
+				<div class="col-md-10 text-center">
+					<textarea name="content" id="content" cols="30" class="form-control" rows="10"></textarea>
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="start">Date de début</label>
-			<input type="text" id="start" name="start" class="form-control datepicker" data-provide="datepicker">
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="start">Date de début</label>
+				<div class="col-md-10 text-center">
+					<input type="text" id="start" name="start" class="form-control datepicker" data-provide="datepicker">
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="end">Date de fin</label>
-			<input type="text" id="end" name="end" class="form-control datepicker" data-provide="datepicker">
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="end">Date de fin</label>
+				<div class="col-md-10 text-center">
+					<input type="text" id="end" name="end" class="form-control datepicker" data-provide="datepicker">
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="activity">L'activité rapportée a l'évenement</label>
-			<select name="activity" id="activity" class="form-control">
-				<?php foreach ($infos as $key => $value):?>
-					<option value="<?= $value['act_id'] ?>"><?= $value['name']  ?></option>
-				<?php endforeach; ?>
-			</select>
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="activity">L'activité rapportée a l'évenement</label>
+				<div class="col-md-10 text-center">
+				<select name="activity" id="activity" class="form-control">
+					<?php foreach ($infos as $key => $value):?>
+						<option value="<?= $value['act_id'] ?>"><?= $value['name']  ?></option>
+					<?php endforeach; ?>
+				</select>
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label class="control-label text-center" for="quota">Ajouter un quota:</label>
-			<input type="number" id="quota" name="quota" class="form-control">
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" class="control-label text-center" for="quota">Ajouter un quota</label>
+				<div class="col-md-10 text-center">
+				<input type="number" id="quota" name="quota" class="form-control">
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label class="control-label text-center" for="picture">Image</label>	
-			<input type="file" name="picture" id="picture" class="picture" accept="image/*">		
-		</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label text-center" for="picture">Image</label>	
+				<div class="col-md-10">
+					<input type="file" name="picture" id="picture" class="picture" accept="image/*">
+				</div>		
+			</div>
 
-
-		<div class="text-center">
-			<input type="submit" class="btn btn-primary" value="Envoyer">
-		</div>
-	</form>
-
+            <div class="form-group">
+				<div class="text-center">
+					<input type="submit" class="btn btn-primary" value="Créer l'évènement">
+				</div>
+			</div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php
 $this->stop('main_content');
@@ -89,55 +111,24 @@ $this->start('script');
     format: 'yyyy-mm-dd',
     language: 'fr'
 });
-</script>
-<script>
 $("#picture").fileinput(
-	{
-		'showUpload'  :false,
-		'showCaption' :false,
-		'showRemove'  :true,
-		'maxFileCount': 10,
-		language: "fr",
-	});
-</script>
-
-<script>
-$( function() {
-
+{
+	'showUpload'  :false,
+	'showCaption' :false,
+	'showRemove'  :true,
+	'maxFileCount': 10,
+	language: "fr",
+});
+$(function()
+{
 	//gestion de mon formulaire d'envoi
-    $('form input[type="submit"]').click(function(e)
-    {
-        e.preventDefault();
-
-        var myForm = $('form');
-        var formdata = (window.FormData) ? new FormData(myForm[0]) : null;
-        var data = (formdata !== null) ? formdata : myForm.serialize();
-                       
-        $.ajax(
-        {
-            method: myForm.attr('method'),
-            url: myForm.attr('action'),
-            contentType: false, // obligatoire pour de l'upload
-            processData: false, // obligatoire pour de l'upload
-            cache: false,
-            data: data,
-            success: function(res)
-            {
-            	if(res == "success")
-	            {
-	            	$('#result').html("Evenement bien enregistré").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
-	                $('form')[0].reset();
-	            }
-	            else
-	            {
-	                $('#result').html(res).fadeIn(2000).fadeOut(5000);
-	            }
-            }
-        });
-    });         
-} );
-
-
+	$('form').on('submit',function(e)
+	{
+	    e.preventDefault();
+	    var myForm = $('form');
+	    submitForm(myForm);
+	});
+});
 </script>
 <?php
 $this->stop('script');

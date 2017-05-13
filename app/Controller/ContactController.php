@@ -11,8 +11,8 @@ class ContactController extends MasterController
 	public function contactList($page)
 	{
 
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
 
         
         $contactModel = new contact();
@@ -113,7 +113,7 @@ class ContactController extends MasterController
                 $this->show('contacts/contact_list', $params);  
                     
                 }else{
-                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);    
+                $contacts = $select->findAllC($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);    
                 $textErrors = implode('<br>', $errors);
         		$params = ["contacts" => $contacts,
                            "errors"   => $textErrors,
@@ -128,7 +128,7 @@ class ContactController extends MasterController
         	} 
             }    
         }else {
-                $contacts = $select->findAll($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
+                $contacts = $select->findAllC($orderBy = '', $orderDir = 'ASC', $limit = '', $offset = null, $firstEntry , $ContactPerPages);
                 
                 $params = ["contacts" => $contacts,
                            "nbPages"  => $nbPages,
@@ -196,6 +196,8 @@ class ContactController extends MasterController
 
     public function ListAllContact()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
         $contact = new ContactsModel();
         $list = $contact->findAll();
         $this->showJson($list);
@@ -203,6 +205,8 @@ class ContactController extends MasterController
 
     public function deleteAllContact()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
         $contact = new ContactsModel();
         $list = $contact->deleteAll();
     }

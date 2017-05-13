@@ -8,9 +8,6 @@
     <!-- Permet la compatibilité avec MS IE-EDGE -->
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
 
-    <!-- Google font Roboto -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet"> 
-
     <!-- Bootstrap CSS -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
@@ -28,10 +25,6 @@
     <link href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-
-
-    
 
     <link rel="stylesheet" href="<?= $this->assetUrl('css/back.css') ?>">
 
@@ -74,10 +67,10 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/user-icon-png-pnglogocom.img.png') ?>" class="img-responsive img-thumbnail img-circle">Identifiant</a>
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/deconnexion.png') ?>" style="width: 40px;height: 40px;" class="img-responsive">Déconnexion</a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     <!-- <li><a href="#">Mon compte</a></li> -->
-                                    <li><a href="logout">Déconnexion</a></li>
+                                    <li><a href="<?php echo $this->url('logout') ?>">Se déconnecter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -100,7 +93,7 @@
                           <div id="MainMenu">
                             <div class="list-group panel">
 
-                              <!-- <?php if($w_user['role'] === 'admin'): ?>
+                              <?php if($w_user['role'] === 'admin'): ?>
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -108,34 +101,31 @@
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
-                              <?php endif; ?> -->
-                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                              <?php endif; ?>
+                              <!-- <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
                                       Gestion des utilisateurs  
                                   <i class="fa fa-caret-down"></i>
                                 </span>
-                              </a>
+                              </a> -->
                               <div class="collapse" id="demo1">
-                                <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
+                                <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
                               </div>
                               
                               <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-sticky-note" aria-hidden="true"></i>
-</span>
+                                </span>
                                 <span class="sidebar-title">
                                       Gestion Fiche de contact  
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
 
-
                               <div class="collapse" id="demo2">
                                 <a href="<?= $this->url('contactList',['page'=> 1]) ?>" class="list-group-item">Liste des fiches</a>
-                                
                               </div>
-
 
                               <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
@@ -163,8 +153,8 @@
                               </a>
 
                               <div class="collapse" id="demo4">
-                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
                                 <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
+                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
                               </div>
 
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -182,7 +172,7 @@
                                 <a href="<?= $this->url('listMediasBack',['page'=>1]) ?>" class="list-group-item">Galerie</a>
                               </div>
 
-                              <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                              <!-- <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-handshake-o" aria-hidden="true"></i>
                                 </span>
@@ -196,7 +186,7 @@
                                 <a href="<?= $this->url('add_partners') ?>" class="list-group-item">Ajouter un partenaire</a>
                                 <a href="<?= $this->url('partners') ?>" class="list-group-item">liste des partenaires</a>
                               </div>
-
+                               -->
                               <a href="#management" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-info" aria-hidden="true"></i>
@@ -253,6 +243,7 @@
   <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
   <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+  <script src="<?= $this->assetUrl('js/function.js') ?>"></script>
  
   <!-- Permet des inclusions de scripts depuis la vue -->
   <?php echo $this->section("script") ?>
