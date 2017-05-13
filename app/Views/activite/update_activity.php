@@ -11,12 +11,12 @@ $this->stop('head');
 $this->start('main_content');?>
 
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-3 text-center well  text-center">
+<div class ="container">
+  <div class="row">   
+      <div class="col-md-12 well">
         <div class="col-md-12 jumbotron">        
           <h2>Modification de l'activitée</h2>
-      </div>
+        </div>
         
           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
             <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
