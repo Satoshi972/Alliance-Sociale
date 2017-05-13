@@ -9,7 +9,6 @@ $this->start('main_content');
 ?>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
       <div class="col-md-12 well">
 	<!-- Zone calendrier -->
        <div class="col-md-12 jumbotron text-center">        
@@ -22,7 +21,7 @@ $this->start('main_content');
       <!-- detail de mon event -->
       <div id="fullCalModal" class="modal fade">
           <div class="modal-dialog">
-              <div class="modal-content">
+              <div class="modal-content" style="background-color: #27082d;">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                       <h4 id="modalTitle" class="modal-title"></h4>
@@ -37,7 +36,6 @@ $this->start('main_content');
           </div>
         </div>
       </div>
-    </div>
   </div>
 
 </div>

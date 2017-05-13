@@ -72,7 +72,7 @@
                     <div class="modal-dialog">
                     '#myModal' + id +'.modal-content .modal-body ul li ul.activities' 
                       <!-- Modal content-->
-                      <div class="modal-content">
+                      <div class="modal-content" style="background-color: #27082d;">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4 class="modal-title">Users en Détails :</h4>
