@@ -17,7 +17,6 @@ $this->start('main_content');
 
 <div class ="container">
   <div class="row">
-    <div class="col-md-12">
       <div class="col-md-12 well">
           <div class="col-md-12 jumbotron text-center">
             <h2>Création utilisateur</h2>
@@ -106,7 +105,6 @@ $this->start('main_content');
           </form>
 
       </div>
-    </div>
   </div>
 </div>
 

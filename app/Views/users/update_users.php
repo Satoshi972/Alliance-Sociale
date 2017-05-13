@@ -18,8 +18,7 @@ $this->start('main_content');
 
 <div class ="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-2 text-center well">
+      <div class="col-md-12 well">
           <div class="col-md-12 jumbotron">
          <h2>Modification de l'utilisateur</h2>
           </div>
@@ -120,7 +119,6 @@ $this->start('main_content');
           <?php endif; ?>
 
       </div>
-    </div>
   </div>
 </div>
 <?php 
