@@ -37,78 +37,43 @@
 </head>
 <body>
 
-<!-- Début Top header -->
-    <main class="container-fluid topheader">
-        <div class="row">
-            <div class="col-lg-12 top-header">
-                <ul class="reseau">
-                    <?php if (empty($w_user)): ?>
-
-                         <li><a href="<?php echo $this->url('login') ?>">connexion</a></li>
-
-                    <?php else: ?>  
-
-                         <li><a href="<?php echo $this->url('logout') ?>">déconnexion</a></li>
-
-                    <?php endif ?>
-
- <!--                    <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
- <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li> -->
-                </ul>
+ <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>">Alliance Sociale</a>
             </div>
-        </div>
-        <div class="row">
-
-                <div class="col-sm-3">
-                    <a href="<?php echo $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "260px;"></a>
-                </div>
-
-                <div class="col-sm-6">
-                   <img class="img-responsive carouselheader" src="/Alliance-Sociale/public/assets/img/13725086_999551693491252_5244655575039982654_o.jpg"/>
-                </div>
-
-               <!--  <div class="col-sm-3">
-                    <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/97226011/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>    
-                                                
-                </div> -->
-        </div>
-            
-       
-    </main>
- 
-<!-- Fin Top header -->
-  <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href=""></a>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse dropdown">
-          <ul class="nav navbar-nav">
-            <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
-            <li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<?php echo $this->url('default_home') ?>">Accueil</a>
+                    </li>
+                    <li>
 
               <a href="<?php echo $this->url('about') ?>">Présentation</a></li>
-
-            <li>
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Evènements<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('listPresentEvent') ?>">Evènements en cours</a></li>
-
-        </ul>
-            </li>
-                
-            <li class="dropdown">
+                    
+                    <li class="dropdown">
+                        <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url('default_home') ?>">Evènements à venir</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
             <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-               Nos Activités<span class="caret"></span></a>
+                Nos Activités<span class="caret"></span></a>
 
               <ul class="dropdown-menu">
       <li class="dropdown-submenu">
@@ -120,7 +85,7 @@
         </ul>
       </li>
       <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Comité des jeunes <span class="caret"></span></a>
+        <a class="test" tabindex="-1" href="#">Comité des jeunes </a>
       </li>
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
@@ -146,34 +111,37 @@
         <ul class="dropdown-menu">
           <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>13]) ?>">Autres</a></li>
         </ul>
-      </li>
-            </ul>
+                  </li></ul>
+      
+                    <li>
+                        <a href="<?php echo $this->url('contactfront') ?>">Contactez nous</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('accession') ?>">Adhésion</a>
+                    </li>
+                    <li class="dropdown">
+                          <?php if(!empty($w_user)): ?>
 
-  
+                         <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
 
-            <li>
-              <a href="<?php echo $this->url('contactfront') ?>"> Contactez nous</a>
-            </li>
+                         <?php else: ?>
 
-            <li>
-              <a href="<?php echo $this->url('accession') ?>"> Adhésion</a>
-            </li>
+                        <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
 
-            <li class="dropdown">
-              <?php if(!empty($w_user)): ?>
+                         <?php endif; ?>
+                    </li>
 
-             <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-             <?php else: ?>
-
-               <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
-
-             <?php endif; ?>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-  </nav>
+    <!-- Header Carousel -->
+    <header>
+    <img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>">
+    </header>
     
 <div class="container-fluid">
 
