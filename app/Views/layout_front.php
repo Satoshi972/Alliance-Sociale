@@ -176,17 +176,6 @@
   </nav>
     
 <div class="container-fluid">
-        <div class="col-md-6 col-md-pull-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i></h4>
-                    </div>
-                    <div class="panel-body contenu">
-            <?= $this->section('main_content') ?>
-                    </div>
-                </div>
-            </div>
-
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
@@ -194,7 +183,17 @@
                     
                 </h1>
             </div>
-            <div class="col-md-3 col-md-push-3">
+            <div class="col-md-6 col-md-push-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i></h4>
+                    </div>
+                    <div class="panel-body contenu">
+            <?php echo $this->section('main_content') ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-pull-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i></h4>
