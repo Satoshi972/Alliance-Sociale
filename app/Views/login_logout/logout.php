@@ -12,7 +12,7 @@ $this->start('main_content'); ?>
         <h1>Déconnexion</h1>
         
         <div id="result"></div>
-        <?php if(!empty($infos)){ ?>
+        <?php if(isset($infos)){ ?>
         <div id='hide'>
             <?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
 

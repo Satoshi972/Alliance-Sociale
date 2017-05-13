@@ -122,8 +122,8 @@ class UserController extends Controller
         
      if (isset($_SESSION["user"])){
          
-        $infos = $find->find($_SESSION['user']);
-         
+        $infos = $find->find($_SESSION['user']['id']);
+       
         $this->show('login_logout/logout', ['infos' => $infos,
                                            ]);   
          
