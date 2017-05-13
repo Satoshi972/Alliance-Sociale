@@ -69,7 +69,6 @@
                    <!-- Modal -->
                   <div class="modal fade" id="myModal<?=$user['id'];?>" role="dialog">
                     <div class="modal-dialog">
-                    '#myModal' + id +'.modal-content .modal-body ul li ul.activities' 
                       <!-- Modal content-->
                       <div class="modal-content" style="background-color: #27082d;">
                         <div class="modal-header">

@@ -34,10 +34,10 @@ $this->start('main_content');
                 </td>
             <!--Détails users via lien-->
     			<!--<td>
-    			<a href="<?= $this->url('details_users', ['id' => $user['id']]) ?>">Détails</a>
+    			<a href="<?= $this->url('details_users', ['id' => $user['id_usr']]) ?>">Détails</a>
     			</td> -->
                 <!--Détails users via modal-->
-                <td><button type="button" onClick="showActivity(<?=$user['id'];?>)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$user['id'];?>">Détails</button>
+                <td><button type="button" onClick="showActivity(<?=$user['id_usr'];?>)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$user['id'];?>">Détails</button>
 
                  <!-- Modal -->
                 <div class="modal fade" id="myModal<?=$user['id'];?>" role="dialog">
@@ -107,6 +107,7 @@ $this->start('script');
 
 function showActivity(id)
 {
+  console.log(id)
   var lien = '/Alliance-Sociale/public/users/list/'
   $.getJSON(lien+id, function(data) 
   {
@@ -120,6 +121,7 @@ function showActivity(id)
     $('.activities' ).html(res);
   });
 }
+
 </script>
 <?php
 $this->stop('script');
