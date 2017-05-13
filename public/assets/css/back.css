@@ -1,7 +1,7 @@
 /* @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); */
 
 body {
-  background: linear-gradient(#eee , brown);
+  background: linear-gradient(to left, red , white, red ) !important;
 }
 
 .navbar-default .navbar-brand {
