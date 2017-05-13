@@ -176,6 +176,16 @@
   </nav>
     
 <div class="container-fluid">
+        <div class="col-md-6 col-md-pull-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i></h4>
+                    </div>
+                    <div class="panel-body contenu">
+            <?= $this->section('main_content') ?>
+                    </div>
+                </div>
+            </div>
 
         <!-- Marketing Icons Section -->
         <div class="row">
@@ -184,7 +194,7 @@
                     
                 </h1>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-md-push-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i></h4>
@@ -195,17 +205,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i></h4>
-                    </div>
-                    <div class="panel-body contenu">
-            <?= $this->section('main_content') ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
+                        <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-compass"></i></h4>
@@ -254,7 +254,74 @@
 
 
 <!-- Item slider-->
--
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
+ <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
+             <h5 class="text-center">4000,00 RSD</h5>
+              -->            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
+             <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
+             <h5 class="text-center">4000,00 RSD</h5> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
+           <!--    <span class="badge">10%</span> -->
+<!--               <h4 class="text-center">PANTALONE TERI 2</h4>
+<h5 class="text-center">4000,00 RSD</h5>
+<h6 class="text-center">5000,00 RSD</h6> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
+<!--               <h4 class="text-center">CVETNA HALJINA</h4>
+<h5 class="text-center">4000,00 RSD</h5> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
+<!--               <h4 class="text-center">MAJICA FOTO</h4>
+<h5 class="text-center">4000,00 RSD</h5> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
+<!--               <h4 class="text-center">MAJICA MAYORAL</h4>
+<h5 class="text-center">4000,00 RSD</h5> -->
+            </div>
+          </div>
+
+       
+        </div>
+
+        <div id="slider-control">
+        <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
+        <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Item slider end-->
 
 
