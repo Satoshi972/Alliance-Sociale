@@ -17,14 +17,14 @@
     <?php echo $this->section("sliderCss") ?>
     <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/jumboCss.css') ?>">
-   
+   <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/modern-business.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/front.css') ?>">
     
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
     
@@ -40,24 +40,10 @@
 </head>
 
 <body>
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-           <ul class="reseau">
-                    <?php if (empty($w_user)): ?>
-
-                         <li><a class="conex" href="<?php echo $this->url('login') ?>">Se connecter</a></li>
-
-                    <?php else: ?>  
-
-                         <li><a href="<?php echo $this->url('logout') ?>">Déconnexion</a></li>
-
-                    <?php endif ?>
-
- <!--                    <li><a href="#"><img src="<?= $this->assetUrl('img/facebook_logos.png') ?>" alt="logos" class="img-responsive"></a></li>
- <li> <a href="#"><img src="<?= $this->assetUrl('img/whatsapp_logo.png') ?>" alt="logos" class="img-responsive"></a></li> -->
-                </ul>
+        <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -66,84 +52,62 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logo_alliance.png') ?>" alt="logos" class="img-responsive img-circle logos" width= "180em;"></a>
+                <a class="navbar-brand" href="index.html">Alliance Sociale</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right lien">
-                    <li><a href="<?php echo $this->url('default_home') ?>">Accueil</a></li>
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-
-              <a href="<?php echo $this->url('about') ?>">Présentation</a></li>
+                        <a href="about.html">Accueil</a>
+                    </li>
                     <li>
-              <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Evènements<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('default_home') ?>">Evènements à venir</a></li>
-
-        </ul>
-            </li>
+                        <a href="services.html">Présentation</a>
+                    </li>
+                    
                     <li class="dropdown">
-            <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-               Nos Activités<span class="caret"></span></a>
-
-              <ul class="dropdown-menu">
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Formations <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>10]) ?>">Formation du personnel</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>11]) ?>">Prevention et secours civique</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>12]) ?>">BAFA</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Comité des jeunes <span class="caret"></span></a>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>1]) ?>">Gymnastique</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>2]) ?>">Judo</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>3]) ?>">Zumba</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>4]) ?>">Randonnée</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>6]) ?>">Danse traditionnelle</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>7]) ?>">Accueil de loisirs (sans hébergement)</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>8]) ?>">Couture</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>9]) ?>">Cuisine</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Education<span class="caret"></span></a> 
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>5]) ?>">Accompagnement scolaire</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Animation<span class="caret"></span></a> 
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>13]) ?>">Autres</a></li>
-        </ul>
-      </li>
-            </ul>
-              </li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-item.html">Single Portfolio Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nos Activités <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="blog-home-1.html">Blog Home 1</a>
+                            </li>
+                            <li>
+                                <a href="blog-home-2.html">Blog Home 2</a>
+                            </li>
+                            <li>
+                                <a href="blog-post.html">Blog Post</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
-              <a href="<?php echo $this->url('contactfront') ?>"> Contactez nous</a>
-            </li>
+                        <a href="services.html">Contactez nous</a>
+                    </li>
                     <li>
-              <a href="<?php echo $this->url('accession') ?>"> Adhésion</a>
-            </li>
-               <li class="dropdown">
-              <?php if(!empty($w_user)): ?>
+                        <a href="services.html">Adhésion</a>
+                    </li>
+                    <li>
+                        <a href="services.html">Galeries</a>
+                    </li>
 
-             <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
-
-             <?php else: ?>
-
-               <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
-
-             <?php endif; ?>
-            </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -152,73 +116,52 @@
     </nav>
 
     <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('<?= $this->assetUrl('img/Sans titre-1.jpg') ?>');"></div>
-                <div class="carousel-caption">
-                    
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('<?= $this->assetUrl('img/Sans titre-2.jpg') ?>');"></div>
-                <div class="carousel-caption">
-                    
-                </div>
-            </div>
-            <div class="item">
-                                <div class="fill" style="background-image:url('<?= $this->assetUrl('img/Sans titre-3.jpg') ?>');"></div>
-
-                <div class="carousel-caption">
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
+    <header>
+    <img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>">
     </header>
 
     <!-- Page Content -->
-    <div class="full-container">
-        <br>
+    <div class="container">
 
         <!-- Marketing Icons Section -->
         <div class="row">
-            <div class="col-md-3">
-                
+            <div class="col-lg-12">
+                <h1 class="page-header">
                     
-                    <div class="panel-body faceb">
-                        <div class="fb-page" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div> 
-                    </div>
-                
+                </h1>
             </div>
-            <div class="col-md-6">
+            
+                    <div class="col-xs-12 col-sm-4 col-md-3">
                 <div class="panel panel-default">
-                    
+                    <div class="panel-heading">
+                        
+                    </div>
                     <div class="panel-body">
-                        <?= $this->section('main_content') ?>
+            <!-- Zone d'inclusion de Facebook -->
+            <div class="push fb-page" align="center" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>           
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                
-                    
-                    <div class="panel-body">
-                        <!-- Zone calendrier -->
+            
+            <div class="col-xs-12 col-sm-8 col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        
+                    </div>
+                    <div class="panel-body contenu">
+            <?= $this->section('main_content') ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        
+                    </div>
+                    <div class="panel-body img-responsive">
+
+    
+<!-- Zone calendrier -->
 <div id="calendar"></div>
             <!-- detail de mon event -->
             <div id="fullCalModal" class="modal fade">
@@ -240,25 +183,19 @@
             <!-- Zone calendrier -->
             <br>
                         <div class="meteo">
-             <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 100%;height: 400px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+             <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 216px;height: 240px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
                              
                     </div>
-                        
-                    </div>
+                </div>
+                </div>
             </div>
         </div>
         <!-- /.row -->
 
-        
-        <!-- Footer -->
-        <footer>
+        <hr>
 
-                    <h3 style="text-align:center">Partenaires</h3>
-               <!--Item slider text-->
-
-
-<!-- Item slider-->
-<div class="container-fluid">
+        <!-- Call to Action Section -->
+        <div class="container-fluid">
 
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -267,7 +204,7 @@
 
           <div class="item active">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
  <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
              <h5 class="text-center">4000,00 RSD</h5>
               -->            </div>
@@ -275,7 +212,7 @@
 
           <div class="item">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.png') ?>" class="img-responsive center-block"></a>
              <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
              <h5 class="text-center">4000,00 RSD</h5> -->
             </div>
@@ -283,7 +220,7 @@
 
           <div class="item">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_espace_sud.png') ?>" class="img-responsive center-block"></a>
            <!--    <span class="badge">10%</span> -->
 <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
 <h5 class="text-center">4000,00 RSD</h5>
@@ -293,7 +230,7 @@
 
           <div class="item">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.png') ?>" class="img-responsive center-block"></a>
 <!--               <h4 class="text-center">CVETNA HALJINA</h4>
 <h5 class="text-center">4000,00 RSD</h5> -->
             </div>
@@ -301,7 +238,7 @@
 
           <div class="item">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.png') ?>" class="img-responsive center-block"></a>
 <!--               <h4 class="text-center">MAJICA FOTO</h4>
 <h5 class="text-center">4000,00 RSD</h5> -->
             </div>
@@ -309,7 +246,7 @@
 
           <div class="item">
             <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
+              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.png') ?>" class="img-responsive center-block"></a>
 <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
 <h5 class="text-center">4000,00 RSD</h5> -->
             </div>
@@ -319,16 +256,19 @@
         </div>
 
         <div id="slider-control">
-        <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="<?= $this->assetUrl('img/arrow_left.png') ?>" class="img-responsive center-block"></a>
-        <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="<?= $this->assetUrl('img/arrow_right.png') ?>" class="img-responsive center-block"></a>
+        <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="<?= $this->assetUrl('img/arrow_left.png') ?>" alt="Left" class="img-responsive"></a>
+        <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="<?= $this->assetUrl('img/arrow_right.png') ?>" alt="Right" class="img-responsive"></a>
       </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Item slider end-->
 
-                <div class="row">
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
                     <div class="col-lg-12">
                     <div class="infos">
                         <div class="row">
@@ -366,11 +306,31 @@
                    
                                <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
                             </div>
+
+                    </div>
                 </div>
-            </div>
         </footer>
 
     </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>
+
     <!-- /.container -->
 
     <!-- jQuery -->
