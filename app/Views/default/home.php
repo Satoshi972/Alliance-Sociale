@@ -1,4 +1,4 @@
-<?php $this->layout('layout_front', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout_front2', ['title' => 'Accueil']) ?>
 
 
 <?php $this->start('sliderCss') ?>
@@ -83,7 +83,7 @@
             </div>
             <div class="main-text hidden-xs">
                 <div class="col-md-12 text-center">
-                    <h1>Evènement à venir :</h1>
+                    <h2>Evènement à venir :</h2>
                     
                 </div>
 
