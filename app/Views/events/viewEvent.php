@@ -14,14 +14,14 @@ $this->start('main_content');
 	</div>
 
 	<div class="list-group-item text-center">
-		<h4 class="list-group-item-heading">Date de début</h4>
+		<h4 class="list-group-item-heading">Date<?php if($infos['end'] !== null){echo ' de début';}?></h4>
 		<p class="list-group-item-text"><?= $infos['start'];?></p>
 	</div>
 
-	<?php if(!($infos['start'])): ?>
+	<?php if($infos['end'] !== null): ?>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Date de fin</h4>
-		<p class="list-group-item-text"><?= $infos['start'];?></p>
+		<p class="list-group-item-text"><?= $infos['end'];?></p>
 	</div>
 	<?php endif; ?>
 

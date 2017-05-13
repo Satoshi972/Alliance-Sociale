@@ -45,7 +45,7 @@ class ActivityController extends MasterController
             //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
             (!v::notEmpty()->alNum('-?!")(\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le descriptif de l\'activité doit faire entre 2 et 600 caractères' : null,
 
-            (in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,            
+            (!in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors du choix de la catégorie...' : null,            
             ];
             
             $errors = array_filter($err);
