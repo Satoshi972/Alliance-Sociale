@@ -18,7 +18,7 @@
 			
 				<figure class="col-xs-3">
 			    	<!-- <img src="/Alliance-Sociale/public/<?php// echo $media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias"> -->
-			    	<iframe src="/Alliance-Sociale/public/<?=$media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no"></iframe>
+			    	<img src="/Alliance-Sociale/public/<?=$media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no">
 			    	
 			    	<figcaption><a href="<?= $this->url('deleteMedias',['id'=>$media['id']]) ?>" class="btn btn-dange text-center">Supprimer</a></figcaption>
 			    </figure>
@@ -37,8 +37,45 @@
 					<?php endfor; ?>
 				</ul>
 			</section>
+			<!-- lightview -->
+			<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+			  <div class="modal-dialog">
+			  <div class="modal-content">
+			    <div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal">×</button>
+					<h3 class="modal-title"></h3>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			   </div>
+			  </div>
+			</div>
+			<!-- fin light -->
+
 			</div>
       </div>
   </div>
 </div>
-<?php $this->stop('main_content') ?>
+<?php 
+$this->stop('main_content');    
+$this->start('script');
+
+?>
+<script>
+$(document).ready(function() {
+$('.img-responsive').click(function(){
+      $('.modal-body').empty();
+  	var title = $(this).parent('a').attr("title");
+  	$('.modal-title').html(title);
+  	$($(this).parents('div').html()).appendTo('.modal-body');
+  	$('#myModal').modal({show:true});
+});
+});        
+</script> 
+<?php
+    $this->stop('script');
+?>
