@@ -15,12 +15,12 @@ function submitForm(myForm)
 	    {
 	    	if(res == "success")
 	        {
-	        	$('#result').html("Action bien effectuée").addClass('alert-dismissable alert-success').fadeIn(2000).fadeOut(5000);
+	        	$('#result').html("Votre action a bien effectuée").addClass('alert-dismissable alert-success').fadeIn(5000).fadeOut(5000);
 	            $('form')[0].reset();
 	        }
 	        else
 	        {
-	            $('#result').html(res).addClass('alert-dismissable alert-danger').fadeIn(2000).fadeOut(5000);
+	            $('#result').html(res).addClass('alert-dismissable alert-danger').fadeIn(10000).fadeOut(20000);
 	        }
 	    }
 	});

@@ -75,7 +75,7 @@ class EventsController extends MasterController
             
 			if(!v::notEmpty()->alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
 			{
-				$errors[] = 'Votre title doit faire entre 2 et 50 caractères';
+				$errors[] = 'Votre titre doit faire entre 2 et 50 caractères';
 			}
 
 			if(!v::notEmpty()->alNum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
@@ -108,7 +108,7 @@ class EventsController extends MasterController
 
 			if(!v::intVal()->validate($post['quota']))
 			{
-				$errors[] = 'Veuillez saisir un chiffre';
+				$errors[] = 'Veuillez saisir un chiffre ou nombre dans le quota';
 			}
 
 			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
