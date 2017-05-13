@@ -4,19 +4,20 @@ $this->start('main_content');
 ?>
 <div class ="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 well">
    
       <div class="col-md-12 jumbotron text-center">
         <h2>Liste des utilisateurs dans <?= $activitySelected ?></h2>
       </div>
 
-      <table class=" table table-striped">
+      <div class="table-responsive col-md-12 text-center">
+      <table class="table table-hover text-center">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Actions</th>
+            <th class="text-center">Id</th>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Prénom</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
           <tbody>
@@ -43,7 +44,7 @@ $this->start('main_content');
                   <div class="modal-dialog">
                   
                     <!-- Modal content-->
-                    <div class="modal-content">
+                    <div class="modal-content" style="background-color: #27082d;">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Utilisateur en Détails :</h4>
@@ -76,20 +77,25 @@ $this->start('main_content');
               <?php endforeach; ?>
 
           </tbody>
-      </table>  
+      </table>
+      </div>  
+    <div class="col-md-12 text-center"><a href="<?= $this->url('userStat') ?>" class="btn btn-info">Retour aux stats</a></div>
+        
+
+      <section class="row text-center">
+        <!--  Pour l'affichage, on centre la liste des pages -->
+        <ul class="pagination">
+          <?php
+             for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
+          ?>
+                  <li><a href="<?=$this->url('list_users', ['page'=> $page])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+          <?php endfor; ?>
+        </ul>
+
+      </section>
+
     </div>
   </div>
-  <section class="row text-center">
-    <!--  Pour l'affichage, on centre la liste des pages -->
-    <ul class="pagination">
-      <?php
-         for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
-      ?>
-              <li><a href="<?=$this->url('list_users', ['page'=> $page])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
-      <?php endfor; ?>
-    </ul>
-    <a href="<?= $this->url('userStat') ?>">Retour aux stats</a>
-  </section>
 </div>
 
 

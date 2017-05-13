@@ -2,7 +2,7 @@
 $this->layout('layout_back',['title'=>'Statistique adhérent']);
 $this->start('head');
 ?>
-<style>
+<!-- <style>
 figure
 {
 	position : relative;
@@ -23,7 +23,7 @@ figure
 	color: white;
 	position: center !important;
 }
-</style>
+</style> -->
 <?php
 $this->stop('head');
 $this->start('main_content');
@@ -36,7 +36,6 @@ $this->start('main_content');
           <div class="col-md-12 jumbotron text-center">
             <h2>Statistiques sur les utilisateurs</h2>
           </div>
-
 
 			<section class="col-xs-12">
 				

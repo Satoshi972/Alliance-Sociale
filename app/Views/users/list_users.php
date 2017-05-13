@@ -6,7 +6,6 @@
  
 <div class ="container">
   <div class="row">
-    <div class="col-md-12">
       <div class="col-md-12 well">
       <div class="col-md-12 jumbotron text-center">
         <h2>Liste des utilisateurs</h2>
@@ -126,7 +125,6 @@
         </ul>
       </section>
       </div>
-    </div>
   </div>
 </div>
 
