@@ -52,60 +52,87 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Alliance Sociale</a>
+                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>">Alliance Sociale</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">Accueil</a>
+                        <a href="<?php echo $this->url('default_home') ?>">Accueil</a>
                     </li>
                     <li>
-                        <a href="services.html">Présentation</a>
-                    </li>
+
+              <a href="<?php echo $this->url('about') ?>">Présentation</a></li>
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
+                        <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
+                                <a href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
+                                <a href="<?php echo $this->url('default_home') ?>">Evènements à venir</a>
                             </li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nos Activités <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
+            <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Nos Activités<span class="caret"></span></a>
+
+              <ul class="dropdown-menu">
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Formations <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>10]) ?>">Formation du personnel</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>11]) ?>">Prevention et secours civique</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>12]) ?>">BAFA</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Comité des jeunes </a>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>1]) ?>">Gymnastique</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>2]) ?>">Judo</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>3]) ?>">Zumba</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>4]) ?>">Randonnée</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>6]) ?>">Danse traditionnelle</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>7]) ?>">Accueil de loisirs (sans hébergement)</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>8]) ?>">Couture</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>9]) ?>">Cuisine</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Education<span class="caret"></span></a> 
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>5]) ?>">Accompagnement scolaire</a></li>
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Animation<span class="caret"></span></a> 
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>13]) ?>">Autres</a></li>
+        </ul>
+                  </li></ul>
+      
+                    <li>
+                        <a href="<?php echo $this->url('contactfront') ?>">Contactez nous</a>
                     </li>
                     <li>
-                        <a href="services.html">Contactez nous</a>
+                        <a href="<?php echo $this->url('accession') ?>">Adhésion</a>
                     </li>
-                    <li>
-                        <a href="services.html">Adhésion</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Galeries</a>
+                    <li class="dropdown">
+                          <?php if(!empty($w_user)): ?>
+
+                         <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
+
+                         <?php else: ?>
+
+                        <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
+
+                         <?php endif; ?>
                     </li>
 
                 </ul>
