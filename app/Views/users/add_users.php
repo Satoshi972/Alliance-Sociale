@@ -88,10 +88,9 @@ $this->start('main_content');
             </div>
 
              <div class="form-group">             
-             <label class="col-md-2 control-label" for="activity">Activité</label>
+             <label class="col-md-2 control-label" for="activity">Activités</label>
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
-                  <option value="0">Choisissez l'activité'</option>
                   <?php foreach ($activity as $key => $value):?>
                     <option value="<?=$value?>"><?=$value?></option>
                   <?php endforeach; ?>
