@@ -40,7 +40,7 @@ $this->start('main_content'); ?>
     
         <div class="row">
           <div class="col-md-12">
-            <p>Trier par :          
+            <p class="text-center">Trier par :          
                 <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
                 <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=asc">Lecture (décroissant)</a> |
                 <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |

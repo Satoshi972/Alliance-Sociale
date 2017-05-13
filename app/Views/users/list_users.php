@@ -80,13 +80,13 @@
                         <div class="modal-body">
                           <ul>
                             <!-- Les "espaces" sont des caractere invisible mis en place pour une sortie visuelle pour l'utilisateur, ne pas y toucher !!!!! Pour générer le caractere 2 combinaison (depends du systeme) alt 225 OU alt 0160-->
-                             <li>Prénom:     <?= $user['firstname']?></li>
-                             <li>Nom:          <?= $user['lastname']?></li>
-                             <li>Email:         <?= $user['email']?></li>
-                             <li>GSM:          <?= $user['phone']?></li>
-                             <li>Date Naiss: <?= $user['birthday']?></li>
-                             <li>#Caf:           <?= $user['caf']?></li>   
-                             <li>Privilèges:   <?= $user['role']?></li> 
+                             <li>Prénom: <?= $user['firstname']?></li>
+                             <li>Nom: <?= $user['lastname']?></li>
+                             <li>Email: <?= $user['email']?></li>
+                             <li>GSM: <?= $user['phone']?></li>
+                             <li>Date Naiss: <?= $user['birthday']?></li>
+                             <li>#Caf: <?= $user['caf']?></li>   
+                             <li>Privilèges: <?= $user['role']?></li> 
                              <li>Activité: 
                                   <ul class="activities"></ul>
                              </li>    
