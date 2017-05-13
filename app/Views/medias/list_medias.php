@@ -7,7 +7,7 @@
 <div class="col-md-12">
 
 	<div class="col-md-6 col-md-offset-3">
-		<h2>Listes des médiass</h2>
+		<h2>Listes des médias</h2>
 	</div>
 
 	<div class="col-md-12">	
