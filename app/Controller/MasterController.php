@@ -15,7 +15,8 @@ class MasterController extends Controller
 	*/
 	public function checkMedia($files)
 	{
-		$mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4', 'image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
+		// $mimeTypeAvailable = ['video/mp4', 'video/avi', 'video/mov', 'video/mpeg4', 'image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
+		$mimeTypeAvailable = ['image/jpeg', 'image/jpeg', 'image/jpg', 'image/png', 'image/gif']; //Extension acceptée
 		$uploadDir = 'assets/medias/'; // Répertoire d'upload
 		$maxSize = (1024 * 1000) * 500; // Taille maximum du fichier
 		$filesClean = []; // Tableau final qui contiendras les chemin respectifs des médias
