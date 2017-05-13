@@ -15,17 +15,16 @@ $this->start('main_content');
 	<div class="col-md-12 jumbotron text-center">
 		<h2>Ajout des médias</h2>
 	</div>
-	
-	<div class="col-md-12" id='#result'></div> 
-	<form method="POST"  class="form-horizontal" enctype="multipart/form-data">
+		<div class="col-md-12" id="result"></div>
 
+	<form method="POST" action="<?= $this->url('addmedias') ?>" class="form-horizontal" enctype="multipart/form-data">
 		<!-- Image -->
 		<div class="form-group">
 			<div class="col-md-2 text-center">
 				<label class="control-label" for="medias">Envoyez vos médias</label>
 			</div>
 			<div class="col-md-10">
-				<input type="file" id="medias" name="medias[]" multiple>
+				<input type="file" id="medias" name="medias[]" multiple accept="image/*">
 			</div>
 		</div>
 
@@ -51,10 +50,8 @@ $this->start('main_content');
 			</div>
 		</div>
 
-		<div class="form-group">
-			<div class="col-md-12 text-center">
+		<div class="form-group text-center">
 				<button type="submit" id="submitForm" class="btn btn-primary">Ajouter des médias</button>
-			</div>
 		</div>
 	</form>
    </div>

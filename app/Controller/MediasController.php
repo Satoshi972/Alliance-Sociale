@@ -48,13 +48,13 @@ class MediasController extends MasterController
 			    }
 			    else
 			    {
-			    	$result[] = 'Erreur, aucun médias correct détecté...';
+			    	$result = 'Erreur, aucun médias correct détecté...';
 			    }
 
 		    }			    
 		    else
 		    {
-		    	$result[] = 'Erreur, aucun médias envoyé...';
+		    	$result = 'Erreur, aucun médias envoyé...';
 		    }
 		}
 		else
