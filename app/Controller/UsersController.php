@@ -357,8 +357,9 @@ class UsersController extends Controller
 
         $success = false;
         $del = new users();
-        
+        $suscribe = new suscribe();
         $del -> delete($id);
+        $suscribe->deleteTo($id);
     }   
 
     public function showSuscribeTo($id)
