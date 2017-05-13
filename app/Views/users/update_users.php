@@ -102,8 +102,10 @@ $this->start('main_content');
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
                   <?php foreach ($activity as $key => $value):?>
+                    <?php foreach ($suscribed as $index => $val):?>
                     <option value="<?=$value?>"
-                        <?php if($suscribed == $value){echo 'selected';} ?>><?=$value?></option>
+                        <?php if($val == $value){echo 'selected';} ?>><?=$value?></option>
+                    <?php endforeach; ?>
                   <?php endforeach; ?>
                 </select>
               </div> 

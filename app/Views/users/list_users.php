@@ -65,12 +65,12 @@
       			<a href="<?= $this->url('details_users', ['id' => $user['id']]) ?>">Détails</a>
       			</td> -->
                   <!--Détails users via modal-->
-                  <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$user['id'];?>">Détails</button>
+                  <td><button type="button" onClick="showActivity(<?=$user['id'];?>)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$user['id'];?>">Détails</button>
 
                    <!-- Modal -->
                   <div class="modal fade" id="myModal<?=$user['id'];?>" role="dialog">
                     <div class="modal-dialog">
-                    
+                    '#myModal' + id +'.modal-content .modal-body ul li ul.activities' 
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
@@ -88,12 +88,7 @@
                              <li>#Caf:           <?= $user['caf']?></li>   
                              <li>Privilèges:   <?= $user['role']?></li> 
                              <li>Activité: 
-                                  <ul>
-                                    <?php foreach ($activity as $key => $value) 
-                                    {
-                                      echo '<li>'.$value.'</li>';
-                                    } ?>
-                                  </ul>
+                                  <ul class="activities"></ul>
                              </li>    
                           </ul>
                         </div>
@@ -142,8 +137,23 @@
 <script src="<?= $this->assetUrl('js/sweetalert.min.js')?>"></script>
 
 <script>
-$(function(){
 
+function showActivity(id)
+{
+  var lien = '/Alliance-Sociale/public/users/list/'
+  $.getJSON(lien+id, function(data) 
+  {
+    var res = "";
+    $.each(data, function(index, val) 
+    {
+       res += "<li>";
+       res += val.activity;
+       res += "</li>";
+    });
+    $('.activities' ).html(res);
+  });
+}
+$(function(){
   $('.delete').on('click', function(e)
   {
     e.preventDefault();

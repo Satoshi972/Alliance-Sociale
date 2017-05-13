@@ -222,7 +222,7 @@ class UsersController extends Controller
         $suscribeList = [];
         foreach ($sList as $key => $value) 
         {
-           $suscribeList = $value['activity'];
+           $suscribeList[] = $value['activity'];
         }
           
         $errors = [];
@@ -343,7 +343,7 @@ class UsersController extends Controller
         'roles'       => $listRoles,
         'activity'    => $listActivity,
         'affiche'     => $detailid,
-        'suscribed'    => $suscribeList,
+        'suscribed'   => $suscribeList,
         ];
         
         $this->show('users/update_users', $params);
@@ -359,18 +359,16 @@ class UsersController extends Controller
         $del = new users();
         
         $del -> delete($id);
-        // $remove = $del -> delete($id);
-
-        // if ($remove) {
-        //     $success = true;
-
-        // }
-
-        // $this->show('users/del_users',[
-        // 'affiche'=> $remove,
-        // 'success'=> $success,
-        // ]);
-
     }   
+
+    public function showSuscribeTo($id)
+    {
+        $roles = ['admin'];
+        $this->allowTo($roles);
+
+        $suscribe = new suscribe();
+        $list = $suscribe->suscribeTo($id);
+        $this->showJson($list);
+    }
     
 }
