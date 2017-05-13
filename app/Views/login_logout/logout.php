@@ -27,8 +27,8 @@ $this->start('main_content'); ?>
         </div>
 
         <?php }else{ ?>
-        <p style="color:red">
-            Tu n'es pas connecté !!!
+        <p style="color:red;">
+            Vous n'êtes pas connecté !!!
 
 
         </p>

@@ -8,14 +8,15 @@
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-12 jumbotron text-center">        
-        <h2>Liste des activités</h2>
-      </div>
+      <div class="col-md-12 well">
+        <div class="col-md-12 jumbotron text-center">        
+          <h2>Liste des activités</h2>
+        </div>
 
-    <table class="table table-striped">
+    <div class="table-responsive col-md-12">
+    <table class="table table-hover">
       <thead>
         <tr>
-
           <th>Activité</th>
         </tr>
       </thead>
@@ -76,7 +77,8 @@
 
       </tbody>
     </table>
- 
+    </div>
+      </div> 
     </div>
   </div>
 </div>

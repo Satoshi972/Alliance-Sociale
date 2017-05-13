@@ -2,7 +2,7 @@
 $this->layout('layout_back', ['title' => 'Modifier un utilisateur']);
 $this->start('head');
 ?>
-<link rel="stylesheet" href="<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" integrity="sha256-5ad0JyXou2Iz0pLxE+pMd3k/PliXbkc65CO5mavx8s8=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" integrity="sha256-5ad0JyXou2Iz0pLxE+pMd3k/PliXbkc65CO5mavx8s8=" crossorigin="anonymous" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-xQh/Xj//D3X4M2UndCTVnMfzln8x5/EDePR3uckJoRo=" crossorigin="anonymous" />
 
@@ -28,7 +28,7 @@ $this->start('main_content');
               <?php endif; ?>
 
               <?php if($success == true): // La variable $success est envoyé via le controller?>
-                <p class="alert alert-success alert-dismissable" ">Votre utilisateur à été Modifier</p>
+                <p class="alert alert-success alert-dismissable">Votre utilisateur à été Modifier</p>
                 <p><a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>">Retour a la liste d'utilisateur</a></p>
               <?php endif; ?>
 
@@ -102,8 +102,10 @@ $this->start('main_content');
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
                   <?php foreach ($activity as $key => $value):?>
+                    <?php foreach ($suscribed as $index => $val):?>
                     <option value="<?=$value?>"
-                        <?php if($suscribed == $value){echo 'selected';} ?>><?=$value?></option>
+                        <?php if($val == $value){echo 'selected';} ?>><?=$value?></option>
+                    <?php endforeach; ?>
                   <?php endforeach; ?>
                 </select>
               </div> 

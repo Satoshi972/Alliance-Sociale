@@ -3,7 +3,7 @@
 $this->layout('layout_back', ['title' => 'Ajouter un utilisateur']);
 $this->start('head');
 ?>
-<link rel="stylesheet" href="<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" integrity="sha256-5ad0JyXou2Iz0pLxE+pMd3k/PliXbkc65CO5mavx8s8=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" integrity="sha256-5ad0JyXou2Iz0pLxE+pMd3k/PliXbkc65CO5mavx8s8=" crossorigin="anonymous" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-xQh/Xj//D3X4M2UndCTVnMfzln8x5/EDePR3uckJoRo=" crossorigin="anonymous" />
 
@@ -18,7 +18,7 @@ $this->start('main_content');
 <div class ="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-2 well">
+      <div class="col-md-12 well">
           <div class="col-md-12 jumbotron text-center">
             <h2>Création utilisateur</h2>
           </div>
@@ -91,6 +91,7 @@ $this->start('main_content');
              <label class="col-md-2 control-label" for="activity">Activité</label>
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
+                  <option value="0">Choisissez l'activité'</option>
                   <?php foreach ($activity as $key => $value):?>
                     <option value="<?=$value?>"><?=$value?></option>
                   <?php endforeach; ?>
@@ -99,7 +100,7 @@ $this->start('main_content');
             </div>
 
             <div class="form-group">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-12 text-center">
                   <button type="submit" id="submitForm" class="btn btn-primary">Créer utilisateur</button>
               </div>
             </div>
@@ -125,9 +126,8 @@ $('.datepicker').datepicker({
 });
 $(function()
 {
-  $(document).ready(function() {
-      $('#activity').multiselect();
-  });
+  
+  $('#activity').multiselect();
 
   //gestion de mon formulaire d'envoi
   $('form').on('submit',function(e)

@@ -12,6 +12,9 @@ class StatisticsController extends MasterController
 {
 	public function nbrPoeplesByActivity()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        
         $users = new users();
         $list = $users->nbrPoeplesByActivity();
         $this->showJson($list);
@@ -19,6 +22,9 @@ class StatisticsController extends MasterController
 
     public function nbrTotal()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        
         $users = new users();
         $list = $users->nbrTotal();
         $this->showJson($list);
@@ -26,6 +32,9 @@ class StatisticsController extends MasterController
 
     public function nbrTotalA()
     {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        
         $users = new users();
         $list = $users->nbrTotalA();
         $this->showJson($list);
@@ -33,7 +42,10 @@ class StatisticsController extends MasterController
 
     public function listPeopleByActivity($activity, $page)
     {
-    	$users = new users();
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+    	
+        $users = new users();
 
         $PeoplePerPages  = 50;
         $nbPoeple        = $users->nbrTotal();
@@ -70,6 +82,9 @@ class StatisticsController extends MasterController
 
 	public function users()
 	{
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        
         $this->show('statistics/userStat');
 	}
 

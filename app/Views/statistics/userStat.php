@@ -28,12 +28,27 @@ figure
 $this->stop('head');
 $this->start('main_content');
 ?>
-<section class="col-xs-12 jumbotron">
-	<legend class="text-center">Statistiques sur les utilisateurs</legend>
-	<p id="total"></p>
-	<p id="totalA"></p>
-</section>
-<section id="users" class="col-xs-12"></section>
+
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 well">
+          <div class="col-md-12 jumbotron text-center">
+            <h2>Statistiques sur les utilisateurs</h2>
+          </div>
+
+
+			<section class="col-xs-12">
+				
+				<p id="total"></p>
+				<p id="totalA"></p>
+			</section>
+			<section id="users" class="col-xs-12"></section>
+
+      </div>
+    </div>
+  </div>
+</div>
 <?php 
 $this->stop('main_content');
 $this->start('script');
