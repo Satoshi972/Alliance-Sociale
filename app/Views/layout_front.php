@@ -78,7 +78,7 @@
  
 <!-- Fin Top header -->
   <nav class="navbar navbar-default navbar-static-top">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -101,7 +101,7 @@
                 Evènements<span class="caret"></span></a>
                 <ul class="dropdown-menu">
           <li><a tabindex="-1" href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('default_home') ?>">Evènements à venir</a></li>
+          <li><a tabindex="-1" href="<?php echo $this->url('listPresentEvent') ?>">Evènements en cours</a></li>
 
         </ul>
             </li>
@@ -176,45 +176,54 @@
   </nav>
     
 <div class="container-fluid">
-        <!-- Marketing Icons Section -->
-        <div class="row">
-            <div class="col-md-6 col-md-push-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i></h4>
-                    </div>
-                    <div class="panel-body contenu">
-            <?php echo $this->section('main_content') ?>
-                    </div>
+
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+        
+        
+        <!-- main content -->
+        <div class="col-md-6 col-md-push-3">
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">
+                    <!--<h1 style="text-align:center"><i class="fa fa-fw fa-gift"></i></h1>-->
+                <!--</div>-->
+                <div class="panel-body contenu">
+                  <?= $this->section('main_content') ?>
                 </div>
             </div>
-            <div class="col-md-3 col-md-pull-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i></h4>
-                    </div>
-                    <div class="panel-body">
-            <!-- Zone d'inclusion de Facebook -->
-           <div class="fb-page little-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-width="300" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"></div>
+        </div>
+        <!-- fin main content -->
 
-            <div class="fb-page middle-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-width="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>  
-            
-            <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>          
-                    </div>
+        <div class="col-md-3 col-md-pull-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Nou la !</h2>
+
                 </div>
+                <!-- Zone d'inclusion de Facebook -->
+                <div class="panel-body fb-place">
+                  <div class="fb-page little-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-width="250" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
+                  </div>
+                    
+                  <div class="fb-page middle-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-width="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>  
+               
+                  <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
+                </div>
+                <!-- Fin zone de facebook -->
             </div>
-                        <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i></h4>
-                    </div>
-                    <div class="panel-body img-responsive">
-
-    
-<!-- Zone calendrier -->
-<div id="calendar"></div>
-            <!-- detail de mon event -->
-            <div id="fullCalModal" class="modal fade">
+        </div>
+        
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Nos activités</h2>
+            </div>
+            <div class="panel-body img-responsive">
+              <!-- Zone calendrier -->
+              <div id="calendar"></div>
+              <!-- detail de mon event -->
+              <div id="fullCalModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -230,173 +239,168 @@
                     </div>
                 </div>
               </div>
-            <!-- Zone calendrier -->
-            <br>
-                        <div class="meteo">
-             <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 216px;height: 240px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
-                             
-                    </div>
-                </div>
+              <!-- Fin Zone calendrier -->
+              <br>    
+              <!-- Zone méteo -->
+              <div class="meteo">
+               <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 100%;height: 370px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>      
+              </div>
+                <!-- Fin zone météo -->
             </div>
         </div>
-      </div>
+    </div>
+  </div>
 
         
 
 
-    <!-- Début footer -->
-        <footer id="footerx">
+<!-- Début footer -->
+<footer id="footerx">
 
-              <h3 style="text-align:center">Partenaires</h3>
-               <!--Item slider text-->
+  <h3 style="text-align:center">Partenaires</h3>
+       <!--Item slider text-->
 
 
-<!-- Item slider-->
-<div class="container-fluid">
+  <!-- Item slider-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+          <!-- Carousel inner -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
+   <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
+               <h5 class="text-center">4000,00 RSD</h5>
+                -->            </div>
+            </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="carousel carousel-showmanymoveone slide" id="itemslider">
-        <div class="carousel-inner">
+            <div class="item">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
+               <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
+               <h5 class="text-center">4000,00 RSD</h5> -->
+              </div>
+            </div>
 
-          <div class="item active">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
- <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
-             <h5 class="text-center">4000,00 RSD</h5>
-              -->            </div>
-          </div>
+            <div class="item">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
+             <!--    <span class="badge">10%</span> -->
+  <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
+  <h5 class="text-center">4000,00 RSD</h5>
+  <h6 class="text-center">5000,00 RSD</h6> -->
+              </div>
+            </div>
 
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
-             <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
-             <h5 class="text-center">4000,00 RSD</h5> -->
+            <div class="item">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
+  <!--               <h4 class="text-center">CVETNA HALJINA</h4>
+  <h5 class="text-center">4000,00 RSD</h5> -->
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
+  <!--               <h4 class="text-center">MAJICA FOTO</h4>
+  <h5 class="text-center">4000,00 RSD</h5> -->
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="col-xs-12 col-sm-6 col-md-2">
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
+  <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
+  <h5 class="text-center">4000,00 RSD</h5> -->
+              </div>
             </div>
           </div>
-
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
-           <!--    <span class="badge">10%</span> -->
-<!--               <h4 class="text-center">PANTALONE TERI 2</h4>
-<h5 class="text-center">4000,00 RSD</h5>
-<h6 class="text-center">5000,00 RSD</h6> -->
-            </div>
+          <!-- Fin de carousel inner -->
+          <!-- Slider control -->
+          <div id="slider-control">
+            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
+            <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
           </div>
-
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
-<!--               <h4 class="text-center">CVETNA HALJINA</h4>
-<h5 class="text-center">4000,00 RSD</h5> -->
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
-<!--               <h4 class="text-center">MAJICA FOTO</h4>
-<h5 class="text-center">4000,00 RSD</h5> -->
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="col-xs-12 col-sm-6 col-md-2">
-              <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
-<!--               <h4 class="text-center">MAJICA MAYORAL</h4>
-<h5 class="text-center">4000,00 RSD</h5> -->
-            </div>
-          </div>
-
-       
+          <!-- Fin slider control -->
         </div>
-
-        <div id="slider-control">
-        <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
-        <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
-      </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Item slider end-->
+  <!-- Item slider end-->
 
+  <div class="row">
+      <div class="col-lg-12">
+      <div class="infos">
+          <div class="row">
+              <div class="col-sm-4 text-center coord">
+                  <h3>Centre Social Alliance sociale</h3>
+                  <p>LCR Résidence Gaïac<br>
+                  Quartier Cédalise<br>
+                  97290 LE MARIN</p>
+<!--                                <div class="slider">
+                      Slider partenaire
+                  </div> -->
+              </div>
 
-                <div class="row">
-                    <div class="col-lg-12">
-                    <div class="infos">
-                        <div class="row">
-                            <div class="col-sm-4 text-center coord">
-                                <h3>Centre Social Alliance sociale</h3>
-                                <p>LCR Résidence Gaïac<br>
-                                Quartier Cédalise<br>
-                                97290 LE MARIN</p>
- <!--                                <div class="slider">
-                                    Slider partenaire
-                                </div> -->
-                            </div>
+              <div class="col-sm-4 text-center coord">
+                  <h2>Téléphones</h2>
 
-                            <div class="col-sm-4 text-center coord">
-                                <h2>Téléphones</h2>
+                  <p>0596 74 76 58<br>
+                  0696 27 65 85<br>
+                  </p>
+              </div>
 
-                                <p>0596 74 76 58<br>
-                                0696 27 65 85<br>
-                                </p>
-                            </div>
+              <div class="col-sm-4 text-center coord">
+                  <h3>Horaire</h3>
 
-                            <div class="col-sm-4 text-center coord">
-                                <h3>Horaire</h3>
+                  <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
+                  Du Mardi au Vendredi : 8h00 à 17h00<br>
+                  Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
+              </div>
 
-                                <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
-                                Du Mardi au Vendredi : 8h00 à 17h00<br>
-                                Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
-                            </div>
+              </div>
+              </div>
+              <br>
 
-                            </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12 text-center copyright">
-                   
-                               <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
-                            </div>
-
-                    </div>
-                </div>
-        </footer>
+              <div class="col-md-12 text-center copyright">
+     
+                 <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
+              </div>
+      </div>
+  </div>
+</footer>
         </div>
-
-
-
     <!-- Fin footer -->
 
-    <!-- jQuery -->
-    <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
+<!-- jQuery -->
+<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
-    <!-- JQuery UI -->
-    <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
+<!-- JQuery UI -->
+<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
 
-    <!-- Full calendar -->
-    <script src="<?= $this->assetUrl('js/fullcalendar/moments.js') ?>"></script>
-    <script src="<?= $this->assetUrl('js/fullcalendar/fullcalendar.min.js') ?>"></script>
-    <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
-    <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
+<!-- Full calendar -->
+<script src="<?= $this->assetUrl('js/fullcalendar/moments.js') ?>"></script>
+<script src="<?= $this->assetUrl('js/fullcalendar/fullcalendar.min.js') ?>"></script>
+<script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
+<script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
 
-    <!-- API Facebook -->
+<!-- API Facebook -->
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-    <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-        <script>
+<script>
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
@@ -427,15 +431,8 @@ $(document).ready(function(){
             }
         });
   //Fin du full calendar
-});
-</script>
-<script>
-    (function(){
-
+  // Slider carousel
   $('#itemslider').carousel({ interval: 3000 });
-}());
-
-(function(){
   $('.carousel-showmanymoveone .item').each(function(){
     var itemToClone = $(this);
 
@@ -447,18 +444,15 @@ $(document).ready(function(){
         itemToClone = $(this).siblings(':first');
       }
 
-
       itemToClone.children(':first-child').clone()
         .addClass("cloneditem-"+(i))
         .appendTo($(this));
     }
   });
-}());
-    
+});
 </script>
-
 <!-- Permet des inclusions de scripts depuis la vue -->
-    <?php echo $this->section("script") ?>
+<?php echo $this->section("script") ?>
 
 </body>
 </html>
