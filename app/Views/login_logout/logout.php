@@ -12,7 +12,7 @@ $this->start('main_content'); ?>
         <h1>Déconnexion</h1>
         
         <div id="result"></div>
-        <?php if(isset($infos)){ ?>
+        <?php if(!empty($infos)){ ?>
         <div id='hide'>
             <?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
 
@@ -27,8 +27,8 @@ $this->start('main_content'); ?>
         </div>
 
         <?php }else{ ?>
-        <p style="color:red">
-            Tu n'es pas connecté !!!
+        <p style="color:red;">
+            Vous n'êtes pas connecté !!!
 
 
         </p>

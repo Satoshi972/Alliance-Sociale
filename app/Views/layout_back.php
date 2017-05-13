@@ -67,7 +67,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/deconnexion.png') ?>" class="img-responsive img-thumbnail">Déconnexion</a>
+                                <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= $this->assetUrl('img/deconnexion.png') ?>" style="width: 40px;height: 40px;" class="img-responsive">Déconnexion</a>
                                 <ul class="dropdown-menu dropdown-block" role="menu">
                                     <!-- <li><a href="#">Mon compte</a></li> -->
                                     <li><a href="<?php echo $this->url('logout') ?>">Se déconnecter</a></li>
