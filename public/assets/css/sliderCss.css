@@ -469,6 +469,29 @@
         text-align: center !important;
 
         }
+        .big-pres {
+            display:none;
+        }
+        
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:block;
+        }
+        
+        .middle-past {
+            display:block;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
     }
 
     /* Large Devices, Wide Screens */
@@ -498,6 +521,30 @@
         }
         .big-fb {
             display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
         }
         
     }
