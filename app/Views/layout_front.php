@@ -249,61 +249,11 @@
     </div>
   </div>
 
-        
-
-
 <!-- Début footer -->
 <footer id="footerx">
 
   <h3 style="text-align:center">Partenaires</h3>
        <!--Item slider text-->
-
-
-<<<<<<< HEAD
-<!-- Item slider-->
--
-<!-- Item slider end-->
-
-
-                <div class="row">
-                    <div class="col-lg-12">
-                    <div class="infos">
-                        <div class="row">
-                            <div class="col-sm-4 text-center coord">
-                                <h3>Centre Social Alliance sociale</h3>
-                                <p>LCR Résidence Gaïac<br>
-                                Quartier Cédalise<br>
-                                97290 LE MARIN</p>
- <!--                                <div class="slider">
-                                    Slider partenaire
-                                </div> -->
-                            </div>
-
-                            <div class="col-sm-4 text-center coord">
-                                <h2>Téléphones</h2>
-
-                                <p>0596 74 76 58<br>
-                                0696 27 65 85<br>
-                                </p>
-                            </div>
-
-                            <div class="col-sm-4 text-center coord">
-                                <h3>Horaire</h3>
-
-                                <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
-                                Du Mardi au Vendredi : 8h00 à 17h00<br>
-                                Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
-                            </div>
-
-                            </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12 text-center copyright">
-                   
-                               <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
-                            </div>
-=======
   <!-- Item slider-->
   <div class="container-fluid">
     <div class="row">
@@ -373,7 +323,6 @@
     </div>
   </div>
   <!-- Item slider end-->
->>>>>>> origin/Dev
 
   <div class="row">
       <div class="col-lg-12">
@@ -453,11 +402,11 @@ $(document).ready(function(){
   });
   //Full calendar commence ici
   var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        var picture = '/Alliance_Sociale/public/';
-        var lien = '/Alliance-Sociale/public/events/view/';
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+  var picture = '/Alliance_Sociale/public/';
+  var lien = '/Alliance-Sociale/public/events/view/';
         
   $('#calendar').fullCalendar({
             events: "<?= $this->url('listAllEvent'); ?>",
