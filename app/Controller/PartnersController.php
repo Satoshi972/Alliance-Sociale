@@ -39,7 +39,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -227,7 +227,7 @@ class PartnersController extends Controller
         $this->allowTo($roles);
         
         $partners = new PartnersModel();
-        $list = $partners->findAll();
+        $list = $partners->ShowAllPartners();
         $this->showJson($list);
     }
 

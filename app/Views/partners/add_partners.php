@@ -22,15 +22,7 @@ $this->start('main_content');?>
 				<div class="col-md-12 jumbotron">        
           			<h2>Ajouter un partenaire</h2>
       			</div>
-
-					<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-						<p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-					<?php endif; ?>
-
-					<?php if($success == true): // La variable $success est envoyé via le controller?>
-						<p class="alert alert-success alert-dismissable">Votre partenaire à bien été ajouter</p>
-					<?php endif; ?>
-
+				<div id="result"></div>
 				<form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
 
 					

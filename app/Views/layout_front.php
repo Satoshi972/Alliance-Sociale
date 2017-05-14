@@ -29,6 +29,7 @@
 
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderPartners.css') ?>">
 
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
@@ -201,7 +202,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                             <h4 id="modalTitle" class="modal-title"></h4>
                         </div>
-                        <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
+                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
                         <div id="modalBody" class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -227,8 +228,7 @@
 
 <!-- Début footer -->
 <footer id="footerx">
-
-  <h3 style="text-align:center">Partenaires</h3>
+<img src="/Alliance_Sociale/public/assets/img/partners/Menthe.jpg" alt="">
        <!--Item slider text-->
 
 
@@ -236,66 +236,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
-          <!-- Carousel inner -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
-   <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
-               <h5 class="text-center">4000,00 RSD</h5>
-                -->            </div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
-               <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
-               <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
-             <!--    <span class="badge">10%</span> -->
-  <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
-  <h5 class="text-center">4000,00 RSD</h5>
-  <h6 class="text-center">5000,00 RSD</h6> -->
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
-  <!--               <h4 class="text-center">CVETNA HALJINA</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
-  <!--               <h4 class="text-center">MAJICA FOTO</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
-  <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
-            </div>
-          </div>
-          <!-- Fin de carousel inner -->
-          <!-- Slider control -->
-          <div id="slider-control">
-            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
-            <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
-          </div>
-          <!-- Fin slider control -->
+        <div class="slider text-center">
+        <ul class="slider-content">
+        </ul>
+        <button class="prev">prev</button>
+        <button class="next">next</button>
         </div>
       </div>
     </div>
@@ -361,6 +306,7 @@
 <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
 
+
 <!-- API Facebook -->
 <script>
 (function(d, s, id) {
@@ -383,7 +329,7 @@ $(document).ready(function(){
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        var picture = '/Alliance_Sociale/public/';
+        var picture = '/Alliance-Sociale/public/';
         var lien = '/Alliance-Sociale/public/events/view/';
         
   $('#calendar').fullCalendar({
@@ -395,31 +341,85 @@ $(document).ready(function(){
             },
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
-                //$('#picture').attr('src',picture+event.picture);
+                $('#picture').attr('src',picture+event.picture);
                 $('#modalBody').html(event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
             }
         });
   //Fin du full calendar
-  // Slider carousel
-  $('#itemslider').carousel({ interval: 3000 });
-  $('.carousel-showmanymoveone .item').each(function(){
-    var itemToClone = $(this);
 
-    for (var i=1;i<6;i++) {
-      itemToClone = itemToClone.next();
+  // Slider
+  $.getJSON('<?= $this->url('showAllPartners')?>',function(data) 
+  {
+      var res = "";
+      $.each(data, function(index, val) 
+      {
+        res += '<li>';
+        res += '<img class="img-responsive" src="/Alliance-Sociale/public/assets'+val.url+'" alt="'+val.alt+'"/>';
+        res += '<div class="content text-center">'+val.alt+'</div>';
+        res += '</li>';
+      });
+      $('.slider-content').html(res);
 
+      var ul = $(".slider ul");
+      var slide_count = ul.children().length;
+      var slide_width_pc = 100.0 / slide_count;
+      var slide_index = 0;
 
-      if (!itemToClone.length) {
-        itemToClone = $(this).siblings(':first');
+      var first_slide = ul.find("li:first-child");
+      var last_slide = ul.find("li:last-child");
+
+      // Clone the last slide and add as first li element
+      last_slide.clone().prependTo(ul);
+
+      // Clone the first slide and add as last li element
+      first_slide.clone().appendTo(ul);
+
+      ul.find("li").each(function(indx) {
+        var left_percent = (slide_width_pc * indx) + "%";
+        $(this).css({"left":left_percent});
+        $(this).css({width:(100 / slide_count) + "%"});
+      });
+
+      ul.css("margin-left", "-100%");
+
+      // Listen for click of prev button
+      $(".slider .prev").click(function() {
+        console.log("prev button clicked");
+        slide(slide_index - 1);
+      });
+
+      // Listen for click of next button
+      $(".slider .next").click(function() {
+        console.log("next button clicked");
+        slide(slide_index + 1);
+      });
+
+      function slide(new_slide_index) {
+
+        var margin_left_pc = (new_slide_index * (-100) - 100) + "%";
+
+        ul.animate({"margin-left": margin_left_pc}, 400, function() {
+
+          // If new slide is before first slide...
+          if(new_slide_index < 0) {
+            ul.css("margin-left", ((slide_count) * (-100)) + "%");
+            new_slide_index = slide_count - 1;
+          }
+          // If new slide is after last slide...
+          else if(new_slide_index >= slide_count) {
+            ul.css("margin-left", "-100%");
+            new_slide_index = 0;
+          }
+
+          slide_index = new_slide_index
+
+        });
+
       }
-
-      itemToClone.children(':first-child').clone()
-        .addClass("cloneditem-"+(i))
-        .appendTo($(this));
-    }
-  });
+      });
+  // Fin slider
 });
 </script>
 <!-- Permet des inclusions de scripts depuis la vue -->

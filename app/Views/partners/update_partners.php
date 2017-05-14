@@ -11,16 +11,8 @@ $this->start('main_content');
 
       <div class="col-md-6 col-md-offset-3 text-center well">
       
-      
+      <div id="result"></div>
         <h2>Modifier Partenaire</h2>
-
-          <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-            <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-          <?php endif; ?>
-
-          <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre partenaire à bien été modifier</p>
-          <?php endif; ?>
 
         <form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
 
