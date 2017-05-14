@@ -17,9 +17,9 @@ $this->start('main_content');?>
           <h2>Ajouter une activitée</h2>
         </div>
 
-        <div class="col-md-12 text-center" id="result"></div>
 
         <form method="post" action="<?= $this->url('add_activite') ?>" class="form-horizontal" enctype="multipart/form-data">
+        <p class="col-md-12 text-center" id="result"></p>
 
           <div class="form-group">
             <div class="col-md-2 text-center">          

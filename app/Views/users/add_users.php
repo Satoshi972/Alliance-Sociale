@@ -22,8 +22,8 @@ $this->start('main_content');
             <h2>Création utilisateur</h2>
           </div>
 
-          <p id="result" class="col-xs-12"></p>
           <form method="post" class="form-horizontal">
+          <p id="result" class="col-xs-12"></p>
 
             <div class="form-group">
               <label class="col-md-2 control-label text-center" for="firstname">Prénom</label>
