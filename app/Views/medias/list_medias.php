@@ -15,7 +15,7 @@
 		
 	<?php foreach($medias as $media): ?>	
 	
-		<figure class="col-xs-3">
+		<figure class="col-xs-6 col-sm-4 col-lg-3">
 	    	<!-- <img src="/Alliance-Sociale/public/<?php// echo $media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias"> -->
 	    	<img src="/Alliance-Sociale/public/<?=$media['url'];?>"data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no">
 	    </figure>
