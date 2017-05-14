@@ -26,7 +26,7 @@ $this->start('main_content');
                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                       <h4 id="modalTitle" class="modal-title"></h4>
                   </div>
-                  <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
+                  <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
                   <div id="modalBody" class="modal-body"></div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -57,7 +57,7 @@ $this->start('script');
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        var picture = '/Alliance_Sociale/public/';
+        var picture = '/Alliance-Sociale/public/';
         var lien = '/Alliance-Sociale/public/events/viewBack/';
 
       $('#calendar').fullCalendar({

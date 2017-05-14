@@ -30,6 +30,8 @@
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
 
+    <!-- slider -->
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderPartners.css') ?>">
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
     <?php echo $this->section("head") ?>
@@ -201,7 +203,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                             <h4 id="modalTitle" class="modal-title"></h4>
                         </div>
-                        <!-- <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'> -->
+                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
                         <div id="modalBody" class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -399,7 +401,7 @@ $(document).ready(function(){
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        var picture = '/Alliance_Sociale/public/';
+        var picture = '/Alliance-Sociale/public/';
         var lien = '/Alliance-Sociale/public/events/view/';
         
   $('#calendar').fullCalendar({

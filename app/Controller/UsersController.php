@@ -22,7 +22,7 @@ class UsersController extends Controller
 
         foreach ($activities as $key => $value) 
         {
-            $listActivity[] = $value['name'];
+            $listActivity[] = $value['act_id'];
         }
 
         $enter = new users();
@@ -38,7 +38,7 @@ class UsersController extends Controller
         {
             $listRoles[] = $value['name'];
         }
-
+        //filtrer
         $activitySelected = [];        
         if(!empty($_POST)) {
 
@@ -91,32 +91,41 @@ class UsersController extends Controller
                 $errors[] = 'Aucune activité sélectionnée';
             }
 
-            if(count($errors) === 0){
-                
-                $datas = [
-                // colonne sql => valeur à insérer
-                'firstname'=> $post['firstname'],
-                'lastname' => $post['lastname'],
-                'email'    => $post['email'],
-                'phone'    => $post['phone'],
-                'role'     => $post['role'],
-                'password' => password_hash($post['password'], PASSWORD_DEFAULT),
-                // 'activity' => $post['activity'],
-                'caf'      => $post['caf'],
-                'birthday' => $post['birthday']
-                ];
-    
-                //Intègre les donnés dans la base
-                if($enter->insert($datas))
+            if(count($errors) === 0)
+            {
+                $exist = $enter->searchPeoples($post['firstname']);
+                if(!$exist == null)
                 {
-                    foreach ($activitySelected as $key => $value) 
-                    {
-                        $data = "";
-                        $data = $value;
-                        $suscribe->insertTo($data);
-                    }
-                    $result = "success";
+                    $result = 'Erreur, cette perssone existe déjà';
                 }
+                else
+                {
+                    $datas = [
+                    // colonne sql => valeur à insérer
+                    'firstname'=> $post['firstname'],
+                    'lastname' => $post['lastname'],
+                    'email'    => $post['email'],
+                    'phone'    => $post['phone'],
+                    'role'     => $post['role'],
+                    'password' => password_hash($post['password'], PASSWORD_DEFAULT),
+                    // 'activity' => $post['activity'],
+                    'caf'      => $post['caf'],
+                    'birthday' => $post['birthday']
+                    ];
+        
+                    //Intègre les donnés dans la base
+                    if($enter->insert($datas))
+                    {
+                        foreach ($activitySelected as $key => $value) 
+                        {
+                            $data = "";
+                            $data = $value;
+                            $suscribe->insertTo($data);
+                        }
+                        $result = "success";
+                    }
+                }
+                
             }
             else
             {
@@ -129,7 +138,7 @@ class UsersController extends Controller
             
             $params = [
             'roles'       => $listRoles,
-            'activity'    => $listActivity,
+            'activity'    => $activities,
             ];
             
             $this->show('users/add_users', $params);
@@ -236,7 +245,7 @@ class UsersController extends Controller
 
         foreach ($activities as $key => $value) 
         {
-            $listActivity[] = $value['name'];
+            $listActivity[] = $value['act_id'];
         }
 
         $role = new role();
@@ -341,7 +350,7 @@ class UsersController extends Controller
         'errors'      => $errors,
         'displayForm' => $displayForm,
         'roles'       => $listRoles,
-        'activity'    => $listActivity,
+        'activity'    => $activitiesi,
         'affiche'     => $detailid,
         'suscribed'   => $suscribeList,
         ];

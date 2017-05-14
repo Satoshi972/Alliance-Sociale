@@ -27,6 +27,7 @@ class UserController extends Controller
         
         $post = [];
         $errors = [];
+        $result = false;
 
         if(!empty($_POST)){
             // Nettoyage des données

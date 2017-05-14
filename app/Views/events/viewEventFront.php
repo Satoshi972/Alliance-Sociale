@@ -31,19 +31,6 @@ $this->start('main_content');
 		<p class="list-group-item-text"><?=$infos['content'];?></p>
 	</div>
 
-	<!-- <?php 
-		foreach ($activity as $key => $value) 
-		{
-			if($value['act_id'] = $infos['id_activity']):
-	?>
-				<div class="list-group-item text-center">
-					<h4 class="list-group-item-heading">Activité de l'évènement</h4>
-					<p class="list-group-item-text"><?=$value['name'];?></p>
-				</div>
-	<?php 
-			endif;
-		} 
-	?> -->
 	<?php if(!empty($infos['quota'])): ?>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Quota</h4>

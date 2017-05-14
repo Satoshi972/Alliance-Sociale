@@ -20,8 +20,6 @@ class EventsController extends MasterController
 
 	public function jsonEvent()
 	{
-		$roles = ['admin','editor'];
-        $this->allowTo($roles);
 		$events = new events();
 		$list = $events->findAll();
 		$this->showJson($list);
@@ -42,9 +40,6 @@ class EventsController extends MasterController
 
 	public function viewEventFront($id)
 	{
-		$roles = ['admin','editor'];
-    	$this->allowTo($roles);
-
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();
