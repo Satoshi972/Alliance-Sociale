@@ -308,8 +308,8 @@
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-        <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
-          <div class="carousel-inner">
+        <div class="carousel slide slide2" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+          <div class="carousel-inner slide-partner">
           
           </div>
           <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -453,10 +453,10 @@ $(document).ready(function(){
         res += '</div>';
         // res += '<div class="content text-center">'+val.alt+'</div>';
       });
-      $('.carousel-inner').html(res);
-      $('.carousel-inner').find("div:first-child").addClass('active');
+      $('.slide-partner').html(res);
+      $('.slide-partner').find("div:first-child").addClass('active');
 
-      $('.carousel[data-type="multi"] .item').each(function(){
+      $('.slide2[data-type="multi"] .item').each(function(){
         var next = $(this).next();
         if (!next.length) {
           next = $(this).siblings(':first');
