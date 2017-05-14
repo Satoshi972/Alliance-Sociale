@@ -54,7 +54,7 @@
                                 <div class="carousel-caption">
                                     <h3>
                                         <a  class="link-home" href ="http://localhost/Alliance-Sociale/public/events/view/<?=$infosfut[$i]['id'] ?>"><?=$infosfut[$i]['title'] ?> le <?= $infosfut[$i]['start'] ?></a></h3>
-                                    <p>
+                                    <p class="text-slider">
                                         <?=$infosfut[$i]['content'] ?>
                                     </p>
                                 </div>
@@ -89,7 +89,7 @@
 
                     <div class="main-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h1>Evènement à venir :</h1>
+                            <h1 style="border-radius: 30px !important; background:white !important;">Evènement à venir :</h1>
                             
                         </div>
 

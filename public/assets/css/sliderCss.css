@@ -3,7 +3,7 @@
     position: absolute;
     top: 20px;
     width: 96.66666666666666%;
-    color: #FFF;
+    color: sandybrown;
 }
 .btn-min-block
 {
@@ -16,6 +16,13 @@
     background-color: transparent;
     border-color: #FFF;
     margin-right: 15px;
+}
+
+.text-slider
+{
+    color: sandybrown;
+    border-radius: 30px !important;
+    background:white !important;
 }
 .btn-clear:hover
 {
@@ -103,7 +110,16 @@
     color: deepskyblue !important;
     font-weight: bold;
    
-}*/
+}
+.link-home:hover {
+
+   
+    background:sandybrown !important;
+    
+   
+}
+
+*/
 /*.modal-dialog {width:600px;}
 .thumbnail {margin-bottom:6px;} */
 
@@ -330,6 +346,14 @@
         text-align: center !important;
 
         }
+        .carousel-caption {
+            display:block !important;
+        }
+        
+        .text-slider
+        {
+            display:none !important;
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -376,6 +400,10 @@
         height:310px !important;
         text-align: center !important;
 
+        }
+        .text-slider
+        {
+            display:block !important;
         }
         
     }
