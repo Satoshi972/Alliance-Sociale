@@ -309,9 +309,7 @@
           .little-fb {
             display:block !important;
         }
-        .middle-fb {
-            display:none !important;
-        }
+
         .big-fb {
             display:none !important;
         }
@@ -472,11 +470,9 @@
          .little-fb {
             display:none !important;
         }
-        .middle-fb {
-            display:block !important;
-        }
+
         .big-fb {
-            display:none !important;
+            display:block !important;
         }
         
          .meteo {
@@ -526,12 +522,10 @@
         }
         
         
-                 .little-fb {
+        .little-fb {
             display:none !important;
         }
-        .middle-fb {
-            display:none !important;
-        }
+       
         .big-fb {
             display:block !important;
         }
@@ -588,9 +582,6 @@
     width:100%;
 }
 
-.middle-fb {
-    width:100%;
-}
 
 .big-fb {
     width:100%;
