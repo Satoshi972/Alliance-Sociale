@@ -19,7 +19,7 @@
 	    	<iframe src="/Alliance-Sociale/public/<?=$media['url'];?>" data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no"></iframe>
 	    </div>
 	    <!-- Modal -->
-          <div class="modal fade" id="myModal<?=$media['id'];?>" role="dialog">
+          <div class="modal fade" id="myModal<?=$media['title'];?>" role="dialog">
             <div class="modal-dialog">
 
               <!-- Modal content-->
