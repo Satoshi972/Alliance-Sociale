@@ -421,6 +421,12 @@ $(document).ready(function(){
         });
 
       }
+
+      setInterval(function() {
+        slide(slide_index + 1)
+    }, 5 * 1000);
+
+
       });
   // Fin slider
 });
