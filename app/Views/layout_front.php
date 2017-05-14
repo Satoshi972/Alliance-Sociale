@@ -413,7 +413,7 @@ $(document).ready(function(){
             },
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
-                //$('#picture').attr('src',picture+event.picture);
+                $('#picture').attr('src',picture+event.picture);
                 $('#modalBody').html(event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
