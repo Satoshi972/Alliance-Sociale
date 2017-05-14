@@ -31,7 +31,7 @@ class UsersModel extends \W\Model\Model
 
   public function listPeopleByActivity($activity, $firstEntry, $PeoplePerPages)
   {
-    $sql = 'SELECT * FROM users u, suscribe_to s WHERE id_usr = u.id AND activity = :activity ORDER BY u.id DESC LIMIT :firstEntry, :PeoplePerPages';
+    $sql = 'SELECT * FROM users u, suscribe_to s, activity a WHERE id_usr = u.id AND act_id = activity AND activity = :activity ORDER BY u.id DESC LIMIT :firstEntry, :PeoplePerPages';
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':activity', $activity);
     $sth->bindValue(':firstEntry', $firstEntry, \PDO::PARAM_INT);

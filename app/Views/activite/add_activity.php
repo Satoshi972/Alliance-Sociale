@@ -46,7 +46,7 @@ $this->start('main_content');?>
             <div class="col-md-10">
               <select name="category" id="category" class="form-control">
                <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
+                  <option value="<?= $value['acy_id'] ?>"><?= $value['name'] ?></option>
                <?php endforeach; ?>
               </select>
             </div>

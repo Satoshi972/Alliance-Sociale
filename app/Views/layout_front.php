@@ -29,6 +29,7 @@
 
     <!-- CSS pour le calendrier -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/fullcalendar.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderPartners.css') ?>">
 
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
@@ -449,7 +450,6 @@ $(document).ready(function(){
         res += '</a>';
         res += '</div>';
         res += '</div>';
-        // res += '<div class="content text-center">'+val.alt+'</div>';
       });
       $('.carousel-inner').html(res);
       $('.carousel-inner').find("div:first-child").addClass('active');
