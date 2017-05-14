@@ -203,7 +203,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                             <h4 id="modalTitle" class="modal-title"></h4>
                         </div>
-                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
+                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center " style="width: 100% !important;"alt='Affiche'>
                         <div id="modalBody" class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
