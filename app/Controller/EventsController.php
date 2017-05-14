@@ -20,7 +20,6 @@ class EventsController extends MasterController
 
 	public function jsonEvent()
 	{
-		
 		$events = new events();
 		$list = $events->findAll();
 		$this->showJson($list);
