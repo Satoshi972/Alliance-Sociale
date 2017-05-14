@@ -2,6 +2,7 @@ body{
     font-family: 'Source code pro', Calibri, serif;
     margin:0px;
     padding:0px;
+    /*background-color: rgba(239, 116, 255, 0.54);
     /*background-image: url(../img/maxresdefault.jpg);*/
     background-size: cover;
 }
@@ -48,7 +49,7 @@ nav{
     margin: 7px 20px 0 20px;
 }
 nav >ul{
-   margin-left:400px;
+   margin-right:5em;
     padding:0px;
 }
 nav >ul::after{
@@ -57,14 +58,17 @@ nav >ul::after{
     clear:both;
 }
 nav >ul >li{
+    
     float:left;
     position:relative; 
 }
 nav a{
+    text-align: center;
     display:inline-block;
     text-decoration: none;
 }
 nav li{
+    margin-right:2em;
     list-style-type: none;
 }
 .submenu{
@@ -193,3 +197,9 @@ nav li:hover .submenu{
 /*-----------------------
     Fin    Pagination
 -----------------------*/
+.content{
+    margin-top:30em;
+}
+nav li {
+    margin-right:120px;
+}

@@ -36,9 +36,15 @@
 
 </head>
 <body>
+ 
+     <!-- Header Carousel -->
+    
 
  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <header>
+    <img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>">
+    </header>
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -48,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>">Alliance Sociale</a>
+                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -138,12 +144,9 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Header Carousel -->
-    <header>
-    <img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>">
-    </header>
+
     
-<div class="container-fluid">
+<div class="container-fluid content">
 
 
     <!-- Marketing Icons Section -->
