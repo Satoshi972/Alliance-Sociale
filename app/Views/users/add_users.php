@@ -91,7 +91,7 @@ $this->start('main_content');
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
                   <?php foreach ($activity as $key => $value):?>
-                    <option value="<?=$value['act_id']?>"><?=$value['name']?></option>
+                    <option value="<?=$value?>"><?=$value?></option>
                   <?php endforeach; ?>
                 </select>
               </div> 
