@@ -169,7 +169,7 @@
         <div class="col-md-3 col-md-pull-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Nou la !</h2>
+                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
 
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
@@ -188,7 +188,7 @@
         <div class="col-md-3">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Nos activités</h2>
+              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
             </div>
             <div class="panel-body img-responsive">
               <!-- Zone calendrier -->
