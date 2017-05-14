@@ -45,7 +45,7 @@ function nbrTotal()
 		console.log(data);
 		var res = "";
 	
-		res += '<legend class="text-center">';
+		res += '<legend class="text-center" style="color: #DAA520 !important;">';
 		res += data;
 		res += ' Personnes dans la base de données';
 		res += '</legend>';
@@ -60,7 +60,7 @@ function nbrTotalA()
 	{
 		var res = "";
 
-		res += '<legend class="text-center">';
+		res += '<legend class="text-center" style="color: #DAA520 !important;">';
 		res += data;
 		res += ' Adhérents';
 		res += '</legend>';
