@@ -20,8 +20,7 @@ class EventsController extends MasterController
 
 	public function jsonEvent()
 	{
-		$roles = ['admin','editor'];
-        $this->allowTo($roles);
+		
 		$events = new events();
 		$list = $events->findAll();
 		$this->showJson($list);
