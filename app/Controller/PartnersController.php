@@ -223,8 +223,7 @@ class PartnersController extends Controller
 
     public function ShowAllPartners()
     {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        
         
         $partners = new PartnersModel();
         $list = $partners->findAll();
