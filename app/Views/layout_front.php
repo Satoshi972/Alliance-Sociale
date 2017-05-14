@@ -202,7 +202,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                             <h4 id="modalTitle" class="modal-title"></h4>
                         </div>
-                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche'>
+                        <img id="picture" class="modal-body img-responsive img-thumbnail text-center" alt='Affiche' style="max-width: 50% !important;">
                         <div id="modalBody" class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -234,14 +234,15 @@
   <!-- Item slider-->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="slider text-center">
-        <ul class="slider-content">
-        </ul>
-        <button class="prev">prev</button>
-        <button class="next">next</button>
+        <div class="col-md-10 col-md-offset-1">
+        <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+          <div class="carousel-inner">
+          
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
-      </div>
+        </div>
     </div>
   </div>
   <!-- Item slider end-->
@@ -355,79 +356,36 @@ $(document).ready(function(){
       var res = "";
       $.each(data, function(index, val) 
       {
-        res += '<li class="text-center">';
+        res += '<div class="text-center item">';
+        res += '<div class="col-md-2 col-sm-6 col-xs-12">';
+        res += '<a href="#">';
         res += '<img class="img-responsive" src="/Alliance-Sociale/public/assets'+val.url+'" alt="'+val.alt+'"/>';
-        res += '<div class="content text-center">'+val.alt+'</div>';
-        res += '</li>';
+        res += '</a>';
+        res += '</div>';
+        res += '</div>';
+        // res += '<div class="content text-center">'+val.alt+'</div>';
       });
-      $('.slider-content').html(res);
+      $('.carousel-inner').html(res);
+      $('.carousel-inner').find("div:first-child").addClass('active');
 
-      var ul = $(".slider ul");
-      var slide_count = ul.children().length;
-      var slide_width_pc = 100.0 / slide_count;
-      var slide_index = 0;
-
-      var first_slide = ul.find("li:first-child");
-      var last_slide = ul.find("li:last-child");
-
-      // Clone the last slide and add as first li element
-      last_slide.clone().prependTo(ul);
-
-      // Clone the first slide and add as last li element
-      first_slide.clone().appendTo(ul);
-
-      ul.find("li").each(function(indx) {
-        var left_percent = (slide_width_pc * indx) + "%";
-        $(this).css({"left":left_percent});
-        $(this).css({width:(100 / slide_count) + "%"});
-      });
-
-      ul.css({
-        'margin-left': '-100%',
-        'width'      : slide_count*100+'%'
-      });
-
-      // Listen for click of prev button
-      $(".slider .prev").click(function() {
-        console.log("prev button clicked");
-        slide(slide_index - 1);
-      });
-
-      // Listen for click of next button
-      $(".slider .next").click(function() {
-        console.log("next button clicked");
-        slide(slide_index + 1);
-      });
-
-      function slide(new_slide_index) {
-
-        var margin_left_pc = (new_slide_index * (-100) - 100) + "%";
-
-        ul.animate({"margin-left": margin_left_pc}, 400, function() {
-
-          // If new slide is before first slide...
-          if(new_slide_index < 0) {
-            ul.css("margin-left", ((slide_count) * (-100)) + "%");
-            new_slide_index = slide_count - 1;
+      $('.carousel[data-type="multi"] .item').each(function(){
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        
+        for (var i=0;i<4;i++) {
+          next=next.next();
+          if (!next.length) {
+              next = $(this).siblings(':first');
           }
-          // If new slide is after last slide...
-          else if(new_slide_index >= slide_count) {
-            ul.css("margin-left", "-100%");
-            new_slide_index = 0;
-          }
-
-          slide_index = new_slide_index
-
-        });
-
-      }
-
-      setInterval(function() {
-        slide(slide_index + 1)
-    }, 5 * 1000);
-
-
+          
+          next.children(':first-child').clone().appendTo($(this));
+        }
       });
+
+  });
   // Fin slider
 });
 </script>

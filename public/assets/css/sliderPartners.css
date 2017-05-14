@@ -1,85 +1,23 @@
-.slider {
-  width: 100%;
-  overflow: hidden;
-  height: 300px;
-  position: relative;
+.carousel-control          { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+@media (max-width: 767px) {
+  .carousel-inner .active.left { left: -100%; }
+  .carousel-inner .next        { left:  100%; }
+  .carousel-inner .prev    { left: -100%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+
 }
-
-.slider ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  position: absolute;
-  /*width: 300%;*/
-  height: 100%;
-  top: 0;
+@media (min-width: 767px) and (max-width: 992px ) {
+  .carousel-inner .active.left { left: -50%; }
+  .carousel-inner .next        { left:  50%; }
+  .carousel-inner .prev    { left: -50%; }
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+  .active > div:first-child + div { display:block; }
 }
-
-.slider li {
-  padding: 0;
-  margin: 0;
-  /*width: 33.333333%;*/
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  border: none;
+@media (min-width: 992px ) {
+  .carousel-inner .active.left { left: -16.7%; }
+  .carousel-inner .next        { left:  16.7%; }
+  .carousel-inner .prev    { left: -16.7%; }  
 }
-
-.slider li img {
-  border: none;
-  max-width: 100%;
-  min-height: 100%;
-}
-
-.slider button {
-  position: absolute;
-  display: block;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  top: 0;
-  bottom: 0;
-  width: 20%;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align:center;
-  opacity: 0;
-  z-index: 2;
-}
-
-.slider button.prev {
-  left: 0;
-}
-
-.slider button.next {
-  right: 0;
-}
-
-.slider button:hover, .slider button:active {
-  opacity: 1.0;
-}
-
-.slider .content {
-  z-index: 3;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3em;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  line-height: 3em;
-  padding: 0 1em;
-  font-size: 1.5em;
-}
-
-.slider .content a {
-  color: inherit;
-}
-
-
