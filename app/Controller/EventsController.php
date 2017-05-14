@@ -182,7 +182,7 @@ class EventsController extends MasterController
 
 				if($event->insert($datas))
 				{
-					$this->redirectToRoute('listEvent');
+					// $this->redirectToRoute('listEvent');
                     $result = 'success';
 				}
 				
