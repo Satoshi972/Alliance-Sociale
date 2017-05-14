@@ -233,71 +233,87 @@
 
 
   <!-- Item slider-->
-  <div class="container-fluid">
+  <!--<div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+        <div class="carousel carousel-showmanymoveone slide" id="itemslider">-->
           <!-- Carousel inner -->
-          <div class="carousel-inner">
+          <!--<div class="carousel-inner">
             <div class="item active">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>-->
    <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
                <h5 class="text-center">4000,00 RSD</h5>
-                -->            </div>
+                -->            <!--</div>
             </div>
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>-->
                <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
                <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
+              <!--</div>
             </div>
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>-->
              <!--    <span class="badge">10%</span> -->
   <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
   <h5 class="text-center">4000,00 RSD</h5>
   <h6 class="text-center">5000,00 RSD</h6> -->
-              </div>
+              <!--</div>
             </div>
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">CVETNA HALJINA</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
+              <!--</div>
             </div>
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">MAJICA FOTO</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
+              <!--</div>
             </div>
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
-              </div>
+              <!--</div>
             </div>
-          </div>
+          </div>-->
           <!-- Fin de carousel inner -->
           <!-- Slider control -->
-          <div id="slider-control">
+          <!--<div id="slider-control">
             <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
             <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
-          </div>
+          </div>-->
           <!-- Fin slider control -->
-        </div>
+        <!--</div>
       </div>
+    </div>
+  </div>-->
+  <!-- Item slider end-->
+
+  <!-- Item slider-->
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+          <div class="carousel-inner">
+          
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+        </div>
     </div>
   </div>
   <!-- Item slider end-->
@@ -403,23 +419,60 @@ $(document).ready(function(){
         });
   //Fin du full calendar
   // Slider carousel
-  $('#itemslider').carousel({ interval: 3000 });
-  $('.carousel-showmanymoveone .item').each(function(){
-    var itemToClone = $(this);
+  // $('#itemslider').carousel({ interval: 3000 });
+  // $('.carousel-showmanymoveone .item').each(function(){
+  //   var itemToClone = $(this);
 
-    for (var i=1;i<6;i++) {
-      itemToClone = itemToClone.next();
+  //   for (var i=1;i<6;i++) {
+  //     itemToClone = itemToClone.next();
 
 
-      if (!itemToClone.length) {
-        itemToClone = $(this).siblings(':first');
-      }
+  //     if (!itemToClone.length) {
+  //       itemToClone = $(this).siblings(':first');
+  //     }
 
-      itemToClone.children(':first-child').clone()
-        .addClass("cloneditem-"+(i))
-        .appendTo($(this));
-    }
+  //     itemToClone.children(':first-child').clone()
+  //       .addClass("cloneditem-"+(i))
+  //       .appendTo($(this));
+  //   }
+  // });
+  // Slider
+  $.getJSON('<?= $this->url('showAllPartners')?>',function(data) 
+  {
+      var res = "";
+      $.each(data, function(index, val) 
+      {
+        res += '<div class="text-center item">';
+        res += '<div class="col-md-2 col-sm-6 col-xs-12">';
+        res += '<a href="#">';
+        res += '<img class="img-responsive" src="/Alliance-Sociale/public/assets'+val.url+'" alt="'+val.alt+'"/>';
+        res += '</a>';
+        res += '</div>';
+        res += '</div>';
+        // res += '<div class="content text-center">'+val.alt+'</div>';
+      });
+      $('.carousel-inner').html(res);
+      $('.carousel-inner').find("div:first-child").addClass('active');
+
+      $('.carousel[data-type="multi"] .item').each(function(){
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        
+        for (var i=0;i<4;i++) {
+          next=next.next();
+          if (!next.length) {
+              next = $(this).siblings(':first');
+          }
+          
+          next.children(':first-child').clone().appendTo($(this));
+        }
+      });
+
   });
+  // Fin slider
 });
 </script>
 <!-- Permet des inclusions de scripts depuis la vue -->
