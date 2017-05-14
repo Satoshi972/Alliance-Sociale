@@ -228,7 +228,6 @@
 
 <!-- Début footer -->
 <footer id="footerx">
-<img src="/Alliance_Sociale/public/assets/img/partners/Menthe.jpg" alt="">
        <!--Item slider text-->
 
 
@@ -350,12 +349,13 @@ $(document).ready(function(){
   //Fin du full calendar
 
   // Slider
+  // doc http://imageslidermaker.com/blog/how-to-make-a-responsive-image-slider-using-jquery-and-css
   $.getJSON('<?= $this->url('showAllPartners')?>',function(data) 
   {
       var res = "";
       $.each(data, function(index, val) 
       {
-        res += '<li>';
+        res += '<li class="text-center">';
         res += '<img class="img-responsive" src="/Alliance-Sociale/public/assets'+val.url+'" alt="'+val.alt+'"/>';
         res += '<div class="content text-center">'+val.alt+'</div>';
         res += '</li>';
@@ -382,7 +382,10 @@ $(document).ready(function(){
         $(this).css({width:(100 / slide_count) + "%"});
       });
 
-      ul.css("margin-left", "-100%");
+      ul.css({
+        'margin-left': '-100%',
+        'width'      : slide_count*100+'%'
+      });
 
       // Listen for click of prev button
       $(".slider .prev").click(function() {
