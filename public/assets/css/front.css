@@ -215,10 +215,7 @@ header img{
 				height: 10px;
 			}
         
-			#navigation{
-				background: #424558;
-				height: 50px;
-			}
+			
 			.fixNavigation{
 				z-index: 9999;
 				position: fixed;
