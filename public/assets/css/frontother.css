@@ -378,6 +378,7 @@
         {
             display:none;
         }
+        
     }
 
     /* Extra Small Devices, Phones */ 
@@ -438,6 +439,7 @@
         {
             display:block;
         }
+        
     }
 
     /* Small Devices, Tablets */
@@ -485,6 +487,21 @@
         text-align: center !important;
 
         }
+        nav ul{
+            
+        text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:15px;
+            float:none;
+        display: inline-block;
+        font-size:12px;
+        }
+        navbar-brand{
+        float: none;
+        position:absolute;
+}
     }
 
     /* Medium Devices, Desktops */
@@ -538,6 +555,21 @@
         .little-past {
             display:none;
         }
+               nav ul{
+            
+        text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:10px;
+            float:none;
+        display: inline-block;
+        font-size:15px;
+        }
+        navbar-brand{
+        float: none;
+        position:absolute;
+}
     }
 
     /* Large Devices, Wide Screens */
@@ -586,6 +618,85 @@
         
         .little-past {
             display:none;
+        }
+               nav ul{
+            
+        text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:22px;
+            float:none;
+        display: inline-block;
+        font-size:17px;
+        }
+        navbar-brand{
+        float: none;
+        position:absolute;
+}
+        
+    }
+
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1900px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        nav ul{        
+            text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:100px;
+            float:none;
+            display: inline-block;
+            font-size:17px;
+        }
+        navbar-brand{
+            float: none;
+            position:absolute;
         }
         
     }
