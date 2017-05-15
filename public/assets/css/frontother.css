@@ -368,6 +368,11 @@
         {
             display:block !important;
         }
+        
+        .projector
+        {
+            display:none;
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -422,6 +427,11 @@
         .minilogo 
         {
             display:none !important;
+        }
+        
+        .projector
+        {
+            display:block;
         }
     }
 
