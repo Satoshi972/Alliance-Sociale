@@ -55,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"><img id="minilogo" class="minilogo" style="width:50%" src="<?= $this->assetUrl('img/minilogoAs.png') ?>"></a>
+                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"><img id="minilogo" class="minilogo" style="width:31%" src="<?= $this->assetUrl('img/minilogoAllianceSociale.png') ?>"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
