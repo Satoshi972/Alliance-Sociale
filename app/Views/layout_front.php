@@ -13,7 +13,10 @@
 
 
     <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css?family=Lobster|Merienda" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Merienda" rel="stylesheet">
+   
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
     <!-- jQuery library -->
@@ -39,7 +42,7 @@
 </head>
 <body>
 		<div id="page">
-		<div><img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>"</div>
+		<div><img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>"></div>
 
  <!-- Navigation -->
     <nav id="navigation" class="navbar navbar-inverse navbar-center" role="navigation">
@@ -134,7 +137,11 @@
 
                          <?php endif; ?>
                     </li>
-
+                    <?php if (empty($w_user)): ?>
+                    <li class="dropdown"><a href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> connexion</a></li>
+                    <?php else: ?>
+                    <li class="dropdown"><a href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> déconnexion</a></li>
+                    <?php endif ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
