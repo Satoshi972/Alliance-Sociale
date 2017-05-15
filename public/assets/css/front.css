@@ -14,40 +14,25 @@ h1{
     font-family: 'Lobster';
 }
 
-/* ---------------------
-        top header
------------------------- */
-.top-header ul{
-    text-align: right;
-}
-.top-header ul li{
-    margin-right: 30px;
-     display: inline-block;
-
-}
-.top-header ul li a{
-
-}
-
-.top-header ul li a >img{
-    width: 30px;
-}
 
 
 /* ---------------------
         fin top header
 ------------------------ */
 
+/*
 nav{
     width:100%;
     background-color: #424558;
-     /*position: fixed;*/
+     position: fixed;
      float:left;
 }
+*/
 .logo{
     float:left;
     margin: 7px 20px 0 20px;
 }
+/*
 nav >ul{
    margin-right:5em;
     padding:0px;
@@ -71,10 +56,12 @@ nav li{
     margin-right:2em;
     list-style-type: none;
 }
+*/
 .submenu{
     display:none;
 }
 
+/*
 nav input[type=checkbox]{
     display:none;
 }
@@ -101,6 +88,7 @@ nav li:hover .submenu{
     padding:0px;
     z-index:1000;
 }
+*/
 .submenu li a{
     padding:15px 30px;
     font-size:13px;
@@ -198,8 +186,104 @@ nav li:hover .submenu{
     Fin    Pagination
 -----------------------*/
 .content{
-    margin-top:30em;
+    margin-top:4em;
 }
-nav li {
-    margin-right:120px;
+
+.nav ul li {
+    margin-right:200px;
 }
+.nav{
+    position:absolute;
+}
+header img{
+    margin-top:1em;
+    position:relative;
+}
+.fb-place {
+    margin-left:0.2em;
+
+    width:100%;
+    }
+#page{
+/*				width: 1900px;*/
+				margin: 0 auto;
+			}
+			#header{
+				background: #3E3E3E;
+				height: 10px;
+			}
+        
+			#navigation{
+				background: #424558;
+				height: 50px;
+			}
+			.fixNavigation{
+				z-index: 9999;
+				position: fixed;
+				top: 0;
+/*				 Mise en forme */
+				width: 100%;
+			}
+			#content{
+				background: #EEEEEE;
+			}
+			
+			#header,#navigation, #content, #footer{
+				text-align: center;
+			}
+/* Responsive Styles */
+
+@media(max-width:1191px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+    .fc-button {
+        width:20%;
+    }
+    .fc-toolbar h2{
+        font-size:20px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+    .fc-button {
+        width:20%;
+    }
+    .fc-toolbar h2{
+        font-size:20px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+@media(max-width:264px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+    .fc-button {
+        width:20%;
+    }
+    .fc-toolbar h2{
+        font-size:16px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+    .logos{
+    margin-top:-4.2em;
+    }
+    
+}
+.centernav ul{
+    margin-left:26%;
+    padding:0;
+            font-size:20px;
+        }
+

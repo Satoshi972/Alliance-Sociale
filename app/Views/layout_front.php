@@ -38,16 +38,12 @@
 
 </head>
 <body>
- 
-     <!-- Header Carousel -->
-    
+		<div id="page">
+		<div><img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>"</div>
 
  <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-       <header>
-    <img class="img-responsive" src="<?= $this->assetUrl('img/montage.jpg') ?>">
-    </header>
-        <div class="container-fluid">
+    <nav id="navigation" class="navbar navbar-inverse navbar-center" role="navigation">
+        <div class="container-fluid centernav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -249,7 +245,7 @@
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.jpg') ?>" class="img-responsive center-block"></a>-->
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.png') ?>" class="img-responsive center-block"></a>-->
                <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
                <h5 class="text-center">4000,00 RSD</h5> -->
               <!--</div>
@@ -257,7 +253,7 @@
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/Espace sud.jpg') ?>" class="img-responsive center-block"></a>-->
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_espace_sud.png') ?>" class="img-responsive center-block"></a>-->
              <!--    <span class="badge">10%</span> -->
   <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
   <h5 class="text-center">4000,00 RSD</h5>
@@ -267,7 +263,7 @@
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.jpg') ?>" class="img-responsive center-block"></a>-->
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.png') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">CVETNA HALJINA</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
               <!--</div>
@@ -275,7 +271,7 @@
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.jpg') ?>" class="img-responsive center-block"></a>-->
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.png') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">MAJICA FOTO</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
               <!--</div>
@@ -283,7 +279,7 @@
 
             <div class="item">
               <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.jpg') ?>" class="img-responsive center-block"></a>-->
+                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.png') ?>" class="img-responsive center-block"></a>-->
   <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
   <h5 class="text-center">4000,00 RSD</h5> -->
               <!--</div>
@@ -376,6 +372,30 @@
 <script src="<?= $this->assetUrl('js/fullcalendar/fullcalendar.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
+
+<!-- Navigation fixe -->
+
+<script type="text/javascript">
+		$(function(){
+			// On recupere la position du bloc par rapport au haut du site
+			var position_top_raccourci = $("#navigation").offset().top;
+			
+			//Au scroll dans la fenetre on d�clenche la fonction
+			$(window).scroll(function () {
+			
+				//si on a defile de plus de 150px du haut vers le bas
+				if ($(this).scrollTop() > position_top_raccourci) {
+				
+					//on ajoute la classe "fixNavigation" a <div id="navigation">
+					$('#navigation').addClass("fixNavigation"); 
+				} else {
+				
+					//sinon on retire la classe "fixNavigation" a <div id="navigation">
+					$('#navigation').removeClass("fixNavigation");
+				}
+			});
+		});
+		</script>
 
 <!-- API Facebook -->
 <script>
