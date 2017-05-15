@@ -151,7 +151,7 @@
 
 
     
-<div class="container-fluid content">
+<div class="container-fluid">
 
 
     <!-- Marketing Icons Section -->
