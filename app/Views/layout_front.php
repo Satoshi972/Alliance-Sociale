@@ -55,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"></a>
+                <a class="navbar-brand" href="<?php echo $this->url('default_home') ?>"><img id="minilogo" class="minilogo" style="width:50%" src="<?= $this->assetUrl('img/minilogoAs.png') ?>"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -395,11 +395,24 @@
 				
 					//on ajoute la classe "fixNavigation" a <div id="navigation">
 					$('#navigation').addClass("fixNavigation"); 
+                    
+                    $('#minilogo').addClass("minilogoscroll"); 
+                    
+                    $('#minilogo').removeClass("minilogo"); 
+                    
+                    $('#minilogo').removeClass("minilogoscrollnone"); 
 				} else {
 				
 					//sinon on retire la classe "fixNavigation" a <div id="navigation">
 					$('#navigation').removeClass("fixNavigation");
+                    
+                    $('#minilogo').removeClass("minilogoscroll"); 
+                    
+                    $('#minilogo').addClass("minilogoscrollnone"); 
+                    
+                    $('#minilogo').addClass("minilogo"); 
 				}
+                
 			});
 		});
 		</script>

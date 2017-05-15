@@ -1,3 +1,7 @@
+.navbar-brand{
+    padding: 0;
+}
+
 .main-text
 {
     position: absolute;
@@ -352,6 +356,18 @@
         {
             display:none !important;
         }
+        .minilogo 
+        {
+            display:block !important;
+        }
+        .minilogoscroll
+        {
+            display:block !important;
+        }
+        .minilogoscrollnone
+        {
+            display:block !important;
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -403,7 +419,10 @@
         {
             display:block !important;
         }
-        
+        .minilogo 
+        {
+            display:none !important;
+        }
     }
 
     /* Small Devices, Tablets */
