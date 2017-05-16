@@ -64,14 +64,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-center">
                     <li>
-                        <a href="<?php echo $this->url('default_home') ?>">Accueil</a>
+                        <a class="lienmenu" href="<?php echo $this->url('default_home') ?>">Accueil</a>
                     </li>
                     <li>
 
-              <a href="<?php echo $this->url('about') ?>">Présentation</a></li>
+              <a class="lienmenu" href="<?php echo $this->url('about') ?>">Présentation</a></li>
                     
                     <li class="dropdown">
-                        <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
+                        <a class="lienmenu" href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a>
@@ -82,7 +82,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-            <a href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="lienmenu" href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Nos Activités<span class="caret"></span></a>
 
               <ul class="dropdown-menu">
@@ -95,7 +95,7 @@
         </ul>
       </li>
       <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Comité des jeunes </a>
+        <a  class="test" tabindex="-1" href="#">Comité des jeunes </a>
       </li>
       <li class="dropdown-submenu">
         <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
@@ -124,26 +124,26 @@
                   </li></ul>
       
                     <li>
-                        <a href="<?php echo $this->url('contactfront') ?>">Contactez nous</a>
+                        <a class="lienmenu" href="<?php echo $this->url('contactfront') ?>">Contactez nous</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->url('accession') ?>">Adhésion</a>
+                        <a class="lienmenu" href="<?php echo $this->url('accession') ?>">Adhésion</a>
                     </li>
                     <li class="dropdown">
                           <?php if(empty($w_user)): ?>
 
-                         <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
+                         <a class="lienmenu" href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
 
                          <?php else: ?>
 
-                        <a href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
+                        <a class="lienmenu" href="<?php echo $this->url('listMediasGuest',['page'=>1]) ?>">Galeries</a>
 
                          <?php endif; ?>
                     </li>
                     <?php if (empty($w_user)): ?>
-                    <li class="dropdown"><a href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> connexion</a></li>
+                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> connexion</a></li>
                     <?php else: ?>
-                    <li class="dropdown"><a href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> déconnexion</a></li>
+                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> déconnexion</a></li>
                     <?php endif ?>
                 </ul>
             </div>

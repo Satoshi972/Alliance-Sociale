@@ -3,9 +3,25 @@
     margin-top:50px !important;
 }
 
-.navbar-brand{
-    padding: 0;
+.navbar-nav
+{
+    text-align: center;
+    float:none;
+    
 }
+
+.navbar-nav>li
+{
+    display:inline-block
+    float:none;
+    
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+ 
+
 
 .main-text
 {
@@ -379,6 +395,12 @@
             display:none;
         }
         
+        .navbar-brand
+        {
+            padding: 0;
+            
+            
+        }
     }
 
     /* Extra Small Devices, Phones */ 
@@ -487,22 +509,26 @@
         text-align: center !important;
 
         }
-        nav ul{
+        .navbar-nav>li
+        {
+            font-size:11px;
+
+        }
+        .lienmenu
+        {
+            padding:7px !important;
+            margin-top:5px;
             
-        text-align:center;
-            float: none;
         }
-        nav li{
-            margin-left:15px;
-            float:none;
-        display: inline-block;
-        font-size:12px;
+        
+        .navbar-brand
+        {
+            padding: 0;
+            position:absolute;
+            
         }
-        navbar-brand{
-        float: none;
-        position:absolute;
+       
 }
-    }
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
@@ -555,21 +581,18 @@
         .little-past {
             display:none;
         }
-               nav ul{
+        
+        .navbar-nav>li
+        {
+            font-size:15px;
+
+        }
+        .lienmenu
+        {
+            padding:6px !important;
+            margin-top:5px;
             
-        text-align:center;
-            float: none;
         }
-        nav li{
-            margin-left:10px;
-            float:none;
-        display: inline-block;
-        font-size:15px;
-        }
-        navbar-brand{
-        float: none;
-        position:absolute;
-}
     }
 
     /* Large Devices, Wide Screens */
@@ -619,22 +642,26 @@
         .little-past {
             display:none;
         }
-               nav ul{
-            
-        text-align:center;
-            float: none;
+  
+         .navbar-nav>li
+        {
+            font-size:18px;
+
         }
+<<<<<<< Updated upstream
         nav li{
             margin-left:28px;
             float:none;
         display: inline-block;
         font-size:18px;
+=======
+        .lienmenu
+        {
+            padding:9px !important;
+            margin-top:5px;
+            
+>>>>>>> Stashed changes
         }
-        navbar-brand{
-        float: none;
-        position:absolute;
-}
-        
     }
 
 /* Large Devices, Wide Screens */
@@ -684,19 +711,16 @@
         .little-past {
             display:none;
         }
-        nav ul{        
-            text-align:center;
-            float: none;
+        .navbar-nav>li
+        {
+            font-size:22px;
+
         }
-        nav li{
-            margin-left:100px;
-            float:none;
-            display: inline-block;
-            font-size:17px;
-        }
-        navbar-brand{
-            float: none;
-            position:absolute;
+        .lienmenu
+        {
+            padding:12px !important;
+            margin-top:5px;
+            
         }
         
     }
