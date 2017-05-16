@@ -648,19 +648,13 @@
             font-size:18px;
 
         }
-<<<<<<< Updated upstream
-        nav li{
-            margin-left:28px;
-            float:none;
-        display: inline-block;
-        font-size:18px;
-=======
+
         .lienmenu
         {
             padding:9px !important;
             margin-top:5px;
             
->>>>>>> Stashed changes
+
         }
     }
 
