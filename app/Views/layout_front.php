@@ -141,9 +141,9 @@
                          <?php endif; ?>
                     </li>
                     <?php if (empty($w_user)): ?>
-                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> connexion</a></li>
+                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Connexion</a></li>
                     <?php else: ?>
-                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> déconnexion</a></li>
+                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></li>
                     <?php endif ?>
                 </ul>
             </div>
@@ -211,7 +211,7 @@
                         <div id="modalBody" class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <a id="link" ><button class="btn btn-primary">Plus d'info</button></a>
+                            <a id="link" ><button class="btn btn-primary">Plus d'infos</button></a>
                         </div>
                     </div>
                 </div>
