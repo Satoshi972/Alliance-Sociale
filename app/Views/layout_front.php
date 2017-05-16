@@ -45,7 +45,7 @@
 </head>
 <body>
 		<div id="page">
-		<div><img class="img-responsive projector" src="<?= $this->assetUrl('img/montage.jpg') ?>"></div>
+		<div><img class="img-responsive projector" src="<?= $this->assetUrl('img/montage.jpg') ?>" style="margin:0 auto;"></div>
 
  <!-- Navigation -->
     <nav id="navigation" class="navbar navbar-inverse navbar-center" role="navigation">
