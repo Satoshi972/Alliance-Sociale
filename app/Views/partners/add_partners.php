@@ -14,12 +14,10 @@ $this->start('main_content');?>
 
 
 <div class ="container">
-	<div class="row">
-		<div class="col-md-12">
+  <div class="row">
+      <div class="col-md-12 well">
 
-			<div class="col-md-6 col-md-offset-3 text-center well">
-
-				<div class="col-md-12 jumbotron">        
+				<div class="col-md-12 jumbotron text-center">      
           			<h2>Ajouter un partenaire</h2>
       			</div>
 
@@ -45,13 +43,12 @@ $this->start('main_content');?>
 					
 
 					<div class="form-group">
-						<div class="col-md-6 col-md-offset-3">
+						<div class="col-md-12 text-center">
 							<button type="submit" id="submitForm" class="btn btn-primary">Ajout de Partenaire</button>
 						</div>
 					</div>
 					
 				</form>
-			</div>
 		</div>
 	</div>
 </div>
