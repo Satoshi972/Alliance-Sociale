@@ -573,7 +573,7 @@
     }
 
     /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
+    @media only screen and (min-width : 1280px) {
         
         
         .img-slide {
@@ -625,10 +625,10 @@
             float: none;
         }
         nav li{
-            margin-left:22px;
+            margin-left:28px;
             float:none;
         display: inline-block;
-        font-size:17px;
+        font-size:18px;
         }
         navbar-brand{
         float: none;
@@ -693,6 +693,133 @@
             float:none;
             display: inline-block;
             font-size:17px;
+        }
+        navbar-brand{
+            float: none;
+            position:absolute;
+        }
+        
+    }
+
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 2330px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        nav ul{        
+            text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:195px;
+            float:none;
+            display: inline-block;
+            font-size:20px;
+        }
+        navbar-brand{
+            float: none;
+            position:absolute;
+        }
+        
+    }
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 2880px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        nav ul{        
+            text-align:center;
+            float: none;
+        }
+        nav li{
+            margin-left:195px;
+            float:none;
+            display: inline-block;
+            font-size:20px;
         }
         navbar-brand{
             float: none;
