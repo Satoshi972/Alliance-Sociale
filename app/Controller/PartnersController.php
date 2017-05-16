@@ -117,7 +117,7 @@ class PartnersController extends Controller
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
-		$result = false;
+		$success = false;
         $newPictureName = '';
         $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
         
@@ -181,25 +181,19 @@ class PartnersController extends Controller
                 
                 $enter->update($datas,$id);
 				 
-				 $result = "success";
+				 $success = true;
 
             }
-            else
-            {
-                $result = implode('<br>', $errors);
-            }
-            
-        }
-        else
-        {
-    		$detailid  = $enter->find($id);
-    		$params = [
-            'id' => $detailid,
-            ];
-            
-            $this->show('partners/update_partners', $params);
-        }
-        echo $result;
+
+		$detailid  = $enter->find($id);
+		$params = [
+        'id' => $detailid,
+        'success' => $success,
+        'errors' => $errors
+        ];
+        
+        $this->show('partners/update_partners', $params);
+  
     }
     
     

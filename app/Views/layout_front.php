@@ -130,7 +130,7 @@
                         <a href="<?php echo $this->url('accession') ?>">Adhésion</a>
                     </li>
                     <li class="dropdown">
-                          <?php if(!empty($w_user)): ?>
+                          <?php if(empty($w_user)): ?>
 
                          <a href="<?php echo $this->url('listMedias',['page'=>1]) ?>"> Galeries</a>
 
