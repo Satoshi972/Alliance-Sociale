@@ -289,12 +289,22 @@ class ActivityController extends MasterController
 
    public function showAllActivities()
    {
-        $roles = ['admin','editor'];
-        $this->allowTo($roles);
+        // $roles = ['admin','editor'];
+        // $this->allowTo($roles);
         
         $activity = new Activity();
         $list = $activity->findAll();
         $this->showJson($list);
+   }
+
+   public function showAllCategories()
+   {
+    // $roles = ['admin','editor'];
+    // $this->allowTo($roles);
+    
+    $category = new categoryModel();
+    $list = $category->findAll();
+    $this->showJson($list);
    }
 
 }

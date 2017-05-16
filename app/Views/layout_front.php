@@ -677,6 +677,11 @@ $(document).ready(function(){
 
   });
   // Fin slider
+  // Menu dynamique
+  $.getJSON('<?= $this->url('showAllCategories')?>'}, function(json, textStatus) {
+      /*optional stuff to do after success */
+  });
+  //Fin menu dynamique
 });
 </script>
 <!-- Permet des inclusions de scripts depuis la vue -->

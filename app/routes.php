@@ -12,6 +12,7 @@ $w_routes = array(
     ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
     ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
     ['GET', '/activite/showAll', 'Activity#showAllActivities', 'showAllActivities'],
+    ['GET', '/category/showAll', 'Activity#showAllCategories', 'showAllCategories'],
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
