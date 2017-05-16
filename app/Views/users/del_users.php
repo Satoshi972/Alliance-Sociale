@@ -16,7 +16,7 @@ $this->start('main_content');
         	<h2>Suppression utilisateur</h2>
         </div>
             <?php if($success == true): // La variable $success est envoyé via le controller?>
-                <p class="alert alert-success alert-dismissable">Votre utilisateur à bien été supprimé</p>	
+                <p class="alert alert-success alert-dismissable">Votre utilisateur a bien été supprimé</p>	
 			<?php endif; ?>
 
 		<form method="post" class="form-horizontal">

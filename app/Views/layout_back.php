@@ -199,7 +199,7 @@
                               </a>
 
                               <div class="collapse" id="management">
-                                <a href="<?= $this->url('updateAboutInfos') ?>" class="list-group-item">Informations a propos</a>
+                                <a href="<?= $this->url('updateAboutInfos') ?>" class="list-group-item">Informations à propos</a>
                               </div>
 
                               <a href="#statistics" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">

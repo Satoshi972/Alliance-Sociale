@@ -27,8 +27,8 @@ $this->start('main_content');
               <?php endif; ?>
 
               <?php if($success == true): // La variable $success est envoyé via le controller?>
-                <p class="alert alert-success alert-dismissable">Votre utilisateur à été Modifier</p>
-                <p><a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>">Retour a la liste d'utilisateur</a></p>
+                <p class="alert alert-success alert-dismissable">Votre utilisateur a été modifié</p>
+                <p><a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>">Retour à la liste d'utilisateurs</a></p>
               <?php endif; ?>
 
           <?php if($displayForm === true): ?>
@@ -78,7 +78,7 @@ $this->start('main_content');
             </div>
 
             <div class="form-group"> 
-              <label class="col-md-2 control-label" for="caf">Numéro de caf</label>
+              <label class="col-md-2 control-label" for="caf">Numéro de CAF</label>
               <div class="col-md-10 text-center">
                 <input type="text" class="form-control" name="caf" id="caf" value="<?=$affiche['caf'] ?>">
               </div>
