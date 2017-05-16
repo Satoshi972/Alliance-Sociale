@@ -766,19 +766,16 @@
         .little-past {
             display:none;
         }
-        nav ul{        
-            text-align:center;
-            float: none;
+        .navbar-nav>li
+        {
+            font-size:23px;
+
         }
-        nav li{
-            margin-left:195px;
-            float:none;
-            display: inline-block;
-            font-size:20px;
-        }
-        navbar-brand{
-            float: none;
-            position:absolute;
+        .lienmenu
+        {
+            padding:14px !important;
+            margin-top:5px;
+            
         }
         
     }
@@ -829,19 +826,17 @@
         .little-past {
             display:none;
         }
-        nav ul{        
-            text-align:center;
-            float: none;
+        
+        .navbar-nav>li
+        {
+            font-size:23px;
+
         }
-        nav li{
-            margin-left:195px;
-            float:none;
-            display: inline-block;
-            font-size:20px;
-        }
-        navbar-brand{
-            float: none;
-            position:absolute;
+        .lienmenu
+        {
+            padding:16px !important;
+            margin-top:5px;
+            
         }
         
     }
