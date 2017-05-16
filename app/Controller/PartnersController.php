@@ -185,6 +185,8 @@ class PartnersController extends Controller
 
             }
 
+    
+        }
 		$detailid  = $enter->find($id);
 		$params = [
         'id' => $detailid,
@@ -193,8 +195,7 @@ class PartnersController extends Controller
         ];
         
         $this->show('partners/update_partners', $params);
-  
-    }
+}
     
     
     //Suppression des partenaires
