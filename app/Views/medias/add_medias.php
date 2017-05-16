@@ -43,7 +43,7 @@ $this->start('main_content');
 
 		<div class="form-group">
 			<div class="col-md-2 text-center">
-				<label for="visible">Ces médias seront-ils visibles a tous?(vous ne pourrez pas modifier ceci après)</label>
+				<label for="visible">Ces médias seront-ils visibles par tous?(vous ne pourrez pas modifier ceci après)</label>
 			</div>
 			<div class="col-md-10">
 				<input type="checkbox" value="1" name="visible" id="visible">

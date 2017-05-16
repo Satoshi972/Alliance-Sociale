@@ -9,7 +9,7 @@ $this->start('main_content');
 	  <div class="col-md-12 well">
 		  <div class="row">
 		      <div class="col-md-12 jumbotron text-center">
-		        <h2>Fiche de l'évenement</h2>
+		        <h2>Fiche de l'évènement</h2>
 		      </div>
 		    </div>
 

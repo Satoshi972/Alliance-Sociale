@@ -15,7 +15,7 @@ $this->start('main_content');?>
   <div class="row">   
       <div class="col-md-12 well">
         <div class="col-md-12 jumbotron">        
-          <h2>Modification de l'activitée</h2>
+          <h2>Modification de l'activité</h2>
         </div>
         
           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
@@ -23,7 +23,7 @@ $this->start('main_content');?>
           <?php endif; ?>
 
           <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre Activité à bien été ajouter</p>
+            <p class="alert alert-success alert-dismissable">Votre Activité a bien été ajoutée</p>
           <?php endif; ?>
 
         <form method="post" class="form-horizontal" enctype="multipart/form-data">
@@ -71,7 +71,7 @@ $this->start('main_content');?>
           
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <button type="submit" id="submitForm" class="btn btn-primary">Mettre a jour</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Mettre à jour</button>
             </div>
           </div>
           

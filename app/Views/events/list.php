@@ -12,7 +12,7 @@ $this->start('main_content');
       <div class="col-md-12 well">
 	<!-- Zone calendrier -->
        <div class="col-md-12 jumbotron text-center">        
-          <h2>Liste des évenements</h2>
+          <h2>Liste des évènements</h2>
         </div>
   
       <!-- possible placement du calendrier -->
@@ -30,7 +30,7 @@ $this->start('main_content');
                   <div id="modalBody" class="modal-body"></div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <a id="link" ><button class="btn btn-primary">Plus d'info</button></a>
+                      <a id="link" ><button class="btn btn-primary">Plus d'infos</button></a>
                   </div>
               </div>
           </div>

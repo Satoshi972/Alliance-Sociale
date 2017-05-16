@@ -14,7 +14,7 @@ $this->start('main_content');?>
   <div class="row">   
       <div class="col-md-12 well">
         <div class="col-md-12 jumbotron text-center">        
-          <h2>Ajouter une activitée</h2>
+          <h2>Ajouter une activité</h2>
         </div>
 
 
@@ -23,7 +23,7 @@ $this->start('main_content');?>
 
           <div class="form-group">
             <div class="col-md-2 text-center">          
-              <label class="control-label " for="name">Nom de l'Activité</label>
+              <label class="control-label " for="name">Nom de l'activité</label>
             </div> 
             <div class="col-md-10">
               <input type="text" class="form-control" name="name" id="name">
@@ -54,7 +54,7 @@ $this->start('main_content');?>
                          
           <div class="form-group">
             <div class="col-md-2 text-center">
-              <label class="control-label" for="picture">photos</label>
+              <label class="control-label" for="picture">Photos</label>
             </div>
             <div class="col-md-10">
               <input type="file" name="picture" id="picture" accept="image/*">
@@ -63,7 +63,7 @@ $this->start('main_content');?>
           
           <div class="form-group">
             <div class="col-md-12 text-center">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activitées</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activités</button>
             </div>
           </div>
           

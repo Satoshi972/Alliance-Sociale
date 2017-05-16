@@ -15,11 +15,11 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h2 style="font-family: 'Lobster';">Que sommes nous ?</h2>
+							<h2 style="font-family: 'Lobster';">Qui sommes nous ?</h2>
 						</div>
 					<?php foreach($views as $view): ?>
 						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['description'];?></p>
-						<p> <a href="<?= $this->assetUrl('files/projet social 2017-2020.pdf') ?>">Retrouver plus en détails nos projets socials pour 2017-2020</a></p>
+						<p> <a href="<?= $this->assetUrl('files/projet social 2017-2020.pdf') ?>">Retrouvez plus en détails nos projets sociaux pour 2017-2020</a></p>
 					</div>
 				</div>
 			</section>
@@ -27,7 +27,7 @@
 	    	<section class="president">	
 	    		<div class="row">
 					<div class="col-md-12 text-center">
-						<h2 style="font-family: 'Lobster';">Mot de la presidente</h2>
+						<h2 style="font-family: 'Lobster';">Mot de la Présidente</h2>
 					</div>
 
 
@@ -62,7 +62,7 @@
             <?php } ?>
 
             			<div class="col-md-12 text-center">
-				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrer notre équipe</a>
+				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrez notre équipe</a>
 			</div>
 <!-- 			<section class="organigramme">
 	<div class="row">

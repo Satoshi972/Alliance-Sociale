@@ -7,21 +7,21 @@
 		<div class="col-lg-12">
 
 			<div class="col-sm-12 text-center">
-					<h1>Adhesion</h1>
+					<h1>Adhésion</h1>
 			</div>
 
 			<div class="col-md-12 text-center">
-					<p>Gagner du temps en remplissant chez vous la fiche d’inscription pour accéder aux différentes activitées</p>
+					<p>Gagnez du temps en remplissant chez vous la fiche d’inscription pour accéder aux différentes activités</p>
 			</div>
 
 			<div class="col-md-12 text-center">
-				<button type="submit" id="submitForm" class="btn btn-info"><a href="<?= $this->assetUrl('files/fiche adhesion alliance.pdf') ?>" style="color: white;">Téléchager la fiche d'adhésion</a></button>
+				<button type="submit" id="submitForm" class="btn btn-info"><a href="<?= $this->assetUrl('files/fiche adhesion alliance.pdf') ?>" style="color: white;">Téléchargez la fiche d'adhésion</a></button>
 			</div>
 
 <div class="col-md-12 text-center">
 
 	<div class="col-md-12 text-center">
-		<p>Vous trouverez les mentions légales en cliquant ici</p>
+		<p>Veuillez trouver les mentions légales en cliquant ici</p>
 	</div>
 
 	<details >

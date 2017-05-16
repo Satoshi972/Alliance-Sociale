@@ -46,7 +46,7 @@ $this->start('main_content');?>
 
 					<div class="form-group">
 						<div class="col-md-6 col-md-offset-3">
-							<button type="submit" id="submitForm" class="btn btn-primary">Ajouter de Partenaire</button>
+							<button type="submit" id="submitForm" class="btn btn-primary">Ajout de Partenaire</button>
 						</div>
 					</div>
 					
