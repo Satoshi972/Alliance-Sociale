@@ -5,7 +5,7 @@ $this->start('main_content');
 <legend class="text-center">Fiche de l'évènement</legend>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Affiche</h4>
-		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
+		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" style="width:100%; margin: 0 auto; "alt="logo"></p>
 		
 	</div>
 

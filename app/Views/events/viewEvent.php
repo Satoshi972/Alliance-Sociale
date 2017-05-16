@@ -17,7 +17,7 @@ $this->start('main_content');
 			    <div class="col-md-12">
 					<div class="list-group-item text-center">
 						<h4 class="list-group-item-heading" style="color: #DAA520;">Affiche</h4>
-						<p class="list-group-item-text"><img class="img-responsive" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
+						<p class="list-group-item-text"><img class="img-responsive" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" style="width:100%; margin: 0 auto; " alt="logo"></p>
 					</div>
 
 					<div class="list-group-item text-center">
