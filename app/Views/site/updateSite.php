@@ -13,7 +13,7 @@ $this->start('main_content');
 
 <form method="POST" enctype="multipart/form-data" class="form-horizontal">
 
-	<legend class="text-center">Modification des information du site</legend>
+	<legend class="text-center">Modification des informations du site</legend>
 
 	<div class="form-group">
 		<label for="Header">Header</label>

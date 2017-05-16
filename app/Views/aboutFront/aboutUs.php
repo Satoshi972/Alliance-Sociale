@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-12 text-center">
-							<h2 style="font-family: 'Lobster';">Qui sommes nous ?</h2>
+							<h2 style="font-family: 'Lobster';">Que sommes nous ?</h2>
 						</div>
 					<?php foreach($views as $view): ?>
 						<p style="text-align:justify; font-family: 'Merienda';"><?=$view['description'];?></p>

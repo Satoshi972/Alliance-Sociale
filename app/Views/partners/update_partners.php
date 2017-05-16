@@ -19,7 +19,7 @@ $this->start('main_content');
           <?php endif; ?>
 
           <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre partenaire à bien été modifier</p>
+            <p class="alert alert-success alert-dismissable">Votre partenaire a bien été modifié</p>
           <?php endif; ?>
 
         <form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
@@ -43,7 +43,7 @@ $this->start('main_content');
 
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter de Partenaire</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Ajout de Partenaire</button>
             </div>
           </div>
           
