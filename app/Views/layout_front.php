@@ -154,7 +154,7 @@
 
 
     
-<div class="container-fluid">
+<div class="container-fluid contentpart">
 
 
     <!-- Marketing Icons Section -->
@@ -336,11 +336,13 @@
     </div>
     
   </div>
-
+            </div>          
         
 
 
 <!-- Début footer -->
+<div class="container-fluid">
+
 <footer id="footerx">
 
   <h3 style="text-align:center">Partenaires</h3>
@@ -474,9 +476,11 @@
       </div>
   </div>
 </footer>
-        </div>
+       
+</div>        
     <!-- Fin footer -->
-
+</div>
+<!-- Fin Page -->
 <!-- jQuery -->
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 

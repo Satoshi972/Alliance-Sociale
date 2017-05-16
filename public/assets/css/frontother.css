@@ -514,6 +514,11 @@
             
         }
         
+        .contentpart
+        {
+            height:800px;
+        }
+        
     }
 
     /* Large Devices, Wide Screens */
@@ -679,6 +684,11 @@
         {
             right:0;
             float:right;
+        }
+        
+        .contentpart
+        {
+            height:1000px;
         }
     }
 
