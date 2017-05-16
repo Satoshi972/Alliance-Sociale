@@ -357,8 +357,8 @@
             position:absolute;
             
         }
-       
-}
+        
+    }
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
@@ -423,6 +423,32 @@
             margin-top:5px;
             
         }
+        
+        #fbsidebar {
+            left:0;
+            float:left;
+        }
+        
+        #calendarsidebar
+        {
+            right:0;
+            float:right;
+        }
+        
+        .affix {
+          position: fixed;
+          top: 50px;
+            
+        }
+        .affix-top {
+          position:absolute;
+            
+        }
+        .affix-bottom {
+          position: absolute;
+            
+        }
+        
     }
 
     /* Large Devices, Wide Screens */

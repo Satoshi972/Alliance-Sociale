@@ -173,8 +173,8 @@
             </div>
         </div>
         <!-- fin main content -->
-
-        <div class="col-md-3 col-md-pull-6">
+        
+        <div id="fbsidebar" data-spy="affix" data-offset-top="350" data-offset-bottom="500" class="col-md-3 col-md-pull-6 fbscroll">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
@@ -191,7 +191,8 @@
             </div>
         </div>
         
-        <div class="col-md-3">
+        
+        <div id="calendarsidebar"  data-spy="affix" data-offset-top="350" data-offset-bottom="500"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
@@ -226,6 +227,7 @@
             </div>
         </div>
     </div>
+    
   </div>
 
         
@@ -371,6 +373,7 @@
 <!-- jQuery -->
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
 
+
 <!-- JQuery UI -->
 <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
 
@@ -382,6 +385,8 @@
 <script src="<?= $this->assetUrl('js/fullcalendar/fullcalendar.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
+
+
 
 <!-- Navigation fixe -->
 
@@ -419,6 +424,7 @@
 			});
 		});
 		</script>
+
 
 <!-- API Facebook -->
 <script>
