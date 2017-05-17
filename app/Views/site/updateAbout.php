@@ -13,7 +13,7 @@ $this->start('main_content');
 
 			<form method="POST" action="<?= $this->url('updateAboutInfos') ?>" enctype="multipart/form-data" class="form-horizontal">
 
-			<div id="result" class="text-center"></div>
+			<div id="result" class="text-center col-xs-12"></div>
 
 				<div class="form-group">
 					<label class="col-md-2 control-label text-center" for="word">Que sommes nous</label>
