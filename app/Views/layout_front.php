@@ -38,6 +38,14 @@
 
     <!-- slider -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderPartners.css') ?>">
+    <style>
+    .dropdown-submenu{position:relative;}
+    .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+    .dropdown-submenu:hover>.dropdown-menu{display:block;}
+    .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+    .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
+    .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+    </style>
 
         <!-- Permet des inclusions dans mon head depuis la vue -->
     <?php echo $this->section("head") ?>
@@ -81,47 +89,12 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="dropdown">
             <a class="lienmenu" href="<?php echo $this->url('default_home') ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Nos Activités<span class="caret"></span></a>
 
-              <ul class="dropdown-menu">
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Formations <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>10]) ?>">Formation du personnel</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>11]) ?>">Prevention et secours civique</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>12]) ?>">BAFA</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a  class="test" tabindex="-1" href="#">Comité des jeunes </a>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Sports et loisirs <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>1]) ?>">Gymnastique</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>2]) ?>">Judo</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>3]) ?>">Zumba</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>4]) ?>">Randonnée</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>6]) ?>">Danse traditionnelle</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>7]) ?>">Accueil de loisirs (sans hébergement)</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>8]) ?>">Couture</a></li>
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>9]) ?>">Cuisine</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Education<span class="caret"></span></a> 
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>5]) ?>">Accompagnement scolaire</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#">Animation<span class="caret"></span></a> 
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="<?php echo $this->url('details_activite',['id'=>13]) ?>">Autres</a></li>
-        </ul>
-                  </li></ul>
+              <ul class="dropdown-menu" id="menu"></ul>
       
                     <li>
                         <a class="lienmenu" href="<?php echo $this->url('contactfront') ?>">Contactez nous</a>
@@ -678,8 +651,36 @@ $(document).ready(function(){
   });
   // Fin slider
   // Menu dynamique
-  $.getJSON('<?= $this->url('showAllCategories')?>'}, function(json, textStatus) {
-      /*optional stuff to do after success */
+  $.getJSON('<?= $this->url('showAllCategories')?>', function(cat) 
+  {
+      var res = "";
+      $.getJSON('<?= $this->url('showAllActivities')?>', function(act) 
+      {
+        $.each(cat, function(index, val) 
+        {
+          res += '<li class="dropdown-submenu">'
+          res += '<a tabindex="-1" href="#">';
+          res += val.name;
+          // res += '<span class="caret"></span>';
+          res += '</a>';
+          res += '<ul class="dropdown-menu">';
+          $.each(act, function(key, value) 
+          {
+            if(value.category == val.name)
+            {
+             res += '<li>';
+             res += '<a href="/Alliance-Sociale/public/activite/details/'+value.id+'">'
+             res += value.name;
+             res += '</a>';
+             res += '</li>';
+            }
+          });
+          res += '</ul>';
+          res += '</li>';
+        });
+         
+      $('#menu').html(res);
+      });
   });
   //Fin menu dynamique
 });
