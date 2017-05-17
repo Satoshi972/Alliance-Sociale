@@ -32,7 +32,9 @@ class ActivityController extends MasterController
         $maxSize = (1024 * 1000) * 2;
 
         $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
+        $uploadDirDoc = 'assets/form/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
+        $mimeTypeDoc = ['application/pdf', 'application/word', 'application/msword'];
 
 		if(!empty($_POST)) {
             
@@ -52,41 +54,79 @@ class ActivityController extends MasterController
 
 			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 
-				$finfo = new \finfo();
-				$mimeType = $finfo->file($_FILES['picture']['tmp_name'], FILEINFO_MIME_TYPE);
+                $finfo = new \finfo();
+                $mimeType = $finfo->file($_FILES['picture']['tmp_name'], FILEINFO_MIME_TYPE);
 
-				$extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+                $extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 
-				if(in_array($mimeType, $mimeTypeAvailable)){
+                if(in_array($mimeType, $mimeTypeAvailable)){
 
-					if($_FILES['picture']['size'] <= $maxSize){
+                    if($_FILES['picture']['size'] <= $maxSize){
 
-						if(!is_dir($uploadDir)){
-							mkdir($uploadDir, 0755);
-						}
+                        if(!is_dir($uploadDir)){
+                            mkdir($uploadDir, 0755);
+                        }
 
-						$newPictureName = uniqid('img_').'.'.$extension;
+                        $newPictureName = uniqid('img_').'.'.$extension;
 
-						if(!move_uploaded_file($_FILES['picture']['tmp_name'], $uploadDir.$newPictureName)){
-							$errors[] = 'Erreur lors de l\'upload de la photo';
-						}
+                        if(!move_uploaded_file($_FILES['picture']['tmp_name'], $uploadDir.$newPictureName)){
+                            $errors[] = 'Erreur lors de l\'upload de la photo';
+                        }
                         else
                         {
                             $post['picture'] = $uploadDir.$newPictureName;
                         }
-					}
-					else {
-						$errors[] = 'La taille du fichier excède 2 Mo';
-					}
+                    }
+                    else {
+                        $errors[] = 'La taille du fichier excède 2 Mo';
+                    }
 
-				}
-				else {
-					$errors[] = 'Le fichier n\'est pas une image valide';
-				}
-			}
-			else {
-				$errors[] = 'Aucune photo sélectionnée';
-			}
+                }
+                else {
+                    $errors[] = 'Le fichier n\'est pas une image valide';
+                }
+            }
+            else {
+                $errors[] = 'Aucune photo sélectionnée';
+            }
+
+            if(isset($_FILES['form']) && $_FILES['form']['error'] === 0){
+                
+                // Il faut mettre l'anti slash devant finfo pour qu'il voit que c'est une fonction php et non une méthode Controller
+                $finfo = new \finfo();
+                $mimeType = $finfo->file($_FILES['form']['tmp_name'], FILEINFO_MIME_TYPE);
+                
+                $extension = pathinfo($_FILES['form']['name'], PATHINFO_EXTENSION);
+                
+                if(in_array($mimeType, $mimeTypeDoc)){
+                    
+                    if($_FILES['form']['size'] <= $maxSize){
+                        
+                        if(!is_dir($uploadDirDoc)){
+                            mkdir($uploadDirDoc, 0755);
+                        }
+                        
+                        $formUrl = $_FILES['form']['name'].'.'.$extension;
+                        
+                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$newPictureName)){
+                            $errors[] = 'Erreur lors de l\'upload du formulaire';
+                        }
+                    }
+                    else {
+                        $errors[] = 'La taille du fichier excède 2 Mo';
+                    }
+                    
+                }
+                else {
+                    $errors[] = 'Le fichier n\'est pas un document valide; PDF, doc, docx accepté';
+                }
+            }
+            else
+            {
+                $errors[] = 'Aucun formulaire reçu';
+            }
+
+
 
             
             if(count($errors) === 0){
@@ -97,6 +137,7 @@ class ActivityController extends MasterController
                 'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $post['picture'],
+                'form'       => $formUrl
                 ];
                 
                 //Intègre les donnés dans la base
@@ -169,6 +210,9 @@ class ActivityController extends MasterController
 
         $detail = $upActivity->find($id);
 
+        $picture = $detail['picture'];
+        $formUrl = $detail['form'];
+
         $list = $category->findAll();
         #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
         $listCat = []; 
@@ -185,6 +229,9 @@ class ActivityController extends MasterController
 
         $uploadDir = 'assets/img/activity/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
+        $uploadDirDoc = 'assets/form/'; // Répertoire d'upload
+        $mimeTypeDoc = ['application/pdf', 'application/word', 'application/msword'];
+
 
 
         if(!empty($_POST)) {
@@ -234,9 +281,41 @@ class ActivityController extends MasterController
                     $errors[] = 'Le fichier n\'est pas une image valide';
                 }
             }
-            else {
-                $picture = $detail['picture']; //on recupere la photo deja en bdd
-                // $errors[] = 'Aucune photo sélectionnée';
+
+            if(isset($_FILES['form']) && $_FILES['form']['error'] === 0){
+                
+                // Il faut mettre l'anti slash devant finfo pour qu'il voit que c'est une fonction php et non une méthode Controller
+                $finfo = new \finfo();
+                $mimeType = $finfo->file($_FILES['form']['tmp_name'], FILEINFO_MIME_TYPE);
+                
+                $extension = pathinfo($_FILES['form']['name'], PATHINFO_EXTENSION);
+                
+                if(in_array($mimeType, $mimeTypeDoc)){
+                    
+                    if($_FILES['form']['size'] <= $maxSize){
+                        
+                        if(!is_dir($uploadDirDoc)){
+                            mkdir($uploadDirDoc, 0755);
+                        }
+                        
+                        $formUrl = $_FILES['form']['name'].'.'.$extension;
+                        
+                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$newPictureName)){
+                            $errors[] = 'Erreur lors de l\'upload du formulaire';
+                        }
+                    }
+                    else {
+                        $errors[] = 'La taille du fichier excède 2 Mo';
+                    }
+                    
+                }
+                else {
+                    $errors[] = 'Le fichier n\'est pas un document valide; PDF, doc, docx accepté';
+                }
+            }
+            else
+            {
+                $errors[] = 'Aucun formulaire reçu';
             }
 
             
@@ -248,6 +327,8 @@ class ActivityController extends MasterController
                 'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $picture,
+                'form'       => $formUrl
+
                 ];
                 
                 //Intègre les donnés dans la base

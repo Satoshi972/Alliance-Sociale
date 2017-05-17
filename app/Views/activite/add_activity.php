@@ -60,10 +60,19 @@ $this->start('main_content');?>
               <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
+
+          <div class="form-group">
+            <div class="col-md-2 text-center">
+              <label class="control-label" for="form">Formulaire</label>
+            </div>
+            <div class="col-md-10">
+              <input type="file" name="form" id="form">
+            </div>
+          </div>
           
           <div class="form-group">
             <div class="col-md-12 text-center">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activités</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Créer l'activité</button>
             </div>
           </div>
           
