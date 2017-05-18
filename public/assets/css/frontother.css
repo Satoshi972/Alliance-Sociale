@@ -44,7 +44,7 @@
     position: absolute;
     top: 20px;
     width: 96.66666666666666%;
-    color: sandybrown;
+    color: #CE3C9D;
 }
 .btn-min-block
 {
@@ -61,7 +61,7 @@
 
 .text-slider
 {
-    color: sandybrown;
+    color: #CE3C9D;
     border-radius: 30px !important;
     background:white !important;
 }
