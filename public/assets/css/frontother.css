@@ -1,8 +1,8 @@
 .lienmenu2
 {
      color:#FFF !important;
-     -webkit-transition: all 1s ease-in-out !important;
-     transition: all 1s ease-in-out !important;
+     -webkit-transition: color 1s ease-in-out !important;
+     transition: color 1s ease-in-out !important;
 }
 
 .lienmenu:hover
