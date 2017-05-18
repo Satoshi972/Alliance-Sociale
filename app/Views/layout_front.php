@@ -126,18 +126,18 @@
     </nav>
 <div id="scrollnav" style="height:50px ;"></div>
 
-    
+<!-- container fluide des content -->
 <div class="container-fluid">
 
 
     <!-- Marketing Icons Section -->
-    <div class="row">
+    <div class="row" style="background: url(http://wallpaper-gallery.net/images/art-paint-wallpaper/art-paint-wallpaper-23.jpg);">
         
         
         <!-- main content -->
         <div class="col-md-6 col-md-push-3">
             <div class="panel panel-default">
-                <!--<div class="panel-heading">
+                <!--<div class="panel-heading"> -->
                     <!--<h1 style="text-align:center"><i class="fa fa-fw fa-gift"></i></h1>-->
                 <!--</div>-->
                 <div class="panel-body contenu">
@@ -309,7 +309,8 @@
     </div>
     
   </div>
-            </div>          
+</div>  
+<!-- FIN du container fluide des content -->
         
 
 
