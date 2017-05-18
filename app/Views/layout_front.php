@@ -5,12 +5,6 @@
     <title><?= $this->e($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
-<!--     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
-
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Merienda" rel="stylesheet">
@@ -22,10 +16,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.min.css') ?>">  
-    <!-- jQuery library -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-    <!--Latest compiled JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
     <?php echo $this->section("cdn") ?>
     <link rel="stylesheet" href="<?= $this->assetUrl('css/frontother.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/jumboCss.css') ?>">
@@ -38,6 +29,8 @@
 
     <!-- slider -->
     <link rel="stylesheet" href="<?= $this->assetUrl('css/sliderPartners.css') ?>">
+
+    <!-- Style du menu dropdown -->
     <style>
     .dropdown-submenu{position:relative;}
     .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
@@ -47,7 +40,7 @@
     .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
     </style>
 
-        <!-- Permet des inclusions dans mon head depuis la vue -->
+    <!-- Permet des inclusions dans mon head depuis la vue -->
     <?php echo $this->section("head") ?>
 
 </head>
@@ -129,17 +122,12 @@
 <!-- container fluide des content -->
 <div class="container-fluid">
 
-
     <!-- Marketing Icons Section -->
     <div class="row" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>);">
-        
         
         <!-- main content -->
         <div class="col-md-6 col-md-push-3">
             <div class="panel panel-default">
-                <!--<div class="panel-heading"> -->
-                    <!--<h1 style="text-align:center"><i class="fa fa-fw fa-gift"></i></h1>-->
-                <!--</div>-->
                 <div class="panel-body contenu">
                   <?= $this->section('main_content') ?>
                 </div>
@@ -151,7 +139,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
-
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
@@ -168,7 +155,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
-
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
@@ -313,139 +299,61 @@
 <!-- FIN du container fluide des content -->
         
 
-
 <!-- Début footer -->
 
 <footer class="container-fluid" id="footerx">
 
   <h2 style="text-align:center">Partenaires</h2>
-       <!--Item slider text-->
-
-
-  <!-- Item slider-->
-  <!--<div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="carousel carousel-showmanymoveone slide" id="itemslider">-->
-          <!-- Carousel inner -->
-          <!--<div class="carousel-inner">
-            <div class="item active">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/sa.png') ?>" class="img-responsive center-block"></a>-->
-   <!--              <h4 class="text-center">MAYORAL SUKNJA</h4>
-               <h5 class="text-center">4000,00 RSD</h5>
-                -->            <!--</div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/DRJSCS.png') ?>" class="img-responsive center-block"></a>-->
-               <!--  <h4 class="text-center">MAYORAL KOŠULJA</h4>
-               <h5 class="text-center">4000,00 RSD</h5> -->
-              <!--</div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_espace_sud.png') ?>" class="img-responsive center-block"></a>-->
-             <!--    <span class="badge">10%</span> -->
-  <!--               <h4 class="text-center">PANTALONE TERI 2</h4>
-  <h5 class="text-center">4000,00 RSD</h5>
-  <h6 class="text-center">5000,00 RSD</h6> -->
-              <!--</div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo ville_du_marin.png') ?>" class="img-responsive center-block"></a>-->
-  <!--               <h4 class="text-center">CVETNA HALJINA</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              <!--</div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_caf.png') ?>" class="img-responsive center-block"></a>-->
-  <!--               <h4 class="text-center">MAJICA FOTO</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              <!--</div>
-            </div>
-
-            <div class="item">
-              <div class="col-xs-12 col-sm-6 col-md-2">
-                <a href="#"><img src="<?= $this->assetUrl('img/partners/logo_simar.png') ?>" class="img-responsive center-block"></a>-->
-  <!--               <h4 class="text-center">MAJICA MAYORAL</h4>
-  <h5 class="text-center">4000,00 RSD</h5> -->
-              <!--</div>
-            </div>
-          </div>-->
-          <!-- Fin de carousel inner -->
-          <!-- Slider control -->
-          <!--<div id="slider-control">
-            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img src="https://s12.postimg.org/uj3ffq90d/arrow_left.png" alt="Left" class="img-responsive"></a>
-            <a class="right carousel-control" href="#itemslider" data-slide="next"><img src="https://s12.postimg.org/djuh0gxst/arrow_right.png" alt="Right" class="img-responsive"></a>
-          </div>-->
-          <!-- Fin slider control -->
-        <!--</div>
-      </div>
-    </div>
-  </div>-->
-  <!-- Item slider end-->
-
+      
   <!-- Item slider-->
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-        <div class="carousel slide slide2" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
-          <div class="carousel-inner slide-partner">
-          
-          </div>
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-        </div>
+            <div class="carousel slide slide2" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+              <div class="carousel-inner slide-partner"></div>
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
         </div>
     </div>
   </div>
   <!-- Item slider end-->
 
   <div class="row">
-      <div class="col-lg-12">
-      <div class="infos">
-          <div class="row">
-              <div class="col-sm-4 text-center coord">
-                  <h3>Centre Social Alliance sociale</h3>
-                  <p>LCR Résidence Gaïac<br>
-                  Quartier Cédalise<br>
-                  97290 LE MARIN</p>
-<!--                                <div class="slider">
-                      Slider partenaire
-                  </div> -->
-              </div>
+        <div class="col-lg-12">
+            <div class="infos">
+                <div class="row">
+                  <div class="col-sm-4 text-center coord">
+                      <h3>Centre Social Alliance sociale</h3>
+                      <p>LCR Résidence Gaïac<br>
+                      Quartier Cédalise<br>
+                      97290 LE MARIN</p>
+                  </div>
 
-              <div class="col-sm-4 text-center coord">
-                  <h2>Téléphones</h2>
+                  <div class="col-sm-4 text-center coord">
+                      <h2>Téléphones</h2>
 
-                  <p>0596 74 76 58<br>
-                  0696 27 65 85<br>
-                  </p>
-              </div>
+                      <p>0596 74 76 58<br>
+                      0696 27 65 85<br>
+                      </p>
+                  </div>
 
-              <div class="col-sm-4 text-center coord">
-                  <h3>Horaire</h3>
+                  <div class="col-sm-4 text-center coord">
+                      <h3>Horaire</h3>
 
-                  <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
-                  Du Mardi au Vendredi : 8h00 à 17h00<br>
-                  Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
-              </div>
+                      <p>Le lundi : de 8h00 à 12h00 et de 13h00 à 17h00<br>
+                      Du Mardi au Vendredi : 8h00 à 17h00<br>
+                      Le Samedi : 9h00 à 12h00 et de 14h00 à 17h00</p>
+                  </div>
 
-              </div>
-              </div>
-              <br>
-
-      </div>
+                </div>
+            </div>
+ 
+        </div>
       <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
          <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
       </div>
+ </div>
 </footer>
        
 </div>        
@@ -468,51 +376,6 @@
 <script src="<?= $this->assetUrl('js/fullcalendar/gcal.min.js') ?>"></script>
 <script src="<?= $this->assetUrl('js/fullcalendar/fr.js') ?>"></script>
 
-
-
-<!-- Navigation fixe -->
-
-<script type="text/javascript">
-		$(function(){
-			// On recupere la position du bloc par rapport au haut du site
-			var position_top_raccourci = $("#navigation").offset().top;
-			
-			//Au scroll dans la fenetre on d�clenche la fonction
-			$(window).scroll(function () {
-                
-                
-				//si on a defile de plus de 150px du haut vers le bas
-				if ($(this).scrollTop() > position_top_raccourci) {
-				
-					//on ajoute la classe "fixNavigation" a <div id="navigation">
-					$('#navigation').addClass("fixNavigation"); 
-                    
-                    $('#minilogo').addClass("minilogoscroll"); 
-                    
-                    $('#minilogo').removeClass("minilogo"); 
-                    
-                    $('#minilogo').removeClass("minilogoscrollnone"); 
-                    
-                    $('#scrollnav').show();
-				} else {
-				
-					//sinon on retire la classe "fixNavigation" a <div id="navigation">
-					$('#navigation').removeClass("fixNavigation");
-                    
-                    $('#minilogo').removeClass("minilogoscroll"); 
-                    
-                    $('#minilogo').addClass("minilogoscrollnone"); 
-                    
-                    $('#minilogo').addClass("minilogo"); 
-                    
-                    $('#scrollnav').hide();
-				}
-                
-			});
-		});
-		</script>
-
-
 <!-- API Facebook -->
 <script>
 (function(d, s, id) {
@@ -524,7 +387,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <script>
-$(document).ready(function(){
+$(function()
+{
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
@@ -552,10 +416,6 @@ $(document).ready(function(){
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
             },
-    
-      
-        
-          
         });
     
    $('#calendar2').fullCalendar({
@@ -571,11 +431,7 @@ $(document).ready(function(){
                 $('#modalBody2').html(event.content);
                 $('#link2').attr('href',lien+event.id);
                 $('#fullCalModal2').modal();
-            },
-    
-      
-        
-          
+            }, 
         });
     
     $('#calendar3').fullCalendar({
@@ -591,31 +447,10 @@ $(document).ready(function(){
                 $('#modalBody3').html(event.content);
                 $('#link3').attr('href',lien+event.id);
                 $('#fullCalModal3').modal();
-            },
-    
-      
-        
-          
+            }, 
         });
   //Fin du full calendar
-  // Slider carousel
-  // $('#itemslider').carousel({ interval: 3000 });
-  // $('.carousel-showmanymoveone .item').each(function(){
-  //   var itemToClone = $(this);
 
-  //   for (var i=1;i<6;i++) {
-  //     itemToClone = itemToClone.next();
-
-
-  //     if (!itemToClone.length) {
-  //       itemToClone = $(this).siblings(':first');
-  //     }
-
-  //     itemToClone.children(':first-child').clone()
-  //       .addClass("cloneditem-"+(i))
-  //       .appendTo($(this));
-  //   }
-  // });
   // Slider
   $.getJSON('<?= $this->url('showAllPartners')?>',function(data) 
   {
@@ -629,7 +464,6 @@ $(document).ready(function(){
         res += '</a>';
         res += '</div>';
         res += '</div>';
-        // res += '<div class="content text-center">'+val.alt+'</div>';
       });
       $('.slide-partner').html(res);
       $('.slide-partner').find("div:first-child").addClass('active');
@@ -685,6 +519,7 @@ $(document).ready(function(){
       $('#menu').html(res);
       });
   });
+  // Gestion du dropdown
   var timerIn = 200;
   var timerOut = 200;
   $('ul.nav li.dropdown').hover(function() {
@@ -695,6 +530,44 @@ $(document).ready(function(){
       $(this).removeClass('open');
   });
   //Fin menu dynamique
+
+  // Navigation fixe
+  // On recupere la position du bloc par rapport au haut du site
+    var position_top_raccourci = $("#navigation").offset().top;
+    
+    //Au scroll dans la fenetre on d�clenche la fonction
+    $(window).scroll(function () {
+        
+        
+        //si on a defile de plus de 150px du haut vers le bas
+        if ($(this).scrollTop() > position_top_raccourci) {
+        
+            //on ajoute la classe "fixNavigation" a <div id="navigation">
+            $('#navigation').addClass("fixNavigation"); 
+            
+            $('#minilogo').addClass("minilogoscroll"); 
+            
+            $('#minilogo').removeClass("minilogo"); 
+            
+            $('#minilogo').removeClass("minilogoscrollnone"); 
+            
+            $('#scrollnav').show();
+        } else {
+        
+            //sinon on retire la classe "fixNavigation" a <div id="navigation">
+            $('#navigation').removeClass("fixNavigation");
+            
+            $('#minilogo').removeClass("minilogoscroll"); 
+            
+            $('#minilogo').addClass("minilogoscrollnone"); 
+            
+            $('#minilogo').addClass("minilogo"); 
+            
+            $('#scrollnav').hide();
+        }
+        
+    });
+    //Fin nav fixe
 });
 </script>
 <!-- Permet des inclusions de scripts depuis la vue -->
