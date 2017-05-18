@@ -123,8 +123,8 @@ header img{
 /*               Mise en forme */
                 width: 100%;
                 background-color:#70B1E2 !important;
-                -webkit-transition: all 1s ease-in-out !important;
-                transition: all 1s ease-in-out !important;
+                -webkit-transition: background-color 1s !important;
+                transition: background-color 1s !important;
             }
             #content{
                 background: #EEEEEE;
