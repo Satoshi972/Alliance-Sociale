@@ -533,6 +533,10 @@
             height:800px;
         }
         
+        h2{
+            font-size: 21px !important;
+        }
+        
     }
 
     /* Large Devices, Wide Screens */
@@ -595,6 +599,10 @@
             margin-top:5px;
             
 
+        }
+        
+         h2{
+            font-size: 29px !important;
         }
     }
 
