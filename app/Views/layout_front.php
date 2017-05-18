@@ -443,7 +443,7 @@
               </div>
               <br>
 
-              <div class="col-md-12 text-center copyright">
+              <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
      
                  <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
               </div>
