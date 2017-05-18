@@ -1,12 +1,5 @@
 <?php $this->layout('layout_front', ['title' => 'Liste present event']) ?>
 
-<?php $this->start('cdn') ?>
-
-<link rel="stylesheet" href="<?= $this->assetUrl('css/sliderCss.css') ?>">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">-->
-    <!--<link rel="stylesheet" href="//d2d3qesrx8xj6s.cloudfront.net/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066"> -->
-<?php $this->stop('cdn') ?>
 
 <?php $this->start('main_content') ?>
 
