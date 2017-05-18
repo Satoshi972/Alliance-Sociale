@@ -56,7 +56,7 @@
 		<div><img class="img-responsive projector" src="<?= $this->assetUrl('img/montage.jpg') ?>" style="margin:0 auto;"></div>
 
  <!-- Navigation -->
-    <nav id="navigation" class="navbar navbar-inverse navbar-center" role="navigation">
+    <nav id="navigation" class="navbar navbar-center" role="navigation" style="background: aliceblue !important">
         <div class="container-fluid centernav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
