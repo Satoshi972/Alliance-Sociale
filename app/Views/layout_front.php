@@ -129,7 +129,7 @@
         <div id="fbsidebarlittle" class="col-md-3 col-md-pull-6 fbscroll">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
+                    <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
@@ -145,7 +145,7 @@
         <div id="fbsidebarmiddle" data-spy="affix" data-offset-top="350" data-offset-bottom="350" class="col-md-3 col-md-pull-6 fbscroll">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
+                    <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
@@ -161,7 +161,7 @@
         <div id="fbsidebarbig" data-spy="affix" data-offset-top="350" data-offset-bottom="550" class="col-md-3 col-md-pull-6 fbscroll">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 style="text-align:center"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
+                    <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
 
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
@@ -180,7 +180,7 @@
         <div id="calendarsidebarlittle"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
+              <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
             </div>
             <div class="panel-body img-responsive">
               <!-- Zone calendrier -->
@@ -216,7 +216,7 @@
         <div id="calendarsidebarmiddle"  data-spy="affix" data-offset-top="350" data-offset-bottom="350"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
+              <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
             </div>
             <div class="panel-body img-responsive">
               <!-- Zone calendrier -->
@@ -252,7 +252,7 @@
     <div id="calendarsidebarbig"  data-spy="affix" data-offset-top="350" data-offset-bottom="550"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 style="text-align:center"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
+              <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
             </div>
             <div class="panel-body img-responsive">
               <!-- Zone calendrier -->
