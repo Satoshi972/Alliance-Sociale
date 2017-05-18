@@ -3,6 +3,10 @@
     margin-top:50px !important;
 }
 
+#navigation
+{
+    margin-bottom: 0;
+}
 .navbar-nav
 {
     text-align: center;
@@ -265,6 +269,11 @@
 
         h2{
             font-size: 20px !important;
+        }
+        
+        #scrollnav
+        {
+            display:none;
         }
     }
 
@@ -679,6 +688,11 @@
             margin-top:5px;
             
         }
+        .affix {
+          position: fixed;
+          top: 56px;
+            
+        }
         
          #fbsidebarbig {
             left:0;
@@ -756,6 +770,12 @@
             
         }
         
+        .affix {
+          position: fixed;
+          top: 61px;
+            
+        }
+        
     }
 /* Large Devices, Wide Screens */
     @media only screen and (min-width : 2880px) {
@@ -814,6 +834,12 @@
         {
             padding:16px !important;
             margin-top:5px;
+            
+        }
+        
+        .affix {
+          position: fixed;
+          top: 65px;
             
         }
         

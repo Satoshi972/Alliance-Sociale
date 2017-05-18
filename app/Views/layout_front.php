@@ -124,7 +124,7 @@
         </div>
         <!-- /.container -->
     </nav>
-
+<div id="scrollnav" style="height:50px ;"></div>
 
     
 <div class="container-fluid contentpart">
@@ -481,7 +481,8 @@
 			
 			//Au scroll dans la fenetre on d�clenche la fonction
 			$(window).scroll(function () {
-			
+                
+                
 				//si on a defile de plus de 150px du haut vers le bas
 				if ($(this).scrollTop() > position_top_raccourci) {
 				
@@ -493,6 +494,8 @@
                     $('#minilogo').removeClass("minilogo"); 
                     
                     $('#minilogo').removeClass("minilogoscrollnone"); 
+                    
+                    $('#scrollnav').show();
 				} else {
 				
 					//sinon on retire la classe "fixNavigation" a <div id="navigation">
@@ -503,6 +506,8 @@
                     $('#minilogo').addClass("minilogoscrollnone"); 
                     
                     $('#minilogo').addClass("minilogo"); 
+                    
+                    $('#scrollnav').hide();
 				}
                 
 			});
