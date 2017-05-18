@@ -20,7 +20,7 @@ $this->start('main_content');
 
     <div class="list-group-item text-center">
       <h4 class="list-group-item-heading">Formulaire d'inscription</h4>
-      <p class="list-group-item-text"><a href="<?=$infos['form'];?>" class="btn btn-info">Télécharger le formulaire</a></p>
+      <p class="list-group-item-text"><a href="/Alliance-Sociale/public/<?= $infos['form'] ?>" class="btn btn-info">Télécharger le formulaire</a></p>
     </div>
 
 
