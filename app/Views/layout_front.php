@@ -79,7 +79,7 @@
                                 <a href="<?php echo $this->url('listPastEvent') ?>">Evènements passés</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->url('listPresentEvent') ?>">Evènements en cour</a>
+                                <a href="<?php echo $this->url('listPresentEvent') ?>">Evènements en cours</a>
                             </li>
                         </ul>
                     </li>
