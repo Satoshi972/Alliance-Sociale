@@ -2,8 +2,6 @@ body{
     font-family: 'Source code pro', Calibri, serif;
     margin:0px;
     padding:0px;
-    /*background-color: rgba(239, 116, 255, 0.54);
-    /*background-image: url(../img/maxresdefault.jpg);*/
     background-size: cover;
 }
 
@@ -83,19 +81,13 @@ li:hover
 /*--------------------------
         Fin Menu
 ---------------------------*/
-/* ---------------------
-        About
------------------------- */
 
-/* ---------------------
-        fin About
------------------------- */
 /*-----------------------
         Pagination
 -----------------------*/
 .pagination > li > a.current
 {
-    /*background-color : #E5B5E3 !important;*/
+ 
     background-color : #F4F2E2 !important;
 }
 /*-----------------------
@@ -105,14 +97,6 @@ li:hover
     margin-top:4em;
 }
 
-/*
-.nav ul li {
-    margin-right:200px;
-}
-.nav{
-    position:absolute;
-}
-*/
 header img{
     margin-top:1em;
     position:relative;
@@ -123,7 +107,7 @@ header img{
     width:100%;
     }
 #page{
-/*              width: 1900px;*/
+
                 margin: 0 auto;
             }
             #header{
@@ -147,39 +131,13 @@ header img{
                 text-align: center;
             }
 .icon-bar{
-    background-color:darkslategrey;
+    background-color:#0c7ad8;
     margin:3px;
 }
+
+
+
 /* Responsive Styles */
-
-@media(max-width:1191px) {
-    .customer-img,
-    .img-related {
-        margin-bottom: 30px;
-    }
-    .fc-button {
-        width:20%;
-    }
-    .fc-toolbar h2{
-        font-size:20px;
-    }
-}
-
-@media(max-width:767px) {
-    .img-portfolio {
-        margin-bottom: 15px;
-    }
-    .fc-button {
-        width:20%;
-    }
-    .fc-toolbar h2{
-        font-size:20px;
-    }
-
-    header.carousel .carousel {
-        height: 70%;
-    }
-}
 
 @media(max-width:264px) {
     .img-portfolio {
@@ -201,11 +159,37 @@ header img{
     
 }
 
-/*
-.centernav ul{
-    margin-left:26%;
-    padding:0;
-            font-size:20px;
-        }
-*/
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+    .fc-button {
+        width:20%;
+    }
+    .fc-toolbar h2{
+        font-size:20px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+@media(max-width:1191px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+    .fc-button {
+        width:20%;
+    }
+    .fc-toolbar h2{
+        font-size:20px;
+    }
+}
+
+
+
+
+
 

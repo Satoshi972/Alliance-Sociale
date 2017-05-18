@@ -93,32 +93,6 @@
         
 }
 
-/*.topheader .logos {
-    box-shadow: 1px 1px 12px #555;
-    display: block;
-    background: rgba(255, 227, 246, 0.94) !important;
-    margin-top: 23px;
-    margin-left: 8px;
-    border-radius: 40px;
-    max-width:250px !important;
-}
-
-.topheader .logos:hover {
-    
-    
-    display: block;
-    background: rgb(255, 124, 216) !important;
-    margin-top: 23px;
-    margin-left: 8px;
-    border-radius: 40px;
-    max-width:250px !important;
-}*/
-
-
-/*.slide {
-    max-width: 782px !important;
-    max-height: 340px !important;
-} */
 .img-home {
     border-radius:50px !important;
     object-fit:cover;
