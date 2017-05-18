@@ -111,6 +111,10 @@ class ActivityController extends MasterController
                         if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$formUrl)){
                             $errors[] = 'Erreur lors de l\'upload du formulaire';
                         }
+                        else
+                        {
+                            $form = $uploadDirDoc.$formUrl;
+                        }
                     }
                     else {
                         $errors[] = 'La taille du fichier excède 2 Mo';
@@ -137,7 +141,7 @@ class ActivityController extends MasterController
                 'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $post['picture'],
-                'form'       => $formUrl
+                'form'       => $form
                 ];
                 
                 //Intègre les donnés dans la base
@@ -303,6 +307,10 @@ class ActivityController extends MasterController
                         if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$formUrl)){
                             $errors[] = 'Erreur lors de l\'upload du formulaire';
                         }
+                        else
+                        {
+                            $form = $uploadDirDoc.$formUrl;
+                        }
                     }
                     else {
                         $errors[] = 'La taille du fichier excède 2 Mo';
@@ -315,7 +323,7 @@ class ActivityController extends MasterController
             }
             else
             {
-                $errors[] = 'Aucun formulaire reçu';
+                $form = $details['form'];
             }
 
             
@@ -327,7 +335,7 @@ class ActivityController extends MasterController
                 'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $picture,
-                'form'       => $formUrl
+                'form'       => $form
 
                 ];
                 

@@ -68,6 +68,15 @@ $this->start('main_content');?>
               <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
+
+          <div class="form-group">
+            <div class="col-md-2 text-center">
+              <label class="control-label" for="form">Formulaire</label>
+            </div>
+            <div class="col-md-10">
+              <input type="file" name="form" id="form">
+            </div>
+          </div>
           
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
@@ -93,6 +102,14 @@ $this->start('script');
         'showCaption' : false,
         'showRemove'  :true,
         'maxFileCount': 10,
+        language: "fr"
+      });
+  $("#form").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 1,
         language: "fr"
       });
 </script>

@@ -97,6 +97,15 @@ $this->start('script');
         language: "fr"
       });
 
+      $("#form").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 1,
+        language: "fr"
+      });
+
       $(function()
       {
         //gestion de mon formulaire d'envoi
