@@ -108,7 +108,7 @@ class ActivityController extends MasterController
                         
                         $formUrl = $_FILES['form']['name'].'.'.$extension;
                         
-                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$newPictureName)){
+                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$formUrl)){
                             $errors[] = 'Erreur lors de l\'upload du formulaire';
                         }
                     }
@@ -300,7 +300,7 @@ class ActivityController extends MasterController
                         
                         $formUrl = $_FILES['form']['name'].'.'.$extension;
                         
-                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$newPictureName)){
+                        if(!move_uploaded_file($_FILES['form']['tmp_name'], $uploadDirDoc.$formUrl)){
                             $errors[] = 'Erreur lors de l\'upload du formulaire';
                         }
                     }
