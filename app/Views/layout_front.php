@@ -124,7 +124,7 @@
 <div class="container-fluid">
 
     <!-- Marketing Icons Section -->
-    <div class="row" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>);">
+    <div class="row" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>); background-size:cover;">
         
         <!-- main content -->
         <div class="col-md-6 col-md-push-3">
