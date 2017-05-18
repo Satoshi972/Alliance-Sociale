@@ -14,159 +14,75 @@ h1{
     font-family: 'Lobster';
 }
 
-
-
 /* ---------------------
         fin top header
 ------------------------ */
 
-/*
-nav{
-    width:100%;
-    background-color: #424558;
-     position: fixed;
-     float:left;
-}
-*/
 .logo{
     float:left;
     margin: 7px 20px 0 20px;
 }
-/*
-nav >ul{
-   margin-right:5em;
-    padding:0px;
+/*-------------------------
+        Menu
+--------------------------*/
+li:hover
+{
+    background : pink;
 }
-nav >ul::after{
-    content:"";
+
+.dropdown-submenu
+{   
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu
+{
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu
+{
     display:block;
-    clear:both;
 }
-nav >ul >li{
-    
-    float:left;
-    position:relative; 
+.dropdown-submenu>a:after
+{
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
 }
-nav a{
-    text-align: center;
-    display:inline-block;
-    text-decoration: none;
+.dropdown-submenu:hover>a:after
+{
+    border-left-color:#ffffff;
 }
-nav li{
-    margin-right:2em;
-    list-style-type: none;
+.dropdown-submenu.pull-left
+{
+    float:none;
 }
-*/
-.submenu{
-    display:none;
-}
-
-/*
-nav input[type=checkbox]{
-    display:none;
-}
-nav label{
-    display:none;
-}
-nav a{
-    display:inline-block;
-    text-decoration: none;
-    font-size:20px;
-}
-nav >ul>li>a{
-    padding:20px 30px;
-    color:#FFF;
-}
-nav > ul> li:hover a{
-    padding:15px 30px 20px 30px; 
-}
-nav li:hover .submenu{
-    display:inline-block;
-    position: absolute;
-    top: 100%;
-    left:0px;
-    padding:0px;
-    z-index:1000;
-}
-*/
-.submenu li a{
-    padding:15px 30px;
-    font-size:13px;
-    color:#222538;
-    width:270px;
-}
-.submenu li{
-    border-bottom: 1px solid #CCC;
-}
-.accueil:hover{
-    border-top: 5px solid #e44d26;
-    background-color: rgba(228, 77, 38, 0.15);
-}
-.presentation:hover{
-    border-top: 5px solid #0070bb;
-    background-color: rgba(00, 112, 192, 0.15);
-}
-.evenements:hover{
-    border-top: 5px solid #f1dc4f;
-    background-color: rgba(241, 211, 79, 0.15);
-}
-.activites:hover{
-    border-top: 5px solid #f1dc4f;
-    background-color: rgba(98, 98, 98, 0.15);
-}
-.contact:hover{
-    border-top: 5px solid #3fa2f7;
-    background-color: rgba(60, 193, 242, 0.15);
-}
-.inscription:hover{
-    border-top: 5px solid #34f03b;
-    background-color: rgba(79, 197, 241, 0.15);
-}
-.galeries:hover{
-    border-top: 5px solid #d30ff7;
-    background-color: rgba(240, 44, 218, 0.19);
-}
-.presentation .submenu{
-    background-color: rgba(00, 160, 240);
-}
-.evenements .submenu{
-    background-color: rgba(250, 215, 100);
-}
-.activites .submenu{
-    background-color: rgb(145, 138, 113);
-}
-.contact .submenu{
-    background-color: rgb(6, 214, 252);
-}
-.inscription .submenu{
-    background-color: rgb(16, 247, 16);
-}
-.galeries .submenu{
-    background-color: rgb(152, 67, 237);
-}
-.submenu li:hover a{
-    color: #EEE;
-    font-weight: bold;
-}
-.presentation .submenu li:hover{
-    background-color: rgba(00, 115, 200);
-}
-.evenements .submenu li:hover{
-    background-color: rgba(200, 165, 75);
-}
-.activites .submenu li:hover{
-    background-color: rgb(180, 178, 175);
-}
-.contact .submenu li:hover{
-    background-color: rgb(7, 162, 190);
-}
-.inscription .submenu li:hover{
-    background-color: rgb(7, 150, 7);
-}
-.galeries .submenu li:hover{
-    background-color: rgb(79, 13, 145);
+.dropdown-submenu.pull-left>.dropdown-menu
+{
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:
+    6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
 }
 
+/*--------------------------
+        Fin Menu
+---------------------------*/
 /* ---------------------
         About
 ------------------------ */
@@ -207,29 +123,29 @@ header img{
     width:100%;
     }
 #page{
-/*				width: 1900px;*/
-				margin: 0 auto;
-			}
-			#header{
-				background: #3E3E3E;
-				height: 10px;
-			}
+/*              width: 1900px;*/
+                margin: 0 auto;
+            }
+            #header{
+                background: #3E3E3E;
+                height: 10px;
+            }
         
-			
-			.fixNavigation{
-				z-index: 9999;
-				position: fixed;
-				top: 0;
-/*				 Mise en forme */
-				width: 100%;
-			}
-			#content{
-				background: #EEEEEE;
-			}
-			
-			#header,#navigation, #content, #footer{
-				text-align: center;
-			}
+            
+            .fixNavigation{
+                z-index: 9999;
+                position: fixed;
+                top: 0;
+/*               Mise en forme */
+                width: 100%;
+            }
+            #content{
+                background: #EEEEEE;
+            }
+            
+            #header,#navigation, #content, #footer{
+                text-align: center;
+            }
 /* Responsive Styles */
 
 @media(max-width:1191px) {
