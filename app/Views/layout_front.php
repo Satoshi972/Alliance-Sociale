@@ -127,7 +127,7 @@
 <div id="scrollnav" style="height:50px ;"></div>
 
     
-<div class="container-fluid contentpart">
+<div class="container-fluid">
 
 
     <!-- Marketing Icons Section -->
@@ -318,7 +318,7 @@
 
 <footer id="footerx">
 
-  <h3 style="text-align:center">Partenaires</h3>
+  <h2 style="text-align:center">Partenaires</h2>
        <!--Item slider text-->
 
 
