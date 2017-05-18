@@ -10,7 +10,7 @@
 	    		<h1>Mentions légales</h1>
 	    </div>
 
-
+<div class="col-md-12" id="mentions">
 	    <h2>Informations légales</h2>
 					<h3>1. Présentation du site.</h3>
 					<p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href="http://www.alliance-sociale.mq/">www.alliance-sociale.mq</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
@@ -67,6 +67,7 @@
 					<h3>11. Lexique.</h3>
 					<p>Utilisateur : Internaute se connectant, utilisant le site susnommé.</p>
 					<p>Informations personnelles : « les informations qui permettent, sous quelque forme que ce soit, directement ou non, l'identification des personnes physiques auxquelles elles s'appliquent » <a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000886460" onclick="window.open(this.href); return false;">(article 4 de la loi n° 78-17 du 6 janvier 1978)</a>.</p>
+					</div>
 
 
   </div>
@@ -74,5 +75,25 @@
 
 <?php $this->stop('main_content');
 
+$this->start('script');
 
 ?>
+
+
+<script>
+$(document).ready(function() {
+$('#mentions').click(function(){
+      $('.modal-body').empty();
+  	var title = $(this).parent('a').attr("title");
+  	$('.modal-title').html(title);
+  	$($(this).parents('div').html()).appendTo('.modal-body');
+  	$('#myModal').modal({show:true});
+});
+});
+           
+</script> 
+
+
+<?php
+    $this->stop('script');
+ ?>
