@@ -11,11 +11,11 @@
 			</div>
 
 			<div class="col-md-12 text-center">
-					<p>Gagnez du temps en remplissant chez vous la fiche d’inscription pour accéder aux différentes activités</p>
+				<p>Gagnez du temps en remplissant chez vous la fiche d’inscription pour accéder aux différentes activités</p>
 			</div>
 
 			<div class="col-md-12 text-center">
-				<button type="submit" id="submitForm" class="btn btn-info"><a href="<?= $this->assetUrl('files/fiche adhesion alliance.pdf') ?>" style="color: white;">Téléchargez la fiche d'adhésion</a></button>
+				<a href="<?= $this->assetUrl('files/fiche adhesion alliance.pdf') ?>" class="btn btn-info">Téléchargez la fiche d'adhésion</a>
 			</div>
 
 			<div class="col-md-12 text-center">
