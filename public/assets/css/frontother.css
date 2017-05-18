@@ -533,15 +533,16 @@
             
         }
         
-        .contentpart
-        {
-            height:800px;
-        }
+        
         
         h2{
             font-size: 21px !important;
         }
         
+        .contentpart
+        {
+            min-height:1000px;
+        }
     }
 
     /* Large Devices, Wide Screens */
@@ -612,10 +613,7 @@
     }
 
 @media only screen and (min-width : 1700px) {
-    #footerx
-    {
-        margin-top: 250px;
-    }
+   
       
     }
 
@@ -727,10 +725,7 @@
             float:right;
         }
         
-        .contentpart
-        {
-            height:1000px;
-        }
+        
     }
 
 /* Large Devices, Wide Screens */
@@ -798,10 +793,7 @@
             
         }
         
-        #footerx
-    {
-        margin-top: 400px;
-    }
+    
         
     }
 /* Large Devices, Wide Screens */

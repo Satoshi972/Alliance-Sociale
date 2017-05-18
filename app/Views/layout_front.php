@@ -121,10 +121,10 @@
 <div id="scrollnav" style="height:50px ;"></div>
 
 <!-- container fluide des content -->
-<div class="container-fluid">
+<div class="container-fluid ">
 
     <!-- Marketing Icons Section -->
-    <div class="row" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>); background-size:cover;">
+    <div class="row contentpart" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>); background-size:cover;">
         
         <!-- main content -->
         <div class="col-md-6 col-md-push-3">
