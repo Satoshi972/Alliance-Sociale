@@ -81,6 +81,9 @@ $w_routes = array(
        #Equipe
     ['GET|POST', '/team', 'Team#equipe', 'team'], 
 
+    #Mentions Légales
+    ['GET|POST', '/mention', 'Mention#mentionLegal', 'mention'],
+
     #Gestion des information du site
     ['GET|POST', '/management/siteInfos',  'Management#siteInfos',         'siteInfos'],
     ['GET|POST', '/management/aboutInfos', 'Management#aboutInfos',        'aboutInfos'],
