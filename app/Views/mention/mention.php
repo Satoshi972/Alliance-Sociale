@@ -73,27 +73,6 @@
   </div>
 </div>
 
-<?php $this->stop('main_content');
-
-$this->start('script');
-
-?>
+<?php $this->stop('main_content');?>
 
 
-<script>
-$(document).ready(function() {
-$('#mentions').click(function(){
-      $('.modal-body').empty();
-  	var title = $(this).parent('a').attr("title");
-  	$('.modal-title').html(title);
-  	$($(this).parents('div').html()).appendTo('.modal-body');
-  	$('#myModal').modal({show:true});
-});
-});
-           
-</script> 
-
-
-<?php
-    $this->stop('script');
- ?>
