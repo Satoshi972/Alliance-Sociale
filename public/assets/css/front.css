@@ -146,6 +146,10 @@ header img{
             #header,#navigation, #content, #footer{
                 text-align: center;
             }
+.icon-bar{
+    background-color:darkslategrey;
+    margin:3px;
+}
 /* Responsive Styles */
 
 @media(max-width:1191px) {
