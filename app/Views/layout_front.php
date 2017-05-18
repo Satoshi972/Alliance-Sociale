@@ -315,9 +315,8 @@
 
 
 <!-- Début footer -->
-<div class="container-fluid">
 
-<footer id="footerx">
+<footer class="container-fluid" id="footerx">
 
   <h2 style="text-align:center">Partenaires</h2>
        <!--Item slider text-->
@@ -443,12 +442,10 @@
               </div>
               <br>
 
-              <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
-     
-                 <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
-              </div>
       </div>
-  </div>
+      <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
+         <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
+      </div>
 </footer>
        
 </div>        
