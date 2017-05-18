@@ -131,7 +131,7 @@
 
 
     <!-- Marketing Icons Section -->
-    <div class="row" style="background: url(http://wallpaper-gallery.net/images/art-paint-wallpaper/art-paint-wallpaper-23.jpg);">
+    <div class="row" style="background: url(<?= $this->assetUrl('img/fond.jpg') ?>);">
         
         
         <!-- main content -->
