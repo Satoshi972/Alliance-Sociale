@@ -40,7 +40,7 @@
 		<div><img class="img-responsive projector" src="<?= $this->assetUrl('img/montage.jpg') ?>" style="margin:0 auto;"></div>
 
  <!-- Navigation -->
-    <nav id="navigation" class="navbar navbar-center" role="navigation" style="background: aliceblue !important">
+    <nav id="navigation" class="navbar navbar-center" role="navigation" style="background: aliceblue">
         <div class="container-fluid centernav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -349,7 +349,7 @@
        
 </div>        
     <!-- Fin footer -->
-</div>
+
 <!-- Fin Page -->
 <!-- jQuery -->
 <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
@@ -542,6 +542,8 @@ $(function()
             
             $('#minilogo').removeClass("minilogoscrollnone"); 
             
+            $('.lienmenu').addClass("lienmenu2"); 
+            
             $('#scrollnav').show();
         } else {
         
@@ -552,7 +554,9 @@ $(function()
             
             $('#minilogo').addClass("minilogoscrollnone"); 
             
-            $('#minilogo').addClass("minilogo"); 
+            $('#minilogo').addClass("minilogo");
+            
+            $('.lienmenu').removeClass("lienmenu2"); 
             
             $('#scrollnav').hide();
         }

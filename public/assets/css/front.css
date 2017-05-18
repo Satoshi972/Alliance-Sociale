@@ -122,6 +122,9 @@ header img{
                 top: 0;
 /*               Mise en forme */
                 width: 100%;
+                background-color:#70B1E2 !important;
+                -webkit-transition: all 1s ease-in-out !important;
+                transition: all 1s ease-in-out !important;
             }
             #content{
                 background: #EEEEEE;
