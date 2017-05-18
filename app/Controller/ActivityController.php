@@ -244,7 +244,7 @@ class ActivityController extends MasterController
             $err = [
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
             
-            (!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 900)->validate($post['content'])) ? 'La description est invalide' : null,
+            (!v::notEmpty()->alnum('-?!")(\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 900)->validate($post['content'])) ? 'La description est invalide' : null,
 
             (!in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
             ];
