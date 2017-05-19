@@ -45,7 +45,7 @@ $this->start('main_content');
 	</div>
 
 	<div class="form-group">
-		<label for="quota">Quota de l'évènement</label>
+		<label for="quota">Limitation de l'évènement</label>
 		<input type="number" name="quota" id="quota" value="<?= $infos['quota'] ?>" class="form-control">
 	</div>
 

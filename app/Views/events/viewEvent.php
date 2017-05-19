@@ -44,7 +44,7 @@ $this->start('main_content');
 
 					<?php if(!empty($infos['quota'])): ?>
 					<div class="list-group-item text-center">
-						<h4 class="list-group-item-heading" style="color: #DAA520;">Quota</h4>
+						<h4 class="list-group-item-heading" style="color: #DAA520;">Limitation</h4>
 						<p class="list-group-item-text" style="color: #DAA520;"><?=$infos['quota'];?></p>
 					</div>
 					<?php endif; ?>

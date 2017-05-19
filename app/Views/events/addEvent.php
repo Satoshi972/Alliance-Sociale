@@ -68,7 +68,7 @@ $this->start('main_content');
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-2 control-label text-center" class="control-label text-center" for="quota">Ajouter un quota</label>
+				<label class="col-md-2 control-label text-center" class="control-label text-center" for="quota">Ajouter une limitation</label>
 				<div class="col-md-10 text-center">
 				<input type="number" id="quota" name="quota" class="form-control">
 				</div>
