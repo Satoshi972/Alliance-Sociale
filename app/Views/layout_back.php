@@ -93,7 +93,21 @@
                           <div id="MainMenu">
                             <div class="list-group panel">
 
-                              <?php if($w_user['role'] === 'admin'): ?>
+                              <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon">
+                                  <i class="fa fa-fire" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title">
+                                      Gestion des Activités   
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo4">
+                                <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
+                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
+                              </div>
+
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -101,30 +115,9 @@
                                   <i class="fa fa-caret-down"></i>
                                 </span>
                               </a>
-                              <?php endif; ?>
-                              <!-- <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                                <span class="sidebar-title">
-                                      Gestion des utilisateurs  
-                                  <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a> -->
                               <div class="collapse" id="demo1">
                                 <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
                                 <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
-                              </div>
-                              
-                              <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon"><i class="fa fa-sticky-note" aria-hidden="true"></i>
-                                </span>
-                                <span class="sidebar-title">
-                                      Gestion Fiche de contact  
-                                  <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a>
-
-                              <div class="collapse" id="demo2">
-                                <a href="<?= $this->url('contactList',['page'=> 1]) ?>" class="list-group-item">Liste des fiches</a>
                               </div>
 
                               <a href="#demo3" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
@@ -142,21 +135,6 @@
                                 <a href="<?= $this->url('listEvent') ?>" class="list-group-item">Liste des Evènements</a>
                               </div>
 
-                              <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
-                                <span class="sidebar-icon">
-                                  <i class="fa fa-fire" aria-hidden="true"></i>
-                                </span>
-                                <span class="sidebar-title">
-                                      Gestion des Activités   
-                                  <i class="fa fa-caret-down"></i>
-                                </span>
-                              </a>
-
-                              <div class="collapse" id="demo4">
-                                <a href="<?= $this->url('add_activite') ?>" class="list-group-item">Ajouter une activité</a>
-                                <a href="<?= $this->url('list_activite') ?>" class="list-group-item">Liste des Activités</a>
-                              </div>
-
                               <a href="#demo5" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-camera" aria-hidden="true"></i>
@@ -170,6 +148,19 @@
                               <div class="collapse" id="demo5">
                                 <a href="<?= $this->url('addmedias') ?>" class="list-group-item">Ajouter un média</a>
                                 <a href="<?= $this->url('listMediasBack',['page'=>1]) ?>" class="list-group-item">Galerie</a>
+                              </div>
+                              
+                              <a href="#demo2" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon"><i class="fa fa-sticky-note" aria-hidden="true"></i>
+                                </span>
+                                <span class="sidebar-title">
+                                      Gestion Fiche de contact  
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+
+                              <div class="collapse" id="demo2">
+                                <a href="<?= $this->url('contactList',['page'=> 1]) ?>" class="list-group-item">Liste des fiches</a>
                               </div>
 
                               <a href="#demo6" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">

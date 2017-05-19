@@ -342,7 +342,14 @@
  
         </div>
       <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
-         <b>C.CASCA J.DESTIN C.JEAN-TOUSSAINT E-L.ROBARD R.MARIE-LUCE  &copy; 2017 </b>
+         <b>
+         <a href="">C.CASCA</a> 
+         <a href="https://www.linkedin.com/in/jordan-destin-9a35b26b/">J.DESTIN</a> 
+         <a href="">C.JEAN-TOUSSAINT</a> 
+         <a href="https://www.linkedin.com/in/ruddy-marie-luce-762673134/">R.MARIE-LUCE</a> 
+         <a href="">E-L.ROBARD</a>
+          &copy; 2017 
+          </b>
       </div>
  </div>
 </footer>

@@ -22,7 +22,7 @@ class UsersController extends Controller
 
         foreach ($activities as $key => $value) 
         {
-            $listActivity[] = $value['act_id'];
+            $listActivity[] = $value['name'];
         }
 
         $enter = new users();
@@ -138,7 +138,7 @@ class UsersController extends Controller
             
             $params = [
             'roles'       => $listRoles,
-            'activity'    => $activities,
+            'activity'    => $listActivity,
             ];
             
             $this->show('users/add_users', $params);
@@ -245,7 +245,7 @@ class UsersController extends Controller
 
         foreach ($activities as $key => $value) 
         {
-            $listActivity[] = $value['act_id'];
+            $listActivity[] = $value['name'];
         }
 
         $role = new role();
@@ -350,7 +350,7 @@ class UsersController extends Controller
         'errors'      => $errors,
         'displayForm' => $displayForm,
         'roles'       => $listRoles,
-        'activity'    => $activitiesi,
+        'activity'    => $listActivity,
         'affiche'     => $detailid,
         'suscribed'   => $suscribeList,
         ];

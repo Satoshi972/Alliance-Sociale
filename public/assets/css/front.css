@@ -107,32 +107,31 @@ header img{
     width:100%;
     }
 #page{
+    margin: 0 auto;
+}
+#header{
+    background: #3E3E3E;
+    height: 10px;
+}
 
-                margin: 0 auto;
-            }
-            #header{
-                background: #3E3E3E;
-                height: 10px;
-            }
-        
-            
-            .fixNavigation{
-                z-index: 9999;
-                position: fixed;
-                top: 0;
+
+.fixNavigation{
+    z-index: 9999;
+    position: fixed;
+    top: 0;
 /*               Mise en forme */
-                width: 100%;
-                background-color:#70B1E2 !important;
-                -webkit-transition: background-color 1s !important;
-                transition: background-color 1s !important;
-            }
-            #content{
-                background: #EEEEEE;
-            }
-            
-            #header,#navigation, #content, #footer{
-                text-align: center;
-            }
+    width: 100%;
+    background-color:#70B1E2 !important;
+    -webkit-transition: background-color 1s !important;
+    transition: background-color 1s !important;
+}
+#content{
+    background: #EEEEEE;
+}
+
+#header,#navigation, #content, #footer{
+    text-align: center;
+}
 .icon-bar{
     background-color:#0c7ad8;
     margin:3px;
