@@ -36,7 +36,7 @@ $this->start('main_content');
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-2 control-label text-center" for="content">Contenu</label>
+				<label class="col-md-2 control-label text-center" for="content">Description</label>
 				<div class="col-md-10 text-center">
 					<textarea name="content" id="content" cols="30" class="form-control" rows="10"></textarea>
 				</div>

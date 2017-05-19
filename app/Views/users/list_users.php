@@ -92,14 +92,14 @@
                           </ul>
                         </div>
                         <div class="modal-footer">
-                     
+                        <?php if($w_user['role'] === 'admin'): ?>
                           <a href="<?= $this->url('update_users', ['id' => $user['id']]) ?>" class="btn btn-info">Modifier</a>
 
                           <!-- <button onclick="delete" id='delete' data-uri="<?= $this->url('del_users', ['id' => $user['id']]) ?>" >Supprimer</button> -->
 
                           <a href="<?= $this->url('del_users', ['id' => $user['id']]) ?>" class='delete btn btn-danger' data-id="<?= $user['id'] ?>" >Supprimer</a>
 
-
+                          <?php endif; ?>
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>

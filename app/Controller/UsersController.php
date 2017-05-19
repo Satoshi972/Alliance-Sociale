@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
-        $roles = ['admin'];
+        $roles = ['admin','editor'];
         $this->allowTo($roles);
         $suscribe = new suscribe();
         $activity = new activity();

@@ -92,7 +92,7 @@
                           <!-- menu -->
                           <div id="MainMenu">
                             <div class="list-group panel">
-
+                              <?php if($w_user['role'] === 'admin'): ?>
                               <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
                                   <i class="fa fa-fire" aria-hidden="true"></i>
@@ -206,7 +206,19 @@
                               <div class="collapse" id="statistics">
                                 <a href="<?= $this->url('userStat') ?>" class="list-group-item">Nombre d'adhérent</a>
                               </div>
-
+                            <?php else: ?>
+                              <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
+                                <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                                <span class="sidebar-title">
+                                      Gestion des utilisateurs  
+                                  <i class="fa fa-caret-down"></i>
+                                </span>
+                              </a>
+                              <div class="collapse" id="demo1">
+                                <a href="<?= $this->url('add_users') ?>" class="list-group-item">Ajout d'utilisateur</a>
+                                <a href="<?= $this->url('list_users', ['page'=> 1,'age1' => 0, 'age2'=> 150]) ?>" class="list-group-item">Liste des Utilisateurs</a>
+                              </div>
+                            <?php endif; ?>
                             </div>
                           </div>
 
