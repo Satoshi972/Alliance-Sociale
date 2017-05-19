@@ -100,11 +100,18 @@ $this->start('main_content');
              <label class="col-md-2 control-label" for="activity">Activité</label>
               <div class="col-md-10 text-center">
                 <select name="activity[]" id="activity" class="form-control text-center" multiple="multiple">
-                  <?php foreach ($activity as $value):?>
-                    <?php foreach ($suscribed as $index => $val):?>
+                 <?php foreach ($activity as $value):?>
                     <option value="<?=$value?>"
-                        <?php if($val == $value){echo 'selected';} ?>><?=$value?></option>
-                    <?php endforeach; ?>
+                        <?php 
+                          foreach ($suscribed as  $val) 
+                          {
+                            if($val == $value)
+                            {
+                              echo 'selected';
+                            } 
+                          }
+                        ?>
+                      ><?=$value?></option>
                   <?php endforeach; ?>
                 </select>
               </div> 
