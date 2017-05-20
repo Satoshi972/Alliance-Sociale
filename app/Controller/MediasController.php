@@ -68,16 +68,16 @@ class MediasController extends MasterController
 		echo $result;
 	}
 
+	// Visibible sans connexion
 	public function listMedias($page)
 	{
 		$medias = new medias();
 		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
 
 		$MediasPerPages  = 12; #Nous allons afficher 12 images par pages
-		$nbMedias		 = $medias->nbMedias(); //Compte le nombre de médias en bdd 
+		$nbMedias		 = $medias->nbMediasGuest(); //Compte le nombre de médias en bdd 
 		$nbPages 		 = ceil($nbMedias/$MediasPerPages); #Permet d'obtenir un chiffre rond, pour mon nombre de pages
 
-		
 		if(isset($page)) # Si la variable $_GET['page'] existe...
 		{
 		      $currentPage=intval($page);
@@ -98,7 +98,7 @@ class MediasController extends MasterController
  
 		$firstEntry= ($currentPage-1)*$MediasPerPages; // On calcul la première entrée à lire
 		# La requête sql pour récupérer les messages de la page actuelle.
-		$retour_messages= $medias->listPageMedias($firstEntry, $MediasPerPages);
+		$retour_messages= $medias->listPageMediasGuest($firstEntry, $MediasPerPages);
  
 		$params = [
 			//'images' => $images,
@@ -110,6 +110,7 @@ class MediasController extends MasterController
 		$this->show('medias/list_medias', $params);
 	}	
 
+	// vue du back
 	public function listMediasBack($page)
 	{
 		$roles = ['admin','editor'];
@@ -121,7 +122,6 @@ class MediasController extends MasterController
 		$MediasPerPages  = 12; #Nous allons afficher 12 images par pages
 		$nbMedias		 = $medias->nbMedias(); //Compte le nombre de médias en bdd 
 		$nbPages 		 = ceil($nbMedias/$MediasPerPages); #Permet d'obtenir un chiffre rond, pour mon nombre de pages
-
 		
 		if(isset($page)) # Si la variable $_GET['page'] existe...
 		{
@@ -155,6 +155,7 @@ class MediasController extends MasterController
 		$this->show('medias/list_medias_back', $params);
 	}	
 
+	// Vue par les membres connecter
 	public function listMediasGuest($page)
 	{
 		$roles = ['admin','editor, member'];
@@ -164,7 +165,7 @@ class MediasController extends MasterController
 		# doc https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
 
 		$MediasPerPages  = 12; #Nous allons afficher 12 images par pages
-		$nbMedias		 = $medias->nbMediasGuest(); //Compte le nombre de médias en bdd 
+		$nbMedias		 = $medias->nbMedias(); //Compte le nombre de médias en bdd 
 		$nbPages 		 = ceil($nbMedias/$MediasPerPages); #Permet d'obtenir un chiffre rond, pour mon nombre de pages
 
 		
