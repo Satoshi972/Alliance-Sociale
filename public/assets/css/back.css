@@ -1,7 +1,7 @@
 /* @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'); */
 
 body {
- background: linear-gradient(to left, red , white, red ) !important;
+ background-color: currentColor !important;
 }
 
 .navbar-default .navbar-brand {
@@ -208,7 +208,7 @@ color: #DAA520;
 
 .jumbotron {
     color: #DAA520;
-    background-color: #c60800 !important;
+    background-color: #964088 !important;
   }
   .well {
     background-color: #27082d;
