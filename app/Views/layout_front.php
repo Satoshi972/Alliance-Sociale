@@ -126,7 +126,7 @@
         </div>
         <!-- fin main content -->
         
-        <div id="fbsidebarlittle" class="col-md-3 col-md-pull-6 fbscroll">
+        <div id="fbsidebar" class="col-md-3 col-md-pull-6 fbscroll">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
@@ -142,42 +142,11 @@
             </div>
         </div>
         
-        <div id="fbsidebarmiddle" data-spy="affix" data-offset-top="350" data-offset-bottom="350" class="col-md-3 col-md-pull-6 fbscroll">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
-                </div>
-                <!-- Zone d'inclusion de Facebook -->
-                <div class="panel-body fb-place">
-                  <div class="fb-page little-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-width="250" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
-                  </div>
-               
-                  <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
-                </div>
-                <!-- Fin zone de facebook -->
-            </div>
-        </div>
-        
-        <div id="fbsidebarbig" data-spy="affix" data-offset-top="350" data-offset-bottom="550" class="col-md-3 col-md-pull-6 fbscroll">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-check"></i>Suivez nous sur Facebook</h2>
-
-                </div>
-                <!-- Zone d'inclusion de Facebook -->
-                <div class="panel-body fb-place">
-                  <div class="fb-page little-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-width="250" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
-                  </div>
-               
-                  <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
-                </div>
-                <!-- Fin zone de facebook -->
-            </div>
-        </div>
         
         
         
-        <div id="calendarsidebarlittle"  class="col-md-3 calendarscroll">
+        
+        <div id="calendarsidebar"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
@@ -213,77 +182,9 @@
         </div>
     </div>
         
-        <div id="calendarsidebarmiddle"  data-spy="affix" data-offset-top="350" data-offset-bottom="350"  class="col-md-3 calendarscroll">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
-            </div>
-            <div class="panel-body img-responsive">
-              <!-- Zone calendrier -->
-              <div id="calendar2"></div>
-              <!-- detail de mon event -->
-              <div id="fullCalModal2" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                            <h4 id="modalTitle2" class="modal-title"></h4>
-                        </div>
-                        <img id="picture2" class="modal-body img-responsive img-thumbnail text-center " style="width: 100% !important;"alt='Affiche'>
-                        <div id="modalBody2" class="modal-body"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <a id="link2" ><button class="btn btn-primary">Plus d'infos</button></a>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <!-- Fin Zone calendrier -->
-              <br>    
-              <!-- Zone méteo -->
-              <div class="meteo">
-               <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 100%;height: 370px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>      
-              </div>
-                <!-- Fin zone météo -->
-            </div>
-        </div>
-    </div>
+       
     
-    <div id="calendarsidebarbig"  data-spy="affix" data-offset-top="350" data-offset-bottom="550"  class="col-md-3 calendarscroll">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2 style="text-align:center; color:#CE3C9D;"><i class="fa fa-fw fa-compass"></i>Calendrier d'évènements</h2>
-            </div>
-            <div class="panel-body img-responsive">
-              <!-- Zone calendrier -->
-              <div id="calendar3"></div>
-              <!-- detail de mon event -->
-              <div id="fullCalModal3" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                            <h4 id="modalTitle3" class="modal-title"></h4>
-                        </div>
-                        <img id="picture3" class="modal-body img-responsive img-thumbnail text-center " style="width: 100% !important;"alt='Affiche'>
-                        <div id="modalBody3" class="modal-body"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <a id="link3" ><button class="btn btn-primary">Plus d'infos</button></a>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <!-- Fin Zone calendrier -->
-              <br>    
-              <!-- Zone méteo -->
-              <div class="meteo">
-               <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/le-marin_martinique_3570426?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 100%;height: 370px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/fr/meteo/prevision/semaine/le-marin_martinique_3570426?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank"></a></div>      
-              </div>
-                <!-- Fin zone météo -->
-            </div>
-        </div>
-    </div>
+  
     
   </div>
 </div>  
@@ -416,37 +317,7 @@ $(function()
             },
         });
     
-   $('#calendar2').fullCalendar({
-            events: "<?= $this->url('listAllEvent'); ?>",
-            header: {
-                left: '',
-                center: 'prev title next',
-                right: ''
-            },
-            eventClick:  function(event, jsEvent, view) {
-                $('#modalTitle2').html(event.title);
-                $('#picture2').attr('src',picture+event.picture);
-                $('#modalBody2').html(event.content);
-                $('#link2').attr('href',lien+event.id);
-                $('#fullCalModal2').modal();
-            }, 
-        });
-    
-    $('#calendar3').fullCalendar({
-            events: "<?= $this->url('listAllEvent'); ?>",
-            header: {
-                left: '',
-                center: 'prev title next',
-                right: ''
-            },
-            eventClick:  function(event, jsEvent, view) {
-                $('#modalTitle3').html(event.title);
-                $('#picture3').attr('src',picture+event.picture);
-                $('#modalBody3').html(event.content);
-                $('#link3').attr('href',lien+event.id);
-                $('#fullCalModal3').modal();
-            }, 
-        });
+   
   //Fin du full calendar
 
   // Slider
@@ -528,6 +399,153 @@ $(function()
       $(this).removeClass('open');
   });
   //Fin menu dynamique
+    
+  //Gestion affix
+    
+  
+
+    
+        var wWidth = $(window).width();
+        var z = getSize(wWidth);
+        
+    
+
+
+    
+
+    function getSize(z){
+        if(z >= 2880) {
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 630
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 630
+            }
+        });   
+            
+        
+      } else if (z >= 2330){
+          
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 590
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 590
+            }
+        });   
+     
+        
+    } else if (z >= 1900){
+          
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 500
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 500
+            }
+        });   
+     
+        
+    } else if (z >= 1600){
+          
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 420
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 350,
+            bottom: 420
+            }
+        });   
+     
+        
+    } else if (z >= 1280){
+          
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 294,
+            bottom: 380
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 294,
+            bottom: 380
+            }
+        });   
+     
+        
+    } else if (z >= 992){
+          
+            $('#calendarsidebar').addClass('affix')
+           
+            $('#calendarsidebar').affix({
+            offset: {
+            top: 235,
+            bottom: 350
+            }
+            });  
+            
+            $('#fbsidebar').addClass('affix')
+             
+            $('#fbsidebar').affix({
+            offset: {
+            top: 235,
+            bottom: 350
+            }
+        });   
+     
+        
+    }
+        
+      }
+        
+    
+
+
 
   // Navigation fixe
   // On recupere la position du bloc par rapport au haut du site

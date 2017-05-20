@@ -146,39 +146,6 @@
     /* Custom, iPhone Retina */ 
     @media only screen and (min-width : 200px) {
         
-        #fbsidebarlitttle
-        {
-            display:block !important;
-        }
-        
-        #calendarsidebarlittle
-        
-        {
-            display:block !important;
-        }
-        
-        #fbsidebarmiddle
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarmiddle
-        
-        {
-            display:none !important;
-        }
-        
-        #fbsidebarbig
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarbig
-        
-        {
-            display:none !important;
-        }
-        
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -400,38 +367,6 @@
 
     /* Medium Devices, Desktops */
     @media only screen and (min-width : 992px) {
-        #fbsidebarlitttle
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarlittle
-        
-        {
-            display:none !important;
-        }
-        
-        #fbsidebarmiddle
-        {
-            display:block !important;
-        }
-        
-        #calendarsidebarmiddle
-        
-        {
-            display:block !important;
-        }
-        
-        #fbsidebarbig
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarbig
-        
-        {
-            display:none !important;
-        }
         
         .img-slide {
         margin: 0 auto !important;
@@ -494,12 +429,12 @@
             
         }
         
-        #fbsidebarmiddle {
+        #fbsidebar {
             left:0;
             float:left;
         }
         
-        #calendarsidebarmiddle
+        #calendarsidebar
         {
             right:0;
             float:right;
@@ -607,39 +542,6 @@
 /* Large Devices, Wide Screens */
     @media only screen and (min-width : 1900px) {
         
-        #fbsidebarlitttle
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarlittle
-        
-        {
-            display:none !important;
-        }
-        
-        #fbsidebarmiddle
-        {
-            display:none !important;
-        }
-        
-        #calendarsidebarmiddle
-        
-        {
-            display:none !important;
-        }
-        
-        #fbsidebarbig
-        {
-            display:block !important;
-        }
-        
-        #calendarsidebarbig
-        
-        {
-            display:block !important;
-        }
-        
         .img-slide {
         margin: 0 auto !important;
         display: block;
@@ -700,16 +602,6 @@
             
         }
         
-         #fbsidebarbig {
-            left:0;
-            float:left;
-        }
-        
-        #calendarsidebarbig
-        {
-            right:0;
-            float:right;
-        }
         
         
     }
