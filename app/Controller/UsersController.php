@@ -200,8 +200,8 @@ class UsersController extends Controller
         'users' => $users,
         'nbPages'=> $nbPages,
         'page'  => $page,
-        'age1'  => $age1,
-        'age2'  => $age2,
+        'age1'  => $age1/365,
+        'age2'  => $age2/365,
         ];
         $this->show('users/list_users', $params);
     }
