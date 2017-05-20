@@ -5,7 +5,6 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\ActivityModel as Activity;
 use Respect\Validation\Validator as v;
-use Model\categoryModel;
 
 class ActivityController extends MasterController
 {
@@ -15,16 +14,7 @@ class ActivityController extends MasterController
         $roles = ['admin','editor'];
         $this->allowTo($roles);
 
-		$category = new categoryModel();
         $newActivity = new Activity();
-
-        $list = $category->findAll();
-        #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
-        $listCat = []; 
-        foreach ($list as $key => $value) 
-        {
-            $listCat[] = $value['name'];
-        }
 
         $errors = [];
         $post = [];
@@ -47,7 +37,6 @@ class ActivityController extends MasterController
             //On vérifie que firstname ne soit pas vide et qu'il soit alphanumérique accceptant les tirets et les points, avec une taille comprise entre 2 et 30 caractères
             (!v::notEmpty()->alNum('-?!")(\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['content'])) ? 'Le descriptif de l\'activité doit faire entre 2 et 600 caractères' : null,
 
-            (!in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors du choix de la catégorie...' : null,            
             ];
             
             $errors = array_filter($err);
@@ -138,7 +127,6 @@ class ActivityController extends MasterController
                 $datas = [
                 // colonne sql => valeur à insérer
                 'name'       => $post['name'],
-                'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $post['picture'],
                 'form'       => $form
@@ -159,9 +147,7 @@ class ActivityController extends MasterController
         {
             // Les variables que l'on transmet à la vue. Les clés du tableau ci-dessous deviendront les variables qu'on utilisera dans la vue.
             
-            $params = [
-            'category' => $list
-            ];
+            $params = [];
             
             $this->show('activite/add_activity', $params);
         }
@@ -173,31 +159,21 @@ class ActivityController extends MasterController
         $roles = ['admin','editor'];
         $this->allowTo($roles);
 
-        $category = new categoryModel();
-        $cat = $category->findAll();
-
         $newActivity = new Activity();
         $activity = $newActivity->findAll();
 
         $params = [
         'activity' => $activity,
-        'cat'      => $cat
         ];
 
         $this->show('activite/list_activity', $params);
     }
 
-
-    // public function detailsActivity()
     public function detailsActivity($id)
     {
-        // $roles = ['admin','editor'];
-        // $this->allowTo($roles);
-
         $newActivity = new Activity();
         $detailactivity = $newActivity->find($id);
 
-        // $this->show('activite/detailsActivity',[
         $this->show('activite/details_Activity',[
             'infos' => $detailactivity
             ]);
@@ -209,22 +185,12 @@ class ActivityController extends MasterController
         $roles = ['admin','editor'];
         $this->allowTo($roles);
 
-        $category = new categoryModel();
         $upActivity = new Activity();
 
         $detail = $upActivity->find($id);
 
         $picture = $detail['picture'];
         $formUrl = $detail['form'];
-
-        $list = $category->findAll();
-        #permet d'avoir un tableau contenant les noms des catégorie, qu'on utilisera pour les verifications
-        $listCat = []; 
-        foreach ($list as $key => $value) 
-        {
-            $listCat[] = $value['name'];
-        }     
-
 
         $errors = [];
         $post = [];
@@ -245,8 +211,6 @@ class ActivityController extends MasterController
             (!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 30)->validate($post['name'])) ? 'L\'Activité est invalide' : null,
             
             (!v::notEmpty()->alnum('-?!")(\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 900)->validate($post['content'])) ? 'La description est invalide' : null,
-
-            (!in_array($post['category'], $listCat)) ? 'Une erreur est survenue lors de votre choix' : null,
             ];
             
             $errors = array_filter($err);
@@ -332,7 +296,6 @@ class ActivityController extends MasterController
                 $datas = [
                 // colonne sql => valeur à insérer
                 'name'       => $post['name'],
-                'category'   => $post['category'],
                 'content'    => $post['content'],
                 'picture'    => $picture,
                 'form'       => $form
@@ -355,7 +318,6 @@ class ActivityController extends MasterController
         $params = [
         'success'  => $success,
         'errors'   => $errors,
-        'category' => $list,
         'detail'   => $detail
         ];
         
@@ -385,15 +347,4 @@ class ActivityController extends MasterController
         $list = $activity->findAll();
         $this->showJson($list);
    }
-
-   public function showAllCategories()
-   {
-    // $roles = ['admin','editor'];
-    // $this->allowTo($roles);
-    
-    $category = new categoryModel();
-    $list = $category->findAll();
-    $this->showJson($list);
-   }
-
 }

@@ -41,19 +41,6 @@ $this->start('main_content');?>
 
           <div class="form-group">
             <div class="col-md-2 text-center">
-              <label for="category">Catégorie de la nouvelle activité :</label>
-            </div>
-            <div class="col-md-10">
-              <select name="category" id="category" class="form-control">
-               <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
-               <?php endforeach; ?>
-              </select>
-            </div>
-          </div>
-                         
-          <div class="form-group">
-            <div class="col-md-2 text-center">
               <label class="control-label" for="picture">Photos</label>
             </div>
             <div class="col-md-10">

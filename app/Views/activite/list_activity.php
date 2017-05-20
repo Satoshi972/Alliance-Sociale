@@ -26,9 +26,6 @@
                 <td>
                   <?=$activite['name'];?>
                 </td>
-                <td>
-                  <!-- <?=$activite['category'];?> -->
-                </td>
             <!--Détails users via lien-->
     			<!--<td>
     			<a href="<?= $this->url('details_activite', ['id' => $activite['id']]) ?>">Détails</a>

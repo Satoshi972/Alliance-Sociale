@@ -45,20 +45,7 @@ $this->start('main_content');?>
               <textarea  type="text" class="form-control" name="content" id="content" rows=5><?= $detail['content'] ?></textarea>
             </div>
           </div>
-
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <label for="category">Catégorie de la nouvelle activité :</label>
-            </div>
-            <div class="col-md-12">
-              <select name="category" id="category" class="form-control">
-               <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['name'] ?>"<?php if($value['name'] == $detail['category']){echo "selected";} ?>><?= $value['name'] ?></option>
-               <?php endforeach; ?>
-              </select>
-            </div>
-          </div>
-                         
+  
           <div class="form-group">
             <div class="col-md-12 text-center">
               <label class="control-label" for="picture">Affiche</label>
