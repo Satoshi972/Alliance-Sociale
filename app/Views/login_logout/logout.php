@@ -1,46 +1,45 @@
 <?php $this->layout('layout_front', ['title' => 'Se déconnecter']) ?>
 
-    <?php 
+<?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-       
-  <div class="row">
+
+<div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="col-md-12">
-   
+        <div class="col-md-12">
+        <!--   <div class="col-md-12 jumbotron">  -->  
         <h1>Déconnexion</h1>
         
         <div id="result"></div>
-      <?php if(isset($infos)){
-?>
-    <div id='hide'>
-		<?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
+        <?php if(isset($infos)){ ?>
+        <div id='hide'>
+            <?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
 
-		
-        <form id=checkform3 method=post>
-            
-            <input type=hidden value="lol">
-            <button type=submit id="submitform2" class="btn btn-default">Oui je veux me déconnecter</button>
-            
-        
-       </form>
-</div>
+            <form id=checkform3 method=post>
 
-<?php 
+                <input type=hidden value="lol">
+                <button type=submit id="submitform2" class="btn btn-primary">Oui je veux me déconnecter</button>
 
 
-
-}else{ ?>
-	<p style="color:red">
-		Tu n'es pas connecté !!!
-
-		
-	</p>
-<?php } ?>
+           </form>
         </div>
-      </div>
+
+        <?php }else{ ?>
+        <p style="color:red;">
+            Vous n'êtes pas connecté !!!
+
+
+        </p>
+        <?php } ?>
+        </div>
     </div>
+<<<<<<< HEAD
    
+=======
+</div>
+ <!--  </div>
+      </div> -->     
+>>>>>>> refs/remotes/origin/Dev
      
  <?php    
 $this->stop('main_content'); 

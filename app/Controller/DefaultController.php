@@ -33,10 +33,10 @@ class DefaultController extends MasterController
                   ];
 		$this->show('default/home', $params);
 	}
-
-  public function admin()
-  {
-    $this->show('default/admin');
-  }
-
+    public function admin()
+    {
+        $roles = ['admin','editor'];
+        $this->allowTo($roles);
+        $this->show('default/admin');
+    }
 }

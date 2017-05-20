@@ -12,7 +12,7 @@ class AboutFrontController extends MasterController
 	public function views()
 	{
 		$views = new AboutModel();
-        $views = $views->findAll();
+        $views = $views->Aboutinfos();
         $params = [
         'views' => $views
         ];

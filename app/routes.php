@@ -11,14 +11,16 @@ $w_routes = array(
     ['GET|POST', '/activite/details/[i:id]', 'Activity#detailsActivity', 'details_activite'], 
     ['GET|POST', '/activite/detail/update/[i:id]', 'Activity#updateActivity', 'update_activite'], 
     ['GET|POST', '/activite/detail/delete/[i:id]', 'Activity#delActivity', 'del_activite'],
+    ['GET', '/activite/showAll', 'Activity#showAllActivities', 'showAllActivities'],
 	
 	# Gestions des utilisateurs			
 	['GET|POST', '/users', 'Users#addUsers', 'add_users'], //Ajout
-	['GET|POST', '/users/list', 'Users#listUsers', 'list_users'], //List users
+    ['GET|POST', '/users/list/[i:page]/[i:age1]/[i:age2]', 'Users#listUsers', 'list_users'], //List users
+	['GET|POST', '/users/list/[i:id]', 'Users#showSuscribeTo', 'showSuscribeTo'], //List users
 	['GET|POST', '/users/details/[i:id]', 'Users#detailsUsers', 'details_users'], //Détails users
 	['GET|POST', '/users/details/update/[i:id]', 'Users#updateUsers', 'update_users'], //Update users
-	['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
-
+    ['GET|POST', '/users/details/delete/[i:id]', 'Users#delUsers', 'del_users'], //Del users
+    
 	#gestion_medias
 	['GET|POST', '/medias', 'Medias#addMedias', 'addmedias'], // Ajouts médias
     ['GET|POST', '/medias/list/[i:page]',      'Medias#listMedias', 'listMedias'], // Listes Médias
@@ -42,12 +44,15 @@ $w_routes = array(
     ['GET|POST','/resetpsw/', 'token#ajax_resetpsw', 'ajax_resetpsw'],
     
     #Routes contacts
-    ['GET|POST','/contactlist', 'Contact#contactList', 'contactList'],
-    ['GET|POST','/deletecontact', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+    ['GET|POST','/contactlist/[i:page]', 'Contact#contactList', 'contactList'],
+    ['GET|POST','/deletecontact/[i:id]', 'Contact#ajaxDeleteContact', 'ajaxDeleteContact'],
+    ['GET|POST','/deleteallcontact', 'Contact#DeleteAllContact', 'deleteAllContact'],
     ['GET|POST','/updatecheck', 'Contact#updateCheck', 'updateCheck'],
+    ['GET|POST','/listAll', 'Contact#ListAllContact', 'allContact'],
 
 	#Gestion des Partenaires
-	['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+    ['GET|POST', '/partners/list', 'Partners#partners', 'partners'],//Vue du slide
+	['GET|POST', '/partners/showAllPartners', 'Partners#showAllPartners', 'showAllPartners'],//Json
 	['GET|POST', '/partners/add', 'Partners#addPartners', 'add_partners'],//Ajout des Partenaires
 	['GET|POST', '/partners/update/[i:id]', 'Partners#updatePartners', 'update_partners'],//Modification des Partenaires
 	['GET|POST', '/partners/del/[i:id]', 'Partners#delPartners', 'del_partners'],//Suppression des Partenaires
@@ -62,7 +67,6 @@ $w_routes = array(
     ['GET|POST', '/accession', 'Front#accession', 'accession'], 
 
     #Gestion des évenements
-    // ['GET|POST','/events',               'Events#home',        'chooseEvent'],
     ['GET|POST','/events',                   'Events#listEvents',       'listEvent'],
     ['GET|POST','/events/listAll',           'Events#jsonEvent',        'listAllEvent'],
     ['GET|POST','/events/add',               'Events#addEvent',         'addEvent'],
@@ -72,5 +76,24 @@ $w_routes = array(
     ['GET|POST','/events/delete/[i:id]',     'Events#deleteEvent',      'deleteEvent'],
     ['GET|POST','/events/listPresent',       'Events#listPresent',      'listPresentEvent'],
     ['GET|POST','/events/listPast',          'Events#listPast',         'listPastEvent'],
+
+       #Equipe
+    ['GET|POST', '/team', 'Team#equipe', 'team'], 
+
+    #Mentions Légales
+    ['GET|POST', '/mention', 'Mention#mentionLegal', 'mention'],
+
+    #Gestion des information du site
+    ['GET|POST', '/management/siteInfos',  'Management#siteInfos',         'siteInfos'],
+    ['GET|POST', '/management/aboutInfos', 'Management#aboutInfos',        'aboutInfos'],
+    ['GET|POST', '/management/site',       'Management#updateSiteInfos',   'updateSiteInfos'],
+    ['GET|POST', '/management/about',      'Management#updateAboutInfos',  'updateAboutInfos'],
+
+    #Statistiques
+    ['GET','/users/listActivity','Statistics#nbrPoeplesByActivity','nbrPoeplesByActivity'], //Liste le nombre d'utilisateur par leurs catégories
+    ['GET','/users/listAll','Statistics#nbrTotal','nbrTotal'], //Liste toutes les personne dans la bdd
+    ['GET','/users/listAllA','Statistics#nbrTotalA','nbrTotalA'], //Liste tous les adhérents
+    ['GET|POST', '/Statistics/users/[a:activity]/[i:page]','Statistics#listPeopleByActivity','listUsersActivity'],
+    ['GET|POST', '/Statistics/users','Statistics#users','userStat'],
 
 	);

@@ -7,77 +7,74 @@
 
 <div class ="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-12 jumbotron text-center">        
-        <h2>Liste des activités</h2>
-      </div>
+      <div class="col-md-12 well">
+        <div class="col-md-12 jumbotron text-center">        
+          <h2>Liste des activités</h2>
+        </div>
 
-    <table class="table table-striped">
-      <thead>
-        <tr>
+        <div class="table-responsive col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Activité</th>
+            </tr>
+          </thead>
 
-          <th>Activité</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <?php foreach($activity as $activite): ?>          
-          <tr>
-            <td>
-              <?=$activite['name'];?>
-            </td>
-            <td>
-              <!-- <?=$activite['category'];?> -->
-            </td>
-        <!--Détails users via lien-->
-			<!--<td>
-			<a href="<?= $this->url('details_activite', ['id' => $activite['id']]) ?>">Détails</a>
-			</td> -->
+          <tbody>
+            <?php foreach($activity as $activite): ?>          
+              <tr>
+                <td>
+                  <?=$activite['name'];?>
+                </td>
+            <!--Détails users via lien-->
+    			<!--<td>
+    			<a href="<?= $this->url('details_activite', ['id' => $activite['id']]) ?>">Détails</a>
+    			</td> -->
 
 
-            <!--Détails users via modal-->
-            <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$activite['id'];?>">Détails</button>
+                <!--Détails users via modal-->
+                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?=$activite['id'];?>">Détails</button>
 
-              <!-- Modal -->
-              <div class="modal fade" id="myModal<?=$activite['id'];?>" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Détails Activité :</h4>
-                    </div>
-                    <div class="modal-body">
-                      <ul>
-                         <li><?= $activite['name']?></li>
-                         <li><?= $activite['content']?></li>
-                         <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" class='img-responsive img-thumbnail text-center' alt="logo">
-                      </ul>
-                    </div>
-                    <div class="modal-footer">
-                   
-                        <!-- <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a> -->
-                        <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>">Modifier</a>
-                        
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal<?=$activite['id'];?>" role="dialog">
+                    <div class="modal-dialog">
                     
-                        <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $activite['id'] ?>">Supprimer</a>
+                      <!-- Modal content-->
+                      <div class="modal-content" style="background-color: #27082d;">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Détails Activité :</h4>
+                        </div>
+                        <div class="modal-body">
+                          <ul>
+                             <li><?= $activite['name']?></li>
+                             <li><?= $activite['content']?></li>
+                             <img src="/Alliance-Sociale/public/<?= $activite['picture'] ?>" class='img-responsive img-thumbnail text-center' alt="logo">
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                       
+                            <!-- <a href="<?= $this->url('update_users', ['id' => $activite['id']]) ?>">Modifier</a> -->
+                            <a href="<?= $this->url('update_activite', ['id' => $activite['id']]) ?>" class="btn btn-primary">Modifier</a>
                             
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        
+                            <a href="<?= $this->url('del_activite', ['id' => $activite['id']]) ?>" class='delete btn btn-danger' data-id="<?= $activite['id'] ?>">Supprimer</a>
+                                
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
-                  
-                </div>
-              </div>
- 
-              </td>
-          </tr>
-          <?php endforeach; ?>
+     
+                  </td>
+              </tr>
+              <?php endforeach; ?>
 
-      </tbody>
-    </table>
- 
-    </div>
+          </tbody>
+        </table>
+        </div>
+      </div> 
   </div>
 </div>
 

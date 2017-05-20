@@ -31,7 +31,7 @@ class PartnersController extends Controller
         $enter = new PartnersModel();
         $errors = [];
         $post = [];
-		$success = false;
+		$result = false;
         $newPictureName = '';
         $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
         
@@ -39,7 +39,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -93,20 +93,19 @@ class PartnersController extends Controller
                 ];
                 $enter = new PartnersModel();
                 $enter->insert($datas);
-				$success = true;
+				$result = "success";
             }
             else
             {
-                $textErrors = implode('<br>', $errors);
+                $result = implode('<br>', $errors);
             }
             
         }
-		 $params = [
-        'success' => $success,
-        'errors'  => $errors,
-        ];
-        
-        $this->show('partners/add_partners',$params);
+        else
+        {
+            $this->show('partners/add_partners');
+        }
+        echo $result;
     }
     
         
@@ -126,7 +125,7 @@ class PartnersController extends Controller
         // $_SERVER['W_BASE'] Le chemin de mon projet
         // debug($_SERVER); Affiche les information de la globale $_SERVER
         
-        $uploadDir = '/assets/img/partners/'; // Répertoire d'upload
+        $uploadDir = 'assets/img/partners/'; // Répertoire d'upload
         $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
         
         
@@ -185,22 +184,18 @@ class PartnersController extends Controller
 				 $success = true;
 
             }
-            else
-            {
-                $textErrors = implode('<br>', $errors);
-            }
-            
-        }
-		 $detailid  = $enter->find($id);
 
-		 $params = [
-        'success' => $success,
-        'errors'  => $errors,
+    
+        }
+		$detailid  = $enter->find($id);
+		$params = [
         'id' => $detailid,
+        'success' => $success,
+        'errors' => $errors
         ];
         
         $this->show('partners/update_partners', $params);
-    }
+}
     
     
     //Suppression des partenaires
@@ -219,6 +214,15 @@ class PartnersController extends Controller
         'affiche'=> $remove,
         'success'=> $success,
         ]);
+    }
+
+    public function ShowAllPartners()
+    {
+        
+        
+        $partners = new PartnersModel();
+        $list = $partners->findAll();
+        $this->showJson($list);
     }
 
 }

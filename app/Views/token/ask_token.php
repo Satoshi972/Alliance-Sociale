@@ -9,27 +9,26 @@ $this->start('main_content'); ?>
       <div class="col-md-8 text-center well jumbo">
         <div class="col-md-12 jumbotron">  
        
-        <h1>Entrez votre e-mail</h1>
+      <h1>Entrez votre e-mail</h1>
         
-        <div id="result"></div>
+      <div id="result"></div>
         
-        <form method="post" id="checkform2">
-            
-            <div class="form-group">
-            <label for="email">E-mail :</label>
-		    <input type="email" name="email" id="email" class="form-control">
-            </div>
-            
-		    <button type="submit" id="ask_token" class="btn btn-default">Recevoir le lien</button>
-	
+      <form method="post" id="checkform2">
 
-	    </form>
+            <div class="form-group">
+                <label for="email">E-mail :</label>
+                <input type="email" name="email" id="email" class="form-control">
+            </div>
+
+            <button type="submit" id="ask_token" class="btn btn-default">Recevoir le lien</button>
+
+
+        </form>
       
        </div>
-        </div>
-      </div>
+
     </div>
-</div>
+  </div>
      
 <?php    
 $this->stop('main_content');

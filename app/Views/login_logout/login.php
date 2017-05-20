@@ -7,29 +7,37 @@ $this->start('main_content'); ?>
         
 
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="col-md-12">
-       
 
-   <h1>Entrez vos identifiants !</h1>
-    <div id="result"></div>
+     <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
+        <!--    <div class="col-md-12 jumbotron">    -->
 
-	<form method="post" id="checkform">
-        <div class="form-group">
-		<label for="ident">E-mail :</label>
-		<input type="email" name="ident" id="ident" class="form-control">
+        <h1>Entrez vos identifiants !</h1>
+        <div id="result">
+            
+            
+            
         </div>
 
-		<div class="form-group">
-		<label for="password">Mot de passe :</label>
-		<input type="password" name="password" id="password" class="form-control"> 
-        </div>
+        <?php if(!empty($errors)): ?>
+	    <p style="color:red;"><?=implode('<br>', $errors);?></p>
+        <?php endif; ?>
+        <form method="post" id="checkform" action="<?= $this->url('login') ?>">
+            <div class="form-group">
+            <label for="ident">E-mail :</label>
+            <input type="email" name="ident" id="ident" class="form-control">
+            </div>
 
-		<br>
-		<button type="submit" id="submitForm" class="btn btn-default">Se connecter</button>
-	</form>
-    <a href="<?= $this->url('ask_token') ?>">Mot de passe oublié ?</a> 
-   
+            <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" class="form-control"> 
+            </div>
+
+            <br>
+            <button type="submit" id="submitForm" class="btn btn-primary">Se connecter</button>
+        </form>
+        <a href="<?= $this->url('ask_token') ?>">Mot de passe oublié ?</a> 
+         <!--           </div> -->
         </div>
       </div>
     </div>
@@ -60,22 +68,7 @@ $this->start('script');
         			 }
         		});
         	}); 
-            
-            $('#submitForm').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
 
-                var form_user = $('#checkform'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_login") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-            
             $('#ask_token').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
 
@@ -105,22 +98,7 @@ $this->start('script');
                     }
                 });
             });
-            
-            /*$('#submitform3').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
 
-                var form_user = $('#checkform4'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("updateCheck") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            }); */
-            
             $('#new_mdp').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
 

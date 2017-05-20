@@ -1,0 +1,786 @@
+.lienmenu2
+{
+     color:#FFF !important;
+     -webkit-transition: color 1s ease-in-out !important;
+     transition: color 1s ease-in-out !important;
+}
+
+.lienmenu:hover
+{
+    color:pink;
+}
+
+#footerx
+{
+    background-color:antiquewhite;
+}
+
+.modal-dialog
+{
+    margin-top:50px !important;
+}
+
+#navigation
+{
+    margin-bottom: 0;
+}
+.navbar-nav
+{
+    text-align: center;
+    float:none;
+    
+}
+
+.navbar-nav>li
+{
+    display:inline-block
+    float:none;
+    
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+ 
+
+
+.main-text
+{
+    position: absolute;
+    top: 20px;
+    width: 96.66666666666666%;
+    color: #CE3C9D;
+}
+.btn-min-block
+{
+    min-width: 170px;
+    line-height: 26px;
+}
+.btn-clear
+{
+    color: #FFF;
+    background-color: transparent;
+    border-color: #FFF;
+    margin-right: 15px;
+}
+
+.text-slider
+{
+    color: #CE3C9D;
+    border-radius: 30px !important;
+    background:white !important;
+}
+.btn-clear:hover
+{
+    color: #000;
+    background-color: #FFF;
+}
+
+.img-slide {
+    margin: 0 auto !important;
+    display: block;
+    text-align: center !important;
+    max-height: 340px !important;
+    background-size: cover !important;
+    /*max-width: 1200px !important;*/
+    width:100% !important;
+    object-fit:cover !important; 
+}
+*/
+.topheader .homepic {
+    margin: 0 auto;
+    
+    min-width: 100%;
+    max-height: 200px !important ;
+    background-size: cover;
+    max-width: 100% !important;
+    width:100% !important;
+    object-fit:cover !important; 
+    
+}
+
+.topheader .col-xs-10 {
+        margin-top: -10px;
+     
+        
+}
+
+.img-home {
+    border-radius:50px !important;
+    object-fit:cover;
+    max-height: 90px;
+    max-width: 90px;
+   
+}
+
+.img-home:hover {
+    
+    object-fit:cover;
+    border-radius:0px !important;
+   
+}
+
+.link-home {
+    display: block;
+   
+    background:white !important;
+    padding: 10px;
+   
+    border-radius: 30px !important;
+    color: deepskyblue !important;
+    font-weight: bold;
+   
+}
+.link-home:hover {
+
+   
+    background:sandybrown !important;
+    
+   
+}
+
+
+
+/*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 200px) {
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 150px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+          .little-fb {
+            display:block !important;
+        }
+
+        .big-fb {
+            display:none !important;
+        }
+        
+        .big-pres {
+            display:none;
+        }
+        
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:block;
+        }
+        
+        .little-past {
+            display:block;
+        }
+        
+         .meteo {
+        width:100% !important;
+        height:250px !important;
+        text-align: center !important;
+
+        }
+        .carousel-caption {
+            display:block !important;
+        }
+        
+        .text-slider
+        {
+            display:none !important;
+        }
+        .minilogo 
+        {
+            display:block !important;
+        }
+        .minilogoscroll
+        {
+            display:block !important;
+        }
+        .minilogoscrollnone
+        {
+            display:block !important;
+        }
+        
+        .projector
+        {
+            display:none;
+        }
+        
+        .navbar-brand
+        {
+            padding: 0;      
+        }
+
+        h2{
+            font-size: 20px !important;
+        }
+        
+        #scrollnav
+        {
+            display:none;
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 200px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        .big-pres {
+            display:none;
+        }
+        
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:block;
+        }
+        
+        .middle-past {
+            display:block;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        
+         .meteo {
+        width:100% !important;
+        height:310px !important;
+        text-align: center !important;
+
+        }
+        .text-slider
+        {
+            display:block !important;
+        }
+        .minilogo 
+        {
+            display:none !important;
+        }
+        
+        .projector
+        {
+            display:block;
+        }
+        h2{
+            font-size: 20px !important;
+        }
+        
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 240px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+       
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+       
+        .meteo {
+        width:100% !important;
+        height:370px !important;
+        text-align: center !important;
+
+        }
+        .navbar-nav>li
+        {
+            font-size:11px;
+
+        }
+        .lienmenu
+        {
+            padding:6px !important;
+            margin-top:5px;
+            
+        }
+        
+        .navbar-brand
+        {
+            padding: 0;
+            position:absolute;
+            
+        }
+        
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 290px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+         .little-fb {
+            display:none !important;
+        }
+
+        .big-fb {
+            display:block !important;
+        }
+        
+         .meteo {
+        width:100% !important;
+        height:250px !important;
+        text-align: center !important;
+
+        }
+        .big-pres {
+            display:none;
+        }
+        
+        .big-past {
+            display:none;
+        }
+        
+        .middle-pres {
+            display:block;
+        }
+        
+        .middle-past {
+            display:block;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        
+        .navbar-nav>li
+        {
+            font-size:15px;
+
+        }
+        .lienmenu
+        {
+            padding:6px !important;
+            margin-top:5px;
+            
+        }
+        
+        #fbsidebar {
+            left:0;
+            float:left;
+        }
+        
+        #calendarsidebar
+        {
+            right:0;
+            float:right;
+        }
+        
+        .affix {
+          position: fixed;
+          top: 50px;
+            
+        }
+        .affix-top {
+          position:absolute;
+            
+        }
+        .affix-bottom {
+          position: absolute;
+            
+        }
+        
+        
+        
+        h2{
+            font-size: 21px !important;
+        }
+        
+        .contentpart
+        {
+            min-height:1000px;
+        }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1280px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+  
+         .navbar-nav>li
+        {
+            font-size:18px;
+
+        }
+
+        .lienmenu
+        {
+            padding:9px !important;
+            margin-top:5px;
+            
+
+        }
+        
+         h2{
+            font-size: 29px !important;
+        }
+    }
+
+@media only screen and (min-width : 1700px) {
+   
+      
+    }
+
+
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1900px) {
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        .navbar-nav>li
+        {
+            font-size:22px;
+
+        }
+        .lienmenu
+        {
+            padding:12px !important;
+            margin-top:5px;
+            
+        }
+        .affix {
+          position: fixed;
+          top: 56px;
+            
+        }
+        
+        .meteo {
+        width:100% !important;
+        height:300px !important;
+        text-align: center !important;
+
+        }
+        
+    }
+
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 2330px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        .navbar-nav>li
+        {
+            font-size:23px;
+
+        }
+        .lienmenu
+        {
+            padding:14px !important;
+            margin-top:5px;
+            
+        }
+        
+        .affix {
+          position: fixed;
+          top: 61px;
+            
+        }
+        
+    
+        
+    }
+/* Large Devices, Wide Screens */
+    @media only screen and (min-width : 2880px) {
+        
+        
+        .img-slide {
+        margin: 0 auto !important;
+        display: block;
+        text-align: center !important;
+        height: 340px !important;
+        background-size: cover !important;
+        /*max-width: 1200px !important;*/
+        width:100% !important;
+        object-fit:cover !important; 
+        }
+        
+        
+        .little-fb {
+            display:none !important;
+        }
+       
+        .big-fb {
+            display:block !important;
+        }
+        
+        .big-pres {
+            display:block;
+        }
+        
+        .big-past {
+            display:block;
+        }
+        
+        .middle-pres {
+            display:none;
+        }
+        
+        .middle-past {
+            display:none;
+        }
+        
+        .little-pres {
+            display:none;
+        }
+        
+        .little-past {
+            display:none;
+        }
+        
+        .navbar-nav>li
+        {
+            font-size:23px;
+
+        }
+        .lienmenu
+        {
+            padding:16px !important;
+            margin-top:5px;
+            
+        }
+        
+        .affix {
+          position: fixed;
+          top: 65px;
+            
+        }
+        
+        .meteo {
+        width:100% !important;
+        height:350px !important;
+        text-align: center !important;
+
+        }
+        
+    }
+
+.panel-body {
+    width:100%;
+    
+}
+
+.meteo {
+    width:100% !important;
+    text-align: center !important;
+    
+}
+.fb-page {
+     text-align: center !important;
+    
+}
+
+.fb-place {
+     text-align: center !important;
+    
+}
+
+
+
+.little-fb {
+    width:100%;
+}
+
+
+.big-fb {
+    width:100%;
+}

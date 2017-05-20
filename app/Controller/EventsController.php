@@ -13,8 +13,8 @@ class EventsController extends MasterController
 {
 	public function listEvents()
 	{
-		 // $roles = ['admin','editor'];
-   // 		 $this->allowTo($roles);
+		$roles = ['admin','editor'];
+   		$this->allowTo($roles);
 		$this->show('events/list');
 	}
 
@@ -27,8 +27,9 @@ class EventsController extends MasterController
 
 	public function viewEvent($id)
 	{
-		 // $roles = ['admin','editor'];
-   //  	$this->allowTo($roles);
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
+
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();
@@ -40,7 +41,6 @@ class EventsController extends MasterController
 
 	public function viewEventFront($id)
 	{
-
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();
@@ -52,15 +52,16 @@ class EventsController extends MasterController
 	
 	public function addEvent()
 	{
-		// $roles = ['admin','editor'];
-  //   	$this->allowTo($roles);
+		$roles = ['admin'];
+    	$this->allowTo($roles);
 
 		$activity = new activity();
 		$infos = $activity->findAll();
 		$event = new events();
 		$post = [];
 		$errors = [];
-		$uploadDir = 'assets/medias/';
+		$uploadDir = 'assets/img/events/';
+		$result = false;
 		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
         
 		if(!empty($_POST))
@@ -70,10 +71,10 @@ class EventsController extends MasterController
             
 			if(!v::notEmpty()->alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
 			{
-				$errors[] = 'Votre title doit faire entre 2 et 50 caractères';
+				$errors[] = 'Votre titre doit faire entre 2 et 50 caractères';
 			}
 
-			if(!v::notEmpty()->alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
+			if(!v::notEmpty()->alNum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
 			{
 				$errors[] = 'Votre contenu doit faire entre 2 et 600 caractères';
 			}
@@ -103,7 +104,7 @@ class EventsController extends MasterController
 
 			if(!v::intVal()->validate($post['quota']))
 			{
-				$errors[] = 'Veuillez saisir un chiffre';
+				$errors[] = 'Veuillez saisir un chiffre ou nombre dans le quota';
 			}
 
 			if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0)
@@ -152,8 +153,7 @@ class EventsController extends MasterController
 
 			if(count($errors)>0)
 			{
-				$textError = implode('<br>', $errors);
-				$result = '<p class="alert alert-danger">'.$textError.'</p>';
+				$result = implode('<br>', $errors);
 			}
 			else
 			{
@@ -183,7 +183,8 @@ class EventsController extends MasterController
 
 				if($event->insert($datas))
 				{
-                    $result = '<p class="alert alert-success">Evenement bien enregistré </p>';
+					// $this->redirectToRoute('listEvent');
+                    $result = 'success';
 				}
 				
 			}
@@ -201,8 +202,8 @@ class EventsController extends MasterController
 
 	public function updateEvent($id)
 	{	
-		// $roles = ['admin','editor'];
-  //   	$this->allowTo($roles);
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
 
 		$event = new events();
 		$activity = new activity();
@@ -211,11 +212,13 @@ class EventsController extends MasterController
 		$list  = $activity->findAll();
 
 		$picture = $infos['picture'];
-		$uploadDir = 'assets/medias/';
+		$uploadDir = 'assets/img/events/';
 		$start = true; //Permet de vérifier plus tard que la date de début soit bonne
 
 		$post = [];
 		$error = [];
+
+		$result = null;
 
 		if(!empty($_POST))
 		{
@@ -290,22 +293,16 @@ class EventsController extends MasterController
 						else
 						{
 							#ligne pour que mon image soit envoyée dans la base !!!!!!
-							$post['picture'] = $uploadDir.$newName;
+							$picture = $uploadDir.$newName;
 							
 						}
 					}
 				}
 			}
-			else
-			{
-				//var_dump($_FILES['picture']['error']);
-				$errors[] = 'Erreur lors de la réception de l\'image';
-			}
 
 			if(count($error)>0)
 			{
-				$textError = implode('<br>', $error);
-				$results = '<p class="alert alert-danger">'.$textError.'</p>';
+				$results = implode('<br>', $errors);;
 			}
 			else
 			{
@@ -318,7 +315,7 @@ class EventsController extends MasterController
 						'end' 		  => $post['end'],
 						'quota'   	  => $post['quota'],
 	                    'id_activity' => $post['activity'],
-	                    'picture'     => $post['picture'],
+	                    'picture'     => $picture,
 					];
 				}
 				else
@@ -329,7 +326,7 @@ class EventsController extends MasterController
 						'start' 	  => $post['start'],
 						'quota'   	  => $post['quota'],
 	                    'id_activity' => $post['activity'],
-	                    'picture'     => $post['picture'],
+	                    'picture'     => $picture,
 					];
 				}
 
@@ -354,8 +351,8 @@ class EventsController extends MasterController
 
 	public function deleteEvent($id)
 	{
-		// $roles = ['admin','editor'];
-  //   	$this->allowTo($roles);
+		$roles = ['admin','editor'];
+    	$this->allowTo($roles);
     	
 		$event = new events();
 

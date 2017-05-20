@@ -5,7 +5,7 @@ $this->start('main_content');
 <legend class="text-center">Fiche de l'évènement</legend>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Affiche</h4>
-		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" alt="logo"></p>
+		<p class="list-group-item-text"><img class="img-responsive img-rounded" src="/Alliance-Sociale/public/<?= $infos['picture'];  ?>" style="width:100%; margin: 0 auto; "alt="logo"></p>
 		
 	</div>
 
@@ -15,11 +15,11 @@ $this->start('main_content');
 	</div>
 
 	<div class="list-group-item text-center">
-		<h4 class="list-group-item-heading">Date de début</h4>
+		<h4 class="list-group-item-heading">Date<?php if($infos['end'] !== null){echo ' de début';}?></h4>
 		<p class="list-group-item-text"><?= $infos['start'];?></p>
 	</div>
 
-	<?php if(!($infos['start'])): ?>
+	<?php if($infos['end'] !== null): ?>
 	<div class="list-group-item text-center">
 		<h4 class="list-group-item-heading">Date de fin</h4>
 		<p class="list-group-item-text"><?= $infos['start'];?></p>
@@ -31,22 +31,9 @@ $this->start('main_content');
 		<p class="list-group-item-text"><?=$infos['content'];?></p>
 	</div>
 
-	<!-- <?php 
-		foreach ($activity as $key => $value) 
-		{
-			if($value['act_id'] = $infos['id_activity']):
-	?>
-				<div class="list-group-item text-center">
-					<h4 class="list-group-item-heading">Activité de l'évènement</h4>
-					<p class="list-group-item-text"><?=$value['name'];?></p>
-				</div>
-	<?php 
-			endif;
-		} 
-	?> -->
 	<?php if(!empty($infos['quota'])): ?>
 	<div class="list-group-item text-center">
-		<h4 class="list-group-item-heading">Quota</h4>
+		<h4 class="list-group-item-heading">Limitation</h4>
 		<p class="list-group-item-text"><?=$infos['quota'];?></p>
 	</div>
 	<?php endif; ?>

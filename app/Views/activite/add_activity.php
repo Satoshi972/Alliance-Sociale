@@ -10,76 +10,63 @@ $this->start('head');
 $this->stop('head');
 $this->start('main_content');?>
 
+<div class ="container">
+  <div class="row">   
+      <div class="col-md-12 well">
+        <div class="col-md-12 jumbotron text-center">        
+          <h2>Ajouter une activité</h2>
+        </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-3 text-center well  text-center">
-        <div class="col-md-12 jumbotron">        
-          <h2>Ajouter une activitée</h2>
-      </div>
-        
-      
-
-          <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-            <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-          <?php endif; ?>
-
-          <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre Activité à bien été ajouter</p>
-          <?php endif; ?>
 
         <form method="post" action="<?= $this->url('add_activite') ?>" class="form-horizontal" enctype="multipart/form-data">
+        <p class="col-md-12 text-center" id="result"></p>
 
-          <div class="form-group text-center">
-            <div class="col-md-12 text-center">          
-              <label class="control-label " for="name">Nom de l'Activité</label>
+          <div class="form-group">
+            <div class="col-md-2 text-center">          
+              <label class="control-label " for="name">Nom de l'activité</label>
             </div> 
-            <div class="col-md-12">
+            <div class="col-md-10">
               <input type="text" class="form-control" name="name" id="name">
             </div>
           </div>
 
           <div class="form-group">
-            <div class="col-md-12 text-center">            
+            <div class="col-md-2 text-center">            
               <label class="control-label" for="content">Description de l'activité</label>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-10">
               <textarea  type="text" class="form-control" name="content" id="content" rows=5></textarea>
             </div>
           </div>
 
           <div class="form-group">
-            <div class="col-md-12 text-center">
-              <label for="category">Catégorie de la nouvelle activité :</label>
+            <div class="col-md-2 text-center">
+              <label class="control-label" for="picture">Photos</label>
             </div>
-            <div class="col-md-12">
-              <select name="category" id="category" class="form-control">
-               <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['cat_id'] ?>"><?= $value['name'] ?></option>
-               <?php endforeach; ?>
-              </select>
+            <div class="col-md-10">
+              <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
-                         
+
           <div class="form-group">
-            <div class="col-md-12 text-center">
-              <label class="control-label" for="picture">photos</label>
+            <div class="col-md-2 text-center">
+              <label class="control-label" for="form">Formulaire</label>
             </div>
-            <div class="col-md-12">
-              <input type="file" name="picture" id="picture" accept="image/*">
+            <div class="col-md-10">
+              <input type="file" name="form" id="form">
             </div>
           </div>
           
           <div class="form-group">
-            <div class="col-md-6 col-md-offset-3">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activitées</button>
+            <div class="col-md-12 text-center">
+              <button type="submit" id="submitForm" class="btn btn-primary">Créer l'activité</button>
             </div>
           </div>
           
         </form>
       </div>
-   </div>
   </div>
+</div>
 
 <?php $this->stop('main_content'); ?>
 <?php
@@ -92,7 +79,29 @@ $this->start('script');
       {
         'showUpload':false,
         'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 10,
         language: "fr"
+      });
+
+      $("#form").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 1,
+        language: "fr"
+      });
+
+      $(function()
+      {
+        //gestion de mon formulaire d'envoi
+        $('form').on('submit',function(e)
+        {
+            e.preventDefault();
+            var myForm = $('form');
+            submitForm(myForm);
+        });
       });
 </script>
 <?php

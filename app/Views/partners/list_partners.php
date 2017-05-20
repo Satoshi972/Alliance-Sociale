@@ -4,10 +4,9 @@
 <?php $this->stop('head') ?>
   <?php $this->start('main_content') ?>
 
-  <div class="container">
-
-    <div class="col-md-12">
-
+<div class ="container">
+  <div class="row">
+    <div class="col-md-12 well">
       <div class="col-md-12 jumbotron text-center">
         <h1>Listes des Partenaires</h1>
       </div>
@@ -27,6 +26,7 @@
           <?php endforeach; ?>
       </div>
   </div>
+</div>
     <?php $this->stop('main_content') ?>
 
        <?php $this->start('script') ?>

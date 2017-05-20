@@ -14,22 +14,14 @@ $this->start('main_content');?>
 
 
 <div class ="container">
-	<div class="row">
-		<div class="col-md-12">
+  <div class="row">
+      <div class="col-md-12 well">
 
-			<div class="col-md-6 col-md-offset-3 text-center well">
-
-				<div class="col-md-12 jumbotron">        
+				<div class="col-md-12 jumbotron text-center">      
           			<h2>Ajouter un partenaire</h2>
       			</div>
 
-					<?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-						<p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
-					<?php endif; ?>
-
-					<?php if($success == true): // La variable $success est envoyé via le controller?>
-						<p class="alert alert-success alert-dismissable">Votre partenaire à bien été ajouter</p>
-					<?php endif; ?>
+					<div id="result" class="col-xs-12"></div>
 
 				<form method="post" id="url" class="form-horizontal" enctype="multipart/form-data">
 
@@ -51,13 +43,12 @@ $this->start('main_content');?>
 					
 
 					<div class="form-group">
-						<div class="col-md-6 col-md-offset-3">
-							<button type="submit" id="submitForm" class="btn btn-primary">Ajouter de Partenaire</button>
+						<div class="col-md-12 text-center">
+							<button type="submit" id="submitForm" class="btn btn-primary">Ajout de Partenaire</button>
 						</div>
 					</div>
 					
 				</form>
-			</div>
 		</div>
 	</div>
 </div>
@@ -75,6 +66,16 @@ $this->start('script');
         'showCaption' : false,
         language: "fr"
       });
+  $(function()
+	{
+		//gestion de mon formulaire d'envoi
+		$('form').on('submit',function(e)
+		{
+		    e.preventDefault();
+		    var myForm = $('form');
+		    submitForm(myForm);
+		});
+	});
 </script>
 <?php
 $this->stop('script'); 

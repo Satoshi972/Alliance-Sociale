@@ -11,19 +11,19 @@ $this->stop('head');
 $this->start('main_content');?>
 
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-6 col-md-offset-3 text-center well  text-center">
+<div class ="container">
+  <div class="row">   
+      <div class="col-md-12 well">
         <div class="col-md-12 jumbotron">        
-          <h2>Modification de l'activitée</h2>
-      </div>
+          <h2>Modification de l'activité</h2>
+        </div>
         
           <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
             <p class="alert alert-danger alert-dismissable"><?=implode('<br>', $errors); ?></p>
           <?php endif; ?>
 
           <?php if($success == true): // La variable $success est envoyé via le controller?>
-            <p class="alert alert-success alert-dismissable">Votre Activité à bien été ajouter</p>
+            <p class="alert alert-success alert-dismissable">Votre Activité a bien été ajoutée</p>
           <?php endif; ?>
 
         <form method="post" class="form-horizontal" enctype="multipart/form-data">
@@ -33,7 +33,7 @@ $this->start('main_content');?>
               <label class="control-label " for="name">Nom de l'Activité</label>
             </div> 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="name" id="name">
+              <input type="text" class="form-control" name="name" id="name" value="<?= $detail['name'] ?>">
             </div>
           </div>
 
@@ -42,35 +42,32 @@ $this->start('main_content');?>
               <label class="control-label" for="content">Description de l'activité</label>
             </div>
             <div class="col-md-12">
-              <textarea  type="text" class="form-control" name="content" id="content" rows=5></textarea>
+              <textarea  type="text" class="form-control" name="content" id="content" rows=5><?= $detail['content'] ?></textarea>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <div class="col-md-12 text-center">
+              <label class="control-label" for="picture">Affiche</label>
+            </div>
+            <div class="col-md-12">
+              <img src="/Alliance-Sociale/public/<?= $detail['picture']?>" alt="Affiche">
+              <input type="file" name="picture" id="picture" accept="image/*">
             </div>
           </div>
 
           <div class="form-group">
-            <div class="col-md-12 text-center">
-              <label for="category">Catégorie de la nouvelle activité :</label>
+            <div class="col-md-2 text-center">
+              <label class="control-label" for="form">Formulaire</label>
             </div>
-            <div class="col-md-12">
-              <select name="category" id="category" class="form-control">
-               <?php foreach ($category as $key => $value): ?>
-                  <option value="<?= $value['cat_id'] ?>"><?= $value['name'] ?></option>
-               <?php endforeach; ?>
-              </select>
-            </div>
-          </div>
-                         
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <label class="control-label" for="picture">photos</label>
-            </div>
-            <div class="col-md-12">
-              <input type="file" name="picture" id="picture" accept="image/*">
+            <div class="col-md-10">
+              <input type="file" name="form" id="form">
             </div>
           </div>
           
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <button type="submit" id="submitForm" class="btn btn-primary">Ajouter des activitées</button>
+              <button type="submit" id="submitForm" class="btn btn-primary">Mettre à jour</button>
             </div>
           </div>
           
@@ -90,6 +87,16 @@ $this->start('script');
       {
         'showUpload':false,
         'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 10,
+        language: "fr"
+      });
+  $("#form").fileinput(
+      {
+        'showUpload':false,
+        'showCaption' : false,
+        'showRemove'  :true,
+        'maxFileCount': 1,
         language: "fr"
       });
 </script>
