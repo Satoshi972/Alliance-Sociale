@@ -384,17 +384,9 @@ $(function()
   //Fin menu dynamique
     
   //Gestion affix
-    
-  
 
-    
-        var wWidth = $(window).width();
-        var z = getSize(wWidth);
-        
-    
-
-
-    
+    var wWidth = $(window).width();
+    var z = getSize(wWidth);
 
     function getSize(z){
         if(z >= 2880) {
@@ -526,10 +518,6 @@ $(function()
         
       }
         
-    
-
-
-
   // Navigation fixe
   // On recupere la position du bloc par rapport au haut du site
     var position_top_raccourci = $("#navigation").offset().top;
