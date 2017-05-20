@@ -33,13 +33,10 @@ $this->start('main_content'); ?>
         <?php } ?>
         </div>
     </div>
-<<<<<<< HEAD
-   
-=======
+
 </div>
  <!--  </div>
       </div> -->     
->>>>>>> refs/remotes/origin/Dev
      
  <?php    
 $this->stop('main_content'); 
