@@ -17,18 +17,14 @@
 			<div class="row">
 				<div class="col-md-12">
 
-					<div class="col-md-4">
-
-					</div>
-					<div class="col-md-4">
+					 <div class="col-md-4 col-md-offset-4">
 						<figure>
 							<h4 class="text-center">Présidente</h4>
 							<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
 							<figcaption class="text-center">Mme Léa JEAN-BAPTISTE ADOLPHE</figcaption>
 						</figure>
 					</div>
-					<div class="col-md-4">							
-
+				</div>
 			</div>
 
 			<div class="row">
@@ -92,26 +88,27 @@
 				<div class=" col-md-12">
 
 					<div class="col-md-4">							
+						<figure>
+							<h4 class="text-center">Assesseur</h4>
+							<img src="<?= $this->assetUrl('teamAS/Deval Chantal.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
+							<figcaption class="text-center">Mme Chantal DEVAL</figcaption>
+						</figure>
+					</div>
 
-					<figure>
-						<h4 class="text-center">Assesseur</h4>
-						<img src="<?= $this->assetUrl('teamAS/Deval Chantal.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
-						<figcaption class="text-center">Mme Chantal DEVAL</figcaption>
-					</figure>
-					</div>
 					<div class="col-md-4">
-					<figure>
-						<h4 class="text-center">Assesseur</h4>
-						<img src="<?= $this->assetUrl('teamAS/Hayot Jennyfer.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
-						<figcaption class="text-center">Mme Jennyfer HAYOT</figcaption>
-					</figure>
+						<figure>
+							<h4 class="text-center">Assesseur</h4>
+							<img src="<?= $this->assetUrl('teamAS/Hayot Jennyfer.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
+							<figcaption class="text-center">Mme Jennyfer HAYOT</figcaption>
+						</figure>
 					</div>
+
 					<div class="col-md-4">
-					<figure>
-						<h4 class="text-center">Assesseur</h4>
-						<img src="<?= $this->assetUrl('teamAS/Neris Yasmina.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
-						<figcaption class="text-center">Mme Yasmina NERIS</figcaption>
-					</figure>							
+						<figure>
+							<h4 class="text-center">Assesseur</h4>
+							<img src="<?= $this->assetUrl('teamAS/Neris Yasmina.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
+							<figcaption class="text-center">Mme Yasmina NERIS</figcaption>
+						</figure>							
 					</div>
 				</div>
 			</div>
@@ -121,19 +118,18 @@
 				<div class=" col-md-12">
 
 					<div class="col-md-4">							
-
-					<figure>
-					<h4 class="text-center">Assesseur</h4>
-						<img src="<?= $this->assetUrl('teamAS/Cliryx Léonard.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
-						<figcaption class="text-center">Mr Léonard CLIRYX</figcaption>
-					</figure>
+						<figure>
+						<h4 class="text-center">Assesseur</h4>
+							<img src="<?= $this->assetUrl('teamAS/Cliryx Léonard.jpeg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
+							<figcaption class="text-center">Mr Léonard CLIRYX</figcaption>
+						</figure>
 					</div>
 					<div class="col-md-4">
-					<figure>
-					<h4 class="text-center">Assesseur</h4>
-						<img src="<?= $this->assetUrl('teamAS/Adjutor Jacques.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
-						<figcaption class="text-center">Mr Jacques ADJUTOR</figcaption>
-					</figure>
+						<figure>
+						<h4 class="text-center">Assesseur</h4>
+							<img src="<?= $this->assetUrl('teamAS/Adjutor Jacques.jpeg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
+							<figcaption class="text-center">Mr Jacques ADJUTOR</figcaption>
+						</figure>
 					</div>
 					<div class="col-md-4">
 					<figure>
@@ -149,49 +145,29 @@
 			<h2>Notre équipe</h2>
 		</div>
 
-
-
-
 			<div class="row">
 				<div class="col-md-12">
-
-					<div class="col-md-4">							
-
-					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-md-offset-4">
 						<figure>
 							<h4 class="text-center">Directeur</h4>
 							<img src="<?= $this->assetUrl('teamAS/Mongis.jpg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
 							<figcaption class="text-center">Mr Jean-Michel MONGIS</figcaption>
-						</figure
-					</div>
-					<div class="col-md-4">
-								
+						</figure>
 					</div>
 				</div>
 			</div>
-
-
 		
 			<div class="row">
 				<div class="col-md-12">
-
-					<div class="col-md-4">							
-
-					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-md-offset-4">
 						<figure>
 							<h4 class="text-center">Coordinatrice</h4>
 							<img src="<?= $this->assetUrl('teamAS/Filet Joanna.jpg') ?>" alt="personnel" class="thumbnail img-responsive" style="width:100%; margin: 0 auto; ">
 							<figcaption class="text-center">Mme Joanna FILET</figcaption>
 						</figure>
 					</div>
-					<div class="col-md-4">
-							
-					</div>
 				</div>
 			</div>
-
 
 			<div class="row">
 				<div class="col-md-12">
@@ -219,8 +195,6 @@
 					</div>
 				</div>
 			</div>
-
-
 
 			<div class="row">
 				<div class=" col-md-12">
@@ -250,13 +224,7 @@
 				</div>
 			</div>
 
-
-
-			
-
 	      </div>
-
-
 
 	    </div>
  
