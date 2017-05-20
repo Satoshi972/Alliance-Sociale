@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-center">
                     <li>
-                        <a class="lienmenu" href="<?php echo $this->url('default_home') ?>">Accueil</a>
+                        <a class="lienmenu" href="<?php echo $this->url('default_home') ?>">Accueiltoto</a>
                     </li>
                     <li>
 
