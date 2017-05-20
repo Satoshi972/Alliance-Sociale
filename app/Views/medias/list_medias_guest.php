@@ -14,27 +14,27 @@
 		
 	<?php foreach($medias as $media): ?>	
 	
-		<div class="col-xs-3">
-	    	<!-- <img src="/Alliance-Sociale/public/<?php// echo $media['url'];?>" class="img-responsive" style="width: 20vw; height: 15vh;" alt="medias"> -->
-	    	<iframe src="/Alliance-Sociale/public/<?=$media['url'];?>" data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no"></iframe>
-	    </div>
+		<figure class="col-xs-6 col-sm-4 col-lg-3">
+	    	
+	    	<img src="/Alliance-Sociale/public/<?=$media['url'];?>"data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no">
+	    </figure>
 	    <!-- Modal -->
-          <div class="modal fade" id="myModal<?=$media['title'];?>" role="dialog">
-            <div class="modal-dialog">
+                  <div class="modal fade" id="myModal<?=$media['id'];?>" role="dialog">
+                    <div class="modal-dialog">
 
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"><?=$media['id'];?></h4>
-                </div>
-                <div class="modal-body">
-                  <img src="/Alliance-Sociale/public/<?=$media['url'];?>" >
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title"><?=$media['title'];?></h4>
+                        </div>
+                        <div class="modal-body">
+                          <img src="/Alliance-Sociale/public/<?=$media['url'];?>" style="width:100%; margin: 0 auto; ">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
 
             </div>
           </div>
@@ -57,20 +57,5 @@
 
 <?php 
 $this->stop('main_content');    
-$this->start('script');
 
-?>
-<script>
-$(document).ready(function() {
-$('.thumbnail').click(function(){
-      $('.modal-body').empty();
-  	var title = $(this).parent('a').attr("title");
-  	$('.modal-title').html(title);
-  	$($(this).parents('div').html()).appendTo('.modal-body');
-  	$('#myModal').modal({show:true});
-});
-});        
-</script> 
-<?php
-    $this->stop('script');
 ?>
