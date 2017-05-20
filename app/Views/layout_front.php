@@ -357,36 +357,19 @@ $(function()
   });
   // Fin slider
   // Menu dynamique
-  $.getJSON('<?= $this->url('showAllCategories')?>', function(cat) 
+  $.getJSON('<?= $this->url('showAllActivities')?>', function(act) 
   {
-      var res = "";
-      $.getJSON('<?= $this->url('showAllActivities')?>', function(act) 
-      {
-        $.each(cat, function(index, val) 
-        {
-          res += '<li class="dropdown-submenu">'
-          res += '<a tabindex="-1" href="#">';
-          res += val.name;
-          // res += '<span class="caret"></span>';
-          res += '</a>';
-          res += '<ul class="dropdown-menu">';
-          $.each(act, function(key, value) 
-          {
-            if(value.category == val.name)
-            {
-             res += '<li>';
-             res += '<a href="/Alliance-Sociale/public/activite/details/'+value.id+'">'
-             res += value.name;
-             res += '</a>';
-             res += '</li>';
-            }
-          });
-          res += '</ul>';
-          res += '</li>';
-        });
-         
-      $('#menu').html(res);
-      });
+    var res = "";
+    $.each(act, function(index, val) 
+    {
+      res += '<li>'
+      res += '<a tabindex="-1" href="/Alliance-Sociale/public/activite/details/'+val.id+'"">';
+      res += val.name;
+      res += '</a>';
+      res += '</li>';
+    });
+     
+  $('#menu').html(res);
   });
   // Gestion du dropdown
   var timerIn = 200;
