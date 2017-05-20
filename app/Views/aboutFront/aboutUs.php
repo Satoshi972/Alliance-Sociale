@@ -34,7 +34,7 @@
 					
 						<figure>
 							<!-- <h4 class="text-center">Présidente</h4> -->
-							<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="thumbnail img-responsive">
+							<img src="<?= $this->assetUrl('teamAS/Jean Baptiste .jpg') ?>" alt="personnel" class="thumbnail img-responsive"style="width:100%; margin: 0 auto; ">
 						<!-- 	<figcaption class="text-center">Mme Léa JEAN-BAPTISTE ADOLPHE</figcaption> -->
 						</figure>	
 
