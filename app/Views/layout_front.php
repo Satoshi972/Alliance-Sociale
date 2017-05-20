@@ -514,6 +514,17 @@ $(function()
         });   
      
         
+    } else {
+          
+            $('#calendarsidebar').removeClass('affix')
+           
+             
+            
+            $('#fbsidebar').removeClass('affix')
+             
+              
+     
+        
     }
         
       }
