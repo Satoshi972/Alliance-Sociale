@@ -15,7 +15,7 @@ class MediasController extends MasterController
 {
 	public function addMedias()
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
 
 		$medias 	= new medias();
@@ -113,7 +113,7 @@ class MediasController extends MasterController
 	// vue du back
 	public function listMediasBack($page)
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
 
 		$medias = new medias();
@@ -232,7 +232,7 @@ class MediasController extends MasterController
 
 	public function listMediasByCat($idE)
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
         $this->allowTo($roles);
         
 		$medias   = new medias();
@@ -257,7 +257,7 @@ class MediasController extends MasterController
 
 	public function deleteMedias($id)
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
     	
 		$medias = new medias();

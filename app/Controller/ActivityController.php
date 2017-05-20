@@ -11,7 +11,7 @@ class ActivityController extends MasterController
 
 	public function addActivity()
 	{	
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
         $this->allowTo($roles);
 
         $newActivity = new Activity();
@@ -156,7 +156,7 @@ class ActivityController extends MasterController
 
     public function listActivity()
     {
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
         $this->allowTo($roles);
 
         $newActivity = new Activity();
@@ -182,7 +182,7 @@ class ActivityController extends MasterController
 
     public function updateActivity($id)
    {
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
         $this->allowTo($roles);
 
         $upActivity = new Activity();
@@ -327,7 +327,7 @@ class ActivityController extends MasterController
 
    public function delActivity($id)
    {
-    $roles = ['admin','editor'];
+    $roles = ['admin'];
     $this->allowTo($roles);
 
     $delactivity = new Activity();
