@@ -602,7 +602,12 @@
             
         }
         
-        
+        .meteo {
+        width:100% !important;
+        height:300px !important;
+        text-align: center !important;
+
+        }
         
     }
 
@@ -738,6 +743,13 @@
           position: fixed;
           top: 65px;
             
+        }
+        
+        .meteo {
+        width:100% !important;
+        height:350px !important;
+        text-align: center !important;
+
         }
         
     }
