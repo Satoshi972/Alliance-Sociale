@@ -393,20 +393,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 630
-            }
+                offset: {
+                top: 350,
+                bottom: 630
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 630
-            }
-        });   
+                offset: {
+                top: 350,
+                bottom: 630
+                }
+            });   
             
         
       } else if (z >= 2330){
@@ -414,20 +414,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 590
-            }
+                offset: {
+                top: 350,
+                bottom: 590
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 590
-            }
-        });   
+                offset: {
+                top: 350,
+                bottom: 590
+                }
+            });   
      
         
     } else if (z >= 1900){
@@ -435,20 +435,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 500
-            }
+                offset: {
+                top: 350,
+                bottom: 500
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 500
-            }
-        });   
+                offset: {
+                top: 350,
+                bottom: 500
+                }
+            });   
      
         
     } else if (z >= 1600){
@@ -456,20 +456,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 420
-            }
+                offset: {
+                top: 350,
+                bottom: 420
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 350,
-            bottom: 420
-            }
-        });   
+                offset: {
+                top: 350,
+                bottom: 420
+                }
+            });   
      
         
     } else if (z >= 1280){
@@ -477,20 +477,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 294,
-            bottom: 380
-            }
+                offset: {
+                top: 294,
+                bottom: 380
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 294,
-            bottom: 380
-            }
-        });   
+                offset: {
+                top: 294,
+                bottom: 380
+                }
+            });   
      
         
     } else if (z >= 992){
@@ -498,20 +498,20 @@ $(function()
             $('#calendarsidebar').addClass('affix')
            
             $('#calendarsidebar').affix({
-            offset: {
-            top: 235,
-            bottom: 350
-            }
+                offset: {
+                top: 235,
+                bottom: 350
+                }
             });  
             
             $('#fbsidebar').addClass('affix')
              
             $('#fbsidebar').affix({
-            offset: {
-            top: 235,
-            bottom: 350
-            }
-        });   
+                offset: {
+                top: 235,
+                bottom: 350
+                }
+            });   
      
         
     } else {
@@ -525,52 +525,52 @@ $(function()
               
      
         
+            }
+        
     }
         
-      }
-        
-  // Navigation fixe
-  // On recupere la position du bloc par rapport au haut du site
-    var position_top_raccourci = $("#navigation").offset().top;
-    
-    //Au scroll dans la fenetre on d�clenche la fonction
-    $(window).scroll(function () {
-        
-        
-        //si on a defile de plus de 150px du haut vers le bas
-        if ($(this).scrollTop() > position_top_raccourci) {
-        
-            //on ajoute la classe "fixNavigation" a <div id="navigation">
-            $('#navigation').addClass("fixNavigation"); 
-            
-            $('#minilogo').addClass("minilogoscroll"); 
-            
-            $('#minilogo').removeClass("minilogo"); 
-            
-            $('#minilogo').removeClass("minilogoscrollnone"); 
-            
-            $('.lienmenu').addClass("lienmenu2"); 
-            
-            $('#scrollnav').show();
-        } else {
-        
-            //sinon on retire la classe "fixNavigation" a <div id="navigation">
-            $('#navigation').removeClass("fixNavigation");
-            
-            $('#minilogo').removeClass("minilogoscroll"); 
-            
-            $('#minilogo').addClass("minilogoscrollnone"); 
-            
-            $('#minilogo').addClass("minilogo");
-            
-            $('.lienmenu').removeClass("lienmenu2"); 
-            
-            $('#scrollnav').hide();
-        }
-        
+      // Navigation fixe
+      // On recupere la position du bloc par rapport au haut du site
+        var position_top_raccourci = $("#navigation").offset().top;
+
+        //Au scroll dans la fenetre on d�clenche la fonction
+        $(window).scroll(function () {
+
+
+            //si on a defile de plus de 150px du haut vers le bas
+            if ($(this).scrollTop() > position_top_raccourci) {
+
+                //on ajoute la classe "fixNavigation" a <div id="navigation">
+                $('#navigation').addClass("fixNavigation"); 
+
+                $('#minilogo').addClass("minilogoscroll"); 
+
+                $('#minilogo').removeClass("minilogo"); 
+
+                $('#minilogo').removeClass("minilogoscrollnone"); 
+
+                $('.lienmenu').addClass("lienmenu2"); 
+
+                $('#scrollnav').show();
+            } else {
+
+                //sinon on retire la classe "fixNavigation" a <div id="navigation">
+                $('#navigation').removeClass("fixNavigation");
+
+                $('#minilogo').removeClass("minilogoscroll"); 
+
+                $('#minilogo').addClass("minilogoscrollnone"); 
+
+                $('#minilogo').addClass("minilogo");
+
+                $('.lienmenu').removeClass("lienmenu2"); 
+
+                $('#scrollnav').hide();
+            }
+
+        });
+        //Fin nav fixe
     });
-    //Fin nav fixe
-});
 </script>
 <!-- Permet des inclusions de scripts depuis la vue -->
 <?php echo $this->section("script") ?>
