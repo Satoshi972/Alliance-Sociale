@@ -18,7 +18,7 @@ class ContactController extends MasterController
         $contactModel = new contact();
         $contacteach = "";
         
-        $ContactPerPages  = 5;
+        $ContactPerPages  = 20;
         $nbContact        = $contactModel->nbrTotal();
         $nbPages         = ceil($nbContact/$ContactPerPages);
         

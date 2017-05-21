@@ -10,19 +10,10 @@
 	    	<h1 style="font-family: 'Lobster';">Présentation</h1>
 	    </div>
            
-            <?php if (!empty($views)){ ?>
+            <?php if (!empty($views)): ?>
 			<section class="about">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="col-md-12 text-center">
-							<h2 style="font-family: 'Lobster';">Que sommes nous ?</h2>
-						</div>
-						<p style="text-align:justify; font-family: 'Merienda';"><?=$views['description'];?></p>
-
-						<div class="col-md-12 text-center">
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#axes">Veuillez trouver les axes d'interventions du projet social</button>
-						</div>
-
 		                   <!-- Modal -->
 		                  <div class="modal fade" id="axes" role="dialog">
 		                    <div class="modal-dialog">
@@ -85,8 +76,17 @@
 					</div>
 				</div>
 			</section>
-            <?php } ?>
 
+			<div class="col-md-12 text-center">
+				<h2 style="font-family: 'Lobster';">Un centre social ?</h2>
+			</div>
+			<video controls="controls" class="img-responsive" src="/Alliance-Sociale/public/<?=$views['description']?>"></video>
+			<br>
+			<br>
+			<br>
+			<br>
+            <?php endif; ?>
+			
             <div class="col-md-12 text-center">
 				<a href="<?php echo $this->url('team') ?>" style="color: white;" class="btn btn-info">Découvrez notre équipe</a>
 			</div>

@@ -47,8 +47,8 @@ class PartnersController extends Controller
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             // 5 Caractères minimum pour le titre
-            if(strlen($post['name']) < 2) {
-                $errors[] = "Le champ partenaire doit avoir au minimum 2 caractères";
+            if(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 25)->validate($post['name'])) ? 'L\'histoire doit contenir entre 2 et 25 caractères' : null,) {
+                $errors[] = "Le champ partenaire doit avoir entre 2 et 25 caractères";
             }
                         
             // Vérification sur la photo
@@ -133,8 +133,8 @@ class PartnersController extends Controller
             $post = array_map('trim', array_map('strip_tags', $_POST));
             
             // 5 Caractères minimum pour le titre
-            if(strlen($post['name']) < 2) {
-                $errors[] = "Le champ partenaire doit avoir au minimum 2 caractères";
+             if(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 25)->validate($post['name'])) ? 'L\'histoire doit contenir entre 2 et 25 caractères' : null,) {
+                $errors[] = "Le champ partenaire doit avoir entre 2 et 25 caractères";
             }
                         
             // Vérification sur la photo

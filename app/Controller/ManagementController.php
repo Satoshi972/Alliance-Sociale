@@ -116,18 +116,58 @@ class ManagementController extends MasterController
 		$errors = [];
 		$post = [];
 		$result = null;
+		$mimeTypeAvailable = ['video/mp4', 'video/ogg', 'video/webm'];
+		$uploadDir = 'assets/vid/description/';
+		$maxSize = (1024 * 1000) * 20;
 		
 		if(!empty($_POST))
 		{
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 			$err=[
-				(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 1000)->validate($post['description'])) ? 'Que sommes nous doit contenir entre 2 et 1000 caractères' : null,
+				(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 1000)->validate($post['history'])) ? 'L\'histoire doit contenir entre 2 et 1000 caractères' : null,
 
-				(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['history'])) ? 'L\'histoire doit contenir entre 2 et 600 caractères' : null,
-
-				(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 600)->validate($post['word'])) ? 'Le mot de la présidente doit contenir entre 2 et 600 caractères' : null,
+				(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2, 1000)->validate($post['word'])) ? 'Le mot de la présidente doit contenir entre 2 et 1000 caractères' : null,
 			];
 			$errors = array_filter($err);
+
+			if(isset($_FILES['description']) && $_FILES['description']['error'] === 0){
+
+                $finfo = new \finfo();
+                $mimeType = $finfo->file($_FILES['description']['tmp_name'], FILEINFO_MIME_TYPE);
+
+                $extension = pathinfo($_FILES['description']['name'], PATHINFO_EXTENSION);
+
+                if(in_array($mimeType, $mimeTypeAvailable)){
+
+                    if($_FILES['description']['size'] <= $maxSize){
+
+                        if(!is_dir($uploadDir)){
+                            mkdir($uploadDir, 0755);
+                        }
+
+                        $newName = 'centre_social'.$extension;
+
+                        if(!move_uploaded_file($_FILES['description']['tmp_name'], $uploadDir.$newName)){
+                            $errors[] = 'Erreur lors de l\'upload de la vidéo';
+                        }
+                        else
+                        {
+                            $description = $uploadDir.$newName;
+                        }
+                    }
+                    else {
+                        $errors[] = 'La taille du fichier excède 20 Mo';
+                    }
+
+                }
+                else {
+                    $errors[] = 'Le fichier n\'est pas une vidéo valide';
+                }
+            }
+            else {
+            	$info = $about->Aboutinfos();
+                $description = $info['description'];
+            }
 
 			if(count($errors)>0)
 			{
@@ -136,7 +176,7 @@ class ManagementController extends MasterController
 			else
 			{
 				$datas = [
-					'description' => $post['description'],
+					'description' => $description,
 					'history'	  => $post['history'],
 					'word'	  	  => $post['word']
 				];

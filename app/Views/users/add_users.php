@@ -73,18 +73,22 @@ $this->start('main_content');
                 <input type="text" class="form-control" name="caf" id="caf">
               </div>
             </div>
-
+          
+            <?php if($w_user['role'] == 'admin'): ?>
             <div class="form-group">             
               <label class="col-md-2 control-label" for="role">Rôle</label>
               <div class="col-md-10 text-center">
                 <select name="role" id="role" class="form-control text-center">
                   <option value="0">Choisissez le role</option>
-                  <?php foreach ($roles as $key => $value):?>
+                  <?php foreach ($roles as $key => $value): ?>
                     <option value="<?=$value?>"><?=$value?></option>
                   <?php endforeach; ?>
-                </select>
+                 </select>
               </div>
             </div>
+            <?php  elseif ($w_user['role'] == 'editor'): ?>
+              <input type="hidden" name="role" value="member">
+            <?php endif; ?>
 
              <div class="form-group">             
              <label class="col-md-2 control-label" for="activity">Activités</label>
