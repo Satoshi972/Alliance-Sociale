@@ -10,10 +10,9 @@ class ContactController extends MasterController
 {
 	public function contactList($page)
 	{
-
         $roles = ['admin'];
-        $this->allowTo($roles);
 
+        $this->allowTo($roles);
         
         $contactModel = new contact();
         $contacteach = "";
@@ -143,7 +142,7 @@ class ContactController extends MasterController
     
     public function ajaxDeleteContact($id)
 	{
-         $success = false;
+        $success = false;
         $select = new ContactsModel();
        // $redirect =new Controller;
         
@@ -169,7 +168,6 @@ class ContactController extends MasterController
     
     public function updateCheck()
 	{
-        
         $select = new ContactsModel();
         $redirect =new Controller;
         

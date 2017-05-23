@@ -13,6 +13,7 @@ class UsersController extends Controller
 {
     public function addUsers(){
          
+
         $roles = ['admin','editor'];
         $this->allowTo($roles);
         $suscribe = new suscribe();
@@ -220,8 +221,8 @@ class UsersController extends Controller
     }
 
     //Update users
-    public function updateUsers($id){
-
+    public function updateUsers($id)
+    {
         $roles = ['admin','editor'];
         $this->allowTo($roles);
 
@@ -362,7 +363,8 @@ class UsersController extends Controller
     
     //Suppression users
 
-    public function delUsers($id){
+    public function delUsers($id)
+    {
         $roles = ['admin'];
         $this->allowTo($roles);
 

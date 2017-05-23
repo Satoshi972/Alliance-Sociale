@@ -52,7 +52,6 @@ class UserController extends Controller
 
                     if(!empty($user)){
 
-
                             $login->logUserIn($infos);
                             
                             $result = '<div class="alert alert-success">Vous êtes connecté</div>';

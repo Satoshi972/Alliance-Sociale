@@ -3,7 +3,6 @@
 <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-       
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -15,7 +14,6 @@ $this->start('main_content'); ?>
         <?php if(isset($infos)){ ?>
         <div id='hide'>
             <?php echo $infos['firstname'].' '.$infos['lastname']; ?>, voulez vous vous déconnecter ? Vraiment ?
-
 
             <form id=checkform3 method=post>
 
@@ -35,6 +33,7 @@ $this->start('main_content'); ?>
         <?php } ?>
         </div>
     </div>
+
 </div>
  <!--  </div>
       </div> -->     

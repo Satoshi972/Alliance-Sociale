@@ -3,11 +3,11 @@
     <?php 
 //début du bloc main_content
 $this->start('main_content'); ?>
-     
+       <div class ="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="col-md-12">
- 
+    <div class="col-md-12">
+      <div class="col-md-8 text-center well jumbo">
+        <div class="col-md-12 jumbotron">  
        
       <h1>Entrez votre e-mail</h1>
         
@@ -26,10 +26,9 @@ $this->start('main_content'); ?>
         </form>
       
        </div>
+
     </div>
   </div>
- 
-
      
 <?php    
 $this->stop('main_content');

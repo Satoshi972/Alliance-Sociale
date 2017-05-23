@@ -57,7 +57,5 @@ class ContactFrontController extends MasterController
         }
 
       echo $result;
-      // debug($result);
-
     }
 }

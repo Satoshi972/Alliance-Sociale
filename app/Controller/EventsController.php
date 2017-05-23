@@ -29,6 +29,7 @@ class EventsController extends MasterController
 	{
 		$roles = ['admin'];
     	$this->allowTo($roles);
+
 		$event = new events();
 		$infos = $event->find($id);
 		$activiy = $event->selectAct();

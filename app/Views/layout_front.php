@@ -142,10 +142,6 @@
             </div>
         </div>
         
-        
-        
-        
-        
         <div id="calendarsidebar"  class="col-md-3 calendarscroll">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -180,12 +176,7 @@
                 <!-- Fin zone météo -->
             </div>
         </div>
-    </div>
-        
-       
-    
-  
-    
+    </div> 
   </div>
 </div>  
 <!-- FIN du container fluide des content -->
@@ -517,16 +508,9 @@ $(function()
     } else {
           
             $('#calendarsidebar').removeClass('affix')
-           
-             
-            
+          
             $('#fbsidebar').removeClass('affix')
-             
-              
-     
-        
-            }
-        
+         }    
     }
         
       // Navigation fixe

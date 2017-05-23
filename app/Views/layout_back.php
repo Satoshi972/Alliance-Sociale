@@ -92,6 +92,7 @@
                           <!-- menu -->
                           <div id="MainMenu">
                             <div class="list-group panel">
+
                               <?php if($w_user['role'] === 'admin'): ?>
                               <a href="#demo4" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon">
