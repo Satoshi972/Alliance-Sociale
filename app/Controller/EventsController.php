@@ -13,7 +13,7 @@ class EventsController extends MasterController
 {
 	public function listEvents()
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
    		$this->allowTo($roles);
 		$this->show('events/list');
 	}
@@ -27,7 +27,7 @@ class EventsController extends MasterController
 
 	public function viewEvent($id)
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
 
 		$event = new events();
@@ -202,7 +202,7 @@ class EventsController extends MasterController
 
 	public function updateEvent($id)
 	{	
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
 
 		$event = new events();
@@ -351,7 +351,7 @@ class EventsController extends MasterController
 
 	public function deleteEvent($id)
 	{
-		$roles = ['admin','editor'];
+		$roles = ['admin'];
     	$this->allowTo($roles);
     	
 		$event = new events();

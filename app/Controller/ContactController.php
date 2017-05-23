@@ -10,13 +10,14 @@ class ContactController extends MasterController
 {
 	public function contactList($page)
 	{
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
+
         $this->allowTo($roles);
         
         $contactModel = new contact();
         $contacteach = "";
         
-        $ContactPerPages  = 5;
+        $ContactPerPages  = 20;
         $nbContact        = $contactModel->nbrTotal();
         $nbPages         = ceil($nbContact/$ContactPerPages);
         
@@ -193,7 +194,7 @@ class ContactController extends MasterController
 
     public function ListAllContact()
     {
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
         $this->allowTo($roles);
         $contact = new ContactsModel();
         $list = $contact->findAll();
@@ -202,7 +203,7 @@ class ContactController extends MasterController
 
     public function deleteAllContact()
     {
-        $roles = ['admin','editor'];
+        $roles = ['admin'];
         $this->allowTo($roles);
         $contact = new ContactsModel();
         $list = $contact->deleteAll();

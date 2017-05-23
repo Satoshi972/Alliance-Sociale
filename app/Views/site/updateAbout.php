@@ -1,5 +1,11 @@
 <?php 
 $this->layout('layout_back', ['title' => 'Mise a jour des infos du site']);
+
+$this->start('head');
+?>
+<link rel="stylesheet" href="<?= $this->assetUrl('css/fileinput.min.css') ?>">
+
+<?php
 $this->start('main_content');
 ?>
 
@@ -15,12 +21,13 @@ $this->start('main_content');
 
 			<div id="result" class="text-center col-xs-12"></div>
 
-				<div class="form-group">
-					<label class="col-md-2 control-label text-center" for="word">Que sommes nous</label>
+				<!-- <div class="form-group">
+					<label class="col-md-2 control-label text-center" for="description">Que sommes nous</label>
 					<div class="col-md-10 text-center">
-					<textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+						<video controls="controls" class="img-responsive" ></video>
+						<input type="file" id="description" name="description">
 					</div>
-				</div>
+				</div> -->
 
 				<div class="form-group">
 					<label class="col-md-2 control-label text-center" for="history">Histoire de l'association</label>
@@ -51,7 +58,16 @@ $this->stop('main_content');
 
 $this->start('script');
 ?>
+<script src="<?= $this->assetUrl('js/file-input/fileinput.min.js'); ?>"></script>
+<script src="<?= $this->assetUrl('js/file-input/fr.js'); ?>"></script>
 <script>
+$("#description").fileinput(
+{
+	'showUpload':false,
+	'showCaption' : false,
+	language: "fr"
+});
+
 	//recupere les données de la table about via un json, puis affecte les champs du contenu de la bdd
 	function LoadAboutInfos()
 	{
@@ -69,7 +85,7 @@ $this->start('script');
 				word    	= data.word;
 			});
 
-			$('#description').text(description);
+			$('#description').attr('src',"/Alliance-Sociale/public/"+description);
 			$('#history').text(history);		
 			$('#word').text(word);		
 		});

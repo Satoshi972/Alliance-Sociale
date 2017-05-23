@@ -151,8 +151,7 @@ class UsersController extends Controller
     //Liste des users
     public function listUsers($page, $age1, $age2)
     {
-
-        $roles = ['admin'];
+        $roles = ['admin','editor'];
         $this->allowTo($roles);
 
         $usersModel = new users();
@@ -202,15 +201,17 @@ class UsersController extends Controller
         'users' => $users,
         'nbPages'=> $nbPages,
         'page'  => $page,
-        'age1'  => $age1,
-        'age2'  => $age2,
+        'age1'  => $age1/365,
+        'age2'  => $age2/365,
         ];
         $this->show('users/list_users', $params);
     }
     
     //Détails des users
     public function detailsUsers($id){
-        
+        $roles = ['admin'];
+        $this->allowTo($roles);
+
         $users = new users(); // liaison avec table article
         $detailid  = $users->find($id);
         
@@ -222,7 +223,7 @@ class UsersController extends Controller
     //Update users
     public function updateUsers($id)
     {
-        $roles = ['admin'];
+        $roles = ['admin','editor'];
         $this->allowTo($roles);
 
         //Connexion à la base pour l'update et pour remplissage du formulaire

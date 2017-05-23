@@ -89,7 +89,7 @@ $this->start('main_content');
           <?php
              for($i=1; $i<=$nbPages; $i++): //On fait notre boucle  
           ?>
-                  <li><a href="<?=$this->url('list_users', ['page'=> $page])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                  <li><a href="<?=$this->url('list_users', ['page'=> $i])?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
           <?php endfor; ?>
         </ul>
 
