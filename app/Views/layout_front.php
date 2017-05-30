@@ -235,11 +235,18 @@
         </div>
       <div class="col-md-12 text-center copyright" style="background: rgba(0,0,0,0.6); color: white;">
          <b>
+         C.CASCA 
+         J.DESTIN 
+         C.JEAN-TOUSSAINT 
+         R.MARIE-LUCE 
+         E-L.ROBAR 
+         <!-- 
          <a href="">C.CASCA</a> 
          <a href="https://www.linkedin.com/in/jordan-destin-9a35b26b/">J.DESTIN</a> 
          <a href="">C.JEAN-TOUSSAINT</a> 
          <a href="https://www.linkedin.com/in/ruddy-marie-luce-762673134/">R.MARIE-LUCE</a> 
          <a href="">E-L.ROBARD</a>
+         -->
           &copy; 2017 
           </b>
       </div>
@@ -274,7 +281,8 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.9";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <script>
 $(function()
