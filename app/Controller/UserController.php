@@ -76,20 +76,17 @@ class UserController extends Controller
 
                             if (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'admin'){
 
-                                $controller = new \W\Controller\Controller();
-                                $controller->redirectToRoute('admin');
+                                $this->redirectToRoute('admin');
 
                             } elseif
                                 (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'editor'){
 
-                                $controller = new \W\Controller\Controller();
-                                $controller->redirectToRoute('admin');
+                                $this->redirectToRoute('admin');
 
                             } elseif 
                                 (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === 'member'){
 
-                                $controller = new \W\Controller\Controller();
-                                $controller->redirectToRoute('default_home');
+                                $this->redirectToRoute('default_home');
 
                             }
 
