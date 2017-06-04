@@ -9,20 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
 
     <!-- Bootstrap CSS -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 66-->
     <?php echo $this->section("sliderCss") ?>
     
     <!-- Font awesome -->
-    <!-- <link rel="stylesheet" href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>"> -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Google font Open -->
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">        
-    <link href="<?=$this->assetUrl('css/bootstrap.min.css')  ?>">
-    <link href="<?=$this->assetUrl('css/font-awesome.min.css')  ?>">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet"> 
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
@@ -207,7 +203,7 @@
                               <div class="collapse" id="statistics">
                                 <a href="<?= $this->url('userStat') ?>" class="list-group-item">Nombre d'adhérent</a>
                               </div>
-                            <?php elseif($w_user['role'] === 'editor'): ?>
+                            <?php else: ?>
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
@@ -242,11 +238,12 @@
 
   <!-- Zone de script -->
 
-  <!-- jQuery library -->
-
-  <script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-  <script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
-  <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- JQuery UI -->
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="<?= $this->assetUrl('js/function.js') ?>"></script>
  
   <!-- Permet des inclusions de scripts depuis la vue -->

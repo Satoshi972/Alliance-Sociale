@@ -257,15 +257,12 @@
     <!-- Fin footer -->
 
 <!-- Fin Page -->
-<!-- jQuery -->
-<script src="<?= $this->assetUrl('js/jquery.min.js') ?>"></script>
-
-
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <!-- JQuery UI -->
-<script src="<?= $this->assetUrl('js/jquery-ui.min.js') ?>"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Full calendar -->
 <script src="<?= $this->assetUrl('js/fullcalendar/moments.js') ?>"></script>
