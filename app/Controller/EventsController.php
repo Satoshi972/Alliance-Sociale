@@ -69,12 +69,12 @@ class EventsController extends MasterController
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
             
-			if(!v::notEmpty()->alNum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
+			if(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
 			{
 				$errors[] = 'Votre titre doit faire entre 2 et 50 caractères';
 			}
 
-			if(!v::notEmpty()->alNum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
+			if(!v::notEmpty()->alnum('-?!\'+*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
 			{
 				$errors[] = 'Votre contenu doit faire entre 2 et 600 caractères';
 			}
@@ -225,12 +225,12 @@ class EventsController extends MasterController
 
 			$post = array_map('trim', array_map('strip_tags', $_POST));
 
-			if(!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
+			if(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,50)->validate($post['title']))
 			{
 				$errors[] = 'Votre title doit faire entre 2 et 50 caractères';
 			}
 
-			if(!v::notEmpty()->alpha('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
+			if(!v::notEmpty()->alnum('-?!\'*%"ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ,._')->length(2,600)->validate($post['content']))
 			{
 				$errors[] = 'Votre contenu doit faire entre 2 et 600 caractères';
 			}

@@ -9,6 +9,8 @@ require '../app/config.php';
 // rares fonctions globales
 require '../W/globals.php';
 
+//Affiche les erreurs sur OVH
+// ini_set('display_errors',1);
 
 //instancie notre appli en lui passant la config et les routes
 $app = new W\App($w_routes, $w_config);

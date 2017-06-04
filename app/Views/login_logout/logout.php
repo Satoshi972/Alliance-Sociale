@@ -48,57 +48,7 @@ $this->start('script');
 
 <script>
         $(function(){
-            
-         
-            
-           
-            
-            // Suppression utilisateur avec DOM modifié à la volé
-	$('body').on('click', 'a.deleteContact', function(element){
-		element.preventDefault(); // Bloque l'action par défaut de l'élement
 
-		$.ajax({
-			method: 'post',
-			url: '<?= $this->url('ajaxDeleteContact') ?>',
-			data: {id_user: $(this).data('id')}, 
-			success: function(resultat){
-				$('#mon_resultat').html(resultat); 
-                
-			
-			 }
-		});
-	}); 
-            
-            $('#submitForm').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_login") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-            
-            $('#ask_token').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform2'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_ask_token") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-        
              $('#submitform2').click(function(el){
                 el.preventDefault(); // On bloque l'action par défaut
 
@@ -110,42 +60,12 @@ $this->start('script');
                     success: function(resultat){
                         $('#result').html(resultat);
                         $('#hide').hide(); // Permet de vider les champs du formulaire.. 
+                        // location.reload();
+                        document.location.href="<?= $this->url('default_home') ?>";
                     }
                 });
             });
-            
-            /*$('#submitform3').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
 
-                var form_user = $('#checkform4'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("updateCheck") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            }); */
-            
-            $('#new_mdp').click(function(el){
-                el.preventDefault(); // On bloque l'action par défaut
-
-                var form_user = $('#checkform4'); // On récupère le formulaire
-                $.ajax({
-                    method: 'post',
-                    url: '<?= $this->url("ajax_resetpsw") ?>',
-                    data: form_user.serialize(), // On récupère les données à envoyer
-                    success: function(resultat){
-                        $('#result').html(resultat);
-                        form_user.find('input').val(''); // Permet de vider les champs du formulaire.. 
-                    }
-                });
-            });
-            
-            
-            
         });
 </script> 
 

@@ -103,7 +103,8 @@
                     <li class="dropdown">
                       <a class="lienmenu" href="#" class="dropdown-toggle" data-toggle="dropdown">Action <b class="caret"></b></a>
                           <ul class="dropdown-menu">
-                              <a  class="lienmenu" href="<?php echo $this->url('admin') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Espace administration</a>
+                              <a  class="lienmenu" href="<?php echo $this->url('admin') ?>"><i class="fa fa-user" aria-hidden="true"></i> Administration</a>
+                              <br>
                               <a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a>
                           </ul>
                     </li>
