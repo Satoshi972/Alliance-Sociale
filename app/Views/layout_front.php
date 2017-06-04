@@ -321,7 +321,7 @@ $(function()
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
                 $('#picture').attr('src',event.picture);
-                $('#modalBody').html(event.content);
+                $('#modalBody').html('./'+event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
             },
@@ -339,7 +339,7 @@ $(function()
         res += '<div class="text-center item">';
         res += '<div class="col-md-2 col-sm-6 col-xs-12">';
         res += '<a href="#">';
-        res += '<img class="img-responsive" src="/assets'+val.url+'" alt="'+val.alt+'"/>';
+        res += '<img class="img-responsive" src="./assets'+val.url+'" alt="'+val.alt+'"/>';
         res += '</a>';
         res += '</div>';
         res += '</div>';
