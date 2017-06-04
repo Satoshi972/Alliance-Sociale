@@ -8,3 +8,6 @@ En local on utilise notre dossier alliance sociale, en ligne on mettre le conten
 
 *** La bdd ***
 On utilisera les id que ovh nous auras donné pour la config de W pour acceder a la bdd
+
+*** Mail ***
+Penser a changer l'url du site pour l'envoi du mail

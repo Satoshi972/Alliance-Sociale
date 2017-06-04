@@ -204,6 +204,7 @@ class MasterController extends Controller
 
 
 		$lien = 'http://127.0.0.1/Alliance-Sociale/public/resetpsw?token=';
+		
 
 
 		$mail->Body = 'Voici votre <a href="'.$lien.$token.'">lien</a> de pour changer votre mot de passe ';
