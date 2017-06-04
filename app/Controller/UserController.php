@@ -21,7 +21,7 @@ class UserController extends Controller
     public function login()
 	{
         
-       $login = new AuthentificationModel();
+        $login = new AuthentificationModel();
         $find = new UsersModel();
         $autorisation = new AuthorizationModel();
         
@@ -45,29 +45,20 @@ class UserController extends Controller
             if(count($errors) === 0){
 
 
-                $enter = new AuthentificationModel();
-                $user = $enter->isValidLoginInfo($post['ident'], $post['password']);
+                $user = $login->isValidLoginInfo($post['ident'], $post['password']);
                 $infos = $find->find($user);
                 
 
                     if(!empty($user)){
 
                             $login->logUserIn($infos);
-                            
-                            $result = '<div class="alert alert-success">Vous êtes connecté</div>';
-                            //if($w_users['role'] === 'admin' || $w_users['role'] === 'editor')
-                            //$this->show('admin');
-            
-                            echo $result; // On envoi le résultat
-                        
-                            // public function isGrantedlogin(){
+
                             $app = getApp();
                             $roleProperty = $app->getConfig('security_role_property');
 
                             //récupère les données en session sur l'utilisateur
-                            $authentificationModel = new AuthentificationModel();
-                            $loggedUser = $authentificationModel->getLoggedUser();
-                            var_dump($loggedUser);
+                            $loggedUser = $login->getLoggedUser();
+                            // var_dump($loggedUser);
                             // Si utilisateur non connecté
                             if (!$loggedUser){
                                 // Redirige vers le login
@@ -147,15 +138,3 @@ class UserController extends Controller
         
         
 }
-    
-
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    

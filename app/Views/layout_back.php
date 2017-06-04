@@ -207,7 +207,7 @@
                               <div class="collapse" id="statistics">
                                 <a href="<?= $this->url('userStat') ?>" class="list-group-item">Nombre d'adhérent</a>
                               </div>
-                            <?php else: ?>
+                            <?php elseif($w_user['role'] === 'editor'): ?>
                               <a href="#demo1" class="list-group-item list-group-item-primary" data-toggle="collapse" data-parent="#MainMenu">
                                 <span class="sidebar-icon"><i class="fa fa-users"></i></span>
                                 <span class="sidebar-title">
