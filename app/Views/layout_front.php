@@ -310,7 +310,8 @@ $(function()
         var m = date.getMonth();
         var y = date.getFullYear();
         var picture = '/Alliance-Sociale/public/';
-        var lien = '/Alliance-Sociale/public/events/view/';
+        // var lien = '/Alliance-Sociale/public/events/view/';
+        var lien = './events/view/';
         
   $('#calendar').fullCalendar({
             events: "<?= $this->url('listAllEvent'); ?>",
@@ -322,7 +323,7 @@ $(function()
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
                 $('#picture').attr('src',event.picture);
-                $('#modalBody').html('./'+event.content);
+                $('#modalBody').html(event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
             },
