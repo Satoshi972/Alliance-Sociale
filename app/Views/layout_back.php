@@ -246,7 +246,20 @@
   <!-- Bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="<?= $this->assetUrl('js/function.js') ?>"></script>
- 
+  <script>
+    $(function()
+    {
+      var timerIn = 200;
+      var timerOut = 200;
+      $('ul.nav li.dropdown').hover(function() {
+          $(this).find('> .dropdown-menu').stop(true, true).fadeIn(timerIn);
+          $(this).addClass('open');
+      }, function() {
+          $(this).find('> .dropdown-menu').stop(true, true).fadeOut(timerOut);
+          $(this).removeClass('open');
+      });
+    })
+  </script>
   <!-- Permet des inclusions de scripts depuis la vue -->
   <?php echo $this->section("script") ?>
 

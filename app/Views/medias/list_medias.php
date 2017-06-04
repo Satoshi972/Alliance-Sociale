@@ -17,7 +17,7 @@
 	
 		<figure class="col-xs-6 col-sm-4 col-lg-3">
 	    	
-	    	<img src="/Alliance-Sociale/public/<?=$media['url'];?>"data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no">
+	    	<img src="./<?=$media['url'];?>"data-toggle="modal" data-target="#myModal<?=$media['id'];?>" class="thumbnail img-responsive" style="width: 20vw; height: 15vh;" alt="medias" frameborder="0" scrolling="no">
 	    </figure>
 	    <!-- Modal -->
           <div class="modal fade" id="myModal<?=$media['id'];?>" role="dialog">
@@ -30,7 +30,7 @@
                   <h4 class="modal-title"><?=$media['title'];?></h4>
                 </div>
                 <div class="modal-body">
-                  <img src="/Alliance-Sociale/public/<?=$media['url'];?>" style="width:100%; margin: 0 auto; ">
+                  <img src="./<?=$media['url'];?>" style="width:100%; margin: 0 auto; ">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
