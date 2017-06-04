@@ -99,9 +99,23 @@
                     </li>
                     <?php if (empty($w_user)): ?>
                     <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('login') ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Connexion</a></li>
+                    <?php elseif($w_user['role'] === 'admin' || $w_user['role'] ==='editor'): ?>
+                    <li class="dropdown">
+                      <a class="lienmenu" href="#" class="dropdown-toggle" data-toggle="dropdown">Action <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <a  class="lienmenu" href="<?php echo $this->url('admin') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Espace administration</a>
+                              <a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a>
+                          </ul>
+                    </li>
                     <?php else: ?>
-                    <li class="dropdown"><a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></li>
+                    <li class="dropdown-menu"><a  class="lienmenu" href="<?php echo $this->url('logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></li>
                     <?php endif ?>
+
+
+                    
+
+
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -306,7 +320,7 @@ $(function()
             },
             eventClick:  function(event, jsEvent, view) {
                 $('#modalTitle').html(event.title);
-                $('#picture').attr('src',picture+event.picture);
+                $('#picture').attr('src',event.picture);
                 $('#modalBody').html(event.content);
                 $('#link').attr('href',lien+event.id);
                 $('#fullCalModal').modal();
@@ -325,7 +339,7 @@ $(function()
         res += '<div class="text-center item">';
         res += '<div class="col-md-2 col-sm-6 col-xs-12">';
         res += '<a href="#">';
-        res += '<img class="img-responsive" src="/Alliance-Sociale/public/assets'+val.url+'" alt="'+val.alt+'"/>';
+        res += '<img class="img-responsive" src="/assets'+val.url+'" alt="'+val.alt+'"/>';
         res += '</a>';
         res += '</div>';
         res += '</div>';
