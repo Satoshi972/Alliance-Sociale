@@ -26,14 +26,14 @@
                     <tr class="info">
                         <td>
 
-                        <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
+                        <img src="/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
 
                         </td>
                         <td><?= $infopres['title']?></td>
                         <td><?= $infopres['content']?></td>
                         <td><?= $infopres['start']?></td>
                         <td><?= $infopres['end']?></td>
-                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
+                        <td><a href="/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
 
                     </tr>
                     <?php endforeach; ?> 
@@ -60,11 +60,11 @@
                     <tr class="info">
                         <td>
 
-                        <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
+                        <img src="/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
 
                         </td>
                         <td><?= $infopres['title']?></td>
-                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
+                        <td><a href="/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
 
                     </tr>
                     <?php endforeach; ?> 
@@ -90,10 +90,10 @@
                     <tr class="info">
                         <td>
 
-                        <img src="http://localhost/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
+                        <img src="/Alliance-Sociale/public/<?=$infopres['picture'] ?>" alt="<?= $infopres['title']?>" class="thumbnail img-home" data-toggle="modal" data-target="#lightbox"height="200px" width="200px">
 
                         </td>
-                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
+                        <td><a href="/Alliance-Sociale/public/events/view/<?=$infopres['id'] ?>">Voir</a></td>
 
                     </tr>
                     <?php endforeach; ?> 

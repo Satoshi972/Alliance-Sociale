@@ -27,7 +27,7 @@ $this->start('main_content'); ?>
         ?>
 
      
-        <form action ="http://127.0.0.1/Alliance-Sociale/public/contactlist/1" method="get" class="form-inline">
+        <form action ="/Alliance-Sociale/public/contactlist/1" method="get" class="form-inline">
             <div class="form-group">
                 <label for="search">Rechercher :</label>
                 <input type="text" id="search" name="search" minlength="1" class="form-control" placeholder="Mot clé">
@@ -40,14 +40,14 @@ $this->start('main_content'); ?>
         <div class="row">
           <div class="col-md-12">
             <p class="text-center">Trier par :          
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=view&order=desc">Lecture (croissant)</a> |
                 <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=view&order=asc">Lecture (décroissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=titre&order=desc">Titre (décroissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=asc">Email (croissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=email&order=desc">Email (décroissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=asc">Date (croissant)</a> |
-                <a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/1?column=date&order=desc">Date (décroissant)</a>
+                <a href="/Alliance-Sociale/public/contactlist/1?column=titre&order=asc">Titre (croissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=titre&order=desc">Titre (décroissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=email&order=asc">Email (croissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=email&order=desc">Email (décroissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=date&order=asc">Date (croissant)</a> |
+                <a href="/Alliance-Sociale/public/contactlist/1?column=date&order=desc">Date (décroissant)</a>
             </p>
           </div>
         </div>
@@ -229,39 +229,39 @@ $this->start('main_content'); ?>
       ?>
              <?php if (isset($_GET['column']) AND $_GET['column'] == "view" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
     
-                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "view" AND isset($_GET['order']) AND $_GET['order']== "desc") { ?>
     
-                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=view&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "titre" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
 
-                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "titre" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
     
-                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=titre&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "email" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
     
-                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "email" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
     
-                <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=email&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "date" AND isset($_GET['order']) AND $_GET['order']== "asc"){ ?>
     
-                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=asc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET['column']) AND $_GET['column'] == "date" AND isset($_GET['order']) AND $_GET['order']== "desc"){ ?>
 
-                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?column=date&order=desc" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
         
             <?php } elseif (isset($_GET["search"])){ ?>
                  
-                 <li><a href="http://127.0.0.1/Alliance-Sociale/public/contactlist/<?= $i ?>?search=<?=$chainesearch?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
+                 <li><a href="/Alliance-Sociale/public/contactlist/<?= $i ?>?search=<?=$chainesearch?>" class="<?php if($i == $page){echo "current";}?>"><?=$i ?></a></li>
                  
             <?php } else { ?>
              

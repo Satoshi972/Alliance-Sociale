@@ -3,9 +3,9 @@
 
 <?php $this->start('main_content') ?>
 
-
-
-
+     
+     
+     
       <div class="table-responsive col-md-12 big-past">
           
       <h1 style='text-align:center'>Liste des évènements passés</h1>
@@ -25,12 +25,12 @@
                 <tbody>
                    <?php foreach($infospas as $infopas): ?>
                     <tr class="warning">
-                        <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                        <td><img src="/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
                         <td><?= $infopas['title']?></td>
                         <td><?= $infopas['content']?></td>
                         <td><?= $infopas['start']?></td>
                         <td><?= $infopas['end']?></td>
-                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+                        <td><a href="/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
 
                     </tr>
                     <?php endforeach; ?>
@@ -54,9 +54,9 @@
                 <tbody>
                    <?php foreach($infospas as $infopas): ?>
                     <tr class="warning">
-                        <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                        <td><img src="/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
                         <td><?= $infopas['title']?></td>
-                        <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+                        <td><a href="/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
 
                     </tr>
                     <?php endforeach; ?>
@@ -77,8 +77,8 @@
                             <tbody>
                                <?php foreach($infospas as $infopas): ?>
                                 <tr class="warning">
-                                    <td><img src="http://localhost/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
-                                    <td><a href="http://localhost/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
+                                    <td><img src="/Alliance-Sociale/public/<?=$infopas['picture'] ?>" alt="<?= $infopas['title']?>" class="thumbnail img-home"  data-toggle="modal" data-target="#lightbox" height="200px" width="200px"></td>
+                                    <td><a href="/Alliance-Sociale/public/events/view/<?=$infopas['id'] ?>">Voir</a></td>
 
                                 </tr>
                                 <?php endforeach; ?>
