@@ -148,10 +148,10 @@
                 </div>
                 <!-- Zone d'inclusion de Facebook -->
                 <div class="panel-body fb-place">
-                  <div class="fb-page little-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-width="250" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
+                  <div class="fb-page little-fb" data-href="https://www.facebook.com/Alliance-Sociale-Du-Marin-412864065780695/" data-width="250" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
                   </div>
                
-                  <div class="fb-page big-fb" data-href="https://www.facebook.com/AllianceSocialeduMarin/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
+                  <div class="fb-page big-fb" data-href="https://www.facebook.com/Alliance-Sociale-Du-Marin-412864065780695/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/AllianceSocialeduMarin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AllianceSocialeduMarin/">Alliance Sociale</a></blockquote></div>
                 </div>
                 <!-- Fin zone de facebook -->
             </div>
