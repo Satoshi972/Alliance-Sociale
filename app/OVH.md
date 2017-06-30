@@ -11,3 +11,9 @@ On utilisera les id que ovh nous auras donné pour la config de W pour acceder a
 
 *** Mail ***
 Penser a changer l'url du site pour l'envoi du mail
+
+*** Affiche les erreurs sur OVH ***
+// ini_set('display_errors',1);
+
+# ATTENTION !!!!!!!!!!!!!!!!!!
+OVH est méga sensible à la casse, ATTENTION !!!!!
